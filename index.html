@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!-- LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/addons/p5.sound.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src = "lib/lottie.js"></script>
+    <script src = "lib/anime.js"></script>
+    <script src = "lib/raphael.js"></script>
+    <script src = "lib/svg.js"></script>
+    <script src = "lib/text_anim.js"></script>
+    <script src = "lib/state_tracker.js"></script>
+    <script src = "lib/page_builder.js"></script>
+    <script src = "lib/images_obj.js"></script>
+
+    <!-- STYLES -->
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <link rel = "stylesheet" type = "text/css" href = "text_global.css">
+    <link rel = "stylesheet" type = "text/css" href = "scroll_bar.css">
+    <link rel = "stylesheet" type = "text/css" href = "fixed.css">
+    
+    <link rel = "stylesheet" type = "text/css" href = "page0/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page1/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page2/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page3/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page4/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page5/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page6/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page7/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page8/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page9/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page10/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page11/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page12/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page13/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page14/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page15/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page16/style.css">
+
+    <link rel = "stylesheet" type = "text/css" href = "page17/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page18/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page19/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page20/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "page21/style.css">
+
+    <!-- PAGE DATA -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  </head>
+
+  <body>
+
+    <!--------------------------------------------- LOADER -->
+    <div id="loader">
+      loading..
+    </div>
+    <!-- LOADER -->
+
+    <!--------------------------------------------- SCROLL BAR -->
+    <div class="scroll_bar">
+        <div class="sb_cell sb_cell_1" id = "sb0"></div>
+        <div class="sb_cell sb_cell_1" id = "sb1"></div>
+        <div class="sb_cell sb_cell_1" id = "sb2">
+            <div class="sb_cell sb_cell_2" id = "sbc0.0"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc0.1"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc0.2"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc0.3"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc0.4"></div>
+        </div>
+        <div class="sb_cell sb_cell_1" id = "sb3">
+            <div class="sb_cell sb_cell_2" id = "sbc1.0"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc1.1"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc1.2"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc1.3"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc1.4"></div>
+        </div>
+        <div class="sb_cell sb_cell_1" id = "sb4">
+            <div class="sb_cell sb_cell_2" id = "sbc2.0"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc2.1"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc2.2"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc2.3"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc2.4"></div>
+        </div>
+        <div class="sb_cell sb_cell_1" id = "sb5">
+            <div class="sb_cell sb_cell_2" id = "sbc3.0"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc3.1"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc3.2"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc3.3"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc3.4"></div>
+        </div>
+        <div class="sb_cell sb_cell_1" id = "sb6">
+            <div class="sb_cell sb_cell_2" id = "sbc4.0"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc4.1"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc4.2"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc4.3"></div>
+            <div class="sb_cell sb_cell_2" id = "sbc4.4"></div>
+        </div>
+        <div class="sb_cell sb_cell_1 sb_last_cell" id = "sb7">
+        </div>
+    </div>
+    <!-- SCROLL BAR -->
+
+    <div id="particles_intro" class="particles_intro">
+      <div id="particle_intro0" class="particle_intro text_small">computers</div>
+      <div id="particle_intro1" class="particle_intro text_small">couple</div>
+      <div id="particle_intro2" class="particle_intro text_small">throttle</div>
+    </div>
+
+    <!--------------------------------------------- PAGES 0 1 -->
+    <!-- PAGE 0 -->
+    <div class="holder">
+      <div class = "pagecell" id="i0">
+        <div class="page_header">
+          <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+          <p id = "pgh_p1" class = "text_small">2024</p>
+          <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+        </div>
+        <div id="npxyz_pc0" class="page_content">
+          <div class = "includer" id="page0include">
+            <!-- PAGE 0 /////////////////////////////////////////////////////////////////////////////////////////-->
+            <!-- <iframe class = "reel" src="https://www.youtube-nocookie.com/embed/UhoktaaTCYQ?si=EbTEml8nlw-FUfM6&amp;controls=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+            <div id = "intro_bg_svg"></div>
+            <div id = "intro_bg_arrow1"></div>
+            <div id="intro_title">
+                <div id="name_title"  class="title_big">NICOLAI</div>
+                <div id="name_title1" class="title_big">PRODROMOV</div>
+                <div id="nt_draw1"></div>
+                <div id="nt_draw2"></div>
+                <div id="name_title_subtext" class="text_norm">This is my name</div>
+            </div>
+            <div id = "reel_sect">
+                <div id="reel_sect_intro" class="text_norm">animation reel</div>
+                <p id="reel_small_text" class="text_small"><i>tap to watch</i></p>
+            </div>
+            <div id = "scroll_down_sect">
+                <div id="scroll_down_intro" class="text_norm">scroll down</div>
+                <p id="reel_small_text1" class="text_small"><i>to see my projects</i></p>
+            </div>
+            
+            <div id="particlesbg_dot">
+              <div id="particlebg" class = "particle_bg_"></div>
+              <div id="particlebg1"class = "particle_bg_"></div>
+              <div id="particlebg2"class = "particle_bg_"></div>
+            </div>
+            <div id="random_nr"  class="title_big">23</div>
+            <!-- PAGE 0 /////////////////////////////////////////////////////////////////////////////////////////-->
+          </div>
+        </div>
+        <div class="page_header">
+          <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+          <p id = "pgh_p1" class = "text_small">2024</p>
+          <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+        </div>
+      </div>
+    </div>
+    <!-- PAGE 0 -->
+
+    <!-- PAGE 1 -->
+    <div class="holder">
+      <div class = "pagecell" id="i1">
+        <div class="page_header">
+          <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+          <p id = "pgh_p1" class = "text_small">2024</p>
+          <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+        </div>
+        <div id="npxyz_pc1" class="page_content">
+          <div class = "includer" id="page1include">
+            <div id="menu_image0" class="menu_image"></div>
+            <div id="menu_image1" class="menu_image"></div>
+            <div id="menu_image2" class="menu_image"></div>
+            <div id="menu_image3" class="menu_image"></div>
+            <div id="menu_image4" class="menu_image"></div>
+            <div id="menu_image5" class="menu_image"></div>
+            <div id="page1_menu" class="page1_menu">
+              <div id = "menu_item0" class = "menu_item paragraph_big">jazzahead</div>
+              <div id = "menu_item1" class = "menu_item paragraph_big">Goethe fest</div>
+              <div id = "menu_item2" class = "menu_item paragraph_big">SAH 2022/2024</div>
+              <div id = "menu_item4" class = "menu_item paragraph_big">nestle x galateca</div>
+              <div id = "menu_item3" class = "menu_item paragraph_big">zenon.network</div>
+              <div id = "menu_item5" class = "menu_item paragraph_big">bosch x BESTIARY</div>
+            </div>
+            <div id="post_menu" class = "text_norm">TEST</div>
+            <div id="bg_particle_pg1"></div>
+            <div id="bg_svg_pg1"></div>
+          </div>
+        </div>
+        <div class="page_header">
+          <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+          <p id = "pgh_p1" class = "text_small">2024</p>
+          <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+        </div>
+      </div>
+    </div>
+    <!-- PAGE 1 -->
+
+
+
+    <!--------------------------------------------- ✔ PROJECTS -->
+    <!-- PROJECT 1 -->
+    <div class = "pagecell" id="i2">
+        <div class="holder">
+          <div class = "pagecell" id="i3">
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <div id="npxyz_pc2" class="page_content">
+                  <!-- PAGE 2 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page2include">
+                      <div id="p1_title" class="p_title title_big">GOETHE FEST</div>
+                      <div id="p1_tags" class="p_tags">
+                          <div id="p1_tag1" style = "background-color:#32ba00;transform:rotate(3deg)" class="p_tag paragraph_small">#illustration</div>
+                          <div id="p1_tag2" style = "transform:rotate(-1deg)"class="p_tag paragraph_small">#graphicdesign</div>
+                          <div id="p1_tag3" style = "transform:rotate(1deg)"class="p_tag paragraph_small">#branding</div>
+                          <div id="p1_tag4" style = "transform:rotate(2deg)"class="p_tag paragraph_small">#test</div>
+                          <div id="p1_tag5" style = "transform:rotate(0deg)"class="p_tag paragraph_small">#test</div>
+                      </div>
+                      <div id="p1_description" class="paragraph_norm">VISUAL IDENTITY for Goethe Institute © > relocation event.</div>
+                      <div class = "p_descrip_holder">
+                        <div id="p1_description2" class="paragraph_small">Goethe Institute asked me to design their relocation party dubbed GOETHE FEST. A concert, projections, games, object library and some more stuff.</div>
+                      </div>
+
+                      <img src="page2/Asset 7.svg" alt="" id="p1_intro_image" class="p_intro_image1">
+
+                      <div id="star_bg" style="position:absolute;z-index: 0;width:100%;height:100%;transform:translate(0%, -50%)">
+                        <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 100">
+                          <g id="Layer_1-2" data-name="Layer 1">
+                            <path style="fill:rgba(255, 255, 255, 0.289);" class="cls-1" d="M14.89,44.4c.14-.24,36.32,50.12,42.73-43.89.06-.95-28.4,49.03,21.53,76C10.02,57.06.88,99,.5,98.79s87.32-31.07,14.38-54.39Z"/>
+                          </g>
+                        </svg>
+                      </div>
+
+                      <div id="p1_svg" class="p_svg_bg"></div>
+                      
+                  </div>
+                  <!-- PAGE 2 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              </div>
+              <div class="page_header">
+          <p id = "pgh_p0" class = "text_small">1/5</p>
+          <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
+          <p id = "pgh_p2" class = "text_small">≥</p>
+            </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i4">
+              <div class="page_header">
+              <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+              <p id = "pgh_p1" class = "text_small">2024</p>
+              <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              <div id="npxyz_pc3" class="page_content">
+                  <div class = "includer" id="page3include">
+                        <div id="p1_description3" class="paragraph_small"><i style="color:grey"class="title_big">2019</i><br>Some merch ideas</div>
+                        <div id="p1_image1" class="p_image"></div>
+                        <div id="p1_image_path"></div>
+                  </div>
+              </div>
+              <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">2/5</p>
+                  <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
+                  <p id = "pgh_p2" class = "text_small">≥</p>
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i5">
+              <div class="page_header">
+            <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+            <p id = "pgh_p1" class = "text_small">2024</p>
+            <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              <div id = "npxyz_pc4" class = "horiz_pics">
+                <!-- <div class = "dragWarning" id = "dragy" >🡢</div> -->
+                  <div class = "bg" id = "bg">
+                    <div class = "item0" id = "item0_1" data-id = "0">
+                      <div id="p1_image2" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_2" data-id = "1">
+                      <div id="p1_image3" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_3" data-id = "2">
+                      <div id="p1_image4" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_4" data-id = "3">
+                      <div id="p1_image5" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_5" data-id = "4">
+                      <div id="p1_image6" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_6" data-id = "5">
+                      <div id="p1_image7" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_7" data-id = "6">
+                      <div id="p1_image8" class="p_image2"></div>
+                    </div>
+                    <!-- <div class = "item0" id = "item0_8" data-id = "7">
+                      <div id="p1_image9" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_9" data-id = "8">
+                      <div id="p1_image10" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_10" data-id = "9">
+                      <div id="p1_image11" class="p_image2"></div>
+                    </div>
+                    <div class = "item0" id = "item0_11" data-id = "10">
+                      <div id="p1_image12" class="p_image2"></div>
+                    </div> -->
+                  </div>
+              </div>
+              <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              <div class="page_header">
+            <p id = "pgh_p0" class = "text_small">3/5</p>
+            <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
+            <p id = "pgh_p2" class = "text_small">≥</p>
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i6">
+            <div id="npxyz_pc5" class="page_content">
+                <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class = "includer" id="page5include">
+                    <div id="p1_description4" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                    <div id="p1_image13" class="p_image"></div>
+                    <div id="p1_image_path1"></div>
+                </div>
+                <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            </div>
+          </div>
+        </div>
+        <div class="holder">
+            <div class = "pagecell" id="i6-1">
+                <div class="page_header">
+              <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+              <p id = "pgh_p1" class = "text_small">2024</p>
+              <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                </div>
+                <div id="npxyz_pc6" class="page_content">
+                    <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page6include">
+                        <div id="p1_description5" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                        <div id="p1_image14" class="project_img2"></div>
+                        <div id="p1_image_path2"></div>
+                    </div>
+                    <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+                <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">5/5</p>
+                  <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
+                  <p id = "pgh_p2" class = "text_small">≥</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PROJECT 1 -->
+
+    <!-- PROJECT 2 -->
+    <div class = "pagecell" id="i7">
+        <div class="holder">
+          <div class = "pagecell" id="i8">
+              <div class="page_header">
+              <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+              <p id = "pgh_p1" class = "text_small">2024</p>
+              <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <div id="npxyz_pc7" class="page_content">
+                  <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page7include">
+                      <div id="p2_title" class="p_title title_big">JAZZAHEAD</div>
+                      <div id="p2_tags" class="p_tags">
+                          <div id="p2_tag1" class="p_tag paragraph_small">#test</div>
+                          <div id="p2_tag2" class="p_tag paragraph_small">#test</div>
+                          <div id="p2_tag3" class="p_tag paragraph_small">#test</div>
+                          <div id="p2_tag4" class="p_tag paragraph_small">#test</div>
+                          <div id="p2_tag5" class="p_tag paragraph_small">#test</div>
+                      </div>
+                      <div id="p2_description" class="paragraph_norm">Laborum culpa magna do ipsum laborum deserunt id non non. Voluptate id quis enim ullamco eu magna dolore officia irure. Minim consequat ut id voluptate aliquip dolor ea ullamco.</div>
+                      <div class = "p_descrip_holder">
+                        <div id="p2_description2" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. Lorem tempor elit laborum officia et ea et excepteur pariatur aliqua occaecat ipsum ea. Magna dolor excepteur ullamco aliquip minim in voluptate elit officia esse quis. Tempor ipsum eiusmod incididunt eiusmod proident est labore et. ↗</div>
+                        <img src="page7/Asset 7.svg" alt="" id="p1_intro_image" class="p_intro_image1">
+                      </div>
+                      <div id="p2_svg" class="p_svg_bg"></div>
+                  </div>
+                  <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              </div>
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i9">
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <div id="npxyz_pc8" class="page_content">
+              <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page8include">
+                        <div id="p2_description3" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                        <div id="p2_image1" class="p_image"></div>
+                        <div id="p2_image_path"></div>
+                  </div>
+              </div>
+              <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i10">
+                <div class="page_header">
+                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                    <p id = "pgh_p1" class = "text_small">2024</p>
+                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                </div>
+                <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div id="npxyz_pc9" class = "horiz_pics">
+                    <!-- <div class = "dragWarning" id = "dragy" >🡢</div> -->
+                      <div class = "bg" id = "bg">
+                        <div class = "item2" id = "item2_1" data-id = "0">
+                          <div id="p2_image2" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_2" data-id = "1">
+                          <div id="p2_image3" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_3" data-id = "2">
+                          <div id="p2_image4" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_4" data-id = "3">
+                          <div id="p2_image5" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_5" data-id = "4">
+                          <div id="p2_image6" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_6" data-id = "5">
+                          <div id="p2_image7" class="p_image3"></div>
+                        </div>
+                        <!-- <div class = "item2" id = "item2_7" data-id = "6">
+                          <div id="p2_image8" class="p_image3"></div>
+                        </div> -->
+                        <!-- <div class = "item2" id = "item2_8" data-id = "7">
+                          <div id="p2_image9" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_9" data-id = "8">
+                          <div id="p2_image10" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_10" data-id = "9">
+                          <div id="p2_image11" class="p_image3"></div>
+                        </div>
+                        <div class = "item2" id = "item2_11" data-id = "10">
+                          <div id="p2_image12" class="p_image3"></div>
+                        </div> -->
+                      </div>
+                  </div>
+                <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i11">
+              <div id="npxyz_pc10" class="page_content">
+                  <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page10include">
+                      <div id="p2_description4" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                      <div id="p2_image13" class="p_image"></div>
+                      <div id="p2_image_path1"></div>
+                  </div>
+                  <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "test" id="i11">
+                <div class="page_header">
+                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                    <p id = "pgh_p1" class = "text_small">2024</p>
+                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                </div>
+                <div id="npxyz_pc11" class="page_content">
+                    <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page11include">
+                        <div id="p2_description5" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                        <div id="p2_image14" class="project_img2"></div>
+                        <div id="p2_image_path2"></div>
+                    </div>
+                    <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+                <div class="page_header">
+                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                    <p id = "pgh_p1" class = "text_small">2024</p>
+                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                </div>
+          </div>
+        </div>
+    </div>
+    <!-- PROJECT 2 -->
+
+    <!-- PROJECT 3 -->
+    <div class = "pagecell" id="i12">
+        <div class="holder">
+          <div class = "pagecell" id="i13">
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <div id="npxyz_pc12" class="page_content">
+                  <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page12include">
+                      <div id="p3_title" class="p_title title_big">ZENON.NETWORK</div>
+                      <div id="p3_tags" class="p_tags">
+                          <div id="p3_tag1" class="p_tag paragraph_small">#test</div>
+                          <div id="p3_tag2" class="p_tag paragraph_small">#test</div>
+                          <div id="p3_tag3" class="p_tag paragraph_small">#test</div>
+                          <div id="p3_tag4" class="p_tag paragraph_small">#test</div>
+                          <div id="p3_tag5" class="p_tag paragraph_small">#test</div>
+                      </div>
+                      <div id="p3_description" class="paragraph_norm">Laborum culpa magna do ipsum laborum deserunt id non non. Voluptate id quis enim ullamco eu magna dolore officia irure. Minim consequat ut id voluptate aliquip dolor ea ullamco.</div>
+                      <div class = "p_descrip_holder">
+                        <div id="p3_description2" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. Lorem tempor elit laborum officia et ea et excepteur pariatur aliqua occaecat ipsum ea. Magna dolor excepteur ullamco aliquip minim in voluptate elit officia esse quis. Tempor ipsum eiusmod incididunt eiusmod proident est labore et. ↗</div>
+                        <img src="page12/Asset 1.svg" alt="" id="p2_intro_image" class="p_intro_image1">
+                      </div>
+                      <lottie-player id = "znn_anim" renderer="svg" preserveAspectRatio="xMidYMid slice" mode="normal" src="page12/1280x720_intro.json" background="transparent"  speed=".88"  style="pointer-events:none;z-index:9999; position:absolute; width: 100%; height: 100%;"></lottie-player>
+                      <div id="p3_svg" class="p_svg_bg"></div>
+                  </div>
+                  <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              </div>
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i14">
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <div id="npxyz_pc13" class="page_content">
+              <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page13include">
+                        <div id="p3_description3" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                        <div id="p3_image1" class="p_image"></div>
+                        <div id="p3_image_path"></div>
+                  </div>
+              </div>
+              <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i15">
+              
+              <!-- <blockquote class="twitter-tweet tw-align-center" data-media-max-width="1280"><p lang="en" dir="ltr">13 billion years ago a dense point exploded with unimaginable force creating space-time and matter for the countless galaxies of our vast universe.<br><br>Alphanet is emerging as a global decentralized network governed by people to take decentralization to the ultimate level.<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://t.co/vMnRY8rMsz">pic.twitter.com/vMnRY8rMsz</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1463490061136187393?ref_src=twsrc%5Etfw">November 24, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+          
+              <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">New Horizons ahead for the Interplanetary Voyagers. Get ready to spawn the Sentinels, we must conquer the Solar System.<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/AlphanetBigBang?src=hash&amp;ref_src=twsrc%5Etfw">#AlphanetBigBang</a> <a href="https://twitter.com/hashtag/evolve?src=hash&amp;ref_src=twsrc%5Etfw">#evolve</a> <a href="https://twitter.com/hashtag/PlasmaPoints?src=hash&amp;ref_src=twsrc%5Etfw">#PlasmaPoints</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://t.co/dwhxewNd9S">pic.twitter.com/dwhxewNd9S</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1408753672687861760?ref_src=twsrc%5Etfw">June 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+              <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">New Horizons ahead for the Interplanetary Voyagers. Get ready to spawn the Sentinels, we must conquer the Solar System.<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/AlphanetBigBang?src=hash&amp;ref_src=twsrc%5Etfw">#AlphanetBigBang</a> <a href="https://twitter.com/hashtag/evolve?src=hash&amp;ref_src=twsrc%5Etfw">#evolve</a> <a href="https://twitter.com/hashtag/PlasmaPoints?src=hash&amp;ref_src=twsrc%5Etfw">#PlasmaPoints</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://t.co/dwhxewNd9S">pic.twitter.com/dwhxewNd9S</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1408753672687861760?ref_src=twsrc%5Etfw">June 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+              <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">New Horizons ahead for the Interplanetary Voyagers. Get ready to spawn the Sentinels, we must conquer the Solar System.<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/AlphanetBigBang?src=hash&amp;ref_src=twsrc%5Etfw">#AlphanetBigBang</a> <a href="https://twitter.com/hashtag/evolve?src=hash&amp;ref_src=twsrc%5Etfw">#evolve</a> <a href="https://twitter.com/hashtag/PlasmaPoints?src=hash&amp;ref_src=twsrc%5Etfw">#PlasmaPoints</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://t.co/dwhxewNd9S">pic.twitter.com/dwhxewNd9S</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1408753672687861760?ref_src=twsrc%5Etfw">June 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                      
+              <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i16">
+              <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <div id="npxyz_pc15" class="page_content">
+                  <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page15include">
+                      <div id="p3_description4" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                      <div id="p3_image13" class="p_image"></div>
+                      <div id="p3_image_path1"></div>
+                  </div>
+                  <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              </div>
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+          </div>
+        </div>
+        <div class="holder">
+          <div class = "pagecell" id="i16.1">
+              <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+              <div id="npxyz_pc16" class="page_content">
+                  <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                  <div class = "includer" id="page16include">
+                      <div id="p3_description5" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                      <div id="p3_image14" class="p_image"></div>
+                      <div id="p3_image_path2"></div>
+                  </div>
+                  <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+              </div>
+              <div class="page_header">
+                  <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                  <p id = "pgh_p1" class = "text_small">2024</p>
+                  <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+              </div>
+          </div>
+        </div>
+    </div>
+    <!-- PROJECT 3 -->
+
+    <!-- PROJECT 4 -->
+    <div class = "pagecell" id="i17">
+      <div class="holder">
+        <div class = "pagecell" id="i18">
+            <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+            <div id="npxyz_pc17" class="page_content">
+                <!-- PAGE 17 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class = "includer" id="page17include">
+                    <div id="p4_title" class="p_title title_big">SAH SHOWCASE</div>
+                    <div id="p4_tags" class="p_tags">
+                        <div id="p4_tag1" class="p_tag paragraph_small">#test</div>
+                        <div id="p4_tag2" class="p_tag paragraph_small">#test</div>
+                        <div id="p4_tag3" class="p_tag paragraph_small">#test</div>
+                        <div id="p4_tag4" class="p_tag paragraph_small">#test</div>
+                        <div id="p4_tag5" class="p_tag paragraph_small">#test</div>
+                    </div>
+                    <div id="p4_description" class="paragraph_norm">Laborum culpa magna do ipsum laborum deserunt id non non. Voluptate id quis enim ullamco eu magna dolore officia irure. Minim consequat ut id voluptate aliquip dolor ea ullamco.</div>
+                    <div class = "p_descrip_holder">
+                      <div id="p4_description2" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. Lorem tempor elit laborum officia et ea et excepteur pariatur aliqua occaecat ipsum ea. Magna dolor excepteur ullamco aliquip minim in voluptate elit officia esse quis. Tempor ipsum eiusmod incididunt eiusmod proident est labore et. ↗</div>
+                      <img src="page17/Asset 6.svg" alt="" id="p4_intro_image" class="p_intro_image1">
+                    </div>
+                    <div id="p4_svg" class="p_svg_bg"></div>
+                </div>
+                <!-- PAGE 17 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            </div>
+            <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+        </div>
+      </div>
+      <div class="holder">
+        <div class = "pagecell" id="i19">
+            <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+            <div id="npxyz_pc18" class="page_content">
+                <!-- PAGE 18 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class = "includer" id="page18include">
+                      <div id="p4_description3" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                      <div id="p4_image1" class="p_image"></div>
+                      <div id="p4_image_path"></div>
+                </div>
+                <!-- PAGE 18 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            </div>
+            <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+        </div>
+      </div>
+      <div class="holder">
+        <div class = "pagecell" id="i20">
+            <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            <div id="npxyz_pc19" class="page_content">
+              <div class = "includer" id="page19include">
+                  <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#c5c5c5; border:0; border-radius:3px; max-width:50%; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                    <div style="padding:16px;"> 
+                      <a href="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> 
+                          <div style=" display: flex; flex-direction: row; align-items: center;"> 
+                            <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> 
+                            <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> 
+                              <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> 
+                              <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+                              </div>
+                            </div>
+                          </div>
+                          <div style="padding: 19% 0;">
+                          </div> 
+                          <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                            <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                  <g>
+                                <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                          </div>
+                          <div style="padding-top: 8px;"> 
+                            <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
+                          </div>
+                          <div style="padding: 12.5% 0;">
+                          </div> 
+                          <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                              <div> 
+                                <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> 
+                                <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> 
+                                <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div>
+                              </div>
+                              <div style="margin-left: 8px;"> 
+                                <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> 
+                                <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div>
+                              </div>
+                              <div style="margin-left: auto;"> 
+                                <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> 
+                                <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> 
+                                <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div>
+                              </div>
+                          </div> 
+                          <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> 
+                            <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div>
+                            <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div>
+                          </div>
+                      </a>
+                      <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                        <a href="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Acasă la Hundorf (@acasalahundorf)</a>
+                      </p>
+                    </div>
+                  </blockquote>
+                  <script async src="//www.instagram.com/embed.js"></script>
+
+                  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#c5c5c5; border:0; border-radius:3px; max-width:50%; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                    <div style="padding:16px;"> <a href="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Acasă la Hundorf (@acasalahundorf)</a></p></div>
+                  </blockquote> 
+                  <script async src="//www.instagram.com/embed.js"></script>
+              </div>
+            </div>
+
+            <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        </div>
+      </div>
+      <div class="holder">
+        <div class = "pagecell" id="i21">
+            <div class="page_header">
+              <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+              <p id = "pgh_p1" class = "text_small">2024</p>
+              <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+            <div id="npxyz_pc20" class="page_content">
+                <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class = "includer" id="page20include">
+                    <div id="p4_description4" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                    <div id="p4_image13" class="p_image"></div>
+                    <div id="p4_image_path1"></div>
+                </div>
+                <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            </div>
+            <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+        </div>
+      </div>
+      <div class="holder">
+        <div class = "pagecell" id="i21.1">
+            <div class="page_header">
+              <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+              <p id = "pgh_p1" class = "text_small">2024</p>
+              <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+            <div id="npxyz_pc21" class="page_content">
+                <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div class = "includer" id="page21include">
+                    <div id="p4_description5" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                    <div id="p4_image14" class="p_image"></div>
+                    <div id="p4_image_path2"></div>
+                </div>
+                <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            </div>
+            <div class="page_header">
+                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
+                <p id = "pgh_p1" class = "text_small">2024</p>
+                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+            </div>
+        </div>
+      </div>
+  </div>
+  <!-- PROJECT 4 -->
+
+
+    <!------------------------------------------------ ABOUT -->
+    <div class = "pagecell" id="i22">
+        <div class="holder">
+            <div class = "pagecell" id="i23">
+              <div class = "includer" id="page23include">
+
+              </div>
+            </div>
+        </div>
+        <div class="holder">
+            <div class = "pagecell" id="i24">24</div>
+        </div>
+        <div class="holder">
+            <div class = "pagecell" id="i25">25</div>
+        </div>
+        <div class="holder">
+            <div class = "pagecell" id="i26">26</div>
+        </div>
+    </div>
+    <!-- ABOUT -->
+
+    <!------------------------------------------------ CONTACT -->
+    <div class="holder">
+        <div class = "pagecell" id="i27">
+          <div class = "includer" id="page27include">
+
+          </div>
+      </div>
+    </div>
+    <!-- CONTACT -->
+
+
+
+    <!------------------------------------------------ SCRIPTS -->
+    <div style="position: absolute; display:none;">
+      <script>
+        window.addEventListener('load', () => {
+          var now = new Date().getTime();
+          var page_load_time = now - performance.timing.navigationStart;
+          console.log(`==============================> ✅✅✅ NAV START: [${page_load_time} ms] ✅✅✅ <==============================`);
+        })
+      </script>
+      <script src="sketch.js"></script>
+      <script src="lib/assets/asset1.js"></script>
+      <script src="lib/assets/asset2.js"></script>
+      <script src="lib/assets/asset3.js"></script>
+      <script src="lib/assets/asset4.js"></script>
+      <script src="lib/assets/asset5.js"></script>
+      <script src="lib/assets/asset6.js"></script>
+      <script src="lib/assets/asset7.js"></script>
+      <script src="lib/assets/asset8.js"></script>
+      <!-- <script src="lib/assets/asset9.js"></script> -->
+      <script src="lib/assets/asset10.js"></script>
+      <script src="lib/assets/asset11.js"></script>
+      <script src="lib/assets/asset12.js"></script>
+      <script src="lib/assets/asset13.js"></script>
+      <script src="lib/assets/asset14.js"></script>
+      <script src="lib/assets/asset15.js"></script>
+      <script src="lib/assets/asset16.js"></script>
+      <script src="page0/page0.js" ></script>
+      <script src="page1/page1.js" ></script>
+      <script src="page2/page2.js" ></script>
+      <script src="page3/page3.js" ></script>
+      <script src="page4/page4.js" ></script>
+      <script src="page5/page5.js" ></script>
+      <script src="page6/page6.js" ></script>
+      <script src="page7/page7.js" ></script>
+      <script src="page8/page8.js" ></script>
+      <script src="page9/page9.js" ></script>
+      <script src="page10/page10.js" ></script>
+      <script src="page11/page11.js" ></script>
+      <script src="page12/page12.js" ></script>
+      <script src="page13/page13.js" ></script>
+      <script src="page14/page14.js" ></script>
+      <script src="page15/page15.js" ></script>
+      <script src="page16/page16.js" ></script>
+
+      <script src="page17/page17.js" ></script>
+      <script src="page18/page18.js" ></script>
+      <script src="page19/page19.js" ></script>
+      <script src="page20/page20.js" ></script>
+      <script src="page21/page21.js" ></script>
+      <script>
+        for (var page of PAGES_NPXYZ){
+          page.buildPage();
+        }
+      </script>
+    </div>
+    
+  </body>
+</html>

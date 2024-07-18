@@ -1,0 +1,169 @@
+
+@font-face {
+    font-family: Neue Machina Regular;
+    src        : url('fonts/PPNeueMachina-Regular.otf');
+}
+@font-face {
+    font-family: Neue Machina Light;
+    src        : url('fonts/PPNeueMachina-Light.otf');
+}
+@font-face {
+    font-family: Neue Machina Ultrabold;
+    src        : url('fonts/PPNeueMachina-Ultrabold.otf');
+}
+@font-face {
+    font-family: Neue Machina Black;
+    src        : url('fonts/PPNeueMachina-Ultrabold.otf');
+}
+@font-face {
+    font-family: Neue Montreal Regular;
+    src        : url('fonts/NeueMontreal-Regular.otf');
+}
+@font-face {
+    font-family: Neue Montreal Light;
+    src        : url('fonts/NeueMontreal-Light.otf');
+}
+@font-face {
+    font-family: Neue Montreal Bold;
+    src        : url('fonts/NeueMontreal-Bold.otf');
+}
+@font-face {
+    font-family: Neue Montreal Italic;
+    src        : url('fonts/NeueMontreal-Italic.ttf');
+}
+
+/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+:root{
+    --title_big  : 9vw;
+    --title_norm : 5vw;
+    --title_small: 5vw;
+    
+    --paragraph_big  : 5vw;
+    --paragraph_norm : 3vw;
+    --paragraph_small: 1.5vw;
+    
+    --text_big  : 5vw;
+    --text_norm : 2vw;
+    --text_small: 1vw;
+}
+/* ------------------------- PORTRAIT DESKTOP ------------------------- */
+@media screen and (min-width: 1280px) and (min-height: 100vw){
+    :root{
+        --title_big  : 13vw;
+        --title_norm : 7vw;
+        --title_small: 5vw;
+        
+        --paragraph_big  : 9vw;
+        --paragraph_norm : 3vw;
+        --paragraph_small: 2.5vw;
+        
+        --text_big  : 5vw;
+        --text_norm : 5vw;
+        --text_small: 3.5vw;
+    }
+}
+
+/* ------------------------- PORTRAIT MOBILE ------------------------- */
+@media screen and (max-width: 1280px){
+    :root{
+        --title_big  : 12vw;
+        --title_norm : 7vw;
+        --title_small: 5vw;
+        
+        --paragraph_big  : 8vw;
+        --paragraph_norm : 6.5vw;
+        --paragraph_small: 4vw;
+        
+        --text_big  : 6vw;
+        --text_norm : 5vw;
+        --text_small: 4vw;
+    }
+}
+/* ------------------------- LANDSCAPE MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-width: 100vh){
+    :root{
+        --title_big  : 7vw;
+        --title_norm : 7vw;
+        --title_small: 5vw;
+        
+        --paragraph_big  : 4.5vw;
+        --paragraph_norm : 3vw;
+        --paragraph_small: 1.75vw;
+        
+        --text_big  : 5vw;
+        --text_norm : 3vw;
+        --text_small: 1.2vw;
+    }
+}
+
+/* TA OBJECT CLASSES */
+.chars_parent{
+    display       : flex;
+    flex-direction: row;
+    overflow      : hidden;
+}
+.chars{
+    position   : relative;
+    user-select: none;
+
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    text-align     : center;
+
+    transform: translate(0%, 0%);
+
+}
+.chars_v{
+    position: relative;
+    display        : flex;
+    flex-direction : column;
+    align-items    : flex-start;
+    justify-content: flex-start;
+}
+
+
+/* PARAGRAPHS */
+.paragraph_norm{
+    font-family: Neue Montreal Regular;
+    color      : rgb(9, 9, 9);
+    font-size  : var(--paragraph_norm);
+    line-height: calc( var(--paragraph_norm) - .25vw );
+    text-align : justify;
+}
+.paragraph_small{
+    font-family: Neue Montreal Italic;
+    color      : rgb(9, 9, 9);
+    font-size  : var(--paragraph_small);
+    line-height: calc( var(--paragraph_small) - .075vw );
+    text-align : justify;
+    
+}
+.paragraph_big{
+    font-family: Neue Machina Black;
+    color      : rgb(255, 0, 0);
+    font-size  : var(--paragraph_big);
+    line-height: calc( var(--paragraph_big) - .3vw );
+}
+
+/* TITLES */
+.title_big{
+    font-family    : Neue Machina Ultrabold;
+    color          : rgb(255, 0, 0);
+    font-size      : var(--title_big);
+    /* backdrop-filter: hue-rotate(120deg); */
+}
+
+/* TEXT */
+.text_norm{
+    font-family: Neue Montreal Regular;
+    color      : rgb(9, 9, 9);
+    font-size  : var(--text_norm);
+}
+.text_small{
+    font-family: Neue Montreal Regular;
+    color      : rgb(9, 9, 9);
+    font-size  : var(--text_small);
+}
+
+
