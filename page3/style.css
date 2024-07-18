@@ -1,0 +1,63 @@
+/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+:root{
+    --p1_image_width: 100%;
+    --page-center   : center;
+    --p1d3-width    : 30%;
+}
+/* ------------------------- PORTRAIT DESKTOP ------------------------- */
+@media screen and (min-width: 1280px) and (min-height: 100vw){
+  :root{
+      --p1_image_width : 100%;
+      --page-center : flex-start;
+      --p1d3-width    : 100%;
+  }
+}
+/* ------------------------- PORTRAIT MOBILE ------------------------- */
+@media screen and (max-width: 720px){
+  :root{
+      --p1_image_width : 100%;
+      --page-center : center;
+      --p1d3-width    : 100%;
+  }
+}
+/* ------------------------- LANDSCAPE MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-width: 100vh){
+  :root{
+      --p1_image_width : 100%;
+      --page-center : flex-start;
+      --p1d3-width    : 50.3%;
+  }
+}
+
+
+#page3include{
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: var(--page-center);
+}
+#p1_description3{
+    position: absolute;
+    width:var(--p1d3-width);
+    right:10vw;
+
+    padding:20px;
+    background-color: white;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+#p1_image_path{
+    position: absolute;
+    z-index: 1;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}
+#p1_image1{
+    position: relative;
+    z-index: 1;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}

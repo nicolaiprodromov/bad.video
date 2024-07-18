@@ -1,0 +1,31 @@
+#page5include{
+    height:100vh;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: var(--page-center);
+}
+#npxyz_pc5{
+    height:100vh;
+}
+#p1_description4{
+    position: absolute;
+    width:var(--p1d3-width);
+    right:10vw;
+
+    padding:20px;
+    background-color: white;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+#p1_image_path1{
+    position: absolute;
+    z-index: 1;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}
+#p1_image13{
+    z-index: 1;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}

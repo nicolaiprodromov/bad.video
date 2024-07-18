@@ -1,0 +1,58 @@
+
+/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+:root{
+  }
+  /* ------------------------- PORTRAIT DESKTOP ------------------------- */
+  @media screen and (min-width: 1280px) and (min-height: 100vw){
+    :root{
+    }
+  }
+  /* ------------------------- PORTRAIT MOBILE ------------------------- */
+  @media screen and (max-width: 720px){
+    :root{
+    }
+  }
+  /* ------------------------- LANDSCAPE MOBILE ------------------------- */
+  @media screen and (max-width: 1280px) and (min-width: 100vh){
+    :root{
+    }
+  }
+
+
+  
+
+#page7include{
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: flex-start;
+    padding        : var(--content-padding);
+    background: linear-gradient(-90deg, white, rgb(221,221,221))
+}
+
+.bg1_pth0{
+    stroke      : rgb(255, 255, 255);
+    stroke-width: 30px;
+}
+
+
+#p2_description{
+    z-index       : 1;
+    position   : relative;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+#p2_description2{
+    z-index       : 1;
+    position   : relative;
+    background-color: rgb(255, 238, 0);
+    padding: 20px;
+}
+
+
+
+#p2_title{
+    width: 100%;
+    justify-content: space-between;
+    color: rgb(113, 181, 232);
+}

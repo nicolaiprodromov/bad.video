@@ -1,0 +1,27 @@
+#page21include{
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: var(--page-center);
+}
+#p4_description5{
+    position: absolute;
+    width:var(--p1d3-width);
+    right:10vw;
+
+    padding:20px;
+    background-color: white;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+#p4_image_path2{
+    position: absolute;
+    z-index: 0;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}
+#p4_image14{
+    z-index: 1;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}

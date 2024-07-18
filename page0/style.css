@@ -1,0 +1,304 @@
+/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+:root{
+    --particle-bg     : 10px;
+    --scroll-display  : flex;
+    --reel-display    : flex;
+    --nt_draw-display : block;
+    --reel_sect-width : 300px;
+    --reel_sect-height: 200px;
+    --random-display  : flex;
+    --title-ratio     : 10;
+}
+/* ------------------------- PORTRAIT DESKTOP ------------------------- */
+@media screen and (min-width: 1280px) and (min-height: 100vw){
+    :root{
+        --particle-bg     : 15px;
+        --scroll-display  : flex;
+        --reel-display    : flex;
+        --nt_draw-display : block;
+        --random-display  : flex;
+        --reel_sect-width : 300px;
+        --reel_sect-height: 200px;
+        --title-ratio     : 10;
+    }
+}
+/* ------------------------- PORTRAIT MOBILE ------------------------- */
+@media screen and (max-width: 720px){
+    :root{
+        --particle-bg     : 0px;
+        --scroll-display  : none;
+        --reel-display    : flex;
+        --nt_draw-display : none;
+        --random-display  : flex;
+        --reel_sect-width : 100px;
+        --reel_sect-height: 100px;
+        --title-ratio     : 10;
+    }
+}
+/* ------------------------- LANDSCAPE MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-width: 100vh){
+    :root{
+        --particle-bg     : 0px;
+        --scroll-display  : none;
+        --reel-display    : none;
+        --nt_draw-display : none;
+        --random-display  : none;
+        --reel_sect-width : 100px;
+        --reel_sect-height: 100px;
+        --title-ratio     : 25;
+    }
+}
+
+
+
+
+/* INTRO TITLE AND SVGS */
+#intro_title{
+    position       : absolute;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    height         : 100%;
+    width          : 100%;
+}
+#name_title{
+    position: relative;
+    z-index : 1;
+
+    height     : var(--title_big);
+    line-height: var(--title_big);
+    font-size  : var(--title_big);
+}
+#name_title1{
+    position: relative;
+    z-index : 1;
+
+    height     : var(--title_big);
+    line-height: var(--title_big);
+    font-size  : var(--title_big);
+}
+#nt_draw1{
+    display       : var(--nt_draw-display);
+    position      : absolute;
+    width         : 100%;
+    height        : 100%;
+    z-index       : 0;
+    pointer-events: none;
+}
+#nt_draw2{
+    display       : var(--nt_draw-display);
+    position      : absolute;
+    width         : 100%;
+    height        : 100%;
+    z-index       : 2;
+    pointer-events: none;
+}
+.nt_path1{
+    stroke      : blue;
+    stroke-width: 1px;
+    fill        : rgb(248, 248, 248);
+}
+.nt_path2{
+    stroke      : red;
+    stroke-width: 1px;
+    fill        : rgb(248, 248, 248);
+}
+#name_title_subtext{
+    color:grey;
+}
+
+
+/* TEXT PARTICLES */
+.particles_intro{
+    position: absolute;
+    z-index : 999;
+    width   : 100%;
+    height  : 100%;
+    pointer-events: none;
+}
+#particle_intro0{
+    position   : relative;
+    height     : calc( var(--text_small));
+    line-height: calc( var(--text_small));
+    font-size  : var(--text_small);
+}
+#particle_intro1{
+    position   : relative;
+    height     : calc( var(--text_small));
+    line-height: calc( var(--text_small));
+    font-size  : var(--text_small);
+}
+#particle_intro2{
+    position   : relative;
+    height     : calc( var(--text_small));
+    line-height: calc( var(--text_small));
+    font-size  : var(--text_small);
+}
+
+/* BG DRAWING */
+#intro_bg_svg{
+    display       : var(--nt_draw-display);
+    position      : absolute;
+    z-index       : 0;
+    left          : 0px;
+    top           : -70px;
+    width         : 350px;
+    height        : 300px;
+    pointer-events: none;
+}
+
+
+/* REEL DIV */
+.reel{
+    display : none;
+    position: absolute;
+    width   : 100%;
+    height  : 100%;
+    z-index : 0;
+}
+#reel_sect{
+    position: absolute;
+    z-index : 1;
+
+    left: 50%;
+    top : 0px;
+
+    width : var(--reel_sect-width);
+    height: var(--reel_sect-height);
+
+    transform: translate(-50%, 0%);
+
+    display        : var(--reel-display);
+    align-items    : flex-end;
+    justify-content: center;
+}
+#reel_sect_intro{
+    position: absolute;
+    z-index : 99;
+    bottom  : 20px;
+
+    height     : calc( var(--text_norm));
+    line-height: calc( var(--text_norm));
+    font-size  : calc( var(--text_norm));
+    color:red;
+
+    font-family: Neue Machina Light;
+}
+#reel_small_text{
+    position: absolute;
+}
+
+
+/* SCROLL DIV */
+#scroll_down_sect{
+    position: absolute;
+    z-index : 1;
+    right   : 50px;
+    bottom  : 20px;
+    width   : 200px;
+    height  : 200px;
+
+    display        : var(--scroll-display);
+    align-items    : flex-end;
+    justify-content: center;
+}
+#scroll_down_intro{
+    position: absolute;
+    z-index : 99;
+    bottom  : 20px;
+
+    height     : calc( var(--text_norm));
+    line-height: calc( var(--text_norm));
+    font-size  : var(--text_norm);
+    color:red;
+
+    font-family: PP Playground Regular;
+}
+.scrl_pth1{
+    fill  : white;
+    stroke: none;
+}
+.scrl_pth2{
+    fill  : white;
+    stroke: blue;
+}
+#reel_small_text1{
+    position: absolute;
+}
+
+
+/* BG ARROWS */
+#intro_bg_arrow1{
+    display : var(--nt_draw-display);
+    position: absolute;
+    z-index : 0;
+    width   : 100%;
+    height  : 100%;
+}
+.intro_bg_pth1{
+    fill            : none;
+    stroke          : blue;
+    stroke-width    : 1px;
+    stroke-dasharray: 5;
+}
+.intro_bg_pth3{
+    fill  : none;
+    stroke: rgb(0, 0, 255);
+}
+.intro_bg_pth2{
+    fill  : rgb(0, 0, 0, .25);
+    stroke: none
+}
+.intro_bg_pth4{
+    fill  : rgb(185, 185, 185);
+    stroke: none
+}
+.intro_bg_pth5{
+    fill  : rgb(255, 255, 255);;
+    stroke: none
+}
+
+/* BG DOTS */
+.particle_bg_{
+    position: absolute;
+
+    width : var(--particle-bg);
+    height: var(--particle-bg);
+
+    background-color: blue;
+    border-radius   : 100px;
+
+    transform: translate(-50%, -50%);
+}
+#particlebg1{
+    background-color: red;
+}
+#particlesbg_dot{
+    position      : absolute;
+    left          : 0px;
+    top           : 0px;
+    width         : 100%;
+    height        : 100%;
+    pointer-events: none;
+}
+
+
+
+/* RANDOM NR */
+#random_nr{
+    display:var(--random-display);
+    position : absolute;
+
+    bottom   : 0px;
+    left     : 0px;
+
+    transform: rotate(-10deg);
+
+    height     : calc( var(--title_big));
+    line-height: calc( var(--title_big));
+    font-size  : calc( var(--title_big));
+    color      : rgb(255, 255, 255);
+}
+
+
