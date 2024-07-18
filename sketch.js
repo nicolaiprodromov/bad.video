@@ -389,7 +389,7 @@ const scroll_to = (e) => {
                 scrollV(1);
                 setTimeout(() => {
                     page22.style.left = "0px"
-                    page22_scroll_amount = scrollH(-1, pagepage22, 1)
+                    page22_scroll_amount = scrollH(-1, page22, 1)
                 }, 300)
             }
         }
