@@ -1,0 +1,61 @@
+
+#npxyz_pc27{
+    display        : flex;
+    flex-direction : row;
+    align-items    : flex-start;
+    justify-content: flex-start;
+    padding        : var(--content-padding);
+  }
+
+
+
+#contact_bg_svg{
+    position: absolute;
+    z-index : 0;
+    height  : 100%;
+    right   : 30vw;
+    top     : 0px;
+}
+
+.open_work_svg{
+    max-height: 300px;
+}
+
+.contact_row_icon{
+    width       : 30px;
+    height      : 30px;
+    margin-right: 10px;
+}
+
+.contact_link_row{
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: flex-start;
+}
+
+.contact_links{
+    width:100%;
+}
+
+.aboutsymb3{
+    right: 10%;
+}
+
+.contact_right_vhalf{
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 10px 0px 10px
+}
+
+
+.divider_half{
+    width:50%;
+}
+
+.back_up_svg{
+    width:200px;
+}

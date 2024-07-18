@@ -10,9 +10,9 @@ PAGE6_BUILDER.pd             = {
 
     p1_img_map : {
         0 : `${PAGE6_BUILDER.local_url}landscape_big.png`,
-        1 : `${PAGE6_BUILDER.local_url}landscape_small 4.png`,
-        2 : `${PAGE6_BUILDER.local_url}portrait_big.png`,
-        3 : `${PAGE6_BUILDER.local_url}portrait_small.png`,
+        1 : `${PAGE6_BUILDER.local_url}portrait_big.png`,
+        2 : `${PAGE6_BUILDER.local_url}landscape_big.png`,
+        3 : `${PAGE6_BUILDER.local_url}portrait_big.png`,
     },
     paper1 : null,
     image_path_div : document.querySelector("#p1_image_path2"),

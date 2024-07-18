@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.78 253.81">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: NeueMachina-Ultrabold, 'Neue Machina';
+        font-size: 60px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <text class="cls-1" transform="translate(230.44 145.35) rotate(126.74)"><tspan x="0" y="0">b</tspan></text>
+    <text class="cls-1" transform="translate(209.13 174.91) rotate(146.25)"><tspan x="0" y="0">a</tspan></text>
+    <text class="cls-1" transform="translate(180.81 194.59) rotate(165.3)"><tspan x="0" y="0">c</tspan></text>
+    <text class="cls-1" transform="translate(149.79 203.8) rotate(-176.06)"><tspan x="0" y="0">k</tspan></text>
+    <text class="cls-1" transform="translate(112.42 200.07) rotate(-161.38)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(98.04 197.1) rotate(-146.71)"><tspan x="0" y="0">u</tspan></text>
+    <text class="cls-1" transform="translate(68.05 178.54) rotate(-126.83)"><tspan x="0" y="0">p</tspan></text>
+  </g>
+</svg>

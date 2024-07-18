@@ -35,8 +35,8 @@
 /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
 :root{
     --title_big  : 9vw;
-    --title_norm : 5vw;
-    --title_small: 5vw;
+    --title_norm : 4vw;
+    --title_small: 3vw;
     
     --paragraph_big  : 5vw;
     --paragraph_norm : 3vw;
@@ -148,9 +148,16 @@
 
 /* TITLES */
 .title_big{
-    font-family    : Neue Machina Ultrabold;
+    font-family    : Neue Machina Black;
     color          : rgb(255, 0, 0);
     font-size      : var(--title_big);
+    /* backdrop-filter: hue-rotate(120deg); */
+}
+.title_norm{
+    font-family    : Neue Machina Ultrabold;
+    color          : rgb(0, 0, 0);
+    font-size      : var(--title_norm);
+    line-height    : calc( var(--title_norm) - calc(var(--title_norm) / 20) ) ;
     /* backdrop-filter: hue-rotate(120deg); */
 }
 

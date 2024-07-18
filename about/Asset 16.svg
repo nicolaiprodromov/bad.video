@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570.28 467.43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: red;
+        font-family: NeueMachina-Ultrabold, 'Neue Machina';
+        font-size: 51.01px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <polygon class="cls-1" points="285.34 214.24 374.78 17.79 299.11 219.94 501.27 144.28 304.82 233.72 501.27 323.16 299.11 247.49 374.78 449.64 285.34 253.19 195.9 449.64 271.57 247.49 69.42 323.16 265.86 233.72 69.42 144.28 271.57 219.94 195.9 17.79 285.34 214.24"/>
+        <polygon class="cls-1" points="315.21 161.77 450.74 68.59 357.34 203.96 519.06 233.91 357.29 263.59 450.47 399.11 315.09 305.72 285.15 467.43 255.47 305.67 119.94 398.84 213.34 263.47 51.62 233.52 213.39 203.84 120.21 68.32 255.59 161.72 285.53 0 315.21 161.77"/>
+      </g>
+      <g>
+        <g>
+          <text class="cls-2" transform="translate(43.19 421.71) rotate(-87.47)"><tspan x="0" y="0">*</tspan></text>
+          <text class="cls-2" transform="translate(43.8 396.22) rotate(-80.83)"><tspan x="0" y="0">O</tspan></text>
+          <text class="cls-2" transform="translate(50.22 357.05) rotate(-73.36)"><tspan x="0" y="0">P</tspan></text>
+          <text class="cls-2" transform="translate(59.37 326.33) rotate(-66.79)"><tspan x="0" y="0">E</tspan></text>
+          <text class="cls-2" transform="translate(70.42 299.33) rotate(-59.05)"><tspan x="0" y="0">N</tspan></text>
+          <text class="cls-2" transform="translate(91.99 264.69) rotate(-52.79)"><tspan x="0" y="0"> </tspan></text>
+          <text class="cls-2" transform="translate(99.7 253.64) rotate(-47.18)"><tspan x="0" y="0">T</tspan></text>
+          <text class="cls-2" transform="translate(119.69 231.19) rotate(-39.06)"><tspan x="0" y="0">O</tspan></text>
+          <text class="cls-2" transform="translate(151.82 206.07) rotate(-32.37)"><tspan x="0" y="0"> </tspan></text>
+          <text class="cls-2" transform="translate(161.93 197.48) rotate(-23.5)"><tspan x="0" y="0">W</tspan></text>
+          <text class="cls-2" transform="translate(212.97 175.83) rotate(-12.11)"><tspan x="0" y="0">O</tspan></text>
+          <text class="cls-2" transform="translate(251.65 167.6) rotate(-3.48)"><tspan x="0" y="0">R</tspan></text>
+          <text class="cls-2" transform="translate(285.92 165.26) rotate(4.49)"><tspan x="0" y="0">K</tspan></text>
+          <text class="cls-2" transform="translate(323.92 168.58) rotate(11.95)"><tspan x="0" y="0">*</tspan></text>
+        </g>
+        <g>
+          <text class="cls-2" transform="translate(486.49 275.21) rotate(61.54)"><tspan x="0" y="0">2</tspan></text>
+          <text class="cls-2" transform="translate(503.02 305.33) rotate(69.48)"><tspan x="0" y="0">0</tspan></text>
+          <text class="cls-2" transform="translate(516.17 340.59) rotate(77.13)"><tspan x="0" y="0">2</tspan></text>
+          <text class="cls-2" transform="translate(523.56 372.24) rotate(83.76)"><tspan x="0" y="0">4</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
