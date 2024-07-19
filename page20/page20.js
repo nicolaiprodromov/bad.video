@@ -9,10 +9,10 @@ PAGE20_BUILDER.pd             = {
     p1_img_src: "http://127.0.0.1:5500/page5/mock-up.png",
 
     p1_img_map : {
-        0 : `${PAGE20_BUILDER.local_url}mock-up.png`,
-        1 : `${PAGE20_BUILDER.local_url}mock-up-mobile.png`,
-        2 : `${PAGE20_BUILDER.local_url}mock-up.png`,
-        3 : `${PAGE20_BUILDER.local_url}mock-up-mobile.png`,
+        0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d87cba8630cdb74a88b_mock-up.webp`,
+        1 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d879857e3e5202458f8_mock-up-mobile.webp`,
+        2 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d87cba8630cdb74a88b_mock-up.webp`,
+        3 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d879857e3e5202458f8_mock-up-mobile.webp`,
     },
 
     paper1 : null,

@@ -11,10 +11,10 @@ PAGE13_BUILDER.pd             = {
     p1_img_src_mobile: "http://127.0.0.1:5500/page3/mock-up.png",
 
     p1_img_map : {
-        0 : `${PAGE13_BUILDER.local_url}mock-up.png`,
-        1 : `${PAGE13_BUILDER.local_url}mock-up-mobile.png`,
-        2 : `${PAGE13_BUILDER.local_url}mock-up.png`,
-        3 : `${PAGE13_BUILDER.local_url}mock-up-mobile.png`,
+        0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c9e1369544e5cb66bc0_mock-up.webp`,
+        1 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c9d8aa2b99af1e16bc6_mock-up-mobile.webp`,
+        2 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c9e1369544e5cb66bc0_mock-up.webp`,
+        3 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c9d8aa2b99af1e16bc6_mock-up-mobile.webp`,
     },
 
     paper1 : null,

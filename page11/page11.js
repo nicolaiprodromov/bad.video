@@ -9,10 +9,10 @@ PAGE11_BUILDER.pd             = {
     p1_img_src: "http://127.0.0.1:5500/page6/Asset 4.png",
 
     p1_img_map : {
-        0 : `${PAGE11_BUILDER.local_url}landscape_big.png`,
-        1 : `${PAGE11_BUILDER.local_url}landscape_small 4.png`,
-        2 : `${PAGE11_BUILDER.local_url}portrait_big.png`,
-        3 : `${PAGE11_BUILDER.local_url}portrait_small.png`,
+        0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2be2101b5db48e0294de_landscape_big.webp`,
+        1 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2be2f091a4c18b5672a5_portrait_big.webp`,
+        2 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2be2101b5db48e0294de_landscape_big.webp`,
+        3 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2be2f091a4c18b5672a5_portrait_big.webp`,
     },
     paper1 : null,
     image_path_div : document.querySelector("#p2_image_path2"),

@@ -8,10 +8,10 @@ PAGE18_BUILDER.pd             = {
     p1_img_obj: null,
 
     p1_img_map : {
-        0 : `${PAGE18_BUILDER.local_url}mock-up.png`,
-        1 : `${PAGE18_BUILDER.local_url}mock-up-mobile.png`,
-        2 : `${PAGE18_BUILDER.local_url}mock-up.png`,
-        3 : `${PAGE18_BUILDER.local_url}mock-up-mobile.png`,
+        0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d53d6a2a3e16ba34fb3_mock-up.webp`,
+        1 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d531369544e5cc05c9e_mock-up-mobile.webp`,
+        2 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d53d6a2a3e16ba34fb3_mock-up.webp`,
+        3 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d531369544e5cc05c9e_mock-up-mobile.webp`,
     },
 
     paper1 : null,
