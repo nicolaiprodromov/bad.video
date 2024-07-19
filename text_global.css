@@ -68,7 +68,7 @@
     :root{
         --title_big  : 12vw;
         --title_norm : 7vw;
-        --title_small: 5vw;
+        --title_small: 3vw;
         
         --paragraph_big  : 8vw;
         --paragraph_norm : 6.5vw;
@@ -82,16 +82,16 @@
 /* ------------------------- LANDSCAPE MOBILE ------------------------- */
 @media screen and (max-width: 1280px) and (min-width: 100vh){
     :root{
-        --title_big  : 7vw;
-        --title_norm : 7vw;
-        --title_small: 5vw;
+        --title_big  : 6vw;
+        --title_norm : 3vw;
+        --title_small: 2vw;
         
         --paragraph_big  : 4.5vw;
         --paragraph_norm : 3vw;
         --paragraph_small: 1.75vw;
         
         --text_big  : 5vw;
-        --text_norm : 3vw;
+        --text_norm : 2vw;
         --text_small: 1.2vw;
     }
 }

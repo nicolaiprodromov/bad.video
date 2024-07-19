@@ -382,10 +382,11 @@ const scroll_to = (e) => {
                 }, 300)
             }
 
-            else if (scroll_amount == 6 && page22_scroll_amount < 4){
-                page22_scroll_amount = scrollH(1, page22, page22_scroll_amount)
-            }
-            else if (scroll_amount == 6 && page22_scroll_amount == 4){
+            // else if (scroll_amount == 6 && page22_scroll_amount < 4){
+            //     page22_scroll_amount = scrollH(1, page22, page22_scroll_amount)
+            // }
+            //else if (scroll_amount == 6 && page22_scroll_amount == 4){
+            else if (scroll_amount == 6){
                 scrollV(1);
                 setTimeout(() => {
                     page22.style.left = "0px"
@@ -428,9 +429,9 @@ const scroll_to = (e) => {
             else if (scroll_amount == 6 && page22_scroll_amount == 0){
                 scrollV(-1);
             }
-            else if (scroll_amount == 6 && page22_scroll_amount > 0){
-                page22_scroll_amount = scrollH(-1, page22, page22_scroll_amount)
-            }
+            // else if (scroll_amount == 6 && page22_scroll_amount > 0){
+            //     page22_scroll_amount = scrollH(-1, page22, page22_scroll_amount)
+            // }
 
             else if (scroll_amount == 7){
                 scrollV(-1);

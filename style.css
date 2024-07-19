@@ -87,11 +87,8 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
 }
-/* body,
 html {
-  position: fixed;
-} */
-html {
+  touch-action: manipulation;
   overscroll-behavior: none;
 }
 body {
