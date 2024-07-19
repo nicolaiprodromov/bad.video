@@ -8,7 +8,7 @@
   --about_links_align    : flex-end;
   --about_cv_align       : flex-end;
   --padding-socials      : 10px;
-  --about_socials        : 0px;
+  --about_socials_margin        : 0px;
 }
   /* ------------------------- PORTRAIT DESKTOP ------------------------- */
 @media screen and (min-width: 1280px) and (min-height: 100vw){
@@ -21,7 +21,7 @@
     --about_links_align    : flex-start;
     --about_cv_align       : flex-start;
     --padding-socials      : 10px;
-    --about_socials        : 20px;
+    --about_socials_margin        : 20px;
   }
 }
   /* ------------------------- PORTRAIT MOBILE ------------------------- */
@@ -35,7 +35,7 @@
     --about_links_align    : flex-start;
     --about_cv_align       : flex-start;
     --padding-socials      : 3px;
-    --about_socials        : 20px;
+    --about_socials_margin        : 20px;
   }
 }
   /* ------------------------- LANDSCAPE MOBILE ------------------------- */
@@ -49,7 +49,7 @@
     --about_links_align    : flex-end;
     --about_cv_align       : flex-end;
     --padding-socials      : 3px;
-    --about_socials        : 0px;
+    --about_socials_margin        : 0px;
   }
 }
 
@@ -96,7 +96,7 @@
   flex-direction : column;
   align-items    : flex-start;
   justify-content: flex-start;
-  margin-bottom  : 20px;
+  margin-bottom  : var(--about_socials_margin);
 }
 
 .about_cv{
