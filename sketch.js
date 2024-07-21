@@ -494,8 +494,12 @@ const debounce = function(fn, d) {
     }
 }
 
-window.addEventListener('wheel', debounce(scrollSection, 80));
-window.addEventListener('wheel', debounce(rawScrollSection, 80));
+var scroll_delay = 80;
+if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)){
+    scroll_delay = 30;
+}
+window.addEventListener('wheel', debounce(scrollSection, scroll_delay));
+window.addEventListener('wheel', debounce(rawScrollSection, scroll_delay));
 
 
 var TOUCH_TIME = []
@@ -505,8 +509,8 @@ window.addEventListener('touchstart', e => {
     TOUCH_TIME[0] = new Date().getTime();
 })
 
-window.addEventListener('touchend', debounce(scrollSection, 80));
-window.addEventListener('touchend', debounce(rawScrollSection, 80));
+window.addEventListener('touchend', debounce(scrollSection, scroll_delay));
+window.addEventListener('touchend', debounce(rawScrollSection, scroll_delay));
 //------------------------------------------------
 
 
