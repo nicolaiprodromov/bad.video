@@ -523,8 +523,8 @@ function debounce322(func, delay){
 
 
 console.log("SCROLLDELAY", SCROLLDELAY);
-window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
-window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
+window.addEventListener('wheel', debounce322(scrollSection, SCROLLDELAY));
+window.addEventListener('wheel', debounce322(rawScrollSection, SCROLLDELAY));
 
 
 var TOUCH_TIME = []
