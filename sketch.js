@@ -507,10 +507,12 @@ function isTrackPad(e) {
 }
 
 var SCROLLDELAY = 80;
-if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)){
+
+if (window?.navigator?.platform  === 'MacIntel'){
     console.log("IS FUCJKING IOS")
     SCROLLDELAY = 30;
 }
+
 console.log("SCROLLDELAY", SCROLLDELAY)
 window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
 window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
