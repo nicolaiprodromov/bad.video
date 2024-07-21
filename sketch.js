@@ -300,6 +300,7 @@ const scroll_to = (e) => {
     if (e.type == 'wheel'){
 
         diff = e.deltaY;
+        console.log("wheel");
 
     } else if (e.type == 'touchend'){
 
@@ -310,7 +311,8 @@ const scroll_to = (e) => {
         }
 
         var _now_ = new Date().getTime();
-        //console.log(_now_ - TOUCH_TIME[0])
+        console.log("touchend");
+        console.log("SCROLL TIME", _now_ - TOUCH_TIME[0]);
         if (_now_ - TOUCH_TIME[0] > 500){
             TOUCH_TIME[0] = 0;
             return null
