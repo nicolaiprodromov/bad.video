@@ -506,8 +506,14 @@ window.addEventListener('touchstart', e => {
     TOUCH_TIME[0] = new Date().getTime();
 })
 
-window.addEventListener('touchend', debounce(scrollSection, 150));
-window.addEventListener('touchend', debounce(rawScrollSection, 150));
+window.addEventListener('touchend', debounce(scrollSection, 10));
+window.addEventListener('touchend', debounce(rawScrollSection, 10));
+window.addEventListener('touchend', (e) => {
+    console.log("SCROLLED")
+    setTimeout(() => {
+        console.log("DELAY 300")
+    }, 300)
+})
 //------------------------------------------------
 
 
