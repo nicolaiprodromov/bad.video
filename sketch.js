@@ -510,7 +510,7 @@ var SCROLLDELAY = 80;
 
 if (window?.navigator?.platform  === 'MacIntel'){
     console.log("IS FUCJKING IOS")
-    SCROLLDELAY = 15;
+    SCROLLDELAY = 18;
 }
 
 function debounce322(func, delay){
@@ -522,7 +522,7 @@ function debounce322(func, delay){
 }
 
 
-console.log("SCROLLDELAY", SCROLLDELAY)
+console.log("SCROLLDELAY", SCROLLDELAY);
 window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
 window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
 
