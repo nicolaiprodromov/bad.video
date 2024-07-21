@@ -300,7 +300,6 @@ const scroll_to = (e) => {
     if (e.type == 'wheel'){
 
         diff = e.deltaY;
-        console.log("wheel");
 
     } else if (e.type == 'touchend'){
 
@@ -311,8 +310,6 @@ const scroll_to = (e) => {
         }
 
         var _now_ = new Date().getTime();
-        console.log("touchend");
-        console.log("SCROLL TIME", _now_ - TOUCH_TIME[0]);
         if (_now_ - TOUCH_TIME[0] > 500){
             TOUCH_TIME[0] = 0;
             return null
@@ -497,8 +494,8 @@ const debounce = function(fn, d) {
     }
 }
 
-window.addEventListener('wheel', debounce(scrollSection, 3));
-window.addEventListener('wheel', debounce(rawScrollSection, 3));
+window.addEventListener('wheel', debounce(scrollSection, 80));
+window.addEventListener('wheel', debounce(rawScrollSection, 80));
 
 
 var TOUCH_TIME = []
@@ -508,8 +505,8 @@ window.addEventListener('touchstart', e => {
     TOUCH_TIME[0] = new Date().getTime();
 })
 
-window.addEventListener('touchend', debounce(scrollSection, 10));
-window.addEventListener('touchend', debounce(rawScrollSection, 10));
+window.addEventListener('touchend', debounce(scrollSection, 80));
+window.addEventListener('touchend', debounce(rawScrollSection, 80));
 //------------------------------------------------
 
 
