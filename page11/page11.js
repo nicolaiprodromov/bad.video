@@ -81,17 +81,6 @@ PAGE11_BUILDER.scroll_handler = (p11d, ss, delta_ss) => {
     if (scroll_amount_st == 3 && page7_scroll_amount_st == 4){
         p11d.p1_img_obj.fade([0,1], 300)
         p11d.p1_img_obj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
-        setTimeout(() => {
-            p11d.p1_img_obj.blockTransition(
-                duration   = 1500,
-                resolution = 5,
-                easing     = 'easeInOutSine',
-                delay      = 200,
-                reverse    = false,
-                filter     = [15, 45, 45, 255],
-                epsilon    = 150
-            )
-        },200)
         p11d.p1_img_obj.checkpoints(
             resolution = 5,
             callback = (instance, data, pixel_data) => {

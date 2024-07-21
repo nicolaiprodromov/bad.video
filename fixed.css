@@ -144,7 +144,7 @@
     align-items    : var(--p-dh-align-items);
     justify-content: space-between;
     width          : 100%;
-    height         : 50%;
+    /* height         : 50%; */
 }
 
 .p_buttons{
@@ -166,8 +166,8 @@
 }
 
 .rails_1{
-    stroke          : blue;
-    stroke-dasharray: 55 20;
+    stroke          : rgb(255, 255, 255);
+    /* stroke-dasharray: 55 20; */
     stroke-width    : 1px;
     stroke-linecap  : round;
 }

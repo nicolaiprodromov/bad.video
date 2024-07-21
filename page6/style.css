@@ -22,6 +22,6 @@
 }
 #p1_image14{
     z-index: 1;
-    width: var(--p1_image_width);
-    height: var(--p1_image_width);
+    width: 80%;
+    height: 80%;
 }
