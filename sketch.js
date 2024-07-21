@@ -510,12 +510,21 @@ var SCROLLDELAY = 80;
 
 if (window?.navigator?.platform  === 'MacIntel'){
     console.log("IS FUCJKING IOS")
-    SCROLLDELAY = 40;
+    SCROLLDELAY = 35;
 }
 
+function debounce322(func, delay){
+    var timer;
+    return function(event){
+      if(timer) clearTimeout(timer);
+      timer = setTimeout(func, delay, event);
+    };
+}
+
+
 console.log("SCROLLDELAY", SCROLLDELAY)
-window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
-window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
+window.addEventListener('wheel', debounce322(scrollSection, SCROLLDELAY));
+window.addEventListener('wheel', debounce322(rawScrollSection, SCROLLDELAY));
 
 
 var TOUCH_TIME = []
