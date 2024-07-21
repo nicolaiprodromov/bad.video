@@ -495,8 +495,8 @@ const debounce = function(fn, d) {
     }
 }
 
-window.addEventListener('wheel', debounce(scrollSection, 150));
-window.addEventListener('wheel', debounce(rawScrollSection, 150));
+window.addEventListener('wheel', debounce(scrollSection, 3));
+window.addEventListener('wheel', debounce(rawScrollSection, 3));
 
 
 var TOUCH_TIME = []
@@ -508,12 +508,6 @@ window.addEventListener('touchstart', e => {
 
 window.addEventListener('touchend', debounce(scrollSection, 10));
 window.addEventListener('touchend', debounce(rawScrollSection, 10));
-window.addEventListener('touchend', (e) => {
-    console.log("SCROLLED")
-    setTimeout(() => {
-        console.log("DELAY 300")
-    }, 300)
-})
 //------------------------------------------------
 
 
