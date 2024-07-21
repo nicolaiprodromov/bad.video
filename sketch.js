@@ -494,12 +494,25 @@ const debounce = function(fn, d) {
     }
 }
 
-var scroll_delay = 80;
-if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)){
-    scroll_delay = 30;
+
+
+var TRACKPAD = false;
+
+function isTrackPad(e) {
+    const { deltaY } = e;
+    TRACKPAD = true;
+    if (deltaY && !Number.isInteger(deltaY)) {
+        TRACKPAD = false;
+    }
 }
-window.addEventListener('wheel', debounce(scrollSection, scroll_delay));
-window.addEventListener('wheel', debounce(rawScrollSection, scroll_delay));
+
+var SCROLLDELAY = 80;
+if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)){
+    SCROLLDELAY = 30;
+}
+
+window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
+window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
 
 
 var TOUCH_TIME = []
@@ -509,8 +522,8 @@ window.addEventListener('touchstart', e => {
     TOUCH_TIME[0] = new Date().getTime();
 })
 
-window.addEventListener('touchend', debounce(scrollSection, scroll_delay));
-window.addEventListener('touchend', debounce(rawScrollSection, scroll_delay));
+window.addEventListener('touchend', debounce(scrollSection, SCROLLDELAY));
+window.addEventListener('touchend', debounce(rawScrollSection, SCROLLDELAY));
 //------------------------------------------------
 
 
