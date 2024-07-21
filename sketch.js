@@ -510,7 +510,7 @@ var SCROLLDELAY = 80;
 
 if (window?.navigator?.platform  === 'MacIntel'){
     console.log("IS FUCJKING IOS")
-    SCROLLDELAY = 20;
+    SCROLLDELAY = 30;
 }
 
 console.log("SCROLLDELAY", SCROLLDELAY)
