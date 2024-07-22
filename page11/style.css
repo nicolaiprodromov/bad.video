@@ -21,7 +21,8 @@
     height: var(--p1_image_width);
 }
 #p2_image14{
+    position: relative;
     z-index: 1;
-    width: var(--p1_image_width);
-    height: var(--p1_image_width);
+    width: 80%;
+    height: 80%;
 }

@@ -86,9 +86,10 @@ PAGE5_BUILDER.scroll_handler = async (p5d, ss, delta_ss) => {
             duration : 400,
             easing: "easeInOutQuad"
         })
+
+
         p5d.p1_img_obj.fade([0,1], 300)
-        p5d.p1_img_obj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
-        await p5d.p1_img_obj.glitchTransition(5);
+        p5d.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')
 
         
         p5d.ip_div_bb = p5d.image_path_div.getBoundingClientRect()

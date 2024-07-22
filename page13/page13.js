@@ -79,52 +79,19 @@ PAGE13_BUILDER.load_handler   = async (p13d) => {
     
 
 }
-PAGE13_BUILDER.scroll_handler = (p13d, ss, delta_ss) => {
+PAGE13_BUILDER.scroll_handler = async(p13d, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page12_scroll_amount_st  = ss[3];
     if (scroll_amount_st == 4 && page12_scroll_amount_st == 1){
+
+        anime({
+            targets: p13d.p1_image1,
+            left : ["150px","0px"],
+            duration : 400,
+            easing: "easeInOutQuad"
+        })
         p13d.p1_img_obj.fade([0,1], 300)
-        p13d.p1_img_obj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
-        setTimeout(() => {
-            p13d.p1_img_obj.blockTransition(
-                duration   = 1500,
-                resolution = 5,
-                easing     = 'easeInOutSine',
-                delay      = 200,
-                reverse    = false,
-                filter     = [15, 45, 45, 255],
-                epsilon    = 150
-            )
-        },200)
-        p13d.p1_img_obj.checkpoints(
-            resolution = 5,
-            callback = (instance, data, pixel_data) => {
-                var cell_div                   = document.createElement('div')
-                if (data.index < 12){
-                    cell_div.innerHTML = "//zoidberg"
-                } else {
-                    cell_div.innerHTML = "mockup"
-                }
-                cell_div.style.color = "red"
-                cell_div.style.fontSize = "40px"
-                cell_div.style.fontFamily = "Neue Machina Ultrabold"
-                cell_div.style.position        = 'absolute';
-                cell_div.style.backgroundColor = "transparent"
-                cell_div.style.width           = data.sx + "px";
-                cell_div.style.height          = data.sy + "px";
-                cell_div.style.left            = data.x + "px";
-                cell_div.style.top             = data.y + "px"
-                instance.element.appendChild(cell_div)
-                setTimeout(() => {
-                    cell_div.remove()
-                }, 100 + (data.index)*300)
-            },
-            ckp = "all", //[{x: 100, y: 100},{x: 600, y: 600},{x: 300, y: 600}],
-            epsilon = 0,
-            reverse = false,
-            filter = [55,55,55,255],
-            filter_epsilon = 120
-        );
+        await p13d.p1_img_obj.glitchTransition(5);
 
         
         p13d.ip_div_bb = p13d.image_path_div.getBoundingClientRect()

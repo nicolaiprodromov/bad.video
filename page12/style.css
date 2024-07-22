@@ -32,11 +32,12 @@
 #p3_title{
     width: 100%;
     justify-content: space-between;
-    color: black;
 }
 
 #p2_intro_image{
-    top:50%;
+    /* top:50%; */
+    bottom: -100%;
     left:50%;
+    width:200%;
     transform: translate(-50%, -50%) rotate(25deg) ;
 }

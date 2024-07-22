@@ -86,14 +86,12 @@ PAGE3_BUILDER.scroll_handler = async (p3d, ss, delta_ss) => {
 
         anime({
             targets: p3d.p1_image1,
-            left : ["-150px","0px"],
+            left : ["150px","0px"],
             duration : 400,
             easing: "easeInOutQuad"
         })
 
         p3d.p1_img_obj.fade([0,1], 300)
-        //p3d.p1_img_obj.scale_y(["0%","100%"], 1200, 'easeInOutCirc')
-
         // IMAGE GLITCH TRANSITION
         await p3d.p1_img_obj.glitchTransition(5);
         

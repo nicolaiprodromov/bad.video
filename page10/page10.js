@@ -88,8 +88,7 @@ PAGE10_BUILDER.scroll_handler = async (p10d, ss, delta_ss) => {
     var page7_scroll_amount_st  = ss[2];
     if (scroll_amount_st == 3 && page7_scroll_amount_st == 3){
         p10d.p1_img_obj.fade([0,1], 300)
-        p10d.p1_img_obj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
-        await p10d.p1_img_obj.glitchTransition(5);
+        p10d.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')
 
         
         p10d.ip_div_bb = p10d.image_path_div.getBoundingClientRect()

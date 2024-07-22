@@ -122,7 +122,6 @@ PAGE12_BUILDER.load_handler   = (p12d) => {
     // PROJECT TITLE
     p12d.p1_title_anim = new TextAnim(p12d.project_title, 0)
     buttons_page_12(p12d);
-    
 }
 PAGE12_BUILDER.scroll_handler = (p12d, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
@@ -130,17 +129,17 @@ PAGE12_BUILDER.scroll_handler = (p12d, ss, delta_ss) => {
     // PAGE TRIGGER
     if (scroll_amount_st == 4 && page12_scroll_amount_st == 0){
 
-        var znn_anim = document.querySelector("#znn_anim");
-        znn_anim.play();
-        console.log(znn_anim)
-        anime({
-            targets : znn_anim,
-            opacity : [1,0],
-            duration: 2000,
-            delay   : 500,
-            easing  : 'linear'
-        })
-        setTimeout(() => znn_anim.stop(), 2500);
+        // var znn_anim = document.querySelector("#znn_anim");
+        // znn_anim.play();
+        // console.log(znn_anim)
+        // anime({
+        //     targets : znn_anim,
+        //     opacity : [1,0],
+        //     duration: 2000,
+        //     delay   : 500,
+        //     easing  : 'linear'
+        // })
+        // setTimeout(() => znn_anim.stop(), 2500);
 
         p12d.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
         p12d.p1_title_anim.cycle_random(300, 53)

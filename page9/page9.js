@@ -9,10 +9,38 @@ PAGE9_BUILDER.pd = {
     p1_img_src : `${PAGE9_BUILDER.local_url}Asset`,
 
     p1_img_map : {
-        0:`${PAGE9_BUILDER.local_url}landscape_big/Asset`,
-        1:`${PAGE9_BUILDER.local_url}portrait_big/Asset`,
-        2:`${PAGE9_BUILDER.local_url}landscape_big/Asset`,
-        3:`${PAGE9_BUILDER.local_url}portrait_big/Asset`,
+        0:[
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f8d62f3e1ab1c8b68f_Asset%200.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f744733d8223d5bf99_Asset%205.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f76dc2d1ff1536eeb0_Asset%203.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f733d8a793b6a3448b_Asset%202.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7c2fa3d467b188a3f_Asset%204.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp"
+        ],
+        1:[
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669945003e73701e9e48601d_Asset%201.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66994500d62f3e1ab1c8be00_Asset%205.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff9859c08c6099ba36_Asset%202.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff948ca370b164c0da_Asset%203.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ffe0f340663c6c6991_Asset%204.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp"
+        ],
+        2:[
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f8d62f3e1ab1c8b68f_Asset%200.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f744733d8223d5bf99_Asset%205.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f76dc2d1ff1536eeb0_Asset%203.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f733d8a793b6a3448b_Asset%202.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7c2fa3d467b188a3f_Asset%204.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp"
+        ],
+        3:[
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669945003e73701e9e48601d_Asset%201.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66994500d62f3e1ab1c8be00_Asset%205.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff9859c08c6099ba36_Asset%202.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff948ca370b164c0da_Asset%203.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ffe0f340663c6c6991_Asset%204.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp"
+        ],
     },
 
     p1_img_ext : ".png"
@@ -20,13 +48,10 @@ PAGE9_BUILDER.pd = {
 
 PAGE9_BUILDER.load_handler = async (p9d) => {
     for (var bgobj of p9d.p1_images2){
-
-        var testeere = await PAGE9_BUILDER.checkImage(p9d.p1_img_map[PAGE9_BUILDER.device] + " " + (bgobj.parentNode.dataset.id) + p9d.p1_img_ext)
-        console.log("WABALALALALABADUBUDUB", testeere)
         
         var bg_img_obj11 = new ImageObject(
             element  = bgobj,
-            img      = await PAGE9_BUILDER.checkImage(p9d.p1_img_map[PAGE9_BUILDER.device] + " " + (bgobj.parentNode.dataset.id) + p9d.p1_img_ext),
+            img      = p9d.p1_img_map[PAGE9_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
             id       = 0,
         );
         bg_img_obj11.draw();

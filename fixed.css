@@ -32,7 +32,7 @@
         --head-padding       : 0px 0px 0px 0px;
         --p-dh-flex-direction: column;
         --p-dh-align-items   : center;
-        --p_intro_image1-size: 200%;
+        --p_intro_image1-size: 100%;
         --tag-padding        : 2.5px 5px 2.5px 5px;
         --divider-icon-size  : 20px;
         --divider-margin     : 12px 0px 12px 0px;
@@ -55,13 +55,17 @@
   
 
 
-
+#page_footer{
+    border-top: solid 1px black;
+}
 
 .page_header{
     position        : relative;
     height          : var(--header);
     width           : 100%;
-    background-color: rgb(243, 243, 243);
+    /* background-color: rgb(243, 243, 243); */
+    border-bottom: solid 1px black;
+    border-top:none;
 
     display        : flex;
     flex-direction : row;
@@ -94,10 +98,8 @@
 .p_svg_bg{
     position: absolute;
     z-index : 0;
-
     left  : var(--content-pad-size);
     bottom: 0px;
-
     width : var(--p_svg_bg-width);
     height: var(--p_svg_bg-height);
 }
@@ -134,7 +136,7 @@
     z-index   : 0;
     width     : var(--p_intro_image1-size);
     max-height: 250%;
-    bottom    : -15vh;
+    bottom    : calc( var(--header) / 2 );
     right     : 0vw;
 }
 

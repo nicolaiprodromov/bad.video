@@ -61,7 +61,7 @@ const main_loop = (t) => {
         for (let item of itemsss[hp]){
             // Rotate divs
             item.animate(
-                [{rotate : np/60 + "deg"}],
+                [{rotate : cp/60 + "deg"}],
                 {duration : 2000,fill : "forwards"}
             );
         }
@@ -116,11 +116,7 @@ window.addEventListener('mousemove', e => {
 // Listen to mouse events on window
 //------------------------------------------------
 for (var hp = 0; hp < horiz_pics.length; hp++){
-
-
-
     horiz_pics[hp].setAttribute('data-id-hp', hp)
-
     horiz_pics[hp].addEventListener('mousedown', e => {
         down[e.currentTarget.getAttribute('data-id-hp')] = true;
     });
@@ -129,9 +125,7 @@ for (var hp = 0; hp < horiz_pics.length; hp++){
         drag[e.currentTarget.getAttribute('data-id-hp')] = false;
     });
     horiz_pics[hp].addEventListener('mousemove', e => {
-
         var index = e.currentTarget.getAttribute('data-id-hp')
-
         if (down[index] == true || drag[index] == true){
 
             var horiz_pics_w = e.currentTarget.getBoundingClientRect().width
@@ -469,9 +463,10 @@ const scroll_to = (e) => {
         else if( parseInt(sbcc.id.split('sbc3.')[1]) == page17_scroll_amount && scroll_amount == 5){
             sbcc.classList.add('sb_cell_highlight1')
         }
-        else if( parseInt(sbcc.id.split('sbc4.')[1]) == page22_scroll_amount && scroll_amount == 6){
-            sbcc.classList.add('sb_cell_highlight1')
-        } else {
+        // else if( parseInt(sbcc.id.split('sbc4.')[1]) == page22_scroll_amount && scroll_amount == 6){
+        //     sbcc.classList.add('sb_cell_highlight1')
+        // }
+        else {
             sbcc.classList.remove("sb_cell_highlight1");
         }
     }
@@ -561,6 +556,11 @@ window.addEventListener('load', () => {
         console.log(`==============================> ✅✅✅ LOAD TIME: [${page_load_time} ms] ✅✅✅ <==============================`);
 
     }, PAGES_NPXYZ.length + 6000)
+    setTimeout(() => {
+        scroll_amount = 1
+        dispatchEvent(wheelEvent);
+        window.scrollTo(0, 0);
+    }, PAGES_NPXYZ.length + 6030)
 })
 
 
