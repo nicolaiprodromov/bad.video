@@ -29,7 +29,7 @@
   /* ------------------------- PORTRAIT MOBILE ------------------------- */
 @media screen and (max-width: 1280px){
     :root{
-        --head-padding       : 0px 0px 0px 0px;
+        --head-padding       : 3px 3px 3px 3px;
         --p-dh-flex-direction: column;
         --p-dh-align-items   : center;
         --p_intro_image1-size: 100%;
@@ -42,7 +42,7 @@
   /* ------------------------- LANDSCAPE MOBILE ------------------------- */
 @media screen and (max-width: 1280px) and (min-width: 100vh){
     :root{
-        --head-padding       : 0px 0px 0px 0px;
+        --head-padding       : 3px 3px 3px 3px;
         --p_intro_image1-size: 50%;
         --p-dh-flex-direction: row;
         --p-dh-align-items   : flex-start;

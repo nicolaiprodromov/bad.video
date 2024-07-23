@@ -2,7 +2,7 @@
     display        : flex;
     flex-direction : column;
     align-items    : center;
-    justify-content: var(--page-center);
+    justify-content: center;
 }
 #p1_description5{
     position: absolute;
@@ -22,6 +22,6 @@
 }
 #p1_image14{
     z-index: 1;
-    width: 80%;
+    /* width: 80%; */
     height: 80%;
 }
