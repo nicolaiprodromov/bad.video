@@ -49,6 +49,7 @@ PAGE4_BUILDER.pd = {
     dragster1: document.querySelector("#bg"),
     dragster2: document.querySelector("#bg1"),
     drag_grid: document.querySelector(".drag_grid"),
+    drag_down: false,
 }
 PAGE4_BUILDER.load_handler = (p4d) => {
     for (var bgobj of p4d.p1_images2){
@@ -65,14 +66,25 @@ PAGE4_BUILDER.load_handler = (p4d) => {
         p4d.drag_grid.style.display = "flex";
     });
     p4d.dragster1.addEventListener('mousemove', (e) => {
-        for (var child_el of p4d.drag_grid.childNodes){
-            console.log(child_el)
+        for (var child_el of p4d.drag_grid.children){
             var bb = child_el.getBoundingClientRect()
-            var epsilon = 25;
+            var epsilon = 100;
+            console.log(bb.x, e.clientX)
             if (bb.x>(e.clientX-epsilon)&&bb.x<(e.clientX+epsilon)){
-                if (bb.y>(e.clientY-epsilon)&&bb.y<(e.clientY+epsilon)){
-                    child_el.fontSize ="30px"
-                }
+                anime({
+                    targets : child_el,
+                    fontSize: "200px",
+                    duration:150,
+                    easing:"easeInOutExpo"
+                })
+            }
+            else {
+                anime({
+                    targets : child_el,
+                    fontSize: "30px",
+                    duration:150,
+                    easing:"easeInOutExpo"
+                })
             }
         }
     });
