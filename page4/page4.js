@@ -62,8 +62,9 @@ PAGE4_BUILDER.load_handler = (p4d) => {
         p4d.p1_img_obj.push(bg_img_obj11);
     }
     const animate_dragster = (e) => {
-        
+
         var _e_;
+        
         if (e.type = "touchmove"){
             _e_ = e.touches[0]
         } else {
@@ -74,7 +75,7 @@ PAGE4_BUILDER.load_handler = (p4d) => {
             var bb = child_el.getBoundingClientRect()
             var epsilon = 100;
             console.log(bb.x, _e_.clientX)
-            if (bb.x>(_e_e.clientX-epsilon)&&bb.x<(_e_e.clientX+epsilon)){
+            if (bb.x > (_e_.clientX-epsilon) && bb.x < (_e_.clientX+epsilon)){
                 anime({
                     targets : child_el,
                     fontSize: [window.getComputedStyle(child_el).fontSize, "50px"],
