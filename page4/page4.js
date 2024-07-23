@@ -61,9 +61,7 @@ PAGE4_BUILDER.load_handler = (p4d) => {
         bg_img_obj11.draw();
         p4d.p1_img_obj.push(bg_img_obj11);
     }
-
-
-    const animate_dragster = () => {
+    const animate_dragster = (e) => {
         for (var child_el of p4d.drag_grid.children){
             var bb = child_el.getBoundingClientRect()
             var epsilon = 100;
@@ -93,10 +91,10 @@ PAGE4_BUILDER.load_handler = (p4d) => {
         p4d.drag_grid.style.display = "flex";
     });
     p4d.dragster1.addEventListener('mousemove', (e) => {
-        animate_dragster();
+        animate_dragster(e);
     });
     p4d.dragster1.addEventListener('touchmove', (e) => {
-        animate_dragster();
+        animate_dragster(e);
     });
 
 
@@ -107,10 +105,10 @@ PAGE4_BUILDER.load_handler = (p4d) => {
         p4d.drag_grid.style.display = "flex";
     });
     p4d.dragster2.addEventListener('mousemove', (e) => {
-        animate_dragster();
+        animate_dragster(e);
     });
     p4d.dragster2.addEventListener('touchmove', (e) => {
-        animate_dragster();
+        animate_dragster(e);
     }); 
 
 
