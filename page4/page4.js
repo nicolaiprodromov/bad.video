@@ -62,10 +62,8 @@ PAGE4_BUILDER.load_handler = (p4d) => {
         p4d.p1_img_obj.push(bg_img_obj11);
     }
 
-    p4d.dragster1.addEventListener('mousedown', (e) => {
-        p4d.drag_grid.style.display = "flex";
-    });
-    p4d.dragster1.addEventListener('mousemove', (e) => {
+
+    const animate_dragster = () => {
         for (var child_el of p4d.drag_grid.children){
             var bb = child_el.getBoundingClientRect()
             var epsilon = 100;
@@ -87,11 +85,39 @@ PAGE4_BUILDER.load_handler = (p4d) => {
                 })
             }
         }
+    }
+    p4d.dragster1.addEventListener('mousedown', (e) => {
+        p4d.drag_grid.style.display = "flex";
     });
+    p4d.dragster1.addEventListener('touchstart', (e) => {
+        p4d.drag_grid.style.display = "flex";
+    });
+    p4d.dragster1.addEventListener('mousemove', (e) => {
+        animate_dragster();
+    });
+    p4d.dragster1.addEventListener('touchmove', (e) => {
+        animate_dragster();
+    });
+
+
     p4d.dragster2.addEventListener('mousedown', (e) => {
         p4d.drag_grid.style.display = "flex";
     });
+    p4d.dragster2.addEventListener('touchstart', (e) => {
+        p4d.drag_grid.style.display = "flex";
+    });
+    p4d.dragster2.addEventListener('mousemove', (e) => {
+        animate_dragster();
+    });
+    p4d.dragster2.addEventListener('touchmove', (e) => {
+        animate_dragster();
+    }); 
+
+
     window.addEventListener('mouseup', (e) => {
+        p4d.drag_grid.style.display = "none";
+    });
+    window.addEventListener('touchend', (e) => {
         p4d.drag_grid.style.display = "none";
     });
 
