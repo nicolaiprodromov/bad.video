@@ -129,6 +129,7 @@ PAGE4_BUILDER.scroll_handler = (p4d, ss, delta_ss) => {
                 bgobj.scale_x(["0%","100%"], 300, 'easeInOutCirc');
             }
         }
+        
 }
 PAGE4_BUILDER.resize_handler = (p4d) => {
     for (var bgobj of p4d.p1_img_obj){

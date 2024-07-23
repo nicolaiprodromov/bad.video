@@ -88,6 +88,10 @@
     height:100%;
     right : var(--menu-image-right);
     bottom: var(--menu-image-bottom);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 #bg_svg_pg1{

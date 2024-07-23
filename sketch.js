@@ -555,12 +555,12 @@ window.addEventListener('load', () => {
         var page_load_time = now1 - performance.timing.navigationStart;
         console.log(`==============================> ✅✅✅ LOAD TIME: [${page_load_time} ms] ✅✅✅ <==============================`);
 
-    }, PAGES_NPXYZ.length + 6000)
+    }, PAGES_NPXYZ.length + 1000)
     setTimeout(() => {
         scroll_amount = 1
         dispatchEvent(wheelEvent);
         window.scrollTo(0, 0);
-    }, PAGES_NPXYZ.length + 6030)
+    }, PAGES_NPXYZ.length + 1030)
 })
 
 
