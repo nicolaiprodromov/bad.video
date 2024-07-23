@@ -63,34 +63,24 @@ PAGE4_BUILDER.load_handler = (p4d) => {
     }
     const animate_dragster = (e) => {
 
-        var _e_;
-        
-        if (e.type = "touchmove"){
-            _e_ = e.touches[0]
-        } else {
-            _e_ = e;
-        }
+        var _e_ = e.type != "touchmove" ? e : e.touches[0]
 
         for (var child_el of p4d.drag_grid.children){
+            
             var bb = child_el.getBoundingClientRect()
-            var epsilon = 100;
-            console.log(bb.x, _e_.clientX)
+            var epsilon = (window.innerWidth/7)/2;
+            var fontySize = "20px";
+
             if (bb.x > (_e_.clientX-epsilon) && bb.x < (_e_.clientX+epsilon)){
-                anime({
-                    targets : child_el,
-                    fontSize: [window.getComputedStyle(child_el).fontSize, "50px"],
-                    duration:150,
-                    easing:"easeInOutExpo"
-                })
+                fontySize = "50px"
             }
-            else {
-                anime({
-                    targets : child_el,
-                    fontSize: [window.getComputedStyle(child_el).fontSize, "20px"],
-                    duration:150,
-                    easing:"easeInOutExpo"
-                })
-            }
+
+            anime({
+                targets : child_el,
+                fontSize: [window.getComputedStyle(child_el).fontSize, fontySize],
+                duration:200,
+                easing:"linear"
+            })
         }
     }
     p4d.dragster1.addEventListener('mousedown', (e) => {
