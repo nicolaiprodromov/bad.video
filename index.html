@@ -198,6 +198,71 @@
               import * as THREE from 'three';
               import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
               import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+              const OBJ_DISPLAY = (ely, canvasy, model) => {
+                  let renderer, scene, camera, orbit, lightHolder, mesh;
+                  initScene();
+                  window.addEventListener("resize", updateSceneSize);
+  
+                  function initScene() {
+                      renderer = new THREE.WebGLRenderer({
+                          antialias: true,
+                          canvas: canvasy,
+                          alpha: true
+                      });
+                      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                      renderer.shadowMap.enabled = true;
+  
+                      scene = new THREE.Scene();
+                      camera = new THREE.PerspectiveCamera(45, ely.clientWidth / ely.clientHeight, .1, 1000);
+                      camera.position.set(0, 1, 2);
+                      camera.lookAt(0, 0, 0);
+  
+                      updateSceneSize();
+  
+                      const ambientLight = new THREE.AmbientLight(0xff0000, 1);
+                      scene.add(ambientLight);
+                      const sideLight = new THREE.DirectionalLight(0xffffff, 8);
+                      sideLight.position.set(15, 0, 15);
+                      lightHolder = new THREE.Group();
+                      lightHolder.add(sideLight);
+                      scene.add(lightHolder);
+  
+                      orbit = new OrbitControls(camera, canvasy);
+                      orbit.enabled = false;
+                      orbit.enableZoom = false;
+                      orbit.enablePan = false;
+                      orbit.enableDamping = true;
+                      orbit.autoRotate = false;
+                      orbit.autoRotateSpeed = .1;
+  
+                      const gltfLoader = new GLTFLoader()
+                      gltfLoader.load(
+                          model,
+                          (gltf) => {
+  
+                              mesh = gltf.scene.children[0];
+                              mesh.castShadow = true;
+                              mesh.receiveShadow = true;
+                              scene.add(gltf.scene.children[0])
+                              render();
+  
+                          }
+                      )
+                  }
+  
+                  function render(time) {
+                      orbit.update();
+                      lightHolder.quaternion.copy(camera.quaternion);
+                      renderer.render(scene, camera);
+                      requestAnimationFrame(render);
+                  }
+  
+                  function updateSceneSize() {
+                      camera.aspect = ely.clientWidth / ely.clientHeight;
+                      camera.updateProjectionMatrix();
+                      renderer.setSize(ely.clientWidth, ely.clientHeight);
+                  }
+              } 
               const FRUIT_DISPLAY = (ely, canvasy, model) => {
                   let renderer, scene, camera, orbit, lightHolder, mesh;
                   initScene();
@@ -614,7 +679,13 @@
                 <div id="npxyz_pc6" class="page_content">
                     <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     <div class = "includer" id="page6include">
-                        <div id="p1_description5" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                        <div id="p1_description5">
+                          <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                          </div>
+                          <div class="text_norm">check out the project</div>
+                          <div id="goethe_fest_button" class = "take_a_look button text_norm">in the wild ↗</div>
+                        </div>
                         <div id="p1_image14" class="project_img2"></div>
                         <div id="p1_image_path2"></div>
                     </div>
