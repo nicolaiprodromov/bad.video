@@ -73,7 +73,7 @@ PAGE4_BUILDER.load_handler = (p4d) => {
             if (bb.x>(e.clientX-epsilon)&&bb.x<(e.clientX+epsilon)){
                 anime({
                     targets : child_el,
-                    fontSize: "200px",
+                    fontSize: [window.getComputedStyle(child_el).fontSize, "50px"],
                     duration:150,
                     easing:"easeInOutExpo"
                 })
@@ -81,7 +81,7 @@ PAGE4_BUILDER.load_handler = (p4d) => {
             else {
                 anime({
                     targets : child_el,
-                    fontSize: "30px",
+                    fontSize: [window.getComputedStyle(child_el).fontSize, "20px"],
                     duration:150,
                     easing:"easeInOutExpo"
                 })
