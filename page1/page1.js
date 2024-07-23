@@ -106,10 +106,12 @@ PAGE1_BUILDER.load_handler   = async (p1d) => {
             //p1d.menu_items_ta[e.currentTarget.dataset.text_id].mouse_scale_u(e)
         }) 
         mi.element.addEventListener('mouseenter', async (e) => {
+            var fruits = document.querySelectorAll('.FRUIT');
             var indy = 0;
             e.currentTarget.transform = "rotate(33deg)"
             for (var mimg of p1d.menu_images){
                 if (indy == e.currentTarget.dataset.text_id){
+                    fruits[e.currentTarget.dataset.text_id].style.opacity = 1
                     p1d.img_objs[e.currentTarget.dataset.text_id].transform = "rotate(" + p1d.img_objs[e.currentTarget.dataset.text_id].randInt(-33,33) +"deg)"
                     p1d.img_objs[e.currentTarget.dataset.text_id].element.style.zIndex = 1
                     p1d.img_objs[e.currentTarget.dataset.text_id].fade([0,1], 300)
@@ -117,11 +119,12 @@ PAGE1_BUILDER.load_handler   = async (p1d) => {
 
 
                     // IMAGE GLITCH TRANSITION
-                    await p1d.img_objs[e.currentTarget.dataset.text_id].glitchTransition(5);
+                    await p1d.img_objs[e.currentTarget.dataset.text_id].glitchTransition(5, "black");
                 
                 
                 } else {
                     p1d.img_objs[indy].element.style.zIndex = 0
+                    fruits[indy].style.opacity = 0
                 }
                 indy++;
             }

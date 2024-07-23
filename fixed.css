@@ -54,6 +54,35 @@
 }
   
 
+.FRUIT {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.FRUITC {
+    width: 100%;
+    height: 100%;
+}
+
+#PEAR{
+    display: flex;
+    opacity: 0;
+}
+#LIME{
+    display: flex;
+    opacity: 0;
+}
+#APPLE{
+    display: flex;
+    opacity: 0;
+}
+#EPEAR{
+    display: flex;
+    opacity: 0;
+}
 
 #page_footer{
     border-bottom: none;

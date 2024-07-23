@@ -16,23 +16,23 @@
                 padding: 0;
                 margin: 0;
             }
+            
             .FRUIT {
-                position: absolute;
+                position: relative;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: #ffffee;
             }
 
             #PEAR{
-                display: none;
+                display: flex;
             }
             #LIME{
-                display: none;
+                display: flex;
             }
             #APPLE{
-                display: none;
+                display: flex;
             }
             #EPEAR{
                 display: flex;
@@ -40,6 +40,8 @@
         </style>
     </head>
     <body>
+
+
         <div id="PEAR" class="FRUIT">
             <canvas id="pear-canvas"></canvas>
         </div>
@@ -67,14 +69,9 @@
         </script>
 
         <script type="module">
-
-
             import * as THREE from 'three';
             import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-            import {GUI} from 'three/addons/libs/lil-gui.module.min.js';
             import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-
-
             const FRUIT_DISPLAY = (ely, canvasy, model) => {
                 let renderer, scene, camera, orbit, lightHolder, mesh;
                 initScene();
@@ -281,30 +278,25 @@
                     renderer.setSize(ely.clientWidth, ely.clientHeight);
                 }
             } 
-            
-            
-            const ely = document.querySelector("#PEAR");
-            const canvasy = document.querySelector("#pear-canvas");
-            const PEAR_MODEL = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/pear.glb'
-            FRUIT_DISPLAY(ely, canvasy, PEAR_MODEL);
-
-            const ely1 = document.querySelector("#APPLE");
-            const canvasy1 = document.querySelector("#apple-canvas");
-            const PEAR_MODEL1 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/realistic-apple.glb'
-            FRUIT_DISPLAY(ely1, canvasy1, PEAR_MODEL1);
-
-
-            const ely2 = document.querySelector("#LIME");
-            const canvasy2 = document.querySelector("#lime-canvas");
-            const PEAR_MODEL2 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/lime.glb'
-            FRUIT_DISPLAY(ely2, canvasy2, PEAR_MODEL2);
-
-
-            const ely3 = document.querySelector("#EPEAR");
-            const canvasy3 = document.querySelector("#epear-canvas");
-            const PEAR_MODEL3 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/epear.glb'
-            FRUIT_DISPLAY(ely3, canvasy3, PEAR_MODEL3);
-
+            const MENU_FRUIT_DISPLAY = () => {
+                const ely = document.querySelector("#PEAR");
+                const canvasy = document.querySelector("#pear-canvas");
+                const PEAR_MODEL = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/pear.glb'
+                FRUIT_DISPLAY(ely, canvasy, PEAR_MODEL);
+                const ely1 = document.querySelector("#APPLE");
+                const canvasy1 = document.querySelector("#apple-canvas");
+                const PEAR_MODEL1 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/realistic-apple.glb'
+                FRUIT_DISPLAY(ely1, canvasy1, PEAR_MODEL1);
+                const ely2 = document.querySelector("#LIME");
+                const canvasy2 = document.querySelector("#lime-canvas");
+                const PEAR_MODEL2 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/banana.glb'
+                FRUIT_DISPLAY(ely2, canvasy2, PEAR_MODEL2);
+                const ely3 = document.querySelector("#EPEAR");
+                const canvasy3 = document.querySelector("#epear-canvas");
+                const PEAR_MODEL3 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/epear.glb'
+                FRUIT_DISPLAY(ely3, canvasy3, PEAR_MODEL3);
+            }
+            MENU_FRUIT_DISPLAY();
         </script>
     </body>
 </html>

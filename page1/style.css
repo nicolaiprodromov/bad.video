@@ -59,7 +59,7 @@
 }
 .menu_item{
     position   : relative;
-    z-index    : 1;
+    z-index    : 10;
 
     height     : var(--paragraph_big);
     line-height: var(--paragraph_big);
@@ -92,6 +92,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    z-index: 0;
 }
 
 #bg_svg_pg1{
