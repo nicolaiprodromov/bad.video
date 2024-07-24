@@ -23,8 +23,25 @@ PAGE11_BUILDER.pd             = {
     pathy2 : null,
 
     ip_div_bb : null,
+
+    project_button1 : document.querySelector("#rci_button1"),
+    project_button2 : document.querySelector("#rci_button2"),
+
+    project_url1 : "https://www.icr.ro/madrid/romania-din-nou-la-jazzahead-bremen-cu-un-stand-organizat-de-institutul-cultural-roman/es",
+    project_url2 : "https://www.youtube.com/watch?v=7nXvfnQV4Ao&t=12s",
 }
 PAGE11_BUILDER.load_handler   = async (p11d) => {
+
+    p11d.project_button1.addEventListener('click', () => {
+        setTimeout(() => {
+            window.open(p11d.project_url1, '_blank').focus();
+        },200)
+    })
+    p11d.project_button2.addEventListener('click', () => {
+        setTimeout(() => {
+            window.open(p11d.project_url2, '_blank').focus();
+        },200)
+    })
 
     p11d.p1_img_obj = new ImageObject(
         element  = p11d.p1_image1,

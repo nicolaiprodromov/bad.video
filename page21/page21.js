@@ -23,8 +23,33 @@ PAGE21_BUILDER.pd             = {
     pathy2 : null,
 
     ip_div_bb : null,
+
+    project_button1 : document.querySelector("#sah_button1"),
+    project_button2 : document.querySelector("#sah_button2"),
+    project_button3 : document.querySelector("#sah_button3"),
+
+    project_url1 : "https://www.acasalahundorf.ro/showcase-home/weird-times-and-improbable-encounters",
+    project_url2 : "https://www.acasalahundorf.ro/sah-showcase-2022",
+    project_url3 : "https://sah-2021-2022.webflow.io/sah-showcase",
 }
 PAGE21_BUILDER.load_handler   = async (p21d) => {
+
+
+    p21d.project_button1.addEventListener('click', () => {
+        setTimeout(() => {
+            window.open(p21d.project_url1, '_blank').focus();
+        },200)
+    })
+    p21d.project_button2.addEventListener('click', () => {
+        setTimeout(() => {
+            window.open(p21d.project_url2, '_blank').focus();
+        },200)
+    })
+    p21d.project_button3.addEventListener('click', () => {
+        setTimeout(() => {
+            window.open(p21d.project_url3, '_blank').focus();
+        },200)
+    })
 
 
     p21d.p1_img_obj = new ImageObject(
