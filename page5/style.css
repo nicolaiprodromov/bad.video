@@ -11,10 +11,11 @@
 #p1_description4{
     position: absolute;
     width:var(--p1d3-width);
+    height:400px;
     right:10vw;
 
     padding:20px;
-    background-color: white;
+    background-color: transparent;
     z-index: 2;
     transform: translate(-50%, -50%);
 }
@@ -28,4 +29,8 @@
     z-index: 1;
     width: var(--p1_image_width);
     height: var(--p1_image_width);
+}
+.goethe_pin_canvas{
+    width:400px;
+    height:400px;
 }

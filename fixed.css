@@ -200,7 +200,7 @@
 .rails_1{
     stroke: rgb(255, 255, 255);
           /* stroke-dasharray: 55 20; */
-    stroke-width  : 1px;
+    stroke-width  : 2px;
     stroke-linecap: round;
 }
 

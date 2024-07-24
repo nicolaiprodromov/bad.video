@@ -37,11 +37,15 @@ PAGE6_BUILDER.load_handler   = async (p6d) => {
     p6d.ip_div_bb = p6d.image_path_div.getBoundingClientRect()
     p6d.pathy1 = {
         0 : [
-            {cmd:"Move",x:p6d.ip_div_bb.width/8,y:p6d.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:p6d.ip_div_bb.width - p6d.ip_div_bb.width/4,y:p6d.ip_div_bb.height/2,
-                c1x:p6d.ip_div_bb.width/2, c1y:p6d.ip_div_bb.height/2,
-                c2x:p6d.ip_div_bb.width/16, c2y:p6d.ip_div_bb.height/1.1,
+            {cmd:"Move",x:0, y:p6d.ip_div_bb.height/2},
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:0,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width, y:p6d.ip_div_bb.height/2,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:p6d.ip_div_bb.height + 20,
             }
         ],
         1 : [
@@ -53,11 +57,15 @@ PAGE6_BUILDER.load_handler   = async (p6d) => {
             }
         ],
         2 : [
-            {cmd:"Move",x:p6d.ip_div_bb.width/8,y:p6d.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:p6d.ip_div_bb.width - p6d.ip_div_bb.width/4,y:p6d.ip_div_bb.height/2,
-                c1x:p6d.ip_div_bb.width/2, c1y:p6d.ip_div_bb.height,
-                c2x:p6d.ip_div_bb.width/8, c2y:p6d.ip_div_bb.height/2,
+            {cmd:"Move",x:0, y:p6d.ip_div_bb.height/2},
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:0,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width, y:p6d.ip_div_bb.height/2,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:p6d.ip_div_bb.height,
             }
         ],
         3 : [
@@ -79,55 +87,19 @@ PAGE6_BUILDER.scroll_handler = async (p6d, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page2_scroll_amount_st  = ss[1];
     if (scroll_amount_st == 2 && page2_scroll_amount_st == 4){
+
         anime({
             targets: p6d.p1_image1,
             left : ["-150px","0px"],
             duration : 400,
             easing: "easeInOutQuad"
         })
+
         p6d.p1_img_obj.fade([0,1], 300)
         p6d.p1_img_obj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
         await p6d.p1_img_obj.glitchTransition(5);
 
-        
-        p6d.ip_div_bb = p6d.image_path_div.getBoundingClientRect()
-        p6d.pathy2 = {
-            0 : [
-                {cmd:"Move",x:p6d.ip_div_bb.width/8,y:p6d.ip_div_bb.height/2},
-                {cmd:"CubicBezier",
-                    x:p6d.ip_div_bb.width - p6d.ip_div_bb.width/4,y:p6d.ip_div_bb.height/2,
-                    c1x:p6d.ip_div_bb.width/2, c1y:p6d.ip_div_bb.height,
-                    c2x:p6d.ip_div_bb.width/2, c2y:p6d.ip_div_bb.height/2,
-                }
-            ],
-            1 : [
-                {cmd:"Move",x:p6d.ip_div_bb.width/2,y:5},
-                {cmd:"CubicBezier",
-                    x:p6d.ip_div_bb.width/2,y:p6d.ip_div_bb.height/2 + p6d.ip_div_bb.height/4,
-                    c1x:0, c1y:0,
-                    c2x:p6d.ip_div_bb.width, c2y:p6d.ip_div_bb.height/2,
-                }
-            ],
-            2 : [
-                {cmd:"Move",x:p6d.ip_div_bb.width/8,y:p6d.ip_div_bb.height/2},
-                {cmd:"CubicBezier",
-                    x:p6d.ip_div_bb.width - p6d.ip_div_bb.width/4,y:p6d.ip_div_bb.height/2,
-                    c1x:p6d.ip_div_bb.width/2, c1y:p6d.ip_div_bb.height,
-                    c2x:p6d.ip_div_bb.width/2, c2y:p6d.ip_div_bb.height/2,
-                }
-            ],
-            3 : [
-                {cmd:"Move",x:p6d.ip_div_bb.width/2,y:5},
-                {cmd:"CubicBezier",
-                    x:p6d.ip_div_bb.width/2,y:p6d.ip_div_bb.height/2 + p6d.ip_div_bb.height/4,
-                    c1x:0, c1y:0,
-                    c2x:p6d.ip_div_bb.width, c2y:p6d.ip_div_bb.height/2,
-                }
-            ],
-        }
-
-        var testy = p6d.paper1.paths[0].animate({path : p6d.paper1.rparse_coords(p6d.pathy2[PAGE6_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
-        p6d.paper1.elementFollowPath(testy.attr('path'), p6d.p1_description5, [0,1], 800, easing = 'cubicBezier(.65,.34,.2,.99)', loop = false, delay = 0, autoplay = true);
+        p6d.paper1.elementFollowPath(p6d.paper1.paths[0].attr('path'), p6d.p1_description5, [0,1], 800, easing = 'cubicBezier(.65,.34,.2,.99)', loop = false, delay = 0, autoplay = true);
     }
 }
 PAGE6_BUILDER.resize_handler = async (p6d) => {
@@ -140,11 +112,15 @@ PAGE6_BUILDER.resize_handler = async (p6d) => {
     p6d.paper1.paper.setSize(p6d.ip_div_bb.width, p6d.ip_div_bb.height)
     p6d.pathy1 = {
         0 : [
-            {cmd:"Move",x:p6d.ip_div_bb.width/8,y:p6d.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:p6d.ip_div_bb.width - p6d.ip_div_bb.width/4,y:p6d.ip_div_bb.height/2,
-                c1x:p6d.ip_div_bb.width/2, c1y:p6d.ip_div_bb.height/2,
-                c2x:p6d.ip_div_bb.width/16, c2y:p6d.ip_div_bb.height/1.1,
+            {cmd:"Move",x:0, y:p6d.ip_div_bb.height/2},
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:0,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width, y:p6d.ip_div_bb.height/2,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:p6d.ip_div_bb.height + 20,
             }
         ],
         1 : [
@@ -156,11 +132,15 @@ PAGE6_BUILDER.resize_handler = async (p6d) => {
             }
         ],
         2 : [
-            {cmd:"Move",x:p6d.ip_div_bb.width/8,y:p6d.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:p6d.ip_div_bb.width - p6d.ip_div_bb.width/4,y:p6d.ip_div_bb.height/2,
-                c1x:p6d.ip_div_bb.width/2, c1y:p6d.ip_div_bb.height,
-                c2x:p6d.ip_div_bb.width/8, c2y:p6d.ip_div_bb.height/2,
+            {cmd:"Move",x:0, y:p6d.ip_div_bb.height/2},
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:0,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width, y:p6d.ip_div_bb.height/2,
+            },
+            {cmd:"Line",
+                x:p6d.ip_div_bb.width/2, y:p6d.ip_div_bb.height,
             }
         ],
         3 : [
