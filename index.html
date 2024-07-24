@@ -598,7 +598,10 @@
                       <div id="p3_description" class="paragraph_norm">3D ANIMATION & WEB DESIGN for <a href="https://zenon.network/">$ZNN</a></div>
                       <div class = "p_descrip_holder">
                         <div id="p3_description2" class="paragraph_small">I was asked to hop on the Zenon ship back in 2017 and it turned out to be one of the most satisfying projects I've ever worked on. ↗</div>
-                        <img src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c279935295140ccb383_Asset%201.svg" alt="" id="p2_intro_image" class="p_intro_image1">
+                        <!-- <img src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c279935295140ccb383_Asset%201.svg" alt="" id="p2_intro_image" class="p_intro_image1"> -->
+                      </div>
+                      <div id="ZNN_3D" style="position:absolute;width:100%;height:100%;z-index: 0;">
+                        <canvas id="ZNN_3D_CANVAS" style="width:100%;height:100%"></canvas>
                       </div>
                       <!-- <lottie-player id = "znn_anim" renderer="svg" preserveAspectRatio="xMidYMid slice" mode="normal" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c2e75b1b1da75c9e6d1_1280x720_intro.json" background="transparent"  speed=".88"  style="pointer-events:none;z-index:9999; position:absolute; width: 100%; height: 100%;"></lottie-player> -->
                       <div class="divider">
@@ -1415,6 +1418,10 @@
         var goethe_pin_div = document.querySelector("#JCUP");
         var goethe_pin_canvas = document.querySelector("#jcup-canvas");
         OBJ_DISPLAY(goethe_pin_div, goethe_pin_canvas, "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/rci_cup1.glb")
+
+        var goethe_pin_div = document.querySelector("#ZNN_3D");
+        var goethe_pin_canvas = document.querySelector("#ZNN_3D_CANVAS");
+        OBJ_DISPLAY(goethe_pin_div, goethe_pin_canvas, "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/znn_sentinel.glb")
 
       </script>
     </div>
