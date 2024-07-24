@@ -36,13 +36,13 @@
 
 
 #p1_description{
-    z-index       : 1;
+    z-index       : 2;
     position   : relative;
     background-color: rgb(255, 255, 255);
     padding: 10px;
 }
 #p1_description2{
-    z-index       : 1;
+    z-index       : 2;
     position   : relative;
     background-color: rgb(38, 190, 0);
     padding: 10px;
@@ -52,5 +52,6 @@
 
 #p1_title{
     width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    z-index       : 2;
 }

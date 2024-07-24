@@ -61,7 +61,8 @@
     position   : relative;
     z-index    : 10;
 
-    height     : var(--paragraph_big);
+    
+    height     : calc( var(--paragraph_big) + .4vw);
     line-height: var(--paragraph_big);
     font-size  : var(--paragraph_big);
 

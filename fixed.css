@@ -163,10 +163,10 @@
 
 .p_intro_image1{
     position  : absolute;
-    z-index   : 0;
+    z-index   : 1;
     width     : var(--p_intro_image1-size);
-    max-height: 250%;
-    bottom    : calc( var(--header) / 2 );
+    max-height: 1000px;
+    bottom    : 0vw;
     right     : 0vw;
 }
 

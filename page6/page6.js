@@ -23,7 +23,11 @@ PAGE6_BUILDER.pd             = {
     pathy2 : null,
 
     ip_div_bb : null,
+
+    project_button : document.querySelector("#goethe_fest_button"),
+    project_url    : "https://www.youtube.com/watch?v=YZG4eEtXZaA",
 }
+
 PAGE6_BUILDER.load_handler   = async (p6d) => {
 
     p6d.p1_img_obj = new ImageObject(
@@ -80,7 +84,12 @@ PAGE6_BUILDER.load_handler   = async (p6d) => {
     p6d.paper1.makePath(0, p6d.pathy1[PAGE6_BUILDER.device])
     p6d.paper1.paths[0].attr('class', p6d.p1_path_class);
 
-    
+    p6d.project_button.addEventListener("click", () => {
+        p6d.paper1.elementFollowPath(p6d.paper1.paths[0].attr('path'), p6d.p1_description5, [1,0.5,1], 2000, easing = 'cubicBezier(.65,.34,.2,.99)', loop = false, delay = 0, autoplay = true);
+        setTimeout(() => {
+            window.open(p6d.project_url, '_blank').focus();
+        }, 1000)
+    })
 
 }
 PAGE6_BUILDER.scroll_handler = async (p6d, ss, delta_ss) => {

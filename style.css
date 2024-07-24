@@ -52,7 +52,10 @@
 }
 
 
-
+a{
+  text-decoration: none;
+  color:rgb(123, 123, 123);
+}
 
 ::-webkit-scrollbar {
   display: none;
