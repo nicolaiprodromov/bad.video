@@ -79,19 +79,19 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
     
     const ely = document.querySelector("#PEAR");
     const canvasy = document.querySelector("#pear-canvas");
-    const PEAR_MODEL = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/pear.glb'
+    const PEAR_MODEL = '/models/pear.glb'
     FRUIT_DISPLAY(ely, canvasy, PEAR_MODEL);
     const ely1 = document.querySelector("#APPLE");
     const canvasy1 = document.querySelector("#apple-canvas");
-    const PEAR_MODEL1 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/realistic-apple.glb'
+    const PEAR_MODEL1 = '/models/realistic-apple.glb'
     FRUIT_DISPLAY(ely1, canvasy1, PEAR_MODEL1);
     const ely2 = document.querySelector("#LIME");
     const canvasy2 = document.querySelector("#lime-canvas");
-    const PEAR_MODEL2 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/banana.glb'
+    const PEAR_MODEL2 = '/models/banana.glb'
     FRUIT_DISPLAY(ely2, canvasy2, PEAR_MODEL2);
     const ely3 = document.querySelector("#EPEAR");
     const canvasy3 = document.querySelector("#epear-canvas");
-    const PEAR_MODEL3 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/epear.glb'
+    const PEAR_MODEL3 = '/models/epear.glb'
     FRUIT_DISPLAY(ely3, canvasy3, PEAR_MODEL3);
 
     var indyy=0;
