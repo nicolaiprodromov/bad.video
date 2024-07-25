@@ -1,0 +1,28 @@
+#page8include{
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: var(--page-center);
+}
+#p2_description3{
+    position: absolute;
+    width:var(--p1d3-width);
+    right:10vw;
+
+    padding:20px;
+    background-color: white;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+#p2_image_path{
+    position: absolute;
+    z-index: 0;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}
+#p2_image1{
+    position: relative;
+    z-index: 1;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}

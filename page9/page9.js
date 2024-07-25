@@ -1,4 +1,8 @@
 
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { ImageObject } from 'http://127.0.0.1:5500/lib/images_obj.js';
+
+
 
 const PAGE9_BUILDER = new Page(9);
 PAGE9_BUILDER.pd = {
@@ -45,36 +49,36 @@ PAGE9_BUILDER.pd = {
 
     p1_img_ext : ".png"
 }
-
-PAGE9_BUILDER.load_handler = async (p9d) => {
-    for (var bgobj of p9d.p1_images2){
-        
-        var bg_img_obj11 = new ImageObject(
-            element  = bgobj,
-            img      = p9d.p1_img_map[PAGE9_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
-            id       = 0,
-        );
-        bg_img_obj11.draw();
-        p9d.p1_img_obj.push(bg_img_obj11);
-    }
-
+PAGE9_BUILDER.load_handler = async (pd) => {
 }
-PAGE9_BUILDER.scroll_handler = (p9d, ss, delta_ss) => {
+PAGE9_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page7_scroll_amount_st  = ss[2];
     if (scroll_amount_st == 3 && page7_scroll_amount_st == 2){
-        for (var bgobj of p9d.p1_img_obj){
+        for (var bgobj of pd.p1_img_obj){
             bgobj.fade([0,1], 300)
             bgobj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
         }
     }
 
 }
-PAGE9_BUILDER.resize_handler = async (p9d) => {
-    for (var bgobj of p9d.p1_img_obj){
+PAGE9_BUILDER.resize_handler = async (pd) => {
+    for (var bgobj of pd.p1_img_obj){
         bgobj.clear();
-        bgobj.img = await PAGE9_BUILDER.checkImage(p9d.p1_img_map[PAGE9_BUILDER.device] + " " + (bgobj.element.parentNode.dataset.id) + p9d.p1_img_ext)
+        bgobj.img = await PAGE9_BUILDER.checkImage(pd.p1_img_map[PAGE9_BUILDER.device] + " " + (bgobj.element.parentNode.dataset.id) + pd.p1_img_ext)
         bgobj.draw();
     }
 
+}
+PAGE9_BUILDER.first_scroll_handler = async(pd) => {
+    for (var bgobj of pd.p1_images2){
+        
+        var bg_img_obj11 = new ImageObject(
+            bgobj,
+            pd.p1_img_map[PAGE9_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
+            0,
+        );
+        bg_img_obj11.draw();
+        pd.p1_img_obj.push(bg_img_obj11);
+    }
 }

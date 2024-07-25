@@ -1,0 +1,50 @@
+#page11include{
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: var(--page-center);
+}
+#p2_description5{
+    position: absolute;
+    width:var(--p1d3-width);
+    right:10vw;
+
+    padding:20px;
+    background-color: white;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+
+    display        : flex;
+    flex-direction : column;
+    align-items    : flex-end;
+    justify-content: space-evenly;
+}
+#p2_image_path2{
+    position: absolute;
+    z-index: 0;
+    width: var(--p1_image_width);
+    height: var(--p1_image_width);
+}
+#p2_image14{
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    height: 80%;
+}
+
+.project_button_rci{
+    display: flex;
+    flex-direction: row;
+
+}
+.take_a_lookr{
+    margin-right:10px
+}
+
+.last.take_a_lookr{
+    margin-right: 0px;
+}
+
+.projsymb1{
+    left:10%;
+}

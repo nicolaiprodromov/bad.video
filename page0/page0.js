@@ -1,4 +1,8 @@
 
+import { Page }     from 'http://127.0.0.1:5500/lib/page_builder.js'
+import { TextAnim } from 'http://127.0.0.1:5500/lib/text_anim.js';
+import { Particle, Verlet, Paper, subVector, scaleVector, addVector } from 'http://127.0.0.1:5500/lib/svg.js';
+
 const PAGE0_BUILDER = new Page(0);
 PAGE0_BUILDER.pd             = {
     holder  : document.querySelector('#i0'),

@@ -1,4 +1,10 @@
 
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { Paper }       from 'http://127.0.0.1:5500/lib/svg.js'
+import { ImageObject } from 'http://127.0.0.1:5500/lib/images_obj.js';
+import { OBJ_DISPLAY } from 'http://127.0.0.1:5500/lib/3D_display.js';
+
+
 const PAGE5_BUILDER = new Page(5);
 PAGE5_BUILDER.pd             = {
     holder    : document.querySelector('#i6'),
@@ -82,7 +88,7 @@ PAGE5_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
         }
 
         var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE5_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
-        pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, easing = 'cubicBezier(.65,.34,.2,.99)', loop = false, delay = 0, autoplay = true);
+        pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
     }
 }
 PAGE5_BUILDER.resize_handler = async (pd) => {
@@ -129,14 +135,18 @@ PAGE5_BUILDER.resize_handler = async (pd) => {
     }
     pd.paper1.updatePath(0, pd.pathy1[PAGE5_BUILDER.device])
 }
-
-
 PAGE5_BUILDER.first_scroll_handler = async (pd) => {
+
+    
+    const goethe_pin_div = document.querySelector("#goethe_pin");
+    const goethe_pin_canvas = document.querySelector("#goethe_pin_canvas");
+    const goethe_pin_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/goethe_pin1.glb"
+    OBJ_DISPLAY(goethe_pin_div, goethe_pin_canvas, goethe_pin_model)
     
     pd.p1_img_obj = new ImageObject(
-        element  = pd.p1_image1,
-        img      = await PAGE5_BUILDER.checkImage(pd.p1_img_map[PAGE5_BUILDER.device]),
-        id       = 0,
+        pd.p1_image1,
+        await PAGE5_BUILDER.checkImage(pd.p1_img_map[PAGE5_BUILDER.device]),
+        0,
     );
     pd.p1_img_obj.draw();
 

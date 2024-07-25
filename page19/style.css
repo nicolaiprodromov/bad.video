@@ -1,6 +1,0 @@
-#page19include{
-    display        : flex;
-    flex-direction : row;
-    align-items    : flex-start;
-    justify-content: var(--page-center);
-}

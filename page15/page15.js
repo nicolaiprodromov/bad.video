@@ -1,3 +1,6 @@
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { Paper }       from 'http://127.0.0.1:5500/lib/svg.js'
+import { ImageObject } from 'http://127.0.0.1:5500/lib/images_obj.js';
 
 const PAGE15_BUILDER = new Page(15);
 PAGE15_BUILDER.pd             = {
@@ -28,79 +31,15 @@ PAGE15_BUILDER.pd             = {
     watch_znn_vid : document.querySelector("#watch_znn_vid"),
     znn_video : document.querySelector("#znn_video"),
 }
-PAGE15_BUILDER.load_handler   = async (p15d) => {
-
-    p15d.watch_znn_vid.addEventListener('click', () => {
-        PAGE15_BUILDER.page_vhs_play.play();
-        p15d.p1_img_obj.glitchTransition(5);
-        setTimeout(() => {
-            p15d.image_path_div.style.opacity = 0;
-        }, 300)
-        setTimeout(() => {
-            p15d.p1_image1.style.opacity = 0;
-            p15d.p1_description3.style.opacity = 0;
-        }, 1000)
-        setTimeout(() => {
-            p15d.znn_video.style.display = "block"
-        }, 1100)
-    })
-
-    p15d.p1_img_obj = new ImageObject(
-        element  = p15d.p1_image1,
-        img      = await PAGE15_BUILDER.checkImage(p15d.p1_img_map[PAGE15_BUILDER.device]),
-        id       = 0,
-    );
-    p15d.p1_img_obj.draw();
-
-    p15d.paper1 = new Paper(p15d.image_path_div);
-    p15d.ip_div_bb = p15d.image_path_div.getBoundingClientRect()
-    p15d.pathy1 = {
-        0 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/8,y:p15d.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width - p15d.ip_div_bb.width/4,y:p15d.ip_div_bb.height/2,
-                c1x:p15d.ip_div_bb.width/2, c1y:p15d.ip_div_bb.height/2,
-                c2x:p15d.ip_div_bb.width/16, c2y:p15d.ip_div_bb.height/1.1,
-            }
-        ],
-        1 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/2,y:5},
-            {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width/2,y:p15d.ip_div_bb.height/2 + p15d.ip_div_bb.height/4,
-                c1x:0, c1y:0,
-                c2x:p15d.ip_div_bb.width, c2y:p15d.ip_div_bb.height/2,
-            }
-        ],
-        2 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/8,y:p15d.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width - p15d.ip_div_bb.width/4,y:p15d.ip_div_bb.height/2,
-                c1x:p15d.ip_div_bb.width/2, c1y:p15d.ip_div_bb.height,
-                c2x:p15d.ip_div_bb.width/8, c2y:p15d.ip_div_bb.height/2,
-            }
-        ],
-        3 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/2,y:5},
-            {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width/2,y:p15d.ip_div_bb.height/2 + p15d.ip_div_bb.height/4,
-                c1x:0, c1y:0,
-                c2x:p15d.ip_div_bb.width, c2y:p15d.ip_div_bb.height/2,
-            }
-        ],
-    }
-    p15d.paper1.makePath(0, p15d.pathy1[PAGE15_BUILDER.device])
-    p15d.paper1.paths[0].attr('class', p15d.p1_path_class);
-
-    
-
+PAGE15_BUILDER.load_handler   = async (pd) => {
 }
-PAGE15_BUILDER.scroll_handler = (p15d, ss, delta_ss) => {
+PAGE15_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page12_scroll_amount_st  = ss[3];
     if (scroll_amount_st == 4 && page12_scroll_amount_st == 3){
-        p15d.znn_video.style.display = "none"
-        p15d.p1_description3.style.opacity = 1;
-        p15d.image_path_div.style.opacity = 1;
+        pd.znn_video.style.display = "none"
+        pd.p1_description3.style.opacity = 1;
+        pd.image_path_div.style.opacity = 1;
 
         anime({
             targets        : document.body,
@@ -109,93 +48,157 @@ PAGE15_BUILDER.scroll_handler = (p15d, ss, delta_ss) => {
             easing         : "easeInCirc"
         })
 
-        p15d.p1_img_obj.fade([0,1], 300)
-        p15d.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')
+        pd.p1_img_obj.fade([0,1], 300)
+        pd.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')
         
         
-        p15d.ip_div_bb = p15d.image_path_div.getBoundingClientRect()
-        p15d.pathy2 = {
+        pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
+        pd.pathy2 = {
             0 : [
-                {cmd:"Move",x:p15d.ip_div_bb.width/8,y:p15d.ip_div_bb.height/2},
+                {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
                 {cmd:"CubicBezier",
-                    x:p15d.ip_div_bb.width - p15d.ip_div_bb.width/4,y:p15d.ip_div_bb.height/2,
-                    c1x:p15d.ip_div_bb.width/2, c1y:p15d.ip_div_bb.height,
-                    c2x:p15d.ip_div_bb.width/2, c2y:p15d.ip_div_bb.height/2,
+                    x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                    c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                    c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
                 }
             ],
             1 : [
-                {cmd:"Move",x:p15d.ip_div_bb.width/2,y:5},
+                {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
                 {cmd:"CubicBezier",
-                    x:p15d.ip_div_bb.width/2,y:p15d.ip_div_bb.height/2 + p15d.ip_div_bb.height/4,
+                    x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
                     c1x:0, c1y:0,
-                    c2x:p15d.ip_div_bb.width, c2y:p15d.ip_div_bb.height/2,
+                    c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
                 }
             ],
             2 : [
-                {cmd:"Move",x:p15d.ip_div_bb.width/8,y:p15d.ip_div_bb.height/2},
+                {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
                 {cmd:"CubicBezier",
-                    x:p15d.ip_div_bb.width - p15d.ip_div_bb.width/4,y:p15d.ip_div_bb.height/2,
-                    c1x:p15d.ip_div_bb.width/2, c1y:p15d.ip_div_bb.height,
-                    c2x:p15d.ip_div_bb.width/2, c2y:p15d.ip_div_bb.height/2,
+                    x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                    c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                    c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
                 }
             ],
             3 : [
-                {cmd:"Move",x:p15d.ip_div_bb.width/2,y:5},
+                {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
                 {cmd:"CubicBezier",
-                    x:p15d.ip_div_bb.width/2,y:p15d.ip_div_bb.height/2 + p15d.ip_div_bb.height/4,
+                    x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
                     c1x:0, c1y:0,
-                    c2x:p15d.ip_div_bb.width, c2y:p15d.ip_div_bb.height/2,
+                    c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
                 }
             ],
         }
 
-        var testy = p15d.paper1.paths[0].animate({path : p15d.paper1.rparse_coords(p15d.pathy2[PAGE15_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
-        p15d.paper1.elementFollowPath(testy.attr('path'), p15d.p1_description3, [0,1], 800, easing = 'cubicBezier(.65,.34,.2,.99)', loop = false, delay = 0, autoplay = true);
+        var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE15_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
+        pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
     }
 }
-PAGE15_BUILDER.resize_handler = async (p15d) => {
+PAGE15_BUILDER.resize_handler = async (pd) => {
 
-    p15d.p1_img_obj.clear();
-    p15d.p1_img_obj._img = await PAGE15_BUILDER.checkImage(p15d.p1_img_map[PAGE15_BUILDER.device])
-    p15d.p1_img_obj.draw();
+    pd.p1_img_obj.clear();
+    pd.p1_img_obj._img = await PAGE15_BUILDER.checkImage(pd.p1_img_map[PAGE15_BUILDER.device])
+    pd.p1_img_obj.draw();
 
-    p15d.ip_div_bb = p15d.image_path_div.getBoundingClientRect()
-    p15d.paper1.paper.setSize(p15d.ip_div_bb.width, p15d.ip_div_bb.height)
-    p15d.pathy1 = {
+    pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
+    pd.paper1.paper.setSize(pd.ip_div_bb.width, pd.ip_div_bb.height)
+    pd.pathy1 = {
         0 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/8,y:p15d.ip_div_bb.height/2},
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
             {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width - p15d.ip_div_bb.width/4,y:p15d.ip_div_bb.height/2,
-                c1x:p15d.ip_div_bb.width/2, c1y:p15d.ip_div_bb.height/2,
-                c2x:p15d.ip_div_bb.width/16, c2y:p15d.ip_div_bb.height/1.1,
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height/2,
+                c2x:pd.ip_div_bb.width/16, c2y:pd.ip_div_bb.height/1.1,
             }
         ],
         1 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/2,y:5},
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
             {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width/2,y:p15d.ip_div_bb.height/2 + p15d.ip_div_bb.height/4,
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
                 c1x:0, c1y:0,
-                c2x:p15d.ip_div_bb.width, c2y:p15d.ip_div_bb.height/2,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
             }
         ],
         2 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/8,y:p15d.ip_div_bb.height/2},
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
             {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width - p15d.ip_div_bb.width/4,y:p15d.ip_div_bb.height/2,
-                c1x:p15d.ip_div_bb.width/2, c1y:p15d.ip_div_bb.height,
-                c2x:p15d.ip_div_bb.width/8, c2y:p15d.ip_div_bb.height/2,
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                c2x:pd.ip_div_bb.width/8, c2y:pd.ip_div_bb.height/2,
             }
         ],
         3 : [
-            {cmd:"Move",x:p15d.ip_div_bb.width/2,y:5},
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
             {cmd:"CubicBezier",
-                x:p15d.ip_div_bb.width/2,y:p15d.ip_div_bb.height/2 + p15d.ip_div_bb.height/4,
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
                 c1x:0, c1y:0,
-                c2x:p15d.ip_div_bb.width, c2y:p15d.ip_div_bb.height/2,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
             }
         ],
     }
-    p15d.paper1.updatePath(0, p15d.pathy1[PAGE15_BUILDER.device])
+    pd.paper1.updatePath(0, pd.pathy1[PAGE15_BUILDER.device])
 }
+PAGE15_BUILDER.first_scroll_handler = async (pd) => {
+    
 
+    pd.watch_znn_vid.addEventListener('click', () => {
+        PAGE15_BUILDER.page_vhs_play.play();
+        pd.p1_img_obj.glitchTransition(5);
+        setTimeout(() => {
+            pd.image_path_div.style.opacity = 0;
+        }, 300)
+        setTimeout(() => {
+            pd.p1_image1.style.opacity = 0;
+            pd.p1_description3.style.opacity = 0;
+        }, 1000)
+        setTimeout(() => {
+            pd.znn_video.style.display = "block"
+        }, 1100)
+    })
+
+    pd.p1_img_obj = new ImageObject(
+        pd.p1_image1,
+        await PAGE15_BUILDER.checkImage(pd.p1_img_map[PAGE15_BUILDER.device]),
+        0,
+    );
+    pd.p1_img_obj.draw();
+
+    pd.paper1 = new Paper(pd.image_path_div);
+    pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
+    pd.pathy1 = {
+        0 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height/2,
+                c2x:pd.ip_div_bb.width/16, c2y:pd.ip_div_bb.height/1.1,
+            }
+        ],
+        1 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+                c1x:0, c1y:0,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        2 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                c2x:pd.ip_div_bb.width/8, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        3 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+                c1x:0, c1y:0,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+    }
+    pd.paper1.makePath(0, pd.pathy1[PAGE15_BUILDER.device])
+    pd.paper1.paths[0].attr('class', pd.p1_path_class);
+
+}
 

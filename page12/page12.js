@@ -1,3 +1,6 @@
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { TextAnim }    from 'http://127.0.0.1:5500/lib/text_anim.js';
+import { OBJ_DISPLAY } from 'http://127.0.0.1:5500/lib/3D_display.js';
 
 const PAGE12_BUILDER = new Page(12);
 PAGE12_BUILDER.pd             = {
@@ -19,43 +22,43 @@ PAGE12_BUILDER.pd             = {
     buttons_built : false,
 
 }
-const buttons_page_12         = (p12d) => {
+PAGE12_BUILDER.buttons_page_12         = (pd) => {
     // BUTTONS
     if (PAGE12_BUILDER.device > 1){
         return null
     }
-    if (p12d.buttons_built){
+    if (pd.buttons_built){
         return null;
     }
-    p12d.buttons_built = true
+    pd.buttons_built = true
     // =======================================================================================================
-    p12d.p1_paper      = new Paper(p12d.p1_svg);
+    pd.p1_paper      = new Paper(pd.p1_svg);
     var buttons = []
-    p12d.p1_svg_width  = p12d.p1_svg.getBoundingClientRect().width;
-    p12d.arrow_scale = p12d.p1_svg_width/3
+    pd.p1_svg_width  = pd.p1_svg.getBoundingClientRect().width;
+    pd.arrow_scale = pd.p1_svg_width/3
     // MAKE PATHS
-    p12d.p1_paper.makePath(0, asset15); p12d.p1_paper.makePath(1, asset13); p12d.p1_paper.makePath(2, asset13);
-    p12d.p1_paper.forEach((p, id) => {
-        p.attr('class', p12d.pth1_class)
-        p12d.p1_paper.pop(id)
-        p.svg_parent.setAttribute('width', p12d.arrow_scale)
-        p.svg_parent.setAttribute('height', p12d.arrow_scale)
-        p12d.p1_paper.moveParent1(id, {x:p12d.arrow_scale*id, y:0})
+    pd.p1_paper.makePath(0, asset15); pd.p1_paper.makePath(1, asset13); pd.p1_paper.makePath(2, asset13);
+    pd.p1_paper.forEach((p, id) => {
+        p.attr('class', pd.pth1_class)
+        pd.p1_paper.pop(id)
+        p.svg_parent.setAttribute('width', pd.arrow_scale)
+        p.svg_parent.setAttribute('height', pd.arrow_scale)
+        pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
-    p12d.p1_paper.paths[2].rotate(90)
+    pd.p1_paper.paths[2].rotate(90)
 
     for (var key = 0; key < 3; key++) {
-        buttons.push(p12d.p1_paper.paper.rect(p12d.arrow_scale*key, 0, p12d.arrow_scale, p12d.arrow_scale));
-        buttons[key].attr('class', p12d.buttons_class)
+        buttons.push(pd.p1_paper.paper.rect(pd.arrow_scale*key, 0, pd.arrow_scale, pd.arrow_scale));
+        buttons[key].attr('class', pd.buttons_class)
     }
     // BUTTONS INTERACTION
     buttons[0].click(
         () => {
-            p12d.button1_clicked =! p12d.button1_clicked
-            if (p12d.button1_clicked) {
-                p12d.p1_paper.paths[0].animate({path:p12d.p1_paper.rparse_coords(asset16)}, 200)
+            pd.button1_clicked =! pd.button1_clicked
+            if (pd.button1_clicked) {
+                pd.p1_paper.paths[0].animate({path:pd.p1_paper.rparse_coords(asset16)}, 200)
             } else {
-                p12d.p1_paper.paths[0].animate({path:p12d.p1_paper.rparse_coords(asset15)}, 200)
+                pd.p1_paper.paths[0].animate({path:pd.p1_paper.rparse_coords(asset15)}, 200)
             }
             setTimeout(() => {
                 PAGE12_BUILDER.toggleFullScreen(document.documentElement)
@@ -64,10 +67,10 @@ const buttons_page_12         = (p12d) => {
     )
     buttons[1].click(
         () => {
-            p12d.button2_clicked =! p12d.button2_clicked
-            p12d.p1_paper.paths[1].animate({path:p12d.p1_paper.rparse_coords(asset14)}, 200)
+            pd.button2_clicked =! pd.button2_clicked
+            pd.p1_paper.paths[1].animate({path:pd.p1_paper.rparse_coords(asset14)}, 200)
             setTimeout(() => {
-                p12d.p1_paper.paths[1].animate({path:p12d.p1_paper.rparse_coords(asset13)}, 100)
+                pd.p1_paper.paths[1].animate({path:pd.p1_paper.rparse_coords(asset13)}, 100)
             }, 120)
             setTimeout(() => {
                 var e_e = {type : 'wheel', deltaY: 1}
@@ -77,10 +80,10 @@ const buttons_page_12         = (p12d) => {
     )
     buttons[2].click(
         () => {
-            p12d.button3_clicked =! p12d.button3_clicked
-            p12d.p1_paper.paths[2].animate({path:p12d.p1_paper.rparse_coords(asset14)}, 200)
+            pd.button3_clicked =! pd.button3_clicked
+            pd.p1_paper.paths[2].animate({path:pd.p1_paper.rparse_coords(asset14)}, 200)
             setTimeout(() => {
-                p12d.p1_paper.paths[2].animate({path:p12d.p1_paper.rparse_coords(asset13)}, 100)
+                pd.p1_paper.paths[2].animate({path:pd.p1_paper.rparse_coords(asset13)}, 100)
             }, 120)
             setTimeout(() => {
                 scroll_amount = 4
@@ -94,36 +97,32 @@ const buttons_page_12         = (p12d) => {
         }
     )
 }
-const buttons_resize_page12   = (p12d) => {
+PAGE12_BUILDER.buttons_resize_page12   = (pd) => {
     if (PAGE12_BUILDER.device > 1){
-        if (p12d.buttons_built){
-            while (p12d.p1_paper.parent.firstChild) {
-                p12d.p1_paper.parent.removeChild(p12d.p1_paper.parent.lastChild);
+        if (pd.buttons_built){
+            while (pd.p1_paper.parent.firstChild) {
+                pd.p1_paper.parent.removeChild(pd.p1_paper.parent.lastChild);
             }
-            p12d.p1_paper = null;
-            p12d.buttons_built = false
+            pd.p1_paper = null;
+            pd.buttons_built = false
         }
         return null
     }
-    if (p12d.buttons_built == false){
+    if (pd.buttons_built == false){
         return null;
     }
-    p12d.p1_svg_width  = p12d.p1_svg.getBoundingClientRect().width;
-    p12d.p1_paper.paper.setSize(p12d.p1_svg.getBoundingClientRect().width, p12d.p1_svg.getBoundingClientRect().height)
-    p12d.arrow_scale = p12d.p1_svg_width/3
-    p12d.p1_paper.forEach((p, id) => {
-        p.svg_parent.setAttribute('width', p12d.arrow_scale)
-        p.svg_parent.setAttribute('height', p12d.arrow_scale)
-        p12d.p1_paper.moveParent1(id, {x:p12d.arrow_scale*id, y:0})
+    pd.p1_svg_width  = pd.p1_svg.getBoundingClientRect().width;
+    pd.p1_paper.paper.setSize(pd.p1_svg.getBoundingClientRect().width, pd.p1_svg.getBoundingClientRect().height)
+    pd.arrow_scale = pd.p1_svg_width/3
+    pd.p1_paper.forEach((p, id) => {
+        p.svg_parent.setAttribute('width', pd.arrow_scale)
+        p.svg_parent.setAttribute('height', pd.arrow_scale)
+        pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE12_BUILDER.load_handler   = (p12d) => {
-    console.log(PAGE12_BUILDER.base_url, PAGE12_BUILDER.local_url)
-    // PROJECT TITLE
-    p12d.p1_title_anim = new TextAnim(p12d.project_title, 0)
-    buttons_page_12(p12d);
+PAGE12_BUILDER.load_handler   = (pd) => {
 }
-PAGE12_BUILDER.scroll_handler = (p12d, ss, delta_ss) => {
+PAGE12_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page12_scroll_amount_st  = ss[3];
     // PAGE TRIGGER
@@ -141,8 +140,8 @@ PAGE12_BUILDER.scroll_handler = (p12d, ss, delta_ss) => {
         // })
         // setTimeout(() => znn_anim.stop(), 2500);
 
-        p12d.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
-        p12d.p1_title_anim.cycle_random(300, 53)
+        pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
+        pd.p1_title_anim.cycle_random(300, 53)
         document.querySelector("#particle_intro0").innerHTML="zenon.network"
         document.querySelector("#particle_intro1").innerHTML=">"
         document.querySelector("#particle_intro2").innerHTML="1/5"
@@ -160,11 +159,11 @@ PAGE12_BUILDER.scroll_handler = (p12d, ss, delta_ss) => {
         document.querySelector("#particle_intro2").innerHTML="5/5"
     }
 }
-PAGE12_BUILDER.resize_handler = (p12d) => {
-    
-    buttons_page_12(p12d);
-    buttons_resize_page12(p12d);
+PAGE12_BUILDER.resize_handler = (pd) => {
+    PAGE12_BUILDER.buttons_page_12(pd);
+    PAGE12_BUILDER.buttons_resize_page12(pd);
 }
-
-
-
+PAGE12_BUILDER.first_scroll_handler = (pd) => {
+    pd.p1_title_anim = new TextAnim(pd.project_title, 0)
+    PAGE12_BUILDER.buttons_page_12(pd);
+}

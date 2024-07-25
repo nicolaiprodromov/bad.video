@@ -8,12 +8,10 @@
     background:rgb(255, 255, 255);
     transition: all .2s;
 }
-
 .scroll_bar:hover{
     width:30px;
     transition: all .2s;
 }
-
 .sb_cell{
     position        : relative;
     width           : 100%;
@@ -22,7 +20,6 @@
     background-color: rgb(192, 192, 192);
     transition: all .2s;
 }
-
 .sb_cell_1{
     position        : relative;
     width           : 100%;
@@ -40,7 +37,6 @@
     width           : 100%;
     height          : calc(100%/5);
 }
-
 .sb_cell_highlight{
     background-color: rgba(255, 0, 0);
     transition: background-color .4s;
@@ -51,7 +47,6 @@
     transition: background-color .2s;
     transition-timing-function: ease-in;
 }
-
 .sb_last_cell{
     border-bottom: none;
 }

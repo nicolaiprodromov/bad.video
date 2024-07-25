@@ -1,0 +1,142 @@
+
+/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+:root{
+    --particle-bg     : 10px;
+    --scroll-display  : flex;
+    --reel-display    : flex;
+    --nt_draw-display : block;
+    --reel_sect-width : 300px;
+    --reel_sect-height: 200px;
+    --random-display  : flex;
+    --title-ratio     : 10;
+}
+/* ------------------------- PORTRAIT DESKTOP ------------------------- */
+@media screen and (min-width: 1280px) and (min-height: 100vw){
+    :root{
+        --particle-bg     : 15px;
+        --scroll-display  : flex;
+        --reel-display    : flex;
+        --nt_draw-display : block;
+        --random-display  : flex;
+        --reel_sect-width : 300px;
+        --reel_sect-height: 200px;
+        --title-ratio     : 10;
+    }
+}
+/* ------------------------- PORTRAIT MOBILE ------------------------- */
+@media screen and (max-width: 720px){
+    :root{
+        --particle-bg     : 0px;
+        --scroll-display  : none;
+        --reel-display    : flex;
+        --nt_draw-display : none;
+        --random-display  : flex;
+        --reel_sect-width : 100px;
+        --reel_sect-height: 100px;
+        --title-ratio     : 10;
+    }
+}
+/* ------------------------- LANDSCAPE MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-width: 100vh){
+    :root{
+        --particle-bg     : 0px;
+        --scroll-display  : none;
+        --reel-display    : none;
+        --nt_draw-display : none;
+        --random-display  : none;
+        --reel_sect-width : 100px;
+        --reel_sect-height: 100px;
+        --title-ratio     : 25;
+    }
+}
+
+
+
+
+/* INTRO TITLE AND SVGS */
+#intro_title{
+    position       : absolute;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    height         : 100%;
+    width          : 100%;
+}
+#name_title{
+    position: relative;
+    z-index : 1;
+
+    height     : calc(var(--title_big) - .7vw);
+    line-height: calc(var(--title_big) - .7vw);;
+    font-size  : var(--title_big);
+}
+#name_title1{
+    position: relative;
+    z-index : 1;
+
+    height     : var(--title_big);
+    line-height: var(--title_big);
+    font-size  : var(--title_big);
+}
+#name_title_subtext{
+    color:grey;
+}
+
+
+/* TEXT PARTICLES */
+.particles_intro{
+    position: absolute;
+    z-index : 999;
+    width   : 100%;
+    height  : 100%;
+    pointer-events: none;
+}
+#particle_intro0{
+    position   : relative;
+    height     : calc( var(--text_small));
+    line-height: calc( var(--text_small));
+    font-size  : var(--text_small);
+}
+#particle_intro1{
+    position   : relative;
+    height     : calc( var(--text_small));
+    line-height: calc( var(--text_small));
+    font-size  : var(--text_small);
+}
+#particle_intro2{
+    position   : relative;
+    height     : calc( var(--text_small));
+    line-height: calc( var(--text_small));
+    font-size  : var(--text_small);
+}
+
+
+
+/* RANDOM NR */
+#random_nr{
+    display:var(--random-display);
+    position : absolute;
+
+    bottom   : 10px;
+
+    transform: rotate(-3deg);
+
+    height     : calc( var(--title_small));
+    line-height: calc( var(--title_small));
+    font-size  : calc( var(--title_small));
+    color      : rgb(255, 255, 255);
+}
+#random_nr1{
+    display:var(--random-display);
+    position : absolute;
+
+    top   : 10px;
+
+    transform: rotate(3deg);
+
+    height     : calc( var(--title_small));
+    line-height: calc( var(--title_small));
+    font-size  : calc( var(--title_small));
+    color      : rgb(255, 255, 255);
+}

@@ -1,0 +1,132 @@
+  /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+:root{
+  --about_data_width     : 70%;
+  --about_data_r_width   : 30%;
+  --about_data_r_display : block;
+  --about_links_display  : flex;
+  --about_links_direction: row;
+  --about_links_align    : flex-end;
+  --about_cv_align       : flex-end;
+  --padding-socials      : 10px;
+  --about_socials_margin        : 0px;
+}
+  /* ------------------------- PORTRAIT DESKTOP ------------------------- */
+@media screen and (min-width: 1280px) and (min-height: 100vw){
+  :root{
+    --about_data_width  : 100%;
+    --about_data_r_width: 0%;
+    --about_data_r_display: none;
+    --about_links_display  : flex;
+    --about_links_direction: column;
+    --about_links_align    : flex-start;
+    --about_cv_align       : flex-start;
+    --padding-socials      : 10px;
+    --about_socials_margin        : 20px;
+  }
+}
+  /* ------------------------- PORTRAIT MOBILE ------------------------- */
+@media screen and (max-width: 720px){
+  :root{
+    --about_data_width  : 100%;
+    --about_data_r_width: 0%;
+    --about_data_r_display: none;
+    --about_links_display  : flex;
+    --about_links_direction: column;
+    --about_links_align    : flex-start;
+    --about_cv_align       : flex-start;
+    --padding-socials      : 3px;
+    --about_socials_margin        : 20px;
+  }
+}
+  /* ------------------------- LANDSCAPE MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-width: 100vh){
+  :root{
+    --about_data_width  : 700%;
+    --about_data_r_width: 30%;
+    --about_data_r_display: block;
+    --about_links_display  : flex;
+    --about_links_direction: row;
+    --about_links_align    : flex-end;
+    --about_cv_align       : flex-end;
+    --padding-socials      : 3px;
+    --about_socials_margin        : 0px;
+  }
+}
+
+
+#about_data{
+  display : block;
+  position: relative;
+  z-index : 1;
+  width   : var(--about_data_width);
+  height  : 100%;
+}
+
+#about_data_right{
+  display : var(--about_data_r_display);
+  position: relative;
+  z-index : 1;
+  width   : var(--about_data_r_width);
+  height  : 100%;
+}
+
+
+
+#npxyz_pc23{
+  display        : flex;
+  flex-direction : row;
+  align-items    : flex-start;
+  justify-content: flex-start;
+  padding        : var(--content-padding);
+}
+
+
+.about_links{
+  display        : var(--about_links_display);
+  flex-direction : var(--about_links_direction);
+  align-items    : var(--about_links_align);
+  justify-content: var(--about_links_align);
+}
+
+
+.about_socials{
+  width          : 50%;
+  height         : 100%;
+  display        : flex;
+  flex-direction : column;
+  align-items    : flex-start;
+  justify-content: flex-start;
+  margin-bottom  : var(--about_socials_margin);
+}
+
+.about_cv{
+  width          : 50%;
+  height         : 100%;
+  display        : flex;
+  flex-direction : row;
+  align-items    : flex-end;
+  justify-content: var(--about_cv_align);
+}
+
+
+
+#about_bg_svg{
+  position: absolute;
+  z-index : 0;
+  width   : 80%;
+  right   : 0px;
+  top     : 0px;
+}
+
+.socials_tag{
+  margin-bottom: var(--padding-socials);
+  font-size  : var(--text_norm);
+}
+
+.aboutsymb1{
+  left: 35%;
+}
+
+.aboutsymb2{
+  left: 80%;
+}

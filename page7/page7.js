@@ -1,3 +1,5 @@
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { TextAnim }    from 'http://127.0.0.1:5500/lib/text_anim.js';
 
 const PAGE7_BUILDER = new Page(7);
 PAGE7_BUILDER.pd = {
@@ -155,9 +157,5 @@ PAGE7_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
     PAGE7_BUILDER.buttons_page_7(pd);
     
-    const jcup_div = document.querySelector("#JCUP");
-    const jcup_canvas = document.querySelector("#jcup-canvas");
-    const jcup_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/rci_cup1.glb"
-    OBJ_DISPLAY(jcup_div, jcup_canvas, jcup_model)
 }
 

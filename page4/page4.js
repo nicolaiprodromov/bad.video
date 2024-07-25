@@ -1,3 +1,8 @@
+
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { ImageObject }   from 'http://127.0.0.1:5500/lib/images_obj.js';
+
+
 const PAGE4_BUILDER = new Page(4);
 PAGE4_BUILDER.pd = {
     holder    : document.querySelector('#i5'),
@@ -77,9 +82,9 @@ PAGE4_BUILDER.resize_handler = (pd) => {
 PAGE4_BUILDER.first_scroll_handler = (pd) => {
     for (var bgobj of pd.p1_images2){
         var bg_img_obj11 = new ImageObject(
-            element  = bgobj,
-            img      = pd.p1_img_map[PAGE4_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
-            id       = 0,
+            bgobj,
+            pd.p1_img_map[PAGE4_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
+            0,
         );
         bg_img_obj11.draw();
         pd.p1_img_obj.push(bg_img_obj11);

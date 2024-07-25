@@ -1,0 +1,118 @@
+
+
+ /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+ :root{
+    --contact_data_width: 70%;
+    --contact_data_right_width: 30%;
+    --npxyz_pc27_direction :row;
+    --open_work_svg_width : 300px;
+    --back_up_svg_width : 200px;
+  }
+    /* ------------------------- PORTRAIT DESKTOP ------------------------- */
+  @media screen and (min-width: 1280px) and (min-height: 100vw){
+    :root{
+        --contact_data_right_width: 100%;
+        --contact_data_width: 100%;
+        --npxyz_pc27_direction :column;
+        --open_work_svg_width : 200px;
+        --back_up_svg_width : 200px;
+    }
+  }
+    /* ------------------------- PORTRAIT MOBILE ------------------------- */
+  @media screen and (max-width: 720px){
+    :root{
+        --contact_data_right_width: 100%;
+        --contact_data_width: 100%;
+        --npxyz_pc27_direction :column;
+        --open_work_svg_width : 200px;
+        --back_up_svg_width : 150px;
+    }
+  }
+    /* ------------------------- LANDSCAPE MOBILE ------------------------- */
+  @media screen and (max-width: 1280px) and (min-width: 100vh){
+    :root{
+        --contact_data_right_width: 30%;
+        --contact_data_width: 70%;
+        --npxyz_pc27_direction :row;
+        --open_work_svg_width : 80px;
+        --back_up_svg_width : 100px;
+    }
+  }
+  
+
+
+
+
+#npxyz_pc27{
+    display        : flex;
+    flex-direction : var(--npxyz_pc27_direction);
+    align-items    : flex-start;
+    justify-content: flex-start;
+    padding        : var(--content-padding);
+  }
+
+.contact_data{
+    display: block;
+    z-index: 1;
+    position:relative;
+    width:var(--contact_data_width);
+    height:100%;
+}
+.contact_data_right{
+    z-index: 1;
+    position:relative;
+    width:var(--contact_data_right_width);
+    height:100%;
+}
+
+#contact_bg_svg{
+    position: absolute;
+    z-index : 0;
+    height  : 100%;
+    right   : 30vw;
+    top     : 0px;
+}
+
+.open_work_svg{
+    max-height: var(--open_work_svg_width);
+}
+
+.contact_row_icon{
+    width       : 30px;
+    height      : 30px;
+    margin-right: 10px;
+}
+
+.contact_link_row{
+    width: 100%;
+    display        : flex;
+    flex-direction : row;
+    align-items    : flex-start;
+    justify-content: flex-start;
+}
+
+.contact_links{
+    width:100%;
+}
+
+.aboutsymb3{
+    right: 10%;
+}
+
+.contact_right_vhalf{
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 10px 0px 10px
+}
+
+
+.divider_half{
+    width:50%;
+}
+
+.back_up_svg{
+    width:var(--back_up_svg_width);
+}

@@ -1,4 +1,9 @@
 
+
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { Paper }       from 'http://127.0.0.1:5500/lib/svg.js'
+import { ImageObject }   from 'http://127.0.0.1:5500/lib/images_obj.js';
+
 const PAGE3_BUILDER = new Page(3);
 PAGE3_BUILDER.pd             = {
     holder    : document.querySelector('#i4'),
@@ -77,7 +82,7 @@ PAGE3_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
         }
 
         var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE3_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
-        pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, easing = 'cubicBezier(.65,.34,.2,.99)', loop = false, delay = 0, autoplay = true);
+        pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
     }
 }
 PAGE3_BUILDER.resize_handler = async (pd) => {
@@ -124,12 +129,11 @@ PAGE3_BUILDER.resize_handler = async (pd) => {
     }
     pd.paper1.updatePath(0, pd.pathy1[PAGE3_BUILDER.device])
 }
-
 PAGE3_BUILDER.first_scroll_handler = async (pd) => {
     pd.p1_img_obj = new ImageObject(
-        element  = pd.p1_image1,
-        img      = await PAGE3_BUILDER.checkImage(pd.p1_img_map[PAGE3_BUILDER.device]),
-        id       = 0
+        pd.p1_image1,
+        await PAGE3_BUILDER.checkImage(pd.p1_img_map[PAGE3_BUILDER.device]),
+        0
     );
     pd.p1_img_obj.draw();
     pd.paper1 = new Paper(pd.image_path_div);

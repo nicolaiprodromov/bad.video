@@ -1,4 +1,7 @@
 
+import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
+import { TextAnim }    from 'http://127.0.0.1:5500/lib/text_anim.js';
+
 const PAGE2_BUILDER = new Page(2);
 PAGE2_BUILDER.pd             = {
     holder_up: document.querySelector("#i2"),
@@ -151,8 +154,4 @@ PAGE2_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
     PAGE2_BUILDER.buttons_page_2(pd);
     
-    const goethe_pin_div = document.querySelector("#goethe_pin");
-    const goethe_pin_canvas = document.querySelector("#goethe_pin_canvas");
-    const goethe_pin_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/goethe_pin1.glb"
-    OBJ_DISPLAY(goethe_pin_div, goethe_pin_canvas, goethe_pin_model)
 }

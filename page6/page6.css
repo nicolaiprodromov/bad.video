@@ -1,0 +1,36 @@
+#page6include{
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+}
+#p1_description5{
+    position: absolute;
+    width   : var(--p1d3-width);
+    right   : 10vw;
+
+    padding         : 20px;
+    background-color: white;
+    z-index         : 2;
+    transform       : translate(-50%, -50%);
+
+    display        : flex;
+    flex-direction : column;
+    align-items    : flex-end;
+    justify-content: space-evenly;
+    
+}
+#p1_image_path2{
+    position: absolute;
+    z-index : 1;
+    width   :80%;
+    height  :80%;
+}
+#p1_image14{
+    z-index: 1;
+    height : 80%;
+}
+
+.take_a_look{
+    margin-bottom: 10px;
+}
