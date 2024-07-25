@@ -2,7 +2,7 @@
 import { Page }        from '/lib/page_builder.js';
 import { Paper }       from '/lib/svg.js'
 import { ImageObject } from '/lib/images_obj.js';
-import { OBJ_DISPLAY } from '/lib/3D_display.js';
+import { OBJ_DISPLAY } from '/lib/3d_display.js';
 
 
 const PAGE5_BUILDER = new Page(5);
