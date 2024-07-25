@@ -77,26 +77,29 @@ PAGE1_BUILDER.resize_handler = async (pd) => {
 }
 PAGE1_BUILDER.first_scroll_handler = async (pd) => {
     
-    const ely = document.querySelector("#PEAR");
-    const canvasy = document.querySelector("#pear-canvas");
-    const PEAR_MODEL = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/pear.glb'
-    FRUIT_DISPLAY(ely, canvasy, PEAR_MODEL);
-    const ely1 = document.querySelector("#APPLE");
-    const canvasy1 = document.querySelector("#apple-canvas");
-    const PEAR_MODEL1 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/realistic-apple.glb'
-    FRUIT_DISPLAY(ely1, canvasy1, PEAR_MODEL1);
-    const ely2 = document.querySelector("#LIME");
-    const canvasy2 = document.querySelector("#lime-canvas");
-    const PEAR_MODEL2 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/banana.glb'
-    FRUIT_DISPLAY(ely2, canvasy2, PEAR_MODEL2);
-    const ely3 = document.querySelector("#EPEAR");
-    const canvasy3 = document.querySelector("#epear-canvas");
-    const PEAR_MODEL3 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/epear.glb'
-    FRUIT_DISPLAY(ely3, canvasy3, PEAR_MODEL3);
+    // const ely = document.querySelector("#PEAR");
+    // const canvasy = document.querySelector("#pear-canvas");
+    // const PEAR_MODEL = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/pear.glb'
+    // FRUIT_DISPLAY(ely, canvasy, PEAR_MODEL);
+    // const ely1 = document.querySelector("#APPLE");
+    // const canvasy1 = document.querySelector("#apple-canvas");
+    // const PEAR_MODEL1 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/realistic-apple.glb'
+    // FRUIT_DISPLAY(ely1, canvasy1, PEAR_MODEL1);
+    // const ely2 = document.querySelector("#LIME");
+    // const canvasy2 = document.querySelector("#lime-canvas");
+    // const PEAR_MODEL2 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/banana.glb'
+    // FRUIT_DISPLAY(ely2, canvasy2, PEAR_MODEL2);
+    // const ely3 = document.querySelector("#EPEAR");
+    // const canvasy3 = document.querySelector("#epear-canvas");
+    // const PEAR_MODEL3 = 'https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/epear.glb'
+    // FRUIT_DISPLAY(ely3, canvasy3, PEAR_MODEL3);
 
     var indyy=0;
     for (var mimg of pd.menu_images){
-        var imgobj = new ImageObject(mimg,await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy]),indyy);
+        var imgobj = new ImageObject(
+            mimg,
+            await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy]),
+            indyy);
         imgobj.draw();
         imgobj.element.style.opacity = "0"
         pd.img_objs.push(imgobj)
@@ -130,7 +133,7 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
                     pd.img_objs[indy].transform            = "rotate(" + pd.img_objs[indy].randInt(-33,33) +"deg)"
                     pd.img_objs[indy].element.style.zIndex = 1
                     pd.img_objs[indy].fade([0,1], 300)
-                    await pd.img_objs[indy].glitchTransition(5, "black");
+                    //await pd.img_objs[indy].glitchTransition(5, "black");
                     var chaka = indy
                     setTimeout(() => {
                         scroll_amount = chaka + 3

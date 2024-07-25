@@ -152,8 +152,8 @@ PAGE17_BUILDER.resize_handler = (pd) => {
 PAGE17_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
     PAGE17_BUILDER.buttons_page_17(pd);
-    const znn_3d_div    = document.querySelector("#ZNN_3D");
-    const znn_3d_canvas = document.querySelector("#ZNN_3D_CANVAS");
-    const znn_3d_model  = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/znn_sentinel1.glb"
-    FRUIT_DISPLAY(znn_3d_div, znn_3d_canvas, znn_3d_model);
+    // const znn_3d_div    = document.querySelector("#ZNN_3D");
+    // const znn_3d_canvas = document.querySelector("#ZNN_3D_CANVAS");
+    // const znn_3d_model  = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/znn_sentinel1.glb"
+    // FRUIT_DISPLAY(znn_3d_div, znn_3d_canvas, znn_3d_model);
 }

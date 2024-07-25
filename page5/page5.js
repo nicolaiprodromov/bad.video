@@ -138,10 +138,10 @@ PAGE5_BUILDER.resize_handler = async (pd) => {
 PAGE5_BUILDER.first_scroll_handler = async (pd) => {
 
     
-    const goethe_pin_div = document.querySelector("#goethe_pin");
-    const goethe_pin_canvas = document.querySelector("#goethe_pin_canvas");
-    const goethe_pin_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/goethe_pin1.glb"
-    OBJ_DISPLAY(goethe_pin_div, goethe_pin_canvas, goethe_pin_model)
+    // const goethe_pin_div = document.querySelector("#goethe_pin");
+    // const goethe_pin_canvas = document.querySelector("#goethe_pin_canvas");
+    // const goethe_pin_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/goethe_pin1.glb"
+    // OBJ_DISPLAY(goethe_pin_div, goethe_pin_canvas, goethe_pin_model)
     
     pd.p1_img_obj = new ImageObject(
         pd.p1_image1,

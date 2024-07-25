@@ -45,7 +45,7 @@ PAGE8_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
             easing: "easeInOutQuad"
         })
         pd.p1_img_obj.fade([0,1], 300)
-        await pd.p1_img_obj.glitchTransition(5);
+        //await pd.p1_img_obj.glitchTransition(5);
 
         
         pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()

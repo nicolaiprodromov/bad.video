@@ -48,7 +48,7 @@ PAGE6_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
 
         pd.p1_img_obj.fade([0,1], 300)
         pd.p1_img_obj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
-        await pd.p1_img_obj.glitchTransition(5);
+        // pd.p1_img_obj.glitchTransition(5);
 
         pd.paper1.elementFollowPath(pd.paper1.paths[0].attr('path'), pd.p1_description5, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
     }

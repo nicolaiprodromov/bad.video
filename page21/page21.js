@@ -43,7 +43,7 @@ PAGE21_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
     if (scroll_amount_st == 5 && page17_scroll_amount_st == 4){
         pd.p1_img_obj.fade([0,1], 300)
         // IMAGE GLITCH TRANSITION
-        await pd.p1_img_obj.glitchTransition(5);
+        //await pd.p1_img_obj.glitchTransition(5);
 
         
         pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()

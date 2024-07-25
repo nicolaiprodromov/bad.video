@@ -128,10 +128,10 @@ PAGE10_BUILDER.resize_handler = async (pd) => {
 PAGE10_BUILDER.first_scroll_handler = async (pd) => {
 
     
-    const jcup_div = document.querySelector("#JCUP");
-    const jcup_canvas = document.querySelector("#jcup-canvas");
-    const jcup_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/rci_cup1.glb"
-    OBJ_DISPLAY(jcup_div, jcup_canvas, jcup_model)
+    // const jcup_div = document.querySelector("#JCUP");
+    // const jcup_canvas = document.querySelector("#jcup-canvas");
+    // const jcup_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/rci_cup1.glb"
+    // OBJ_DISPLAY(jcup_div, jcup_canvas, jcup_model)
 
     anime({
         targets: pd.p1_image1,

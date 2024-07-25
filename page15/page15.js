@@ -141,7 +141,7 @@ PAGE15_BUILDER.first_scroll_handler = async (pd) => {
 
     pd.watch_znn_vid.addEventListener('click', () => {
         PAGE15_BUILDER.page_vhs_play.play();
-        pd.p1_img_obj.glitchTransition(5);
+        //pd.p1_img_obj.glitchTransition(5);
         setTimeout(() => {
             pd.image_path_div.style.opacity = 0;
         }, 300)
