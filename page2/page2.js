@@ -12,14 +12,12 @@ PAGE2_BUILDER.pd             = {
     arrow_scale  : null,
     p1_svg_width : null,
     buttons_class : 'p_buttons',
-
     button1_clicked : false,
     button2_clicked : false,
     button3_clicked : false,
     buttons_built : false,
-
 }
-PAGE2_BUILDER.buttons_page_2         = (pd) => {
+PAGE2_BUILDER.buttons_page_2 = (pd) => {
     // BUTTONS
     if (PAGE2_BUILDER.device > 1){
         return null
@@ -94,7 +92,7 @@ PAGE2_BUILDER.buttons_page_2         = (pd) => {
         }
     )
 }
-PAGE2_BUILDER.buttons_resize_page2   = (pd) => {
+PAGE2_BUILDER.buttons_resize_page2 = (pd) => {
     if (PAGE2_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
@@ -117,7 +115,7 @@ PAGE2_BUILDER.buttons_resize_page2   = (pd) => {
         pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE2_BUILDER.load_handler   = (pd) => {
+PAGE2_BUILDER.load_handler = (pd) => {
     
 }
 PAGE2_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
@@ -149,8 +147,12 @@ PAGE2_BUILDER.resize_handler = (pd) => {
     PAGE2_BUILDER.buttons_page_2(pd);
     PAGE2_BUILDER.buttons_resize_page2(pd);
 }
-
 PAGE2_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
     PAGE2_BUILDER.buttons_page_2(pd);
+    
+    const goethe_pin_div = document.querySelector("#goethe_pin");
+    const goethe_pin_canvas = document.querySelector("#goethe_pin_canvas");
+    const goethe_pin_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/goethe_pin1.glb"
+    OBJ_DISPLAY(goethe_pin_div, goethe_pin_canvas, goethe_pin_model)
 }

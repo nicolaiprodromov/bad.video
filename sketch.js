@@ -565,19 +565,19 @@ window.addEventListener('load', () => {
 
 
 
-// window.addEventListener('resize', () => {
-//     // SCREEN REPAIR ON RESIZE
-//     scroll_amount = 1
-//     page2_scroll_amount  = 0
-//     page7_scroll_amount  = 0
-//     page12_scroll_amount  = 0
-//     page17_scroll_amount  = 0
-//     page22_scroll_amount  = 0
-//     page2.style.left  = "0px"
-//     page7.style.left  = "0px"
-//     page12.style.left  = "0px"
-//     page17.style.left  = "0px"
-//     page22.style.left  = "0px"
-//     var e_e = {type:'wheel', deltaY:-1}
-//     scroll_to(e_e)
-// })
+window.addEventListener('resize', () => {
+    // SCREEN REPAIR ON RESIZE
+    scroll_amount = 1
+    page2_scroll_amount  = 0
+    page7_scroll_amount  = 0
+    page12_scroll_amount  = 0
+    page17_scroll_amount  = 0
+    page22_scroll_amount  = 0
+    page2.style.left  = "0px"
+    page7.style.left  = "0px"
+    page12.style.left  = "0px"
+    page17.style.left  = "0px"
+    page22.style.left  = "0px"
+    var e_e = {type:'wheel', deltaY:-1}
+    scroll_to(e_e)
+})

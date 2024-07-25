@@ -41,6 +41,7 @@ PAGE0_BUILDER.resize_handler = (pd) => {
     PAGE0_BUILDER.deviceCheck();
     console.log(PAGE0_BUILDER.deviceMap[PAGE0_BUILDER.device])
 }
+
 PAGE0_BUILDER.first_scroll_handler = (pd) => {
     pd.bg_rand_text    = new TextAnim(pd.random_nr);
     pd.bg_rand_text1   = new TextAnim(pd.random_nr1);
