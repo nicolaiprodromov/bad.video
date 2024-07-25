@@ -24,8 +24,25 @@ PAGE15_BUILDER.pd             = {
     pathy2 : null,
 
     ip_div_bb : null,
+
+    watch_znn_vid : document.querySelector("#watch_znn_vid"),
+    znn_video : document.querySelector("#znn_video"),
 }
 PAGE15_BUILDER.load_handler   = async (p15d) => {
+
+    p15d.watch_znn_vid.addEventListener('click', () => {
+        p15d.p1_img_obj.glitchTransition(5);
+        setTimeout(() => {
+            p15d.image_path_div.style.opacity = 0;
+        }, 300)
+        setTimeout(() => {
+            p15d.p1_image1.style.opacity = 0;
+            p15d.p1_description3.style.opacity = 0;
+        }, 1000)
+        setTimeout(() => {
+            p15d.znn_video.style.display = "block"
+        }, 1100)
+    })
 
     p15d.p1_img_obj = new ImageObject(
         element  = p15d.p1_image1,
@@ -80,6 +97,16 @@ PAGE15_BUILDER.scroll_handler = (p15d, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page12_scroll_amount_st  = ss[3];
     if (scroll_amount_st == 4 && page12_scroll_amount_st == 3){
+        p15d.znn_video.style.display = "none"
+        p15d.p1_description3.style.opacity = 1;
+        p15d.image_path_div.style.opacity = 1;
+
+        anime({
+            targets        : document.body,
+            backgroundColor: ["rgb(225,225,225)","rgb(0,0,0)"],
+            duration       : 10,
+            easing         : "easeInCirc"
+        })
 
         p15d.p1_img_obj.fade([0,1], 300)
         p15d.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')

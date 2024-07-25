@@ -143,6 +143,21 @@ PAGE12_BUILDER.scroll_handler = (p12d, ss, delta_ss) => {
 
         p12d.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
         p12d.p1_title_anim.cycle_random(300, 53)
+        document.querySelector("#particle_intro0").innerHTML="zenon.network"
+        document.querySelector("#particle_intro1").innerHTML=">"
+        document.querySelector("#particle_intro2").innerHTML="1/5"
+    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 1){
+        document.querySelector("#particle_intro0").innerHTML="zenon.network"
+        document.querySelector("#particle_intro2").innerHTML="2/5"
+    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 2){
+        document.querySelector("#particle_intro0").innerHTML="zenon.network"
+        document.querySelector("#particle_intro2").innerHTML="3/5"
+    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 3){
+        document.querySelector("#particle_intro0").innerHTML="zenon.network"
+        document.querySelector("#particle_intro2").innerHTML="4/5"
+    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 4){
+        document.querySelector("#particle_intro0").innerHTML="explore"
+        document.querySelector("#particle_intro2").innerHTML="5/5"
     }
 }
 PAGE12_BUILDER.resize_handler = (p12d) => {

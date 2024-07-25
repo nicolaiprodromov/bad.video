@@ -131,6 +131,21 @@ PAGE2_BUILDER.scroll_handler = (p2d, ss, delta_ss) => {
     if (scroll_amount_st == 2 && page2_scroll_amount_st == 0){
         p2d.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
         p2d.p1_title_anim.cycle_random(300, 53)
+        document.querySelector("#particle_intro0").innerHTML="gf 2019"
+        document.querySelector("#particle_intro1").innerHTML=">"
+        document.querySelector("#particle_intro2").innerHTML="1/5"
+    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 1){
+        document.querySelector("#particle_intro0").innerHTML="gf 2019"
+        document.querySelector("#particle_intro2").innerHTML="2/5"
+    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 2){
+        document.querySelector("#particle_intro0").innerHTML="gf 2019"
+        document.querySelector("#particle_intro2").innerHTML="3/5"
+    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 3){
+        document.querySelector("#particle_intro0").innerHTML="swipe the pin"
+        document.querySelector("#particle_intro2").innerHTML="4/5"
+    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 4){
+        document.querySelector("#particle_intro0").innerHTML="explore"
+        document.querySelector("#particle_intro2").innerHTML="5/5"
     }
 }
 PAGE2_BUILDER.resize_handler = (p2d) => {

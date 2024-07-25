@@ -4,6 +4,9 @@
     align-items    : center;
     justify-content: var(--page-center);
 }
+#npxyz_pc15{
+    height: 100vh;
+}
 #p3_description4{
     position: absolute;
     width:var(--p1d3-width);
@@ -24,4 +27,9 @@
     z-index: 1;
     width: var(--p1_image_width);
     height: var(--p1_image_width);
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position: relative;
+    top: -1px;
 }

@@ -39,9 +39,9 @@ PAGE14_BUILDER.load_handler = (p14d) => {
         tw0.style.maxHeight = "100%"
         tw1.style.maxHeight = "100%"
         tw2.style.maxHeight = "100%"
-        tw0.style.pointerEvents = "none"
-        tw1.style.pointerEvents = "none"
-        tw2.style.pointerEvents = "none"
+        // tw0.style.pointerEvents = "none"
+        // tw1.style.pointerEvents = "none"
+        // tw2.style.pointerEvents = "none"
         tw0.style.margin = "0px"
         tw1.style.margin = "0px"
         tw2.style.margin = "0px"
@@ -55,17 +55,17 @@ PAGE14_BUILDER.load_handler = (p14d) => {
         tw2.style.justifyContent = "center"
         tw2.style.position       = "absolute"
 
-        tw0.style.left      = `calc(50% - ${tw0.getBoundingClientRect().width/2}px)`
+        tw0.style.left      = `calc(50% - ${tw0.getBoundingClientRect().width/2}px - 100px)`
         tw0.style.top       = "50%"
-        tw0.style.transform = "translate(-50%,-50%) rotate(3deg)"
+        tw0.style.transform = "translate(-50%,-50%) rotate(-2deg)"
 
-        tw1.style.left      = `calc(50% + ${tw1.getBoundingClientRect().width/2}px)`
+        tw1.style.left      = `calc(50% + ${tw1.getBoundingClientRect().width/2}px + 200px)`
         tw1.style.top       = "50%"
         tw1.style.transform = "translate(-50%,-50%) rotate(-1deg)"
 
-        tw2.style.left      = "50%"
+        tw2.style.left      = `calc(50%)`
         tw2.style.top       = "50%"
-        tw2.style.transform = "translate(-50%,-50%) rotate(-3deg)"
+        tw2.style.transform = "translate(-50%,-50%) rotate(3deg)"
     }, 3000)
 
 
@@ -84,14 +84,11 @@ PAGE14_BUILDER.scroll_handler = (p14d, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page12_scroll_amount_st  = ss[3];
     if (scroll_amount_st == 4 && page12_scroll_amount_st == 2){
+        document.body.style.backgroundColor = "var(--bg)"
         // for (var bgobj of p14d.p1_img_obj){
         //     bgobj.fade([0,1], 300)
         //     bgobj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
         // }
-
-        var tw0 = document.querySelector("#twitter-widget-0");
-        var tw1 = document.querySelector("#twitter-widget-1");
-        var ccc = document.querySelector(".twitter-tweet")
 
         // anime({
         //     targets: [tw0],

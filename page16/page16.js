@@ -79,6 +79,9 @@ PAGE16_BUILDER.scroll_handler = async (p16d, ss, delta_ss) => {
     var scroll_amount_st        = ss[0];
     var page12_scroll_amount_st  = ss[3];
     if (scroll_amount_st == 4 && page12_scroll_amount_st == 4){
+
+        document.body.style.backgroundColor = "var(--bg)"
+
         p16d.p1_img_obj.fade([0,1], 300)
         // IMAGE GLITCH TRANSITION
         await p16d.p1_img_obj.glitchTransition(5);
