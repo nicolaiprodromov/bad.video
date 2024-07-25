@@ -51,6 +51,8 @@ PAGE1_BUILDER.pd             = {
     arrow_menu : document.querySelector("#arrow_menu"),
 }
 PAGE1_BUILDER.load_handler   = async (p1d) => {
+    p1d.arrow_menu.style.left = `${p1d.includer.getBoundingClientRect().width/2}px`
+    p1d.arrow_menu.style.top  = `${p1d.includer.getBoundingClientRect().height/2}px`
     p1d.page1_menu_div.addEventListener("mousemove", (e) => {
         p1d.arrow_menu.style.left = `${e.clientX}px`
         p1d.arrow_menu.style.top  = `${e.clientY}px`

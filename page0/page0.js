@@ -12,6 +12,7 @@ PAGE0_BUILDER.pd             = {
     particles_p_div: document.querySelector("#particles_intro"),
     particles_div  : document.querySelectorAll(".particle_intro"),
     random_nr      : document.querySelector('#random_nr'),
+    random_nr1      : document.querySelector('#random_nr1'),
 
 }
 PAGE0_BUILDER.load_handler   = [
@@ -23,6 +24,7 @@ PAGE0_BUILDER.load_handler   = [
     },
     (p0d) => {
         p0d.bg_rand_text    = new TextAnim(p0d.random_nr);
+        p0d.bg_rand_text1   = new TextAnim(p0d.random_nr1);
         p0d.nm_anim     = new TextAnim(p0d.name_title);
         p0d.nm_anim1    = new TextAnim(p0d.name_title1);
         p0d.nm_anim.nr_vo_in(333, 'easeInOutExpo', 25);
@@ -73,8 +75,10 @@ PAGE0_BUILDER.scroll_handler = (p0d, ss, delta_ss) => {
             document.querySelector("#particle_intro2").innerHTML="animation reel"
             p0d.nm_anim.cycle_random(500, 55);
             p0d.nm_anim1.cycle_random(500, 55);
-            p0d.bg_rand_text.nr_vo_out(2000, 'easeInOutExpo', 25);
-            p0d.bg_rand_text.cycle_random(100, 35);
+            p0d.bg_rand_text.nr_vo_in(1000, 'easeInOutExpo', 25);
+            p0d.bg_rand_text.cycle_random(300, 35);
+            p0d.bg_rand_text1.nr_vo_in(1200, 'easeInOutExpo', 25);
+            p0d.bg_rand_text1.cycle_random(300, 35);
         }
 }
 PAGE0_BUILDER.resize_handler = (p0d) => {

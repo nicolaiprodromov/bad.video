@@ -66,8 +66,8 @@
     position: relative;
     z-index : 1;
 
-    height     : var(--title_big);
-    line-height: var(--title_big);
+    height     : calc(var(--title_big) - .7vw);
+    line-height: calc(var(--title_big) - .7vw);;
     font-size  : var(--title_big);
 }
 #name_title1{
@@ -117,15 +117,27 @@
     display:var(--random-display);
     position : absolute;
 
-    bottom   : 0px;
-    left     : 0px;
+    bottom   : 10px;
 
-    transform: rotate(-10deg);
+    transform: rotate(-3deg);
 
     height     : calc( var(--title_small));
     line-height: calc( var(--title_small));
     font-size  : calc( var(--title_small));
-    color      : blue;
+    color      : rgb(255, 255, 255);
+}
+#random_nr1{
+    display:var(--random-display);
+    position : absolute;
+
+    top   : 10px;
+
+    transform: rotate(3deg);
+
+    height     : calc( var(--title_small));
+    line-height: calc( var(--title_small));
+    font-size  : calc( var(--title_small));
+    color      : rgb(255, 255, 255);
 }
 
 
