@@ -1,7 +1,7 @@
-import { Page }          from '/page_builder.js';
-import { TextAnim }      from '/text_anim.js';
-import { FRUIT_DISPLAY } from '/3D_display.js';
-import { ImageObject }   from '/images_obj.js';
+import { Page }          from '/lib/page_builder.js';
+import { TextAnim }      from '/lib/text_anim.js';
+import { FRUIT_DISPLAY } from '/lib/3D_display.js';
+import { ImageObject }   from '/lib/images_obj.js';
 
 const PAGE1_BUILDER = new Page(1);
 PAGE1_BUILDER.pd = {
