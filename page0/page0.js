@@ -27,8 +27,8 @@ PAGE0_BUILDER.load_handler   = [
         p0d.nm_anim1    = new TextAnim(p0d.name_title1);
         p0d.nm_anim.nr_vo_in(333, 'easeInOutExpo', 25);
         p0d.nm_anim1.nr_vo_in(333, 'easeInOutExpo', 25);
-        setTimeout(() => {p0d.nm_anim.simCharacters()}, 1111);
-        setTimeout(() => {p0d.nm_anim1.simCharacters()}, 1111);
+        // setTimeout(() => {p0d.nm_anim.simCharacters()}, 1111);
+        // setTimeout(() => {p0d.nm_anim1.simCharacters()}, 1111);
 
         var particles = []
         var ind = 0;
