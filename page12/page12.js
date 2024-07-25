@@ -1,6 +1,5 @@
 import { Page }        from '/lib/page_builder.js';
 import { TextAnim }    from '/lib/text_anim.js';
-import { OBJ_DISPLAY } from '/lib/3D_display.js';
 
 const PAGE12_BUILDER = new Page(12);
 PAGE12_BUILDER.pd             = {
