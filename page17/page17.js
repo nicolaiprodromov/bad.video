@@ -1,5 +1,6 @@
-import { Page }        from '/lib/page_builder.js';
-import { TextAnim }    from '/lib/text_anim.js';
+import { Page }          from '/lib/page_builder.js';
+import { Paper }         from '/lib/svg.js';
+import { TextAnim }      from '/lib/text_anim.js';
 import { FRUIT_DISPLAY } from '/lib/3D_display.js';
 
 const PAGE17_BUILDER = new Page(17);
@@ -153,6 +154,6 @@ PAGE17_BUILDER.first_scroll_handler = (pd) => {
     PAGE17_BUILDER.buttons_page_17(pd);
     const znn_3d_div    = document.querySelector("#ZNN_3D");
     const znn_3d_canvas = document.querySelector("#ZNN_3D_CANVAS");
-    const znn_3d_model  = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/znn_sentinel1.glb"
+    const znn_3d_model  = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/znn_sentinel1.glb"
     FRUIT_DISPLAY(znn_3d_div, znn_3d_canvas, znn_3d_model);
 }
