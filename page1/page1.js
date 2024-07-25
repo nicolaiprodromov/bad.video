@@ -76,13 +76,13 @@ PAGE1_BUILDER.load_handler   = async (p1d) => {
         p1d.menu_items_ta.push(ta)
         ind++;
     }
-    p1d.page1_menu_div.addEventListener('mouseleave', () => {
-        var indy = 0;
-        for (var mimg of p1d.menu_images){
-            p1d.img_objs[indy].fade([1,0], 200)
-            indy++;
-        }
-    })
+    // p1d.page1_menu_div.addEventListener('mouseleave', () => {
+    //     var indy = 0;
+    //     for (var mimg of p1d.menu_images){
+    //         p1d.img_objs[indy].fade([1,0], 200)
+    //         indy++;
+    //     }
+    // })
     for (var mi of p1d.menu_items_ta){
         mi.element.addEventListener('click', async (e) => {
             var fruits = document.querySelectorAll('.FRUIT');
