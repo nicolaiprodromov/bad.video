@@ -1,5 +1,6 @@
-import { Page }        from '/lib/page_builder.js';
-import { TextAnim }    from '/lib/text_anim.js';
+import { Page }     from '/lib/page_builder.js';
+import { TextAnim } from '/lib/text_anim.js';
+import { Paper }    from '/lib/svg.js';
 
 const PAGE7_BUILDER = new Page(7);
 PAGE7_BUILDER.pd = {
