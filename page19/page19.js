@@ -1,6 +1,6 @@
 
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { ImageObject } from 'http://127.0.0.1:5500/lib/images_obj.js';
+import { Page }        from '/lib/page_builder.js';
+import { ImageObject } from '/lib/images_obj.js';
 
 const PAGE19_BUILDER = new Page(19);
 PAGE19_BUILDER.pd = {

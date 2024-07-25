@@ -1,6 +1,6 @@
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { Paper }       from 'http://127.0.0.1:5500/lib/svg.js'
-import { ImageObject } from 'http://127.0.0.1:5500/lib/images_obj.js';
+import { Page }        from '/lib/page_builder.js';
+import { Paper }       from '/lib/svg.js'
+import { ImageObject } from '/lib/images_obj.js';
 
 const PAGE21_BUILDER = new Page(21);
 PAGE21_BUILDER.pd             = {
@@ -9,7 +9,7 @@ PAGE21_BUILDER.pd             = {
     
     p1_image1 : document.querySelector('#p4_image14'),
     p1_img_obj: null,
-    p1_img_src: "http://127.0.0.1:5500/page6/Asset 4.png",
+    p1_img_src: "/page6/Asset 4.png",
 
     p1_img_map : {
         0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a472e0e9760f2836b7c0b_thumbnail.webp`,

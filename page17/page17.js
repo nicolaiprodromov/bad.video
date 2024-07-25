@@ -1,6 +1,6 @@
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { TextAnim }    from 'http://127.0.0.1:5500/lib/text_anim.js';
-import { FRUIT_DISPLAY } from 'http://127.0.0.1:5500/lib/3D_display.js';
+import { Page }        from '/lib/page_builder.js';
+import { TextAnim }    from '/lib/text_anim.js';
+import { FRUIT_DISPLAY } from '/lib/3D_display.js';
 
 const PAGE17_BUILDER = new Page(17);
 PAGE17_BUILDER.pd = {

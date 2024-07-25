@@ -1,8 +1,8 @@
 
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { Paper }       from 'http://127.0.0.1:5500/lib/svg.js'
-import { ImageObject } from 'http://127.0.0.1:5500/lib/images_obj.js';
-import { OBJ_DISPLAY } from 'http://127.0.0.1:5500/lib/3D_display.js';
+import { Page }        from '/lib/page_builder.js';
+import { Paper }       from '/lib/svg.js'
+import { ImageObject } from '/lib/images_obj.js';
+import { OBJ_DISPLAY } from '/lib/3D_display.js';
 
 
 const PAGE5_BUILDER = new Page(5);
@@ -12,7 +12,7 @@ PAGE5_BUILDER.pd             = {
     
     p1_image1 : document.querySelector('#p1_image13'),
     p1_img_obj: null,
-    p1_img_src: "http://127.0.0.1:5500/page5/mock-up.png",
+    p1_img_src: "/page5/mock-up.png",
 
     p1_img_map : {
         0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/6699448fbb33a1d331a70d70_mock-up.webp`,

@@ -1,8 +1,8 @@
 
 
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { Paper }       from 'http://127.0.0.1:5500/lib/svg.js'
-import { ImageObject }   from 'http://127.0.0.1:5500/lib/images_obj.js';
+import { Page }        from '/lib/page_builder.js';
+import { Paper }       from '/lib/svg.js'
+import { ImageObject }   from '/lib/images_obj.js';
 
 const PAGE3_BUILDER = new Page(3);
 PAGE3_BUILDER.pd             = {

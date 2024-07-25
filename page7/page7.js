@@ -1,5 +1,5 @@
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { TextAnim }    from 'http://127.0.0.1:5500/lib/text_anim.js';
+import { Page }        from '/lib/page_builder.js';
+import { TextAnim }    from '/lib/text_anim.js';
 
 const PAGE7_BUILDER = new Page(7);
 PAGE7_BUILDER.pd = {
