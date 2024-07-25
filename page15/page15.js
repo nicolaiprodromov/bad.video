@@ -31,6 +31,7 @@ PAGE15_BUILDER.pd             = {
 PAGE15_BUILDER.load_handler   = async (p15d) => {
 
     p15d.watch_znn_vid.addEventListener('click', () => {
+        PAGE15_BUILDER.page_vhs_play.play();
         p15d.p1_img_obj.glitchTransition(5);
         setTimeout(() => {
             p15d.image_path_div.style.opacity = 0;

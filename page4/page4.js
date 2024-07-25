@@ -51,21 +51,44 @@ PAGE4_BUILDER.pd = {
     drag_grid: document.querySelector(".drag_grid"),
     drag_down: false,
 }
-PAGE4_BUILDER.load_handler = (p4d) => {
-    for (var bgobj of p4d.p1_images2){
+PAGE4_BUILDER.load_handler = (pd) => {
+    
+}
+PAGE4_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+    var scroll_amount_st        = ss[0];
+        var page2_scroll_amount_st  = ss[1];
+        if (scroll_amount_st == 2 && page2_scroll_amount_st == 2){
+            for (var bgobj of pd.p1_img_obj){
+                bgobj.fade([0,1], 300);
+                bgobj.scale_x(["0%","100%"], 300, 'easeInOutCirc');
+            }
+        }
+        
+}
+PAGE4_BUILDER.resize_handler = (pd) => {
+    for (var bgobj of pd.p1_img_obj){
+        bgobj.clear();
+        bgobj.img = pd.p1_img_map[PAGE4_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)];
+        bgobj.draw();
+    }
+}
+
+
+PAGE4_BUILDER.first_scroll_handler = (pd) => {
+    for (var bgobj of pd.p1_images2){
         var bg_img_obj11 = new ImageObject(
             element  = bgobj,
-            img      = p4d.p1_img_map[PAGE4_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
+            img      = pd.p1_img_map[PAGE4_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
             id       = 0,
         );
         bg_img_obj11.draw();
-        p4d.p1_img_obj.push(bg_img_obj11);
+        pd.p1_img_obj.push(bg_img_obj11);
     }
     const animate_dragster = (e) => {
 
         var _e_ = e.type != "touchmove" ? e : e.touches[0]
 
-        for (var child_el of p4d.drag_grid.children){
+        for (var child_el of pd.drag_grid.children){
             
             var bb = child_el.getBoundingClientRect()
             var epsilon = (window.innerWidth/7)/2;
@@ -83,58 +106,40 @@ PAGE4_BUILDER.load_handler = (p4d) => {
             })
         }
     }
-    p4d.dragster1.addEventListener('mousedown', (e) => {
-        p4d.drag_grid.style.display = "flex";
+    pd.dragster1.addEventListener('mousedown', (e) => {
+        pd.drag_grid.style.display = "flex";
     });
-    p4d.dragster1.addEventListener('touchstart', (e) => {
-        p4d.drag_grid.style.display = "flex";
+    pd.dragster1.addEventListener('touchstart', (e) => {
+        pd.drag_grid.style.display = "flex";
     });
-    p4d.dragster1.addEventListener('mousemove', (e) => {
+    pd.dragster1.addEventListener('mousemove', (e) => {
         animate_dragster(e);
     });
-    p4d.dragster1.addEventListener('touchmove', (e) => {
+    pd.dragster1.addEventListener('touchmove', (e) => {
         animate_dragster(e);
     });
 
 
-    p4d.dragster2.addEventListener('mousedown', (e) => {
-        p4d.drag_grid.style.display = "flex";
+    pd.dragster2.addEventListener('mousedown', (e) => {
+        pd.drag_grid.style.display = "flex";
     });
-    p4d.dragster2.addEventListener('touchstart', (e) => {
-        p4d.drag_grid.style.display = "flex";
+    pd.dragster2.addEventListener('touchstart', (e) => {
+        pd.drag_grid.style.display = "flex";
     });
-    p4d.dragster2.addEventListener('mousemove', (e) => {
+    pd.dragster2.addEventListener('mousemove', (e) => {
         animate_dragster(e);
     });
-    p4d.dragster2.addEventListener('touchmove', (e) => {
+    pd.dragster2.addEventListener('touchmove', (e) => {
         animate_dragster(e);
     }); 
 
 
     window.addEventListener('mouseup', (e) => {
-        p4d.drag_grid.style.display = "none";
+        pd.drag_grid.style.display = "none";
     });
     window.addEventListener('touchend', (e) => {
-        p4d.drag_grid.style.display = "none";
+        pd.drag_grid.style.display = "none";
     });
 
 
-}
-PAGE4_BUILDER.scroll_handler = (p4d, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-        var page2_scroll_amount_st  = ss[1];
-        if (scroll_amount_st == 2 && page2_scroll_amount_st == 2){
-            for (var bgobj of p4d.p1_img_obj){
-                bgobj.fade([0,1], 300);
-                bgobj.scale_x(["0%","100%"], 300, 'easeInOutCirc');
-            }
-        }
-        
-}
-PAGE4_BUILDER.resize_handler = (p4d) => {
-    for (var bgobj of p4d.p1_img_obj){
-        bgobj.clear();
-        bgobj.img = p4d.p1_img_map[PAGE4_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)];
-        bgobj.draw();
-    }
 }

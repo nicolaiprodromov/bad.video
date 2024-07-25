@@ -50,52 +50,69 @@ PAGE1_BUILDER.pd             = {
     },
     arrow_menu : document.querySelector("#arrow_menu"),
 }
-PAGE1_BUILDER.load_handler   = async (p1d) => {
-    p1d.arrow_menu.style.left = `${p1d.includer.getBoundingClientRect().width/2}px`
-    p1d.arrow_menu.style.top  = `${p1d.includer.getBoundingClientRect().height/2}px`
-    p1d.page1_menu_div.addEventListener("mousemove", (e) => {
-        p1d.arrow_menu.style.left = `${e.clientX}px`
-        p1d.arrow_menu.style.top  = `${e.clientY}px`
-    })
+PAGE1_BUILDER.load_handler   = async (pd) => {
+    
+}
+PAGE1_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+    var scroll_amount_st = ss[0];
+    if (scroll_amount_st == 1){
+        document.querySelector("#particle_intro0").innerHTML="scroll down"
+        document.querySelector("#particle_intro1").innerHTML="pick a project"
+        document.querySelector("#particle_intro2").innerHTML="^"
+    }
+}
+PAGE1_BUILDER.resize_handler = async (pd) => {
     var indyy=0;
-    for (var mimg of p1d.menu_images){
+    for (var mimg_ of pd.img_objs){
+        mimg_.clear();
+        mimg_._img = await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy])
+        mimg_.draw();
+        indyy++;
+    }
+}
+
+PAGE1_BUILDER.first_scroll_handler = async (pd) => {
+    var indyy=0;
+    for (var mimg of pd.menu_images){
         var imgobj = new ImageObject(
             element  = mimg,
-            img      = await PAGE1_BUILDER.checkImage(p1d.img_map[PAGE1_BUILDER.device][indyy]),
+            img      = await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy]),
             id       = indyy,
         );
         imgobj.draw();
         imgobj.element.style.opacity = "0"
-        p1d.img_objs.push(imgobj)
+        pd.img_objs.push(imgobj)
         indyy++;
     }
+
     var ind = 0
-    for (var mi of p1d.page1_menu){
-        mi.style.zIndex = ind + 2;
+    for (var mi of pd.page1_menu){
         let ta = new TextAnim(mi, ind)
-        p1d.menu_items_ta.push(ta)
+        pd.menu_items_ta.push(ta)
         ind++;
     }
-    // p1d.page1_menu_div.addEventListener('mouseleave', () => {
-    //     var indy = 0;
-    //     for (var mimg of p1d.menu_images){
-    //         p1d.img_objs[indy].fade([1,0], 200)
-    //         indy++;
-    //     }
-    // })
-    for (var mi of p1d.menu_items_ta){
+
+    pd.arrow_menu.style.left = `${pd.includer.getBoundingClientRect().width/2}px`
+    pd.arrow_menu.style.top  = `${pd.includer.getBoundingClientRect().height/2}px`
+
+    pd.page1_menu_div.addEventListener("mousemove", (e) => {
+        pd.arrow_menu.style.left = `${e.clientX}px`
+        pd.arrow_menu.style.top  = `${e.clientY}px`
+    })
+    
+    for (var mi of pd.menu_items_ta){
         mi.element.addEventListener('click', async (e) => {
             var fruits = document.querySelectorAll('.FRUIT');
             var indy = 0;
             e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
-            p1d.menu_items_ta[e.currentTarget.dataset.text_id].nr_vo_in(200, "easeInOutSine", 20)
-            for (var _ of p1d.menu_images){
+            pd.menu_items_ta[e.currentTarget.dataset.text_id].nr_vo_in(200, "easeInOutSine", 20)
+            for (var _ of pd.menu_images){
                 if (indy == e.currentTarget.dataset.text_id){
                     fruits      [indy].style.opacity        = 1
-                    p1d.img_objs[indy].transform            = "rotate(" + p1d.img_objs[indy].randInt(-33,33) +"deg)"
-                    p1d.img_objs[indy].element.style.zIndex = 1
-                    p1d.img_objs[indy].fade([0,1], 300)
-                    await p1d.img_objs[indy].glitchTransition(5, "black");
+                    pd.img_objs[indy].transform            = "rotate(" + pd.img_objs[indy].randInt(-33,33) +"deg)"
+                    pd.img_objs[indy].element.style.zIndex = 1
+                    pd.img_objs[indy].fade([0,1], 300)
+                    await pd.img_objs[indy].glitchTransition(5, "black");
                     var chaka = indy
                     setTimeout(() => {
                         scroll_amount = chaka + 3
@@ -108,28 +125,11 @@ PAGE1_BUILDER.load_handler   = async (p1d) => {
                         scroll_to(e_e)
                     }, 700)
                 } else {
-                    p1d.img_objs[indy].element.style.zIndex = 0
+                    pd.img_objs[indy].element.style.zIndex = 0
                     fruits      [indy].style.opacity        = 0
                 }
                 indy++;
             }
         })
-    }
-}
-PAGE1_BUILDER.scroll_handler = (p1d, ss, delta_ss) => {
-    var scroll_amount_st = ss[0];
-    if (scroll_amount_st == 1){
-        document.querySelector("#particle_intro0").innerHTML="scroll down"
-        document.querySelector("#particle_intro1").innerHTML="pick a project"
-        document.querySelector("#particle_intro2").innerHTML="^"
-    }
-}
-PAGE1_BUILDER.resize_handler = async (p1d) => {
-    var indyy=0;
-    for (var mimg_ of p1d.img_objs){
-        mimg_.clear();
-        mimg_._img = await PAGE1_BUILDER.checkImage(p1d.img_map[PAGE1_BUILDER.device][indyy])
-        mimg_.draw();
-        indyy++;
     }
 }
