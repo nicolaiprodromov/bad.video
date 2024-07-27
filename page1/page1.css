@@ -1,29 +1,4 @@
-/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
-:root{
-    --menu-image-right : 0px;
-    --menu-image-bottom: none;
-}
-/* ------------------------- PORTRAIT DESKTOP ------------------------- */
-@media screen and (min-width: 1280px) and (min-height: 100vw){
-:root{
-    --menu-image-right : none;
-    --menu-image-bottom: 0px;
-}
-}
-/* ------------------------- PORTRAIT MOBILE ------------------------- */
-@media screen and (max-width: 1280px){
-:root{
-    --menu-image-right : none;
-    --menu-image-bottom: 0px;
-}
-}
-/* ------------------------- LANDSCAPE MOBILE ------------------------- */
-@media screen and (max-width: 1280px) and (min-width: 100vh){
-:root{
-    --menu-image-right : 0px;
-    --menu-image-bottom: none;
-}
-}
+
 #page1include{
     display        : flex;
     flex-direction : column;

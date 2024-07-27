@@ -11,9 +11,9 @@ PAGE18_BUILDER.pd             = {
 
     p1_img_map : {
         0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d53d6a2a3e16ba34fb3_mock-up.webp`,
-        1 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d531369544e5cc05c9e_mock-up-mobile.webp`,
+        1 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a412adf23cda7f124e4a75_mock-up-mobile.webp`,
         2 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d53d6a2a3e16ba34fb3_mock-up.webp`,
-        3 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d531369544e5cc05c9e_mock-up-mobile.webp`,
+        3 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a412adf23cda7f124e4a75_mock-up-mobile.webp`,
     },
 
     paper1 : null,
@@ -29,53 +29,54 @@ PAGE18_BUILDER.pd             = {
 PAGE18_BUILDER.load_handler   = async (pd) => {
 }
 PAGE18_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-    var page17_scroll_amount_st  = ss[4];
-    if (scroll_amount_st == 5 && page17_scroll_amount_st == 1){
-        pd.p1_img_obj.fade([0,1], 300)
-        // IMAGE GLITCH TRANSITION
-        //await pd.p1_img_obj.glitchTransition(5);
 
-        
-        pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
-        pd.pathy2 = {
-            0 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                    c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
-                    c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-            1 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                    c1x:0, c1y:0,
-                    c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-            2 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                    c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
-                    c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-            3 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                    c1x:0, c1y:0,
-                    c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-        }
+    document.querySelector("#particle_intro0").innerHTML="sah.showcase"
+    document.querySelector("#particle_intro2").innerHTML="2/5"
 
-        var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE18_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
-        pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
+    pd.p1_img_obj.fade([0,1], 300)
+    // IMAGE GLITCH TRANSITION
+    //await pd.p1_img_obj.glitchTransition(5);
+
+    
+    pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
+    pd.pathy2 = {
+        0 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        1 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+                c1x:0, c1y:0,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        2 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        3 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+                c1x:0, c1y:0,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
     }
+
+    var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE18_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
+    pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
+
 }
 PAGE18_BUILDER.resize_handler = async (pd) => {
 

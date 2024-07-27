@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <script src="/lib/anime.js"></script>
         <script src="/lib/raphael.js"></script>
 
@@ -46,6 +47,12 @@
 
     </head>
     <body>
+
+        <!-- <lottie-player style="top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;position:fixed;z-index: 9999;"id = "znn_anim" renderer="svg" preserveAspectRatio="xMidYMid slice" mode="normal" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a43a62489be3dd73f149ba_logo_anim.json" background="transparent"  speed=".93"  style="pointer-events:none;z-index:9999; position:absolute; width: 100%; height: 100%;"></lottie-player> -->
+
+        <div id="transition_anim" style="display:flex;align-items:center;justify-content:center;bottom:7%;left:50%;transform:translate(-50%,0%);position:fixed;z-index: 9999;">
+            <canvas width="140px"height="140px"id="transition_anim_canvas"></canvas>
+        </div>
         
         <!-------------------------------------------------  AUDIO -->
         <audio id="click_page" src="https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/sounds/click2.wav"></audio>
@@ -120,31 +127,54 @@
         <div class="holder">
             <div class = "pagecell" id="i0">
             <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                <p class = "header_page_button text_small">pg.00 ↓</p>
+                <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
             </div>
             <div id="npxyz_pc0" class="page_content">
                 <div class = "includer" id="page0include">
-                <!-- PAGE 0 /////////////////////////////////////////////////////////////////////////////////////////-->
-                <div id="intro_title">
-                    <div id="name_title_subtext" class="text_norm">niku.</div>
-                    <div id="name_title"  class="title_big">BAD</div>
-                    <div id="name_title1" class="title_big">.VIDEO</div>
-                    <div class="divider">
-                        <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                    <div class="divider" style = "transform:rotate(-1deg);">
+                        <img class = "divider_symbol" style="left:50%;" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
                     </div>
-                    <div id="name_title_subtext" class="text_small">the portfolio of nicolai prodromov</div>
-                </div>
-                <div id="random_nr"  class="title_norm">4 projects↓</div>
-                <div id="random_nr1"  class="title_norm">animation reel</div>
-                <!-- PAGE 0 /////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!-- PAGE 0 /////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div id="intro_title">
+                        <div id="name_title_subtext" class="text_norm">niku.</div>
+                        <div id="name_title"  class="title_big">BAD</div>
+                        <div class="divider" style = "">
+                            <img class = "divider_symbol" style="left:20%;" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                        </div>
+                        <div id="name_title1" class="title_big">.VIDEO</div>
+                        <div id="name_title_subtext" class="text_small">the portfolio of nicolai prodromov</div>
+                    </div>
+                    <div class="divider" style="margin: 3px 3px 3px 3px">
+                    </div>
+                    <div id="p3_tags" class="p_tags">
+                        <div id="p1_tag1" style = "border:solid 1px black;background-color:transparent;transform:rotate(3deg)" class="p_tag paragraph_small">#3D</div>
+                        <div id="p1_tag2" style = "border:solid 1px black;background-color:transparent;transform:rotate(-1deg)"class="p_tag paragraph_small">#animation</div>
+                        <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                        </div>
+                        <div id="p1_tag3" style = "border:solid 1px black;background-color:transparent;transform:rotate(1deg)"class="p_tag paragraph_small">#video</div>
+                        <div class="divider">
+                        </div>
+                        <div id="p1_tag4" style = "text-wrap: nowrap;border:solid 1px black;background-color:transparent;transform:rotate(2deg)"class="p_tag paragraph_small">#{ design }</div>
+                        <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                        </div>
+                        <div id="p1_tag5" style = "border:solid 1px black;background-color:transparent;transform:rotate(0deg)"class="p_tag paragraph_small">#procedural</div>
+                    </div>
+                    <div id="bg_anim" style="top:0px;width:640px;height:320px;display:flex;align-items:center;justify-content:center;position:absolute;z-index: -3;">
+                        <canvas width="640"height="360"id="bg_canvas"></canvas>
+                    </div>
+                    <div id="random_nr"  class="title_small">4 projects↓</div>
+                    <div id="random_nr1"  class="title_small">animation reel</div>
+                    <!-- PAGE 0 /////////////////////////////////////////////////////////////////////////////////////////-->
                 </div>
             </div>
             <div id="page_footer" class="page_header">
-                <p id = "pgh_p0" class = "text_small">[<a href="https://bad.video">bad.video</a>][<a href="https://experimental.live">experimental.live</a>]</p>
-                <p id = "pgh_p1" class = "text_small"></p>
-                <p id = "pgh_p2" class = "text_small">[<a href="https://github.com/nicolaiprodromov">GITHUB</a>][<a href="https://github.com/nicolaiprodromov">YOUTUBE</a>]</p>
+                <p class = "text_small">[<a href="https://bad.video">bad.video™</a>][<a href="https://experimental.live">experimental.live™</a>]</p>
+                <p class = "text_small"></p>
+                <p class = "text_small">[<a href="https://github.com/nicolaiprodromov">GITHUB</a>][<a href="https://github.com/nicolaiprodromov">YOUTUBE</a>]</p>
             </div>
             </div>
         </div>
@@ -152,85 +182,441 @@
         <!-- PAGE 1 -->
         <div class="holder">
             <div class = "pagecell" id="i1">
-            <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-            </div>
-            <div id="npxyz_pc1" class="page_content">
-                <div class = "includer" id="page1include">
-                <div id="PEAR" class="FRUIT" dataset-id="0">
-                    <canvas id="pear-canvas" class="FRUITC"></canvas>
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.01 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                 </div>
-                
-                <div id="APPLE" class="FRUIT" dataset-id="1">
-                    <canvas id="apple-canvas" class="FRUITC"></canvas>
+                <div id="npxyz_pc1" class="page_content">
+                    <div class = "includer" id="page1include">
+                    <div id="PEAR" class="FRUIT" dataset-id="0">
+                        <canvas id="pear-canvas" class="FRUITC"></canvas>
+                    </div>
+                    
+                    <div id="APPLE" class="FRUIT" dataset-id="1">
+                        <canvas id="apple-canvas" class="FRUITC"></canvas>
+                    </div>
+            
+                    <div id="LIME" class="FRUIT" dataset-id="2">
+                        <canvas id="lime-canvas" class="FRUITC"></canvas>
+                    </div>
+            
+                    <div id="EPEAR" class="FRUIT" dataset-id="3">
+                        <canvas id="epear-canvas" class="FRUITC"></canvas>
+                    </div>
+                    <img id="arrow_menu" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904372503536d8a6a1d24_Asset%2010.svg" style="z-index: 10;position: absolute;width:150px;height:150px;transform:translate(-50%,-100%);pointer-events: none;">
+                    <div id="menu_image0" class="menu_image"></div>
+                    <div id="menu_image1" class="menu_image"></div>
+                    <div id="menu_image2" class="menu_image"></div>
+                    <div id="menu_image3" class="menu_image"></div>
+                    <div id="page1_menu" class="page1_menu" style="cursor: none;">
+                        <div id = "menu_item0" class = "menu_item paragraph_big">RCI @ jazzahead!</div>
+                        <div id = "menu_item1" class = "menu_item paragraph_big">ZENON.NETWORK</div>
+                        <div id = "menu_item2" class = "menu_item paragraph_big">GOETHE FEST</div>
+                        <div id = "menu_item3" class = "menu_item paragraph_big">SAH SHOWCASE</div>
+                    </div>
+                    <div class="divider">
+                        <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                    </div>
+                    <div id="post_menu" class = "text_small">tap to explore project</div>
+                    </div>
                 </div>
-        
-                <div id="LIME" class="FRUIT" dataset-id="2">
-                    <canvas id="lime-canvas" class="FRUITC"></canvas>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">[<a href="https://bad.video">bad.video™</a>][<a href="https://experimental.live">experimental.live™</a>]</p>
+                    <p class = "text_small"></p>
+                    <p class = "text_small">[<a href="https://github.com/nicolaiprodromov">GITHUB</a>][<a href="https://github.com/nicolaiprodromov">YOUTUBE</a>]</p>
                 </div>
-        
-                <div id="EPEAR" class="FRUIT" dataset-id="3">
-                    <canvas id="epear-canvas" class="FRUITC"></canvas>
-                </div>
-                <img id="arrow_menu" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904372503536d8a6a1d24_Asset%2010.svg" style="z-index: 10;position: absolute;width:50px;height:50px;transform:translate(-50%,-100%);pointer-events: none;">
-                <div id="menu_image0" class="menu_image"></div>
-                <div id="menu_image1" class="menu_image"></div>
-                <div id="menu_image2" class="menu_image"></div>
-                <div id="menu_image3" class="menu_image"></div>
-                <div id="page1_menu" class="page1_menu" style="cursor: none;">
-                    <div id = "menu_item0" class = "menu_item paragraph_big">GOETHE FEST</div>
-                    <div id = "menu_item1" class = "menu_item paragraph_big">RCI @ jazzahead!</div>
-                    <div id = "menu_item2" class = "menu_item paragraph_big">ZENON.NETWORK</div>
-                    <div id = "menu_item3" class = "menu_item paragraph_big">SAH SHOWCASE</div>
-                </div>
-                <div class="divider">
-                    <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
-                </div>
-                <div id="post_menu" class = "text_small">tap to explore project</div>
-                </div>
-            </div>
-            <div id="page_footer" class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-            </div>
             </div>
         </div>
         <!-- PAGE 1 -->
         <!---------------------------------------------  PAGES 0 1 -->
         <!--------------------------------------------  ✔ PROJECTS -->
-        <!-- PROJECT 1 -->
+        
+        <!-- PROJECT 2 -->
         <div class = "pagecell" id="i2">
             <div class="holder">
             <div class = "pagecell" id="i3">
                 <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                <p class = "header_page_button text_small">pg.02 ↓</p>
+                <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                 </div>
                 <div id="npxyz_pc2" class="page_content">
-                    <!-- PAGE 2 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     <div class = "includer" id="page2include">
+                        <div id="p2_title" class="p_title title_big">RCI @ jazzahead!</div>
+                        <div id="p3_tags" class="p_tags">
+                            <div id="p1_tag1" style = "background-color:#32ba00;transform:rotate(3deg)" class="p_tag paragraph_small">#identity</div>
+                            <div id="p1_tag2" style = "border:solid 1px black;background-color:transparent;transform:rotate(-1deg)"class="p_tag paragraph_small">#festival</div>
+                            <div class="divider">
+                                <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                            </div>
+                            <div id="p1_tag3" style = "transform:rotate(1deg)"class="p_tag paragraph_small">#vectorgraphics</div>
+                            <div class="divider">
+                            </div>
+                            <div id="p1_tag4" style = "border:solid 1px black;background-color:transparent;transform:rotate(2deg)"class="p_tag paragraph_small">#generated</div>
+                            <div class="divider">
+                                <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                            </div>
+                            <div id="p1_tag5" style = "background-color:#ca94fc;transform:rotate(0deg)"class="p_tag paragraph_small">#display</div>
+                        </div>
+                        
+                        <div id="p2_description" class="paragraph_norm">VISUAL IDENTITY for Romanian Cultural Institute @ jazzahead!</div>
+                        <div class = "p_descrip_holder">
+                            <div id="p2_description2" class="paragraph_small">Branding and print design for RCI's second participation at <a target="_blank" href="https://jazzahead.de/">jazzahead!</a> </div>
+                            <img src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944c4d62f3e1ab1c890ed_Asset%207.svg" alt="" id="p1_intro_image" class="p_intro_image1">
+                        </div>
+
+                        <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                        </div>
+                        <div id="p2_svg" class="p_svg_bg"></div>
+                    </div>
+                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">1/5</p>
+                    <p class = "text_small">RCI @ jazzahead! 2024</p>
+                    <p class = "text_small">≥</p>
+                </div>
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i4">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.03 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc3" class="page_content">
+                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page3include">
+                            <div id="p2_description3" class="paragraph_small"><div class="title_norm">2023 & 2024</div><br> this is our second collaboration.</div>
+                            <div id="p2_image1" class="p_image"></div>
+                            <div id="p2_image_path"></div>
+                    </div>
+                </div>
+                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">2/5</p>
+                    <p class = "text_small">RCI @ jazzahead! 2024</p>
+                    <p class = "text_small">≥</p>
+                </div>
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i5">
+                    <div class="page_header">
+                        <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                        <p class = "header_page_button text_small">pg.04 ↓</p>
+                        <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                    </div>
+                    <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div id="npxyz_pc4" class = "horiz_pics">
+                        <!-- <div class = "dragWarning" id = "dragy" >🡢</div> -->
+                        <div class = "bg" id = "bg1">
+                            <div class = "item1" id = "item1_1" data-id = "0">
+                            <div id="p2_image2" class="p_image3"></div>
+                            </div>
+                            <div class = "item1" id = "item1_2" data-id = "1">
+                            <div id="p2_image3" class="p_image3"></div>
+                            </div>
+                            <div class = "item1" id = "item1_3" data-id = "2">
+                            <div id="p2_image4" class="p_image3"></div>
+                            </div>
+                            <div class = "item1" id = "item1_4" data-id = "3">
+                            <div id="p2_image5" class="p_image3"></div>
+                            </div>
+                            <div class = "item1" id = "item1_5" data-id = "4">
+                            <div id="p2_image6" class="p_image3"></div>
+                            </div>
+                            <div class = "item1" id = "item1_6" data-id = "5">
+                            <div id="p2_image7" class="p_image3"></div>
+                            </div>
+                            <!-- <div class = "item1" id = "item1_7" data-id = "6">
+                            <div id="p2_image8" class="p_image3"></div>
+                            </div> -->
+                            <!-- <div class = "item1" id = "item1_8" data-id = "7">
+                            <div id="p2_image9" class="p_image3"></div>
+                            </div>
+                            <div class = "item2" id = "item2_9" data-id = "8">
+                            <div id="p2_image10" class="p_image3"></div>
+                            </div>
+                            <div class = "item2" id = "item2_10" data-id = "9">
+                            <div id="p2_image11" class="p_image3"></div>
+                            </div>
+                            <div class = "item2" id = "item2_11" data-id = "10">
+                            <div id="p2_image12" class="p_image3"></div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div id="page_footer" class="page_header">
+                    <p class = "text_small">3/5</p>
+                    <p class = "text_small">RCI @ jazzahead! 2024</p>
+                    <p class = "text_small">≥</p>
+                    </div>
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i6">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.05 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc5" class="page_content">
+                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page5include">
+                        <div id="p2_description4">
+                            <div id="JCUP" class="JCUP">
+                                <canvas id="jcup-canvas" class="FRUITC"></canvas>
+                            </div>
+                        </div>
+                        <div id="p2_image13" class="p_image"></div>
+                        <div id="p2_image_path1"></div>
+                    </div>
+                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">4/5</p>
+                    <p class = "text_small">RCI @ jazzahead! 2024</p>
+                    <p class = "text_small">≥</p>
+                </div>
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i6.1">
+                    <div class="page_header">
+                        <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                        <p class = "header_page_button text_small">pg.06 ↓</p>
+                        <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                    </div>
+                    <div id="npxyz_pc6" class="page_content">
+                        <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                        <div class = "includer" id="page6include">
+                            <div id="p2_description5" class="paragraph_small">
+                                <div class="text_norm">take a look</div>
+                                <div class="divider">
+                                <img class = "projsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                                </div>
+                                <div class="project_button_rci">
+                                    <div id="rci_button1" class = "take_a_lookr button text_small">in the wild ↗</div>
+                                    <div id="rci_button2" class = "take_a_lookr button text_small">out in the fields ↗</div>                  
+                                </div>
+                            </div>
+                            <div id="p2_image14" class="project_img2"></div>
+                            <div id="p2_image_path2"></div>
+                        </div>
+                        <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    </div>
+                    <div id="page_footer" class="page_header">
+                    <p class = "text_small">5/5</p>
+                    <p class = "text_small">RCI @ jazzahead! 2024</p>
+                    <p class = "text_small">≥</p>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <!-- PROJECT 2 -->
+        <!-- PROJECT 3 -->
+        <div class = "pagecell" id="i7">
+            <div class="holder">
+            <div class = "pagecell" id="i8">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.07 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc7" class="page_content">
+                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page7include">
+                        <div id="p3_title" class="p_title title_big">ZENON.NETWORK</div>
+                        <div id="p3_tags" class="p_tags">
+                            <div id="p1_tag1" style = "background-color:#32ba00;transform:rotate(3deg)" class="p_tag paragraph_small">#3D</div>
+                            <div id="p1_tag2" style = "border:solid 1px black;background-color:transparent;transform:rotate(-1deg)"class="p_tag paragraph_small">#animation</div>
+                            <div class="divider">
+                                <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                            </div>
+                            <div id="p1_tag3" style = "transform:rotate(1deg)"class="p_tag paragraph_small">#video</div>
+                            <div class="divider">
+                            </div>
+                            <div id="p1_tag4" style = "border:solid 1px black;background-color:transparent;transform:rotate(2deg)"class="p_tag paragraph_small">#marketing</div>
+                            <div class="divider">
+                                <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                            </div>
+                            <div id="p1_tag5" style = "background-color:#ca94fc;transform:rotate(0deg)"class="p_tag paragraph_small">#twitter</div>
+                        </div>
+                        <div id="p3_description" class="paragraph_norm">3D ANIMATION & WEB DESIGN for <a href="https://zenon.network/">$ZNN</a></div>
+                        <div class = "p_descrip_holder">
+                            <div id="p3_description2" class="paragraph_small">I was asked to hop on the Zenon ship back in 2017 and it turned out to be one of the most satisfying projects I've ever worked on. ↗</div>
+                            <!-- <img src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c279935295140ccb383_Asset%201.svg" alt="" id="p2_intro_image" class="p_intro_image1"> -->
+                        </div>
+                        <div id="ZNN_3D" style="position:absolute;width:100%;height:100%;z-index: 0;">
+                            <canvas id="ZNN_3D_CANVAS" style="width:100%;height:100%"></canvas>
+                        </div>
+                        
+                        <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" style="width:60px;height:60px;"src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904371870cff054e6ee59_Asset%206.svg" alt="">
+                        </div>
+                        <div id="p3_svg" class="p_svg_bg"></div>
+                    </div>
+                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">1/5</p>
+                    <p class = "text_small">ZENON.NETWORK</p>
+                    <p class = "text_small">≥</p>
+                </div>
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i9">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.08 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc8" class="page_content">
+                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page8include">
+                            <div id="p3_description3" class="paragraph_small">
+                            <div class="title_norm">2017 - 2023</div>
+                            </div>
+                            <div id="p3_image1" class="p_image"></div>
+                            <div id="p3_image_path"></div>
+                    </div>
+                </div>
+                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">2/5</p>
+                    <p class = "text_small">ZENON.NETWORK</p>
+                    <p class = "text_small">≥</p>
+                </div>
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i10">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.09 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc9" class="page_content">
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/Moon?src=hash&amp;ref_src=twsrc%5Etfw">#Moon</a> — one small step for an Astronaut, one giant leap for <a href="https://twitter.com/hashtag/ZNNAliens?src=hash&amp;ref_src=twsrc%5Etfw">#ZNNAliens</a>. <br><br>More Astronauts needed to join the space program. Use the referral to gather everyone you know. <a href="https://twitter.com/hashtag/AlphanetBigBang?src=hash&amp;ref_src=twsrc%5Etfw">#AlphanetBigBang</a> <a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/PlasmaPoints?src=hash&amp;ref_src=twsrc%5Etfw">#PlasmaPoints</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://t.co/I1cjFWv8UO">pic.twitter.com/I1cjFWv8UO</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1405918018924953605?ref_src=twsrc%5Etfw">June 18, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">New Horizons ahead for the Interplanetary Voyagers. Get ready to spawn the Sentinels, we must conquer the Solar System.<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/AlphanetBigBang?src=hash&amp;ref_src=twsrc%5Etfw">#AlphanetBigBang</a> <a href="https://twitter.com/hashtag/evolve?src=hash&amp;ref_src=twsrc%5Etfw">#evolve</a> <a href="https://twitter.com/hashtag/PlasmaPoints?src=hash&amp;ref_src=twsrc%5Etfw">#PlasmaPoints</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://t.co/dwhxewNd9S">pic.twitter.com/dwhxewNd9S</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1408753672687861760?ref_src=twsrc%5Etfw">June 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/AcceleratorZ?src=hash&amp;ref_src=twsrc%5Etfw">#AcceleratorZ</a> &amp; <a href="https://twitter.com/hashtag/Hyperspace?src=hash&amp;ref_src=twsrc%5Etfw">#Hyperspace</a> are officially live &amp; available as the funding powerhouse for Web3 innovation &amp; cross-chain solutions.<br><br>The future is encrypted.<br>Only you can decrypt it!<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/DAO?src=hash&amp;ref_src=twsrc%5Etfw">#DAO</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://twitter.com/search?q=%24ZTS&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZTS</a> <a href="https://t.co/llbDxMgWNv">pic.twitter.com/llbDxMgWNv</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1517203443970154507?ref_src=twsrc%5Etfw">April 21, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">3/5</p>
+                    <p class = "text_small">ZENON.NETWORK</p>
+                    <p class = "text_small">≥</p>
+                </div>
+                <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i11">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.10 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc10" class="page_content">
+                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page10include">
+                        <div id="p3_description4" class="paragraph_small">
+                            Launch Video
+                            <div style="height:10px;"></div>
+                            <div id ="watch_znn_vid" class = "button text_small">watch</div>
+                        </div>
+                        <div id="p3_image13" class="p_image"></div>
+                        <div id="p3_image_path1"></div>
+                        <iframe id="znn_video" style="position: absolute; z-index: 10;" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/UhoktaaTCYQ?si=l8RVWFhMr2W4w_Ff&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">4/5</p>
+                    <p class = "text_small">ZENON.NETWORK</p>
+                    <p class = "text_small">≥</p>
+                </div>
+            </div>
+            </div>
+            <div class="holder">
+            <div class = "pagecell" id="i11.1">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.11 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc11" class="page_content">
+                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page11include">
+                        <div id="p3_description5" class="paragraph_small">
+                            <div class="text_norm">peek</div>
+                            <div class="divider">
+                                <img class = "projsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                            </div>
+                            <div class="project_button_rci">
+                                <div id="rci_button1" class = "take_a_lookr button text_small">in the wild ↗</div>
+                                <div id="rci_button2" class = "take_a_lookr button text_small">out in the fields ↗</div>                  
+                            </div>
+                        </div>
+                        <div id="p3_image14" class="p_image"></div>
+                        <div id="p3_image_path2"></div>
+                    </div>
+                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">5/5</p>
+                    <p class = "text_small">ZENON.NETWORK</p>
+                    <p class = "text_small">≥</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- PROJECT 3 -->
+         <!-- PROJECT 1 -->
+        <div class = "pagecell" id="i12">
+            <div class="holder">
+            <div class = "pagecell" id="i13">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.12 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc12" class="page_content">
+                    <!-- PAGE 2 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <div class = "includer" id="page12include">
                         <div id="p1_title" class="p_title title_big">GOETHE FEST</div>
                         <div id="p1_tags" class="p_tags">
                             <div id="p1_tag1" style = "background-color:#32ba00;transform:rotate(3deg)" class="p_tag paragraph_small">#illustration</div>
-                            <div id="p1_tag2" style = "transform:rotate(-1deg)"class="p_tag paragraph_small">#graphicdesign</div>
-                            <div id="p1_tag3" style = "transform:rotate(1deg)"class="p_tag paragraph_small">#branding</div>
-                            <div id="p1_tag4" style = "transform:rotate(2deg)"class="p_tag paragraph_small">#test</div>
-                            <div id="p1_tag5" style = "transform:rotate(0deg)"class="p_tag paragraph_small">#test</div>
+                            <div id="p1_tag2" style = "background-color:#ff732d;transform:rotate(-1deg)"class="p_tag paragraph_small">#graphicdesign</div>
+                            <div class="divider">
+                                <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                            </div>
+                            <div id="p1_tag3" style = "border:solid 1px black;background-color:transparent;transform:rotate(1deg)"class="p_tag paragraph_small">#branding</div>
+                            <div class="divider">
+                            </div>
+                            <div id="p1_tag4" style = "transform:rotate(2deg)"class="p_tag paragraph_small">#event</div>
+                            <div class="divider">
+                                <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                            </div>
+                            <div id="p1_tag5" style = "background-color:#c9c9c9;transform:rotate(0deg)"class="p_tag paragraph_small">#poster</div>
                         </div>
                         <div id="p1_description" class="paragraph_norm">VISUAL IDENTITY for Goethe Institute © relocation event.</div>
                         <div class = "p_descrip_holder">
-                            <div id="p1_description2" class="paragraph_small">Goethe Institute asked me to design their relocation party dubbed GOETHE FEST.The event turned out to be fantastic, featuring a concert, awesome projections, fun games, an object library, and many other exciting activities.</div>
+                            <div id="p1_description2" class="paragraph_small">Goethe Institute asked me to design their relocation party dubbed GOETHE FEST. The event turned out great, concerts, awesome projections, fun games, an object library, and many other exciting activities.</div>
                         </div>
 
                         <div class="divider">
                             <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
                         </div>
 
-                        <img src="page2/Asset 16.svg" alt="" id="p1_intro_image" class="p_intro_image1">
+                        <img src="page12/Asset 16.svg" alt="" id="p1_intro_image" class="p_intro_image1">
 
                         <div id="star_bg" style="position:absolute;z-index: 0;width:100%;height:100%;transform:translate(30%, -50%)">
                             <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 100">
@@ -246,22 +632,22 @@
                     <!-- PAGE 2 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                 </div>
                 <div id="page_footer" class="page_header">
-            <p id = "pgh_p0" class = "text_small">1/5</p>
-            <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
-            <p id = "pgh_p2" class = "text_small">≥</p>
+                    <p class = "text_small">1/5</p>
+                    <p class = "text_small"><i>GOETHE FEST 2019</i></p>
+                    <p class = "text_small">≥</p>
                 </div>
             </div>
             </div>
             <div class="holder">
-            <div class = "pagecell" id="i4">
+            <div class = "pagecell" id="i14">
                 <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                <p class = "header_page_button text_small">pg.13 ↓</p>
+                <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                 </div>
                 <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                <div id="npxyz_pc3" class="page_content">
-                    <div class = "includer" id="page3include">
+                <div id="npxyz_pc13" class="page_content">
+                    <div class = "includer" id="page13include">
                             <div id="p1_description3" class="paragraph_small"><i class="title_norm">2019</i><br>Some merch ideas</div>
                             <div id="p1_image1" class="p_image"></div>
                             <div id="p1_image_path"></div>
@@ -269,18 +655,18 @@
                 </div>
                 <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                 <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">2/5</p>
-                    <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
+                    <p class = "text_small">2/5</p>
+                    <p class = "text_small"><i>GOETHE FEST 2019</i></p>
+                    <p class = "text_small">≥</p>
                 </div>
             </div>
             </div>
             <div class="holder">
             <div class = "pagecell" id="i5">
                 <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                <p class = "header_page_button text_small">pg.14 ↓</p>
+                <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                 </div>
                 <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                 <div id = "npxyz_pc4" class = "horiz_pics">
@@ -323,17 +709,22 @@
                 </div>
                 <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                 <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">3/5</p>
-                    <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
+                    <p class = "text_small">3/5</p>
+                    <p class = "text_small"><i>GOETHE FEST 2019</i></p>
+                    <p class = "text_small">≥</p>
                 </div>
             </div>
             </div>
             <div class="holder">
             <div class = "pagecell" id="i6">
-                <div id="npxyz_pc5" class="page_content">
+                <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.14 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                </div>
+                <div id="npxyz_pc15" class="page_content">
                     <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page5include">
+                    <div class = "includer" id="page15include">
                         <div id="p1_description4">
                         <div id="goethe_pin" class="goethe_pin">
                             <canvas id="goethe_pin_canvas" class="FRUITC"></canvas>
@@ -344,18 +735,23 @@
                     </div>
                     <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                 </div>
+                <div id="page_footer" class="page_header">
+                    <p class = "text_small">4/5</p>
+                    <p class = "text_small"><i>GOETHE FEST 2019</i></p>
+                    <p class = "text_small">≥</p>
+                </div>
             </div>
             </div>
             <div class="holder">
-                <div class = "pagecell" id="i6-1">
+                <div class = "pagecell" id="i16-1">
                     <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                        <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                        <p class = "header_page_button text_small">pg.15 ↓</p>
+                        <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                     </div>
-                    <div id="npxyz_pc6" class="page_content">
+                    <div id="npxyz_pc16" class="page_content">
                         <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                        <div class = "includer" id="page6include">
+                        <div class = "includer" id="page16include">
                             <div id="p1_description5">
                             <div class="text_norm">observe the project</div>
                             <div class="divider">
@@ -369,457 +765,167 @@
                         <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     </div>
                     <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">5/5</p>
-                    <p id = "pgh_p1" class = "text_small"><i>GOETHE FEST 2019</i></p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
+                    <p class = "text_small">5/5</p>
+                    <p class = "text_small"><i>GOETHE FEST 2019</i></p>
+                    <p class = "text_small">≥</p>
                     </div>
                 </div>
             </div>
         </div>
         <!-- PROJECT 1 -->
-        <!-- PROJECT 2 -->
-        <div class = "pagecell" id="i7">
-            <div class="holder">
-            <div class = "pagecell" id="i8">
-                <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-                <div id="npxyz_pc7" class="page_content">
-                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page7include">
-                        <div id="p2_title" class="p_title title_big">RCI @ jazzahead!</div>
-                        <div id="p2_tags" class="p_tags">
-                            <div id="p2_tag1" class="p_tag paragraph_small">#test</div>
-                            <div id="p2_tag2" class="p_tag paragraph_small">#test</div>
-                            <div id="p2_tag3" class="p_tag paragraph_small">#test</div>
-                            <div id="p2_tag4" class="p_tag paragraph_small">#test</div>
-                            <div id="p2_tag5" class="p_tag paragraph_small">#test</div>
-                        </div>
-                        
-                        <div id="p2_description" class="paragraph_norm">VISUAL IDENTITY for Romanian Cultural Institute @ jazzahead!</div>
-                        <div class = "p_descrip_holder">
-                            <div id="p2_description2" class="paragraph_small">Branding and print design for RCI's second participation at <a target="_blank" href="https://jazzahead.de/">jazzahead!</a> </div>
-                            <img src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944c4d62f3e1ab1c890ed_Asset%207.svg" alt="" id="p1_intro_image" class="p_intro_image1">
-                        </div>
-
-                        <div class="divider">
-                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
-                        </div>
-
-
-                        <div id="p2_svg" class="p_svg_bg"></div>
-                    </div>
-                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                </div>
-                <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">1/5</p>
-                    <p id = "pgh_p1" class = "text_small">RCI @ jazzahead! 2024</p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
-                </div>
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "pagecell" id="i9">
-                <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-                <div id="npxyz_pc8" class="page_content">
-                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page8include">
-                            <div id="p2_description3" class="paragraph_small"><div class="title_norm">2023 & 2024</div><br> this is our second collaboration.</div>
-                            <div id="p2_image1" class="p_image"></div>
-                            <div id="p2_image_path"></div>
-                    </div>
-                </div>
-                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">2/5</p>
-                    <p id = "pgh_p1" class = "text_small">RCI @ jazzahead! 2024</p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
-                </div>
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "pagecell" id="i10">
-                    <div class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                    </div>
-                    <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div id="npxyz_pc9" class = "horiz_pics">
-                        <!-- <div class = "dragWarning" id = "dragy" >🡢</div> -->
-                        <div class = "bg" id = "bg1">
-                            <div class = "item1" id = "item1_1" data-id = "0">
-                            <div id="p2_image2" class="p_image3"></div>
-                            </div>
-                            <div class = "item1" id = "item1_2" data-id = "1">
-                            <div id="p2_image3" class="p_image3"></div>
-                            </div>
-                            <div class = "item1" id = "item1_3" data-id = "2">
-                            <div id="p2_image4" class="p_image3"></div>
-                            </div>
-                            <div class = "item1" id = "item1_4" data-id = "3">
-                            <div id="p2_image5" class="p_image3"></div>
-                            </div>
-                            <div class = "item1" id = "item1_5" data-id = "4">
-                            <div id="p2_image6" class="p_image3"></div>
-                            </div>
-                            <div class = "item1" id = "item1_6" data-id = "5">
-                            <div id="p2_image7" class="p_image3"></div>
-                            </div>
-                            <!-- <div class = "item1" id = "item1_7" data-id = "6">
-                            <div id="p2_image8" class="p_image3"></div>
-                            </div> -->
-                            <!-- <div class = "item1" id = "item1_8" data-id = "7">
-                            <div id="p2_image9" class="p_image3"></div>
-                            </div>
-                            <div class = "item2" id = "item2_9" data-id = "8">
-                            <div id="p2_image10" class="p_image3"></div>
-                            </div>
-                            <div class = "item2" id = "item2_10" data-id = "9">
-                            <div id="p2_image11" class="p_image3"></div>
-                            </div>
-                            <div class = "item2" id = "item2_11" data-id = "10">
-                            <div id="p2_image12" class="p_image3"></div>
-                            </div> -->
-                        </div>
-                    </div>
-                    <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">3/5</p>
-                    <p id = "pgh_p1" class = "text_small">RCI @ jazzahead! 2024</p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
-                    </div>
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "pagecell" id="i11">
-                <div id="npxyz_pc10" class="page_content">
-                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page10include">
-                        <div id="p2_description4">
-                            <div id="JCUP" class="JCUP">
-                                <canvas id="jcup-canvas" class="FRUITC"></canvas>
-                            </div>
-                        </div>
-                        <div id="p2_image13" class="p_image"></div>
-                        <div id="p2_image_path1"></div>
-                    </div>
-                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                </div>
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "test" id="i11">
-                    <div class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                    </div>
-                    <div id="npxyz_pc11" class="page_content">
-                        <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                        <div class = "includer" id="page11include">
-                            <div id="p2_description5" class="paragraph_small">
-                                <div class="text_norm">take a look</div>
-                                <div class="divider">
-                                <img class = "projsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
-                                </div>
-                                <div class="project_button_rci">
-                                    <div id="rci_button1" class = "take_a_lookr button text_small">in the wild ↗</div>
-                                    <div id="rci_button2" class = "take_a_lookr button text_small">out in the fields ↗</div>                  
-                                </div>
-                            </div>
-                            <div id="p2_image14" class="project_img2"></div>
-                            <div id="p2_image_path2"></div>
-                        </div>
-                        <!-- PAGE 6 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    </div>
-                    <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">5/5</p>
-                    <p id = "pgh_p1" class = "text_small">RCI @ jazzahead! 2024</p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
-                    </div>
-            </div>
-            </div>
-        </div>
-        <!-- PROJECT 2 -->
-        <!-- PROJECT 3 -->
-        <div class = "pagecell" id="i12">
-            <div class="holder">
-            <div class = "pagecell" id="i13">
-                <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-                <div id="npxyz_pc12" class="page_content">
-                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page12include">
-                        <div id="p3_title" class="p_title title_big">ZENON.NETWORK</div>
-                        <div id="p3_tags" class="p_tags">
-                            <div id="p3_tag1" class="p_tag paragraph_small">#test</div>
-                            <div id="p3_tag2" class="p_tag paragraph_small">#test</div>
-                            <div id="p3_tag3" class="p_tag paragraph_small">#test</div>
-                            <div id="p3_tag4" class="p_tag paragraph_small">#test</div>
-                            <div id="p3_tag5" class="p_tag paragraph_small">#test</div>
-                        </div>
-                        <div id="p3_description" class="paragraph_norm">3D ANIMATION & WEB DESIGN for <a href="https://zenon.network/">$ZNN</a></div>
-                        <div class = "p_descrip_holder">
-                            <div id="p3_description2" class="paragraph_small">I was asked to hop on the Zenon ship back in 2017 and it turned out to be one of the most satisfying projects I've ever worked on. ↗</div>
-                            <!-- <img src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c279935295140ccb383_Asset%201.svg" alt="" id="p2_intro_image" class="p_intro_image1"> -->
-                        </div>
-                        <div id="ZNN_3D" style="position:absolute;width:100%;height:100%;z-index: 0;">
-                            <canvas id="ZNN_3D_CANVAS" style="width:100%;height:100%"></canvas>
-                        </div>
-                        <!-- <lottie-player id = "znn_anim" renderer="svg" preserveAspectRatio="xMidYMid slice" mode="normal" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2c2e75b1b1da75c9e6d1_1280x720_intro.json" background="transparent"  speed=".88"  style="pointer-events:none;z-index:9999; position:absolute; width: 100%; height: 100%;"></lottie-player> -->
-                        <div class="divider">
-                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
-                        </div>
-                        <div id="p3_svg" class="p_svg_bg"></div>
-                    </div>
-                    <!-- PAGE 7 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                </div>
-                <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">1/5</p>
-                    <p id = "pgh_p1" class = "text_small">ZENON.NETWORK</p>
-                    <p id = "pgh_p2" class = "text_small">≥</p>
-                </div>
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "pagecell" id="i14">
-                <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-                <div id="npxyz_pc13" class="page_content">
-                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page13include">
-                            <div id="p3_description3" class="paragraph_small">
-                            <div class="title_norm">2017 - 2023</div>
-                            </div>
-                            <div id="p3_image1" class="p_image"></div>
-                            <div id="p3_image_path"></div>
-                    </div>
-                </div>
-                <!-- PAGE 3 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "pagecell" id="i15">
-                <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-                <div id="npxyz_pc14" class="page_content">
-                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/Moon?src=hash&amp;ref_src=twsrc%5Etfw">#Moon</a> — one small step for an Astronaut, one giant leap for <a href="https://twitter.com/hashtag/ZNNAliens?src=hash&amp;ref_src=twsrc%5Etfw">#ZNNAliens</a>. <br><br>More Astronauts needed to join the space program. Use the referral to gather everyone you know. <a href="https://twitter.com/hashtag/AlphanetBigBang?src=hash&amp;ref_src=twsrc%5Etfw">#AlphanetBigBang</a> <a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/PlasmaPoints?src=hash&amp;ref_src=twsrc%5Etfw">#PlasmaPoints</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://t.co/I1cjFWv8UO">pic.twitter.com/I1cjFWv8UO</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1405918018924953605?ref_src=twsrc%5Etfw">June 18, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-                    <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">New Horizons ahead for the Interplanetary Voyagers. Get ready to spawn the Sentinels, we must conquer the Solar System.<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/AlphanetBigBang?src=hash&amp;ref_src=twsrc%5Etfw">#AlphanetBigBang</a> <a href="https://twitter.com/hashtag/evolve?src=hash&amp;ref_src=twsrc%5Etfw">#evolve</a> <a href="https://twitter.com/hashtag/PlasmaPoints?src=hash&amp;ref_src=twsrc%5Etfw">#PlasmaPoints</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://t.co/dwhxewNd9S">pic.twitter.com/dwhxewNd9S</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1408753672687861760?ref_src=twsrc%5Etfw">June 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/AcceleratorZ?src=hash&amp;ref_src=twsrc%5Etfw">#AcceleratorZ</a> &amp; <a href="https://twitter.com/hashtag/Hyperspace?src=hash&amp;ref_src=twsrc%5Etfw">#Hyperspace</a> are officially live &amp; available as the funding powerhouse for Web3 innovation &amp; cross-chain solutions.<br><br>The future is encrypted.<br>Only you can decrypt it!<a href="https://twitter.com/hashtag/NoM?src=hash&amp;ref_src=twsrc%5Etfw">#NoM</a> <a href="https://twitter.com/hashtag/DAO?src=hash&amp;ref_src=twsrc%5Etfw">#DAO</a> <a href="https://twitter.com/search?q=%24ZNN&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZNN</a> <a href="https://twitter.com/search?q=%24QSR&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$QSR</a> <a href="https://twitter.com/search?q=%24ZTS&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$ZTS</a> <a href="https://t.co/llbDxMgWNv">pic.twitter.com/llbDxMgWNv</a></p>&mdash; Zenon (@Zenon_Network) <a href="https://twitter.com/Zenon_Network/status/1517203443970154507?ref_src=twsrc%5Etfw">April 21, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-                <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-                <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "pagecell" id="i16">
-                <div id="npxyz_pc15" class="page_content">
-                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page15include">
-                        <div id="p3_description4" class="paragraph_small">
-                            Launch Video
-                            <div style="height:10px;"></div>
-                            <div id ="watch_znn_vid" class = "button text_small">watch</div>
-                        </div>
-                        <div id="p3_image13" class="p_image"></div>
-                        <div id="p3_image_path1"></div>
-                        <iframe id="znn_video" style="position: absolute; z-index: 10;" width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/UhoktaaTCYQ?si=l8RVWFhMr2W4w_Ff&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                </div>
-            </div>
-            </div>
-            <div class="holder">
-            <div class = "pagecell" id="i16.1">
-                <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-                <div id="npxyz_pc16" class="page_content">
-                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class = "includer" id="page16include">
-                        <div id="p3_description5" class="paragraph_small">
-                            <div class="text_norm">peek</div>
-                            <div class="divider">
-                                <img class = "projsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
-                            </div>
-                            <div class="project_button_rci">
-                                <div id="rci_button1" class = "take_a_lookr button text_small">in the wild ↗</div>
-                                <div id="rci_button2" class = "take_a_lookr button text_small">out in the fields ↗</div>                  
-                            </div>
-                        </div>
-                        <div id="p3_image14" class="p_image"></div>
-                        <div id="p3_image_path2"></div>
-                    </div>
-                    <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                </div>
-                <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
-                </div>
-            </div>
-            </div>
-        </div>
-        <!-- PROJECT 3 -->
         <!-- PROJECT 4 -->
         <div class = "pagecell" id="i17">
             <div class="holder">
                 <div class = "pagecell" id="i18">
                     <div class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                        <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                        <p class = "header_page_button text_small">pg.16 ↓</p>
+                        <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                     </div>
                     <div id="npxyz_pc17" class="page_content">
                         <!-- PAGE 17 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                         <div class = "includer" id="page17include">
                             <div id="p4_title" class="p_title title_big">SAH SHOWCASE</div>
                             <div id="p4_tags" class="p_tags">
-                                <div id="p4_tag1" class="p_tag paragraph_small">#test</div>
-                                <div id="p4_tag2" class="p_tag paragraph_small">#test</div>
-                                <div id="p4_tag3" class="p_tag paragraph_small">#test</div>
-                                <div id="p4_tag4" class="p_tag paragraph_small">#test</div>
-                                <div id="p4_tag5" class="p_tag paragraph_small">#test</div>
+                                <div id="p1_tag1" style = "background-color:#32ba00;transform:rotate(3deg)" class="p_tag paragraph_small">#web</div>
+                                <div class="divider">
+                                    <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                                </div>
+                                <div id="p1_tag2" style = "transform:rotate(-1deg)"class="p_tag paragraph_small">#ui/ux</div>
+                                <div id="p1_tag3" style = "border:solid 1px black;background-color:transparent;transform:rotate(1deg)"class="p_tag paragraph_small">#print</div>
+                                <div class="divider">
+                                </div>
+                                <div id="p1_tag4" style = "background-color:#2da8ff;transform:rotate(2deg)"class="p_tag paragraph_small">#interactive</div>
+                                <div class="divider">
+                                    <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                                </div>
+                                <div id="p1_tag5" style = "border:solid 1px black;background-color:transparent;transform:rotate(0deg)"class="p_tag paragraph_small">#art</div>
                             </div>
-                            <div id="p4_description" class="paragraph_norm">Laborum culpa magna do ipsum laborum deserunt id non non. Voluptate id quis enim ullamco eu magna dolore officia irure. Minim consequat ut id voluptate aliquip dolor ea ullamco.</div>
+                            <div id="p4_description" class="paragraph_norm">WEB DESIGN & DTP for SAH Annual Showcase Event.</div>
                             <div class = "p_descrip_holder">
-                            <div id="p4_description2" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. Lorem tempor elit laborum officia et ea et excepteur pariatur aliqua occaecat ipsum ea. Magna dolor excepteur ullamco aliquip minim in voluptate elit officia esse quis. Tempor ipsum eiusmod incididunt eiusmod proident est labore et. ↗</div>
-                            <img src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a3d07f52a6c754a9a6b42_Asset%206.svg" alt="" id="p4_intro_image" class="p_intro_image1">
+                            <div id="p4_description2" class="paragraph_small">Școala de-Acasă Hundorf is an art residency program in Viișoara, Romania [46°33'28"N 23°54'24"E]. I was a participant myself, back in 2018, shortly after I decided to help out and began a yearly digital journey that many people seem to remember fondly.</div>
+                            <div id="p4_intro_image" class="p_intro_image1"></div>
                             </div>
                             <div id="p4_svg" class="p_svg_bg"></div>
                             <div class="divider">
-                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                            <img class = "divider_symbol" style="left:10%;width:60px;height:60px;" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437e953e44d803e859f_Asset%205.svg" alt="">
                             </div>
                         </div>
                         <!-- PAGE 17 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     </div>
                     <div id="page_footer" class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                        <p class = "text_small">1/5</p>
+                        <p class = "text_small">SAH SHOWCASE</p>
+                        <p class = "text_small">≥</p>
                     </div>
                 </div>
             </div>
             <div class="holder">
                 <div class = "pagecell" id="i19">
                     <div class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                        <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                        <p class = "header_page_button text_small">pg.17 ↓</p>
+                        <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                     </div>
                     <div id="npxyz_pc18" class="page_content">
                         <!-- PAGE 18 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                         <div class = "includer" id="page18include">
-                            <div id="p4_description3" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                            <div id="p4_description3" class="paragraph_small">
+                                <div class="title_norm">2021 - 2023</div></div>
                             <div id="p4_image1" class="p_image"></div>
                             <div id="p4_image_path"></div>
                         </div>
                         <!-- PAGE 18 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     </div>
-                    <div class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                    <div id="page_footer" class="page_header">
+                        <p class = "text_small">3/5</p>
+                        <p class = "text_small">SAH SHOWCASE</p>
+                        <p class = "text_small">≥</p>
                     </div>
                 </div>
             </div>
             <div class="holder">
                 <div class = "pagecell" id="i20">
                     <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div id="npxyz_pc19" class="page_content">
-                    <div class = "includer" id="page19include">
-                        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#c5c5c5; border:0; border-radius:3px; max-width:30%; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                            <div style="padding:16px;"> 
-                            <a href="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> 
-                                <div style=" display: flex; flex-direction: row; align-items: center;"> 
-                                    <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> 
-                                    <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> 
-                                    <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> 
-                                    <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
-
-                                    </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 19% 0;">
-                                </div> 
-                                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
-                                    <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(-511.000000, -20.000000)" fill="#000000">
-                                        <g>
-                                        <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path>
-                                    </g>
-                                    </g>
-                                </g>
-                                </svg>
-                                </div>
-                                <div style="padding-top: 8px;"> 
-                                    <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
-                                </div>
-                                <div style="padding: 12.5% 0;">
-                                </div> 
-                                <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
-                                    <div> 
-                                        <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> 
-                                        <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> 
-                                        <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div>
-                                    </div>
-                                    <div style="margin-left: 8px;"> 
-                                        <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> 
-                                        <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div>
-                                    </div>
-                                    <div style="margin-left: auto;"> 
-                                        <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> 
-                                        <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> 
-                                        <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div>
-                                    </div>
-                                </div> 
-                                <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> 
-                                    <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div>
-                                    <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div>
-                                </div>
-                            </a>
-                            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
-                                <a href="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Acasă la Hundorf (@acasalahundorf)</a>
-                            </p>
-                            </div>
-                        </blockquote>
-                        <script async src="//www.instagram.com/embed.js"></script>
-
-                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#c5c5c5; border:0; border-radius:3px; max-width:30%; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-                            <div style="padding:16px;"> <a href="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Acasă la Hundorf (@acasalahundorf)</a></p></div>
-                        </blockquote> 
-                        <script async src="//www.instagram.com/embed.js"></script>
+                     <div class="page_header">
+                        <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                        <p class = "header_page_button text_small">pg.18 ↓</p>
+                        <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                     </div>
+                    <div id="npxyz_pc19" class="page_content">
+                        <div class = "includer" id="page19include">
+                            <blockquote scrolling="yes" class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" >
+                                <div style="padding:16px;"> 
+                                <a href="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> 
+                                    <div style=" display: flex; flex-direction: row; align-items: center;"> 
+                                        <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> 
+                                        <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> 
+                                        <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> 
+                                        <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div style="padding: 19% 0;">
+                                    </div> 
+                                    <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                                        <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                            <g>
+                                            <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path>
+                                        </g>
+                                        </g>
+                                    </g>
+                                    </svg>
+                                    </div>
+                                    <div style="padding-top: 8px;"> 
+                                        <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
+                                    </div>
+                                    <div style="padding: 12.5% 0;">
+                                    </div> 
+                                    <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                                        <div> 
+                                            <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> 
+                                            <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> 
+                                            <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div>
+                                        </div>
+                                        <div style="margin-left: 8px;"> 
+                                            <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> 
+                                            <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div>
+                                        </div>
+                                        <div style="margin-left: auto;"> 
+                                            <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> 
+                                            <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> 
+                                            <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div>
+                                        </div>
+                                    </div> 
+                                    <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> 
+                                        <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div>
+                                        <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div>
+                                    </div>
+                                </a>
+                                <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                                    <a href="https://www.instagram.com/p/Cz3b2t5oPfM/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Acasă la Hundorf (@acasalahundorf)</a>
+                                </p>
+                                </div>
+                            </blockquote>
+
+                            <blockquote scrolling="yes" class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" s>
+                                <div style="padding:16px;"> <a href="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CpSUJtlIcpy/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Acasă la Hundorf (@acasalahundorf)</a></p></div>
+                            </blockquote> 
+
+                            <blockquote scrolling="yes" class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CzwdypYo9zm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" >
+                                <div style="padding:16px;"> <a href="https://www.instagram.com/p/CzwdypYo9zm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CzwdypYo9zm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Acasă la Hundorf (@acasalahundorf)</a></p></div>
+                            </blockquote>
+
+                            <script async src="//www.instagram.com/embed.js"></script>
+                        </div>
+                    </div>
+                    <div id="page_footer" class="page_header">
+                        <p class = "text_small">3/5</p>
+                        <p class = "text_small">SAH SHOWCASE</p>
+                        <p class = "text_small">≥</p>
                     </div>
 
                     <!-- PAGE 4 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -828,42 +934,46 @@
             <div class="holder">
                 <div class = "pagecell" id="i21">
                     <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.19 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                     </div>
                     <div id="npxyz_pc20" class="page_content">
                         <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                         <div class = "includer" id="page20include">
-                            <div id="p4_description4" class="paragraph_small">Ex mollit magna voluptate elit esse consectetur. Sunt nostrud consectetur et do sit consequat dolore ipsum anim laboris velit. Officia ad dolor consectetur exercitation anim aliqua velit dolore. </div>
+                            <div id="p4_description4" class="paragraph_small"> </div>
                             <div id="p4_image13" class="p_image"></div>
                             <div id="p4_image_path1"></div>
                         </div>
                         <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     </div>
                     <div id="page_footer" class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                        <p class = "text_small">4/5</p>
+                        <p class = "text_small">SAH SHOWCASE</p>
+                        <p class = "text_small">≥</p>
                     </div>
                 </div>
             </div>
             <div class="holder">
                 <div class = "pagecell" id="i21.1">
                     <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.20 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                     </div>
                     <div id="npxyz_pc21" class="page_content">
                         <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                         <div class = "includer" id="page21include">
                             <div id="p4_description5" class="paragraph_small">
-                            <div class="project_button_sah">
-                                <div id="sah_button1" class = "take_a_lookr button text_small">in the wild ↗</div>
-                                <div id="sah_button2" class = "take_a_lookr button text_small">out in the fields ↗</div>
-                                <div id="sah_button3" class = "last take_a_lookr button text_small">between the bushes ↗</div>                      
-                            </div>
+                                <div class="text_norm">take a look</div>
+                                <div class="divider">
+                                    <img class = "projsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                                </div>
+                                <div class="project_button_sah">
+                                    <div id="sah_button1" class = "take_a_lookr button text_small">in the wild ↗</div>
+                                    <div id="sah_button2" class = "take_a_lookr button text_small">out in the fields ↗</div>
+                                    <div id="sah_button3" class = "last take_a_lookr button text_small">between the bushes ↗</div>                      
+                                </div>
                             </div>
                             <div id="p4_image14" class="p_image"></div>
                             <div id="p4_image_path2"></div>
@@ -871,9 +981,9 @@
                         <!-- PAGE 5 ////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     </div>
                     <div id="page_footer" class="page_header">
-                        <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                        <p id = "pgh_p1" class = "text_small">2024</p>
-                        <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                        <p class = "text_small">5/5</p>
+                        <p class = "text_small">SAH SHOWCASE</p>
+                        <p class = "text_small">≥</p>
                     </div>
                 </div>
             </div>
@@ -886,9 +996,9 @@
                 <div class = "pagecell" id="i23">
                 <div class = "includer" id="page23include">
                     <div class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.21 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                     </div>
                     <div id="npxyz_pc23" class="page_content">
                         <div id="about_data">
@@ -924,9 +1034,9 @@
 
                     </div>
                     <div id="page_footer" class="page_header">
-                    <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                    <p id = "pgh_p1" class = "text_small">2024</p>
-                    <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                        <p class = "text_small">about me</p>
+                        <p class = "text_small">💖</p>
+                        <p class = "text_small">≥</p>
                     </div>
                 </div>
                 </div>
@@ -947,9 +1057,9 @@
             <div class = "pagecell" id="i27">
             <div class = "includer" id="page27include">
                 <div class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                <p class = "header_page_button text_small">pg.22 ↓</p>
+                <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
                 </div>
                 <div id="npxyz_pc27" class="page_content">
 
@@ -1002,9 +1112,9 @@
 
                 </div>
                 <div id="page_footer" class="page_header">
-                <p id = "pgh_p0" class = "text_small">nicolaiprodromov.xyz</p>
-                <p id = "pgh_p1" class = "text_small">2024</p>
-                <p id = "pgh_p2" class = "text_small">[*open to work*]</p>
+                    <p class = "text_small">contact</p>
+                    <p class = "text_small">|</p>
+                    <p class = "text_small">[<a href="https://github.com/nicolaiprodromov">GITHUB</a>][<a href="https://github.com/nicolaiprodromov">YOUTUBE</a>]</p>
                 </div>
             </div>
         </div>

@@ -1,36 +1,30 @@
 #page5include{
-    height:100vh;
     display        : flex;
     flex-direction : column;
     align-items    : center;
     justify-content: var(--page-center);
 }
-#npxyz_pc5{
-    height:100vh;
-}
-#p1_description4{
+#p2_description4{
     position: absolute;
     width:var(--p1d3-width);
-    height:400px;
     right:10vw;
 
     padding:20px;
-    background-color: transparent;
     z-index: 2;
     transform: translate(-50%, -50%);
 }
-#p1_image_path1{
+#p2_image_path1{
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     width: var(--p1_image_width);
     height: var(--p1_image_width);
 }
-#p1_image13{
+#p2_image13{
     z-index: 1;
     width: var(--p1_image_width);
     height: var(--p1_image_width);
-}
-.goethe_pin_canvas{
-    width:400px;
-    height:400px;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
 }

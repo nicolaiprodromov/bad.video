@@ -7,6 +7,8 @@
     height: 100dvh;
     background:rgb(255, 255, 255);
     transition: all .2s;
+    border-left: solid 1px grey;
+    cursor: pointer;
 }
 .scroll_bar:hover{
     width:30px;

@@ -38,53 +38,51 @@ PAGE21_BUILDER.pd             = {
 PAGE21_BUILDER.load_handler   = async (pd) => {
 }
 PAGE21_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-    var page17_scroll_amount_st  = ss[4];
-    if (scroll_amount_st == 5 && page17_scroll_amount_st == 4){
-        pd.p1_img_obj.fade([0,1], 300)
-        // IMAGE GLITCH TRANSITION
-        //await pd.p1_img_obj.glitchTransition(5);
-
-        
-        pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
-        pd.pathy2 = {
-            0 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                    c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
-                    c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-            1 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                    c1x:0, c1y:0,
-                    c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-            2 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                    c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
-                    c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-            3 : [
-                {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-                {cmd:"CubicBezier",
-                    x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                    c1x:0, c1y:0,
-                    c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-                }
-            ],
-        }
-
-        var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE21_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
-        pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description5, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
+    document.querySelector("#particle_intro0").innerHTML="explore"
+    document.querySelector("#particle_intro2").innerHTML="5/5"
+    pd.p1_img_obj.fade([0,1], 300)
+    // IMAGE GLITCH TRANSITION
+    //await pd.p1_img_obj.glitchTransition(5);
+    
+    pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
+    pd.pathy2 = {
+        0 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        1 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+                c1x:0, c1y:0,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        2 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+                c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
+        3 : [
+            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+            {cmd:"CubicBezier",
+                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+                c1x:0, c1y:0,
+                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+            }
+        ],
     }
+
+    var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE21_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
+    pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description5, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
+
 }
 PAGE21_BUILDER.resize_handler = async (pd) => {
 

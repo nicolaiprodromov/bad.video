@@ -11,7 +11,7 @@
   --about_socials_margin        : 0px;
 }
   /* ------------------------- PORTRAIT DESKTOP ------------------------- */
-@media screen and (min-width: 1280px) and (min-height: 100vw){
+@media screen and (min-width: 1280px) and (min-height: 100.001vw){
   :root{
     --about_data_width  : 100%;
     --about_data_r_width: 0%;
@@ -25,7 +25,7 @@
   }
 }
   /* ------------------------- PORTRAIT MOBILE ------------------------- */
-@media screen and (max-width: 720px){
+@media screen and (max-width: 1280px) and (min-height: 100.001vw){
   :root{
     --about_data_width  : 100%;
     --about_data_r_width: 0%;

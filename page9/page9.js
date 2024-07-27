@@ -2,83 +2,101 @@
 import { Page }        from '/lib/page_builder.js';
 import { ImageObject } from '/lib/images_obj.js';
 
-
-
-const PAGE9_BUILDER = new Page(9);
-PAGE9_BUILDER.pd = {
+const PAGE14_BUILDER = new Page(9);
+PAGE14_BUILDER.pd = {
     holder    : document.querySelector('#i10'),
-    p1_images2: document.querySelectorAll('.p_image3'),
+    p1_images2: document.querySelectorAll('.p_image4'),
     p1_img_obj: [],
-
-    p1_img_src : `${PAGE9_BUILDER.local_url}Asset`,
-
     p1_img_map : {
-        0:[
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f8d62f3e1ab1c8b68f_Asset%200.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f744733d8223d5bf99_Asset%205.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f76dc2d1ff1536eeb0_Asset%203.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f733d8a793b6a3448b_Asset%202.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7c2fa3d467b188a3f_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp"
-        ],
-        1:[
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669945003e73701e9e48601d_Asset%201.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66994500d62f3e1ab1c8be00_Asset%205.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff9859c08c6099ba36_Asset%202.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff948ca370b164c0da_Asset%203.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ffe0f340663c6c6991_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp"
-        ],
-        2:[
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f8d62f3e1ab1c8b68f_Asset%200.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f744733d8223d5bf99_Asset%205.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f76dc2d1ff1536eeb0_Asset%203.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f733d8a793b6a3448b_Asset%202.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7c2fa3d467b188a3f_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp"
-        ],
-        3:[
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669945003e73701e9e48601d_Asset%201.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66994500d62f3e1ab1c8be00_Asset%205.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff9859c08c6099ba36_Asset%202.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff948ca370b164c0da_Asset%203.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ffe0f340663c6c6991_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp"
-        ],
+        0 : `${PAGE14_BUILDER.local_url}Asset`,
+        1 : `${PAGE14_BUILDER.local_url}Asset`,
+        2 : `${PAGE14_BUILDER.local_url}Asset`,
+        3 : `${PAGE14_BUILDER.local_url}Asset`,
     },
 
     p1_img_ext : ".png"
 }
-PAGE9_BUILDER.load_handler = async (pd) => {
+PAGE14_BUILDER.load_handler = (pd) => {
 }
-PAGE9_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-    var page7_scroll_amount_st  = ss[2];
-    if (scroll_amount_st == 3 && page7_scroll_amount_st == 2){
-        for (var bgobj of pd.p1_img_obj){
-            bgobj.fade([0,1], 300)
-            bgobj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
+PAGE14_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+    document.querySelector("#particle_intro0").innerHTML="zenon.network"
+    document.querySelector("#particle_intro2").innerHTML="3/5"
+    document.body.style.backgroundColor = "var(--bg)"
+    // for (var bgobj of pd.p1_img_obj){
+    //     bgobj.fade([0,1], 300)
+    //     bgobj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
+    // }
+
+    // anime({
+    //     targets: [tw0],
+    //     left: ["-50%", "50%"],
+    //     duration:2000,
+    //     easing: "easeInOutCirc",
+    //     delay: 0
+    // })
+
+    // anime({
+    //     targets: [tw1],
+    //     left: ["-50%", "calc(50% + 300px)"],
+    //     duration:2000,
+    //     easing: "easeInOutCirc",
+    //     delay: 100
+    // })
+
+}
+PAGE14_BUILDER.resize_handler = (pd) => {
+    // for (var bgobj of pd.p1_img_obj){
+    //     bgobj.clear();
+    //     bgobj.img = pd.p1_img_map[PAGE14_BUILDER.device] + " " + (bgobj.element.parentNode.dataset.id) + pd.p1_img_ext;
+    //     bgobj.draw();
+    // }
+
+}
+PAGE14_BUILDER.first_scroll_handler = async (pd) => {
+    setTimeout(() => {
+        var tw0 = document.querySelector("#twitter-widget-0");
+        var tw1 = document.querySelector("#twitter-widget-1");
+        var tw2 = document.querySelector("#twitter-widget-2");
+        var ccc = document.querySelectorAll(".twitter-tweet")
+        for (var c_c of ccc){
+            //c_c.style.maxWidth = "350px"
         }
-    }
 
-}
-PAGE9_BUILDER.resize_handler = async (pd) => {
-    for (var bgobj of pd.p1_img_obj){
-        bgobj.clear();
-        bgobj.img = await PAGE9_BUILDER.checkImage(pd.p1_img_map[PAGE9_BUILDER.device] + " " + (bgobj.element.parentNode.dataset.id) + pd.p1_img_ext)
-        bgobj.draw();
-    }
+        var rrh = tw0.getBoundingClientRect().width/tw0.getBoundingClientRect().height
 
-}
-PAGE9_BUILDER.first_scroll_handler = async(pd) => {
-    for (var bgobj of pd.p1_images2){
-        
-        var bg_img_obj11 = new ImageObject(
-            bgobj,
-            pd.p1_img_map[PAGE9_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
-            0,
-        );
-        bg_img_obj11.draw();
-        pd.p1_img_obj.push(bg_img_obj11);
-    }
+        tw0.style.width = `${pd.holder.getBoundingClientRect().height*rrh}px`
+        tw1.style.width = `${pd.holder.getBoundingClientRect().height*rrh}px`
+        tw2.style.width = `${pd.holder.getBoundingClientRect().height*rrh}px`
+
+        tw0.style.maxHeight = "100%"
+        tw1.style.maxHeight = "100%"
+        tw2.style.maxHeight = "100%"
+        // tw0.style.pointerEvents = "none"
+        // tw1.style.pointerEvents = "none"
+        // tw2.style.pointerEvents = "none"
+        tw0.style.margin = "0px"
+        tw1.style.margin = "0px"
+        tw2.style.margin = "0px"
+        tw0.style.alignItems     = "center"
+        tw0.style.justifyContent = "center"
+        tw0.style.position       = "absolute"
+        tw1.style.alignItems     = "center"
+        tw1.style.justifyContent = "center"
+        tw1.style.position       = "absolute"
+        tw2.style.alignItems     = "center"
+        tw2.style.justifyContent = "center"
+        tw2.style.position       = "absolute"
+
+        tw0.style.left      = `calc(50% - ${tw0.getBoundingClientRect().width/2}px - 100px)`
+        tw0.style.top       = "50%"
+        tw0.style.transform = "translate(-50%,-50%) rotate(-2deg)"
+
+        tw1.style.left      = `calc(50% + ${tw1.getBoundingClientRect().width/2}px + 100px)`
+        tw1.style.top       = "50%"
+        tw1.style.transform = "translate(-50%,-50%) rotate(-1deg)"
+
+        tw2.style.left      = `calc(50%)`
+        tw2.style.top       = "50%"
+        tw2.style.transform = "translate(-50%,-50%) rotate(3deg)"
+    }, 3000)
 }

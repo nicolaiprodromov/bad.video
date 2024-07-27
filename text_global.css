@@ -47,7 +47,7 @@
     --text_small: 1vw;
 }
 /* ------------------------- PORTRAIT DESKTOP ------------------------- */
-@media screen and (min-width: 1280px) and (min-height: 100vw){
+@media screen and (min-width: 1280px) and (min-height: 100.001vw){
     :root{
         --title_big  : 13vw;
         --title_norm : 7vw;
@@ -64,11 +64,11 @@
 }
 
 /* ------------------------- PORTRAIT MOBILE ------------------------- */
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1280px) and (min-height: 100.001vw){
     :root{
-        --title_big  : 12vw;
+        --title_big  : 10vw;
         --title_norm : 7vw;
-        --title_small: 3vw;
+        --title_small: 6vw;
         
         --paragraph_big  : 8vw;
         --paragraph_norm : 6.5vw;
@@ -76,7 +76,7 @@
         
         --text_big  : 6vw;
         --text_norm : 5vw;
-        --text_small: 4vw;
+        --text_small: 3vw;
     }
 }
 /* ------------------------- LANDSCAPE MOBILE ------------------------- */

@@ -1,30 +1,29 @@
-import { Page }        from '/lib/page_builder.js';
-import { TextAnim }    from '/lib/text_anim.js';
+
+import { Page }     from '/lib/page_builder.js';
+import { TextAnim } from '/lib/text_anim.js';
 import { Paper }    from '/lib/svg.js';
 
-const PAGE12_BUILDER = new Page(12);
-PAGE12_BUILDER.pd             = {
+const PAGE2_BUILDER = new Page(12);
+PAGE2_BUILDER.pd             = {
     holder_up: document.querySelector("#i12"),
     holder   : document.querySelector("#i13"),
     includer : document.querySelector("#page12include"),
-    project_title: document.querySelector("#p3_title"),
+    project_title: document.querySelector("#p1_title"),
     p1_title_anim: null,
-    p1_svg       : document.querySelector("#p3_svg"),
+    p1_svg       : document.querySelector("#p1_svg"),
     p1_paper     : null,
     pth1_class   : "bg1_pth0",
     arrow_scale  : null,
     p1_svg_width : null,
     buttons_class : 'p_buttons',
-
     button1_clicked : false,
     button2_clicked : false,
     button3_clicked : false,
     buttons_built : false,
-
 }
-PAGE12_BUILDER.buttons_page_12         = (pd) => {
+PAGE2_BUILDER.buttons_page_2 = (pd) => {
     // BUTTONS
-    if (PAGE12_BUILDER.device > 1){
+    if (PAGE2_BUILDER.device > 1){
         return null
     }
     if (pd.buttons_built){
@@ -61,7 +60,7 @@ PAGE12_BUILDER.buttons_page_12         = (pd) => {
                 pd.p1_paper.paths[0].animate({path:pd.p1_paper.rparse_coords(asset15)}, 200)
             }
             setTimeout(() => {
-                PAGE12_BUILDER.toggleFullScreen(document.documentElement)
+                PAGE2_BUILDER.toggleFullScreen(document.documentElement)
             }, 200)
         }
     )
@@ -97,8 +96,8 @@ PAGE12_BUILDER.buttons_page_12         = (pd) => {
         }
     )
 }
-PAGE12_BUILDER.buttons_resize_page12   = (pd) => {
-    if (PAGE12_BUILDER.device > 1){
+PAGE2_BUILDER.buttons_resize_page2 = (pd) => {
+    if (PAGE2_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
                 pd.p1_paper.parent.removeChild(pd.p1_paper.parent.lastChild);
@@ -120,50 +119,23 @@ PAGE12_BUILDER.buttons_resize_page12   = (pd) => {
         pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE12_BUILDER.load_handler   = (pd) => {
+PAGE2_BUILDER.load_handler = (pd) => {
+    
 }
-PAGE12_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-    var page12_scroll_amount_st  = ss[3];
-    // PAGE TRIGGER
-    if (scroll_amount_st == 4 && page12_scroll_amount_st == 0){
+PAGE2_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+    pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
+    pd.p1_title_anim.cycle_random(300, 53)
+    document.querySelector("#particle_intro0").innerHTML="gf 2019"
+    document.querySelector("#particle_intro1").innerHTML=">"
+    document.querySelector("#particle_intro2").innerHTML="1/5"
+}
+PAGE2_BUILDER.resize_handler = (pd) => {
 
-        // var znn_anim = document.querySelector("#znn_anim");
-        // znn_anim.play();
-        // console.log(znn_anim)
-        // anime({
-        //     targets : znn_anim,
-        //     opacity : [1,0],
-        //     duration: 2000,
-        //     delay   : 500,
-        //     easing  : 'linear'
-        // })
-        // setTimeout(() => znn_anim.stop(), 2500);
-
-        pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
-        pd.p1_title_anim.cycle_random(300, 53)
-        document.querySelector("#particle_intro0").innerHTML="zenon.network"
-        document.querySelector("#particle_intro1").innerHTML=">"
-        document.querySelector("#particle_intro2").innerHTML="1/5"
-    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 1){
-        document.querySelector("#particle_intro0").innerHTML="zenon.network"
-        document.querySelector("#particle_intro2").innerHTML="2/5"
-    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 2){
-        document.querySelector("#particle_intro0").innerHTML="zenon.network"
-        document.querySelector("#particle_intro2").innerHTML="3/5"
-    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 3){
-        document.querySelector("#particle_intro0").innerHTML="zenon.network"
-        document.querySelector("#particle_intro2").innerHTML="4/5"
-    } else if(scroll_amount_st == 4 && page12_scroll_amount_st == 4){
-        document.querySelector("#particle_intro0").innerHTML="explore"
-        document.querySelector("#particle_intro2").innerHTML="5/5"
-    }
+    PAGE2_BUILDER.buttons_page_2(pd);
+    PAGE2_BUILDER.buttons_resize_page2(pd);
 }
-PAGE12_BUILDER.resize_handler = (pd) => {
-    PAGE12_BUILDER.buttons_page_12(pd);
-    PAGE12_BUILDER.buttons_resize_page12(pd);
-}
-PAGE12_BUILDER.first_scroll_handler = (pd) => {
+PAGE2_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE12_BUILDER.buttons_page_12(pd);
+    PAGE2_BUILDER.buttons_page_2(pd);
+    
 }

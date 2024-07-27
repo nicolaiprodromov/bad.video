@@ -17,15 +17,15 @@
 
 
 #p4_description{
-    z-index         : 1;
+    z-index         : 2;
     position        : relative;
     background-color: rgb(255, 255, 255);
     padding         : 10px;
 }
 #p4_description2{
-    z-index         : 1;
+    z-index         : 2;
     position        : relative;
-    background-color: #f67f6a;
+    background-color: #2da8ff;
     padding         : 10px;
 }
 
@@ -36,8 +36,16 @@
 }
 
 #p4_intro_image{
-    position: absolute;
-    bottom  : 0%;
-    right   : 5px;
-    transform: translate(-10%, 25%);
+    position  : absolute;
+    bottom    : 0%;
+    left      : 0px;
+    height    : 100%;
+    width     : 100%;
+    max-height: none;
+    transform : translate(0%, 0%);
+
+    background-image   : url("https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif");
+    background-size    : var(--intro_image_bg_size);
+    background-position: bottom 0px right 50%;
+    background-repeat  : no-repeat;
 }

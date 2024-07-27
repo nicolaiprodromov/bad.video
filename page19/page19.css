@@ -1,6 +1,38 @@
 #page19include{
     display        : flex;
     flex-direction : row;
-    align-items    : flex-start;
-    justify-content: var(--page-center);
+    align-items    : center;
+    justify-content: center;
+}
+
+
+.instagram-media{
+    background:#c5c5c5;
+    border:0;
+    border-radius:3px;
+    height:var(--insta_height);
+    width:var(--insta_width);
+    padding:0;
+    transform:rotate(-3deg);
+    pointer-events: var(--insta_interactive);
+    overflow-y: scroll;
+}
+
+
+
+/* Adding pseudo element to iframe parent */
+#page19include:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: block;
+}
+  
+/* Adding hover effect to pseudo element */
+#page19include:hover:after {
+    content: none;
 }

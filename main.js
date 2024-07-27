@@ -1,6 +1,58 @@
 
 // import { StateTracker } from "./lib/state_tracker.js";
 
+(function () {
+    var mqEvents = function (mediaChangeHandler) {
+        var sheets = document.styleSheets;
+
+        // Use the provided handler if present
+        if (!mediaChangeHandler) {
+            console.error('mqEvents needs a mediaChangeHandler to do its job.');
+            return false;
+        }
+
+        for (var i = 0; i < sheets.length; i += 1) {
+            var rules = sheets[i].cssRules;
+
+            for (var j = 0; j < rules.length; j += 1) {
+                // This Stackoverflow answer helped me figure out how
+                // to check the type of object each rule was
+                // http://stackoverflow.com/a/332429/368634
+                if (rules[j].constructor === CSSMediaRule) {
+                    var mql = window.matchMedia(rules[j].media.mediaText);
+                    mql.addListener(mediaChangeHandler);
+                    mediaChangeHandler(mql, sheets[i].href);
+                }
+            }
+        }
+    }
+
+    // Yeah, this is a little shitty
+    window.mqEvents = mqEvents;
+}());
+
+
+mqEvents((mql, source) => {
+    var mql_map = {
+        "null" : "LANDSCAPE DESKTOP",
+        "screen and (min-width: 1280px) and (min-height: 100.001vw)" : "PORTRAIT DESKTOP",
+        "screen and (max-width: 1280px) and (min-height: 100.001vw)" : "PORTRAIT MOBILE",
+        "screen and (max-width: 1280px) and (min-width: 100vh)"  : "LANDSCAPE MOBILE",
+    }
+    if (mql.matches) {
+        //console.log(`[MEDIA QUERY] ${mql_map[mql.media]} - ${source.split(/[/ ]+/).pop()}`)
+        console.log(`[MEDIA QUERY] ${mql_map[mql.media]}`)
+    }
+    if (mql.matches == false) {
+        //console.log(`[!] ${mql_map[mql.media]} - ${source.split(/[/ ]+/).pop()}`)
+    }
+})
+
+
+
+
+
+
 
 
 
@@ -33,7 +85,6 @@ for (let hp of horiz_pics){
 }
 const getScrollPercent = (el) => {
     var w  = parseFloat(window.getComputedStyle(el).width.replace('px',''))
-    console.log(el.scrollTop, w)
     var percentage_raw = (100 * el.scrollLeft) / w;
     return Math.floor(percentage_raw);
 }
@@ -175,6 +226,7 @@ for (var hp = 0; hp < horiz_pics.length; hp++){
 window.addEventListener("wheel", e => e.preventDefault(), { passive:false })
 window.addEventListener("touchmove", e => e.preventDefault(), { passive:false })
 window.scrollTo(0,0)
+var GLOBAL_SCROLL = 1;
 var max_scroll = 6;
 var modulo_scroll = 1;
 var raw_scroll_amount = 0
@@ -309,7 +361,7 @@ const scroll_to = (e) => {
 
     if(raw_scroll_amount % modulo_scroll == 0){
         if(diff > 0){
-            
+            GLOBAL_SCROLL = GLOBAL_SCROLL >= 23 ? GLOBAL_SCROLL : GLOBAL_SCROLL + 1;
             if (scroll_amount == 0){
                 scrollV(1);
             }
@@ -374,6 +426,7 @@ const scroll_to = (e) => {
             }
         }
         else if(diff < 0){
+            GLOBAL_SCROLL = GLOBAL_SCROLL <= 0 ? 0 : GLOBAL_SCROLL - 1;
             if (scroll_amount == 1){
                 scrollV(-1);
             }
@@ -419,7 +472,7 @@ const scroll_to = (e) => {
         }
     }
      
-    SCROLL_TRACKER.def = [scroll_amount, page2_scroll_amount, page7_scroll_amount, page12_scroll_amount, page17_scroll_amount, page22_scroll_amount, diff]
+    SCROLL_TRACKER.def = [scroll_amount, page2_scroll_amount, page7_scroll_amount, page12_scroll_amount, page17_scroll_amount, page22_scroll_amount, diff, GLOBAL_SCROLL]
     prev_scroll_amount = scroll_amount
 
     // ANIMATE SCROLL BAR
@@ -484,7 +537,6 @@ function isTrackPad(e) {
 }
 var SCROLLDELAY = 80;
 if (window?.navigator?.platform  === 'MacIntel'){
-    console.log("IS FUCJKING IOS")
     SCROLLDELAY = 18;
 }
 function debounce322(func, delay){
@@ -494,7 +546,6 @@ function debounce322(func, delay){
       timer = setTimeout(func, delay, event);
     };
 }
-console.log("SCROLLDELAY", SCROLLDELAY);
 window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
 window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
 var TOUCH_TIME = []

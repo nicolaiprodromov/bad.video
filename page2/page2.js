@@ -1,29 +1,30 @@
-
 import { Page }     from '/lib/page_builder.js';
 import { TextAnim } from '/lib/text_anim.js';
 import { Paper }    from '/lib/svg.js';
 
-const PAGE2_BUILDER = new Page(2);
-PAGE2_BUILDER.pd             = {
+const PAGE_BUILDER = new Page(2);
+PAGE_BUILDER.pd = {
     holder_up: document.querySelector("#i2"),
     holder   : document.querySelector("#i3"),
     includer : document.querySelector("#page2include"),
-    project_title: document.querySelector("#p1_title"),
+    project_title: document.querySelector("#p2_title"),
     p1_title_anim: null,
-    p1_svg       : document.querySelector("#p1_svg"),
+    p1_svg       : document.querySelector("#p2_svg"),
     p1_paper     : null,
     pth1_class   : "bg1_pth0",
     arrow_scale  : null,
     p1_svg_width : null,
     buttons_class : 'p_buttons',
+
     button1_clicked : false,
     button2_clicked : false,
     button3_clicked : false,
     buttons_built : false,
+
 }
-PAGE2_BUILDER.buttons_page_2 = (pd) => {
+PAGE_BUILDER.buttons_page_2 = (pd) => {
     // BUTTONS
-    if (PAGE2_BUILDER.device > 1){
+    if (PAGE_BUILDER.device > 1){
         return null
     }
     if (pd.buttons_built){
@@ -60,7 +61,7 @@ PAGE2_BUILDER.buttons_page_2 = (pd) => {
                 pd.p1_paper.paths[0].animate({path:pd.p1_paper.rparse_coords(asset15)}, 200)
             }
             setTimeout(() => {
-                PAGE2_BUILDER.toggleFullScreen(document.documentElement)
+                PAGE_BUILDER.toggleFullScreen(document.documentElement)
             }, 200)
         }
     )
@@ -96,8 +97,8 @@ PAGE2_BUILDER.buttons_page_2 = (pd) => {
         }
     )
 }
-PAGE2_BUILDER.buttons_resize_page2 = (pd) => {
-    if (PAGE2_BUILDER.device > 1){
+PAGE_BUILDER.buttons_resize_page2 = (pd) => {
+    if (PAGE_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
                 pd.p1_paper.parent.removeChild(pd.p1_paper.parent.lastChild);
@@ -119,40 +120,25 @@ PAGE2_BUILDER.buttons_resize_page2 = (pd) => {
         pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE2_BUILDER.load_handler = (pd) => {
-    
-}
-PAGE2_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-    var page2_scroll_amount_st  = ss[1];
-    // PAGE TRIGGER
-    if (scroll_amount_st == 2 && page2_scroll_amount_st == 0){
-        pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
-        pd.p1_title_anim.cycle_random(300, 53)
-        document.querySelector("#particle_intro0").innerHTML="gf 2019"
-        document.querySelector("#particle_intro1").innerHTML=">"
-        document.querySelector("#particle_intro2").innerHTML="1/5"
-    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 1){
-        document.querySelector("#particle_intro0").innerHTML="gf 2019"
-        document.querySelector("#particle_intro2").innerHTML="2/5"
-    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 2){
-        document.querySelector("#particle_intro0").innerHTML="gf 2019"
-        document.querySelector("#particle_intro2").innerHTML="3/5"
-    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 3){
-        document.querySelector("#particle_intro0").innerHTML="swipe the pin"
-        document.querySelector("#particle_intro2").innerHTML="4/5"
-    } else if(scroll_amount_st == 2 && page2_scroll_amount_st == 4){
-        document.querySelector("#particle_intro0").innerHTML="explore"
-        document.querySelector("#particle_intro2").innerHTML="5/5"
-    }
-}
-PAGE2_BUILDER.resize_handler = (pd) => {
+PAGE_BUILDER.load_handler = (pd) => {
 
-    PAGE2_BUILDER.buttons_page_2(pd);
-    PAGE2_BUILDER.buttons_resize_page2(pd);
 }
-PAGE2_BUILDER.first_scroll_handler = (pd) => {
+PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+    pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
+    pd.p1_title_anim.cycle_random(300, 53)
+    document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
+    document.querySelector("#particle_intro1").innerHTML=">"
+    document.querySelector("#particle_intro2").innerHTML="1/5"
+}
+PAGE_BUILDER.resize_handler = (pd) => {
+    
+    PAGE_BUILDER.buttons_page_2(pd);
+    PAGE_BUILDER.buttons_resize_page2(pd);
+}
+PAGE_BUILDER.first_scroll_handler = (pd) => {
+    // PROJECT TITLE
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE2_BUILDER.buttons_page_2(pd);
+    PAGE_BUILDER.buttons_page_2(pd);
     
 }
+

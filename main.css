@@ -1,5 +1,10 @@
 /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
 :root{
+
+    --device_max : 720px;
+    --device_min : 320px;
+
+
     --w : 100dvw;
     --h : 100dvh;
     --headers  : 6dvh;
@@ -17,9 +22,13 @@
     --divider-icon-size  : 30px;
     --divider-margin     : 20px 0px 20px 0px;
     --button-padding     : 5px 10px 5px 10px;
+    --insta_height       : 80%;
+    --insta_width        : 33%;
+    --insta_interactive  : all;
+    --intro_image_bg_size : contain;
 }
 /* ------------------------- PORTRAIT DESKTOP ------------------------- */
-@media screen and (min-width: 1280px) and (min-height: 100vw){
+@media screen and (min-width: 1280px) and (min-height: 100.001vw){
     :root{
         --w : 100dvw;
         --h : 100dvh;
@@ -36,10 +45,14 @@
         --divider-icon-size  : 20px;
         --divider-margin     : 20px 0px 20px 0px;
         --button-padding     : 7px 0px 7px 0px;
+        --insta_height       : 100%;
+        --insta_width        : 30%;
+        --insta_interactive  : none;
+        --intro_image_bg_size : cover;
     }
 }
 /* ------------------------- PORTRAIT MOBILE ------------------------- */
-@media screen and (max-width: 720px){
+@media screen and (max-width: 1280px) and (min-height: 100.001vw){
     :root{
         --w : 100dvw;
         --h : 100dvh;
@@ -55,6 +68,10 @@
         --divider-icon-size  : 20px;
         --divider-margin     : 12px 0px 12px 0px;
         --button-padding     : 2.5px 5px 2.5px 5px;
+        --insta_height       : 100%;
+        --insta_width        : 30%;
+        --insta_interactive  : none;
+        --intro_image_bg_size : cover;
     }
 }
 /* ------------------------- LANDSCAPE MOBILE ------------------------- */
@@ -74,6 +91,10 @@
         --divider-icon-size  : 20px;
         --divider-margin     : 12px 0px 12px 0px;
         --button-padding     : 2.5px 5px 2.5px 5px;
+        --insta_height       : 100%;
+        --insta_width        : 30%;
+        --insta_interactive  : none;
+        --intro_image_bg_size : cover;
     }
 }
 
@@ -313,7 +334,7 @@ overflow: hidden;
 }
 
 .page_header{
-    z-index : 0;
+    z-index : 999;
     position: relative;
     height  : var(--header);
     width   : 100%;
@@ -352,7 +373,7 @@ overflow: hidden;
 
 .p_svg_bg{
     position: absolute;
-    z-index : 0;
+    z-index : 3;
     left    : var(--content-pad-size);
     bottom  : 0px;
     width   : var(--p_svg_bg-width);
@@ -369,7 +390,7 @@ overflow: hidden;
 }
 
 .p_tags{
-    z-index        : 1;
+    z-index        : 2;
     position       : relative;
     width          : 100%;
     display        : flex;
@@ -392,7 +413,6 @@ overflow: hidden;
     width     : var(--p_intro_image1-size);
     max-height: 1000px;
     bottom    : 0vw;
-    right     : 0vw;
 }
 
 .p_descrip_holder{

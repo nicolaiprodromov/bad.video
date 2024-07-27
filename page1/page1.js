@@ -14,36 +14,28 @@ PAGE1_BUILDER.pd = {
     page1_menu     : document.querySelectorAll(".menu_item"),
     img_map        : {
         0: {
-            0: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCCeUpC59QXESipsLUhudMQiWH43TjTI4yFyy4FWXnxvi1Vax6c7rd-FBejXUkCvEbrr4&usqp=CAU",
+            0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a41dbd3e9458651effa176_mock-up.webp",
+            1: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944d38b757faf9fe1d5b8_mock-up.webp",
             2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            5: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
+            3: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
         },
         1: {
-            0: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCCeUpC59QXESipsLUhudMQiWH43TjTI4yFyy4FWXnxvi1Vax6c7rd-FBejXUkCvEbrr4&usqp=CAU",
+            0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a41dbe20bcabc01ff46e35_mock-up-mobile.webp",
+            1: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944d3ce70dcc6c06c0aea_mock-up-mobile.webp",
             2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            5: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
+            3: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif",
         },
         2: {
-            0: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCCeUpC59QXESipsLUhudMQiWH43TjTI4yFyy4FWXnxvi1Vax6c7rd-FBejXUkCvEbrr4&usqp=CAU",
+            0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a41dbd3e9458651effa176_mock-up.webp",
+            1: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944d38b757faf9fe1d5b8_mock-up.webp",
             2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            5: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
+            3: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
         },
         3: {
-            0: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCCeUpC59QXESipsLUhudMQiWH43TjTI4yFyy4FWXnxvi1Vax6c7rd-FBejXUkCvEbrr4&usqp=CAU",
+            0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a41dbe20bcabc01ff46e35_mock-up-mobile.webp",
+            1: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944d3ce70dcc6c06c0aea_mock-up-mobile.webp",
             2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            3: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            5: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
+            3: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif",
         }
         
     },
@@ -59,12 +51,9 @@ PAGE1_BUILDER.load_handler = async (pd) => {
     
 }
 PAGE1_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    var scroll_amount_st = ss[0];
-    if (scroll_amount_st == 1){
-        document.querySelector("#particle_intro0").innerHTML="scroll down"
-        document.querySelector("#particle_intro1").innerHTML="pick a project"
-        document.querySelector("#particle_intro2").innerHTML="^"
-    }
+    document.querySelector("#particle_intro0").innerHTML="scroll down"
+    document.querySelector("#particle_intro1").innerHTML="pick a project"
+    document.querySelector("#particle_intro2").innerHTML="^"
 }
 PAGE1_BUILDER.resize_handler = async (pd) => {
     var indyy=0;

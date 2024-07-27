@@ -2,9 +2,10 @@
 import { Page }     from '/lib/page_builder.js'
 import { TextAnim } from '/lib/text_anim.js';
 import { Particle, Verlet, Paper, subVector, scaleVector, addVector } from '/lib/svg.js';
+import { DotLottie, DotLottieWorker  } from "https://esm.sh/@lottiefiles/dotlottie-web";
 
-const PAGE0_BUILDER = new Page(0);
-PAGE0_BUILDER.pd             = {
+const PAGE_BUILDER = new Page(0);
+PAGE_BUILDER.pd             = {
     holder  : document.querySelector('#i0'),
     includer: document.querySelector('#page0include'),
     intro_title: document.querySelector("#intro_title"),
@@ -17,36 +18,55 @@ PAGE0_BUILDER.pd             = {
     particles_div  : document.querySelectorAll(".particle_intro"),
     random_nr      : document.querySelector('#random_nr'),
     random_nr1      : document.querySelector('#random_nr1'),
+    lottie_anim     : null,
 
 }
-PAGE0_BUILDER.load_handler   = [
-    (pd) => {
-        console.log("WIDTH SCREEN: ", window.innerWidth, " HEIGHT SCREEN: ", window.innerHeight)
-        document.querySelector("#particle_intro0").innerHTML="scroll down"
-        document.querySelector("#particle_intro1").innerHTML="watch my"
-        document.querySelector("#particle_intro2").innerHTML="animation reel"
-    }
-]
-PAGE0_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    var scroll_amount_st = ss[0];
-        if (scroll_amount_st == 0 && delta_ss[0] != 0 && delta_ss[0] != undefined){
-            document.querySelector("#particle_intro0").innerHTML="scroll down"
-            document.querySelector("#particle_intro1").innerHTML="watch my"
-            document.querySelector("#particle_intro2").innerHTML="animation reel"
-            pd.nm_anim.cycle_random(500, 55);
-            pd.nm_anim1.cycle_random(500, 55);
-            pd.bg_rand_text.nr_vo_in(1000, 'easeInOutExpo', 25);
-            pd.bg_rand_text.cycle_random(300, 35);
-            pd.bg_rand_text1.nr_vo_in(1200, 'easeInOutExpo', 25);
-            pd.bg_rand_text1.cycle_random(300, 35);
-        }
+PAGE_BUILDER.load_handler  = (pd) => {
+    document.querySelector("#particle_intro0").innerHTML="scroll down"
+    document.querySelector("#particle_intro1").innerHTML="watch my"
+    document.querySelector("#particle_intro2").innerHTML="animation reel"
 }
-PAGE0_BUILDER.resize_handler = (pd) => {
-    PAGE0_BUILDER.deviceCheck();
-    console.log(PAGE0_BUILDER.deviceMap[PAGE0_BUILDER.device])
-}
+PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
 
-PAGE0_BUILDER.first_scroll_handler = (pd) => {
+    pd.lottie_anim.play();
+
+    document.querySelector("#particle_intro0").innerHTML="scroll down"
+    document.querySelector("#particle_intro1").innerHTML="watch my"
+    document.querySelector("#particle_intro2").innerHTML="animation reel"
+
+    pd.nm_anim.cycle_random(500, 55);
+    pd.nm_anim1.cycle_random(500, 55);
+    pd.nm_anim.nr_vo_in(1200, 'easeInOutExpo', 25);
+    pd.nm_anim1.nr_vo_in(1200, 'easeInOutExpo', 25);
+    pd.bg_rand_text.nr_vo_in(1000, 'easeInOutExpo', 25);
+    pd.bg_rand_text.cycle_random(300, 35);
+    pd.bg_rand_text1.nr_vo_in(1200, 'easeInOutExpo', 25);
+    pd.bg_rand_text1.cycle_random(300, 35);
+}
+PAGE_BUILDER.resize_handler = (pd) => {
+}
+PAGE_BUILDER.first_scroll_handler = (pd) => {
+
+    
+    document.querySelector("#particle_intro0").innerHTML="scroll down"
+    document.querySelector("#particle_intro1").innerHTML="watch my"
+    document.querySelector("#particle_intro2").innerHTML="animation reel"
+
+    var bg_canvas = document.querySelector("#bg_canvas");
+    var bg_anim    = document.querySelector("#bg_anim");
+    pd.lottie_anim = "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a446e4f96594abadb71093_bg_anim.json";
+    pd.lottie_anim = new DotLottieWorker({
+        autoplay: false,
+        loop: false,
+        canvas : bg_canvas,
+        src : pd.lottie_anim,
+        workerId: 'worker-1',
+    });
+    pd.lottie_anim.addEventListener('play', () => {
+    })
+    pd.lottie_anim.addEventListener('complete', () => {
+    })
+
     pd.bg_rand_text    = new TextAnim(pd.random_nr);
     pd.bg_rand_text1   = new TextAnim(pd.random_nr1);
     pd.nm_anim     = new TextAnim(pd.name_title);
