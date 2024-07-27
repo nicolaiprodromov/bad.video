@@ -3,8 +3,8 @@ import { TextAnim }      from '/lib/text_anim.js';
 import { FRUIT_DISPLAY } from '/lib/3d_display.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
-const PAGE1_BUILDER = new Page(1);
-PAGE1_BUILDER.pd = {
+const PAGE_BUILDER = new Page(1);
+PAGE_BUILDER.pd = {
     holder         : document.querySelector('#i1'),
     includer       : document.querySelector('#page1include'),
     img_objs       : [],
@@ -47,24 +47,24 @@ PAGE1_BUILDER.pd = {
     },
     arrow_menu : document.querySelector("#arrow_menu"),
 }
-PAGE1_BUILDER.load_handler = async (pd) => {
+PAGE_BUILDER.load_handler = async (pd) => {
     
 }
-PAGE1_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="scroll down"
     document.querySelector("#particle_intro1").innerHTML="pick a project"
     document.querySelector("#particle_intro2").innerHTML="^"
 }
-PAGE1_BUILDER.resize_handler = async (pd) => {
+PAGE_BUILDER.resize_handler = async (pd) => {
     var indyy=0;
     for (var mimg_ of pd.img_objs){
         mimg_.clear();
-        mimg_._img = await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy])
+        mimg_._img = await PAGE_BUILDER.checkImage(pd.img_map[PAGE_BUILDER.device][indyy])
         mimg_.draw();
         indyy++;
     }
 }
-PAGE1_BUILDER.first_scroll_handler = async (pd) => {
+PAGE_BUILDER.first_scroll_handler = async (pd) => {
     
     // const ely = document.querySelector("#PEAR");
     // const canvasy = document.querySelector("#pear-canvas");
@@ -87,13 +87,23 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
     for (var mimg of pd.menu_images){
         var imgobj = new ImageObject(
             mimg,
-            await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy]),
+            await PAGE_BUILDER.checkImage(pd.img_map[PAGE_BUILDER.device][indyy]),
             indyy);
         imgobj.draw();
-        imgobj.element.style.opacity = "0"
+        imgobj.element.style.opacity = 0
         pd.img_objs.push(imgobj)
         indyy++;
     }
+
+    setInterval(() => {
+
+        pd.img_objs[Math.floor(Math.random() * pd.img_objs.length)].element.style.opacity = 1;
+
+        setTimeout(() => {
+
+        })
+
+    }, 1000)
 
     var ind = 0
     for (var mi of pd.page1_menu){
@@ -109,37 +119,59 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
         pd.arrow_menu.style.left = `${e.clientX}px`
         pd.arrow_menu.style.top  = `${e.clientY}px`
     })
-    
+
+
     for (var mi of pd.menu_items_ta){
         mi.element.addEventListener('click', async (e) => {
-            var fruits = document.querySelectorAll('.FRUIT');
-            var indy = 0;
             e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
-            pd.menu_items_ta[e.currentTarget.dataset.text_id].nr_vo_in(200, "easeInOutSine", 20)
-            for (var _ of pd.menu_images){
-                if (indy == e.currentTarget.dataset.text_id){
-                    fruits      [indy].style.opacity        = 1
-                    pd.img_objs[indy].transform            = "rotate(" + pd.img_objs[indy].randInt(-33,33) +"deg)"
-                    pd.img_objs[indy].element.style.zIndex = 1
-                    pd.img_objs[indy].fade([0,1], 300)
-                    //await pd.img_objs[indy].glitchTransition(5, "black");
-                    var chaka = indy
-                    setTimeout(() => {
-                        scroll_amount = chaka + 3
-                        var e_e = {type:'wheel', deltaY:-1}
-                        page2_scroll_amount  = 0;page7_scroll_amount  = 0
-                        page12_scroll_amount = 0;page17_scroll_amount = 0
-                        page22_scroll_amount = 0;page22.style.left = "0px"
-                        page2.style.left  = "0px";page7.style.left  = "0px"
-                        page12.style.left = "0px";page17.style.left = "0px"
-                        scroll_to(e_e)
-                    }, 700)
-                } else {
-                    pd.img_objs[indy].element.style.zIndex = 0
-                    fruits      [indy].style.opacity        = 0
-                }
-                indy++;
-            }
-        })
+            var chaka = parseInt(e.currentTarget.id.replace("menu_item",''))
+            setTimeout(() => {
+                scroll_amount = chaka + 3
+                var e_e = {type:'wheel', deltaY:-1}
+                page2_scroll_amount  = 0;page7_scroll_amount  = 0
+                page12_scroll_amount = 0;page17_scroll_amount = 0
+                page22_scroll_amount = 0;page22.style.left = "0px"
+                page2.style.left  = "0px";page7.style.left  = "0px"
+                page12.style.left = "0px";page17.style.left = "0px"
+                scroll_to(e_e)
+            }, 700)
+        });
+        mi.element.addEventListener('mouseenter', async (e) => {
+            pd.menu_items_ta[parseInt(e.currentTarget.id.replace("menu_item",''))].nr_vo_in(200, "easeInOutSine", 20)
+        });
     }
+
+    
+    // for (var mi of pd.menu_items_ta){
+    //     mi.element.addEventListener('click', async (e) => {
+    //         var fruits = document.querySelectorAll('.FRUIT');
+    //         var indy = 0;
+    //         e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
+    //         pd.menu_items_ta[e.currentTarget.dataset.text_id].nr_vo_in(200, "easeInOutSine", 20)
+    //         for (var _ of pd.menu_images){
+    //             if (indy == e.currentTarget.dataset.text_id){
+    //                 fruits      [indy].style.opacity        = 1
+    //                 pd.img_objs[indy].transform            = "rotate(" + pd.img_objs[indy].randInt(-33,33) +"deg)"
+    //                 pd.img_objs[indy].element.style.zIndex = 1
+    //                 pd.img_objs[indy].fade([0,1], 300)
+    //                 //await pd.img_objs[indy].glitchTransition(5, "black");
+    //                 var chaka = indy
+    //                 setTimeout(() => {
+    //                     scroll_amount = chaka + 3
+    //                     var e_e = {type:'wheel', deltaY:-1}
+    //                     page2_scroll_amount  = 0;page7_scroll_amount  = 0
+    //                     page12_scroll_amount = 0;page17_scroll_amount = 0
+    //                     page22_scroll_amount = 0;page22.style.left = "0px"
+    //                     page2.style.left  = "0px";page7.style.left  = "0px"
+    //                     page12.style.left = "0px";page17.style.left = "0px"
+    //                     scroll_to(e_e)
+    //                 }, 700)
+    //             } else {
+    //                 pd.img_objs[indy].element.style.zIndex = 0
+    //                 fruits      [indy].style.opacity        = 0
+    //             }
+    //             indy++;
+    //         }
+    //     })
+    // }
 }
