@@ -158,7 +158,7 @@
 #random_nr1{
     display:var(--random-display);
     position : absolute;
-
+    z-index: 4;
     top   : 10px;
 
     transform: rotate(3deg);

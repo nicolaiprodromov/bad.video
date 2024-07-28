@@ -54,7 +54,12 @@ PAGE_BUILDER.first_scroll_handler = (pd) => {
 
     var bg_canvas = document.querySelector("#bg_canvas");
     var bg_anim    = document.querySelector("#bg_anim");
-    pd.lottie_anim = "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a446e4f96594abadb71093_bg_anim.json";
+
+    bg_anim.addEventListener("click", () => {
+        window.open('https://youtu.be/PBgCgR220To', '_blank').focus(); 
+    })
+
+    pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
     pd.lottie_anim = new DotLottieWorker({
         autoplay: false,
         loop: false,
