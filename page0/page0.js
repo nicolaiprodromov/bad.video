@@ -74,8 +74,6 @@ PAGE_BUILDER.first_scroll_handler = (pd) => {
     pd.bg_rand_text1   = new TextAnim(pd.random_nr1);
     pd.nm_anim     = new TextAnim(pd.name_title);
     pd.nm_anim1    = new TextAnim(pd.name_title1);
-    pd.nm_anim.nr_vo_in(333, 'easeInOutExpo', 25);
-    pd.nm_anim1.nr_vo_in(333, 'easeInOutExpo', 25);
     // setTimeout(() => {pd.nm_anim.simCharacters()}, 1111);
     // setTimeout(() => {pd.nm_anim1.simCharacters()}, 1111);
 

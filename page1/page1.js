@@ -93,7 +93,7 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
     for (var mimg of pd.menu_images){
         var imgobj = new ImageObject(
             mimg,
-            await PAGE_BUILDER.checkImage(pd.img_map[PAGE_BUILDER.device][indyy]),
+            pd.img_map[PAGE_BUILDER.device][indyy],
             indyy);
         imgobj.draw();
         imgobj.element.style.opacity = 0
