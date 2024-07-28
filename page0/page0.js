@@ -28,8 +28,7 @@ PAGE_BUILDER.load_handler  = (pd) => {
 }
 PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
 
-    pd.lottie_anim.play();
-
+    //pd.lottie_anim.play();
     document.querySelector("#particle_intro0").innerHTML="scroll down"
     document.querySelector("#particle_intro1").innerHTML="watch my"
     document.querySelector("#particle_intro2").innerHTML="animation reel"
@@ -42,6 +41,7 @@ PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     pd.bg_rand_text.cycle_random(300, 35);
     pd.bg_rand_text1.nr_vo_in(1200, 'easeInOutExpo', 25);
     pd.bg_rand_text1.cycle_random(300, 35);
+    alert("TEST")
 }
 PAGE_BUILDER.resize_handler = (pd) => {
 }
