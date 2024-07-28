@@ -96,14 +96,19 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
     }
 
     setInterval(() => {
-
-        pd.img_objs[Math.floor(Math.random() * pd.img_objs.length)].element.style.opacity = 1;
-
-        setTimeout(() => {
-
+        var random_choice = Math.floor(Math.random() * pd.img_objs.length)
+        const anim2 = anime({
+            targets: pd.img_objs[random_choice].element,
+            keyframes: [
+            {
+                opacity: 1, duration:1000
+            },
+            {
+                opacity: 0, duration:1000, delay:3000
+            }],
+            easing:"easeInOutSine"
         })
-
-    }, 1000)
+    }, 5000)
 
     var ind = 0
     for (var mi of pd.page1_menu){
