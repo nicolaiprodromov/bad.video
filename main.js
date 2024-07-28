@@ -566,21 +566,98 @@ window.addEventListener('beforeunload', () => {
     window.scrollTo(0, 0);
 })
 window.addEventListener('load', () => {
+    const loader = document.querySelector("#loader");
+    const loader_data_div = document.querySelector(".loader_data_div");
+    const loader_data = document.querySelectorAll(".loader_data");
+    const loader_button = document.querySelector(".loader_button");
+    const loader_noise = document.querySelector("#loader_noise");
+    const vhs_player = document.querySelector("#vhs_sound");
+    setTimeout(async () => {
+        var step = 700;
+        var ind = 0;
+        setTimeout(() => {
+            loader_data[1].style.display = "block";
+            anime({
+                targets : loader_data[1],
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+        setTimeout(() => {
+            loader_data[3].style.display = "block";
+            anime({
+                targets : loader_data[3],
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+        setTimeout(() => {
+            loader_data[2].style.display = "block";
+            anime({
+                targets : loader_data[2],
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+        setTimeout(() => {
+            loader_button.style.display = "block";
+            anime({
+                targets : loader_button,
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+
+    }, 100);
     setTimeout( () => {
-
-        const loader = document.querySelector("#loader")
-        loader.style.display = 'none'
-
+        loader_button.addEventListener('click', () => {
+            anime({
+                targets: loader,
+                backgroundColor: ["rgb(255,0,0)", "rgb(225,225,225)"],
+                duration: 1000,
+                easing: "easeInOutSine",
+                begin: () => {
+                    loader_noise.style.display = "block"
+                    vhs_player.play();
+                },
+                complete: () => {
+                    loader.style.display = 'none'
+                    vhs_player.pause();
+                    vhs_player.src = vhs_player.src;
+                    scroll_amount = 1
+                    page2_scroll_amount  = 0
+                    page7_scroll_amount  = 0
+                    page12_scroll_amount  = 0
+                    page17_scroll_amount  = 0
+                    page22_scroll_amount  = 0
+                    page2.style.left  = "0px"
+                    page7.style.left  = "0px"
+                    page12.style.left  = "0px"
+                    page17.style.left  = "0px"
+                    page22.style.left  = "0px"
+                    var e_e = {type:'wheel', deltaY:-1}
+                    scroll_to(e_e)
+                }
+            })
+        })
         var now1 = new Date().getTime();
         var page_load_time = now1 - performance.timing.navigationStart;
-        console.log(`==============================> ✅✅✅ LOAD TIME: [${page_load_time} ms] ✅✅✅ <==============================`);
+        console.log(`✅ LOAD TIME: [${page_load_time} ms] ✅`);
+    }, 3000)
 
-    }, 1000)
     setTimeout(() => {
-        scroll_amount = 1
+        scroll_amount = 0
         dispatchEvent(wheelEvent);
         window.scrollTo(0, 0);
-    }, 1030)
+    }, 3030)
 })
 window.addEventListener('resize', () => {
     // SCREEN REPAIR ON RESIZE
