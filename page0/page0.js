@@ -28,7 +28,7 @@ PAGE_BUILDER.load_handler  = (pd) => {
 }
 PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
 
-    //pd.lottie_anim.play();
+    pd.lottie_anim.play();
     document.querySelector("#particle_intro0").innerHTML="scroll down"
     document.querySelector("#particle_intro1").innerHTML="watch my"
     document.querySelector("#particle_intro2").innerHTML="animation reel"
@@ -58,17 +58,17 @@ PAGE_BUILDER.first_scroll_handler = (pd) => {
         window.open('https://youtu.be/PBgCgR220To', '_blank').focus(); 
     })
 
-    // pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
-    // pd.lottie_anim = new DotLottie({
-    //     autoplay: false,
-    //     loop: false,
-    //     canvas : bg_canvas,
-    //     src : pd.lottie_anim,
-    // });
-    // pd.lottie_anim.addEventListener('play', () => {
-    // })
-    // pd.lottie_anim.addEventListener('complete', () => {
-    // })
+    pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
+    pd.lottie_anim = new DotLottie({
+        autoplay: false,
+        loop: false,
+        canvas : bg_canvas,
+        src : pd.lottie_anim,
+    });
+    pd.lottie_anim.addEventListener('play', () => {
+    })
+    pd.lottie_anim.addEventListener('complete', () => {
+    })
 
     pd.bg_rand_text    = new TextAnim(pd.random_nr);
     pd.bg_rand_text1   = new TextAnim(pd.random_nr1);

@@ -365,7 +365,7 @@ overflow: hidden;
     position: relative;
     height  : var(--header);
     width   : 100%;
-            /* background-color: rgb(243, 243, 243); */
+    background-color: rgb(243, 243, 243);
     border-bottom: solid 1px black;
     border-top   : none;
 
@@ -386,6 +386,7 @@ overflow: hidden;
     justify-content: center;
     align-items    : center;
     padding        : 0px 0px 0px 0px;
+    background: linear-gradient(-90deg, white, rgb(221,221,221))
 }
 .includer{
     position       : relative;
