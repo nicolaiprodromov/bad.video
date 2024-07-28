@@ -5,35 +5,29 @@ import { Paper }       from '/lib/svg.js'
 import { ImageObject } from '/lib/images_obj.js';
 import { OBJ_DISPLAY } from '/lib/3d_display.js';
 
-const PAGE10_BUILDER = new Page(5);
-PAGE10_BUILDER.pd             = {
+const PAGE_BUILDER = new Page(5);
+PAGE_BUILDER.pd = {
     holder    : document.querySelector('#i6'),
     includer  : document.querySelector('#page5include'),
-    
     p1_image1 : document.querySelector('#p2_image13'),
     p1_img_obj: null,
-    p1_img_src: "/page5/mock-up.png",
-
     p1_img_map : {
         0 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2ae878dec09da15984a9_mock-up.webp`,
         1 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2ae7d42524ab7771dcc2_mock-up-mobile.webp`,
         2 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2ae878dec09da15984a9_mock-up.webp`,
         3 : `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2ae7d42524ab7771dcc2_mock-up-mobile.webp`,
     },
-
     paper1 : null,
     image_path_div : document.querySelector("#p2_image_path1"),
     p1_description3 : document.querySelector("#p2_description4"),
     p1_path_class : "rails_1",
-
     pathy1 : null,
     pathy2 : null,
-
     ip_div_bb : null,
 }
-PAGE10_BUILDER.load_handler   = async (pd) => {
+PAGE_BUILDER.load_handler = async (pd) => {
 }
-PAGE10_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
+PAGE_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
     document.querySelector("#particle_intro2").innerHTML="4/5"
     pd.p1_img_obj.fade([0,1], 300)
@@ -73,13 +67,13 @@ PAGE10_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
             }
         ],
     }
-    var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE10_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
+    var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
     pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
 }
-PAGE10_BUILDER.resize_handler = async (pd) => {
+PAGE_BUILDER.resize_handler = async (pd) => {
 
     pd.p1_img_obj.clear();
-    pd.p1_img_obj._img = await PAGE10_BUILDER.checkImage(pd.p1_img_map[PAGE10_BUILDER.device])
+    pd.p1_img_obj._img = pd.p1_img_map[PAGE_BUILDER.device]
     pd.p1_img_obj.draw();
 
     pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
@@ -118,9 +112,9 @@ PAGE10_BUILDER.resize_handler = async (pd) => {
             }
         ],
     }
-    pd.paper1.updatePath(0, pd.pathy1[PAGE10_BUILDER.device])
+    pd.paper1.updatePath(0, pd.pathy1[PAGE_BUILDER.device])
 }
-PAGE10_BUILDER.first_scroll_handler = async (pd) => {
+PAGE_BUILDER.first_scroll_handler = async (pd) => {
 
     
     // const jcup_div = document.querySelector("#JCUP");
@@ -137,7 +131,7 @@ PAGE10_BUILDER.first_scroll_handler = async (pd) => {
 
     pd.p1_img_obj = new ImageObject(
         pd.p1_image1,
-        await PAGE10_BUILDER.checkImage(pd.p1_img_map[PAGE10_BUILDER.device]),
+        pd.p1_img_map[PAGE_BUILDER.device],
         0,
     );
     pd.p1_img_obj.draw();
@@ -178,6 +172,6 @@ PAGE10_BUILDER.first_scroll_handler = async (pd) => {
             }
         ],
     }
-    pd.paper1.makePath(0, pd.pathy1[PAGE10_BUILDER.device])
+    pd.paper1.makePath(0, pd.pathy1[PAGE_BUILDER.device])
     pd.paper1.paths[0].attr('class', pd.p1_path_class);
 }

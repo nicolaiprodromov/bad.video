@@ -14,6 +14,8 @@
     --p1d3-width    : 30%;
     --menu-image-right : 0px;
     --menu-image-bottom: none;
+    --particles_display : block;
+    --arrow_menu_display: block;
 }
 /* ------------------------- PORTRAIT DESKTOP ------------------------- */
 @media screen and (min-width: 1280px) and (min-height: 100.001vw){
@@ -31,6 +33,8 @@
         --p1d3-width    : 100%;
         --menu-image-right : none;
         --menu-image-bottom: 0px;
+        --particles_display : block;
+        --arrow_menu_display: block;
     }
 }
 /* ------------------------- PORTRAIT MOBILE ------------------------- */
@@ -49,6 +53,8 @@
         --p1d3-width    : 100%;
         --menu-image-right : none;
         --menu-image-bottom: 0px;
+        --particles_display : none;
+        --arrow_menu_display: none;
     }
 }
 /* ------------------------- LANDSCAPE MOBILE ------------------------- */
@@ -67,6 +73,8 @@
         --p1d3-width    : 50.3%;
         --menu-image-right : 0px;
         --menu-image-bottom: none;
+        --particles_display : none;
+        --arrow_menu_display: none;
     }
 }
 
@@ -104,6 +112,7 @@
 
 /* TEXT PARTICLES */
 .particles_intro{
+    display : var(--particles_display);
     position: absolute;
     z-index : 999;
     width   : 100%;

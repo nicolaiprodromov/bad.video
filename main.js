@@ -573,6 +573,7 @@ window.addEventListener('load', () => {
     const loader_noise = document.querySelector("#loader_noise");
     const vhs_player = document.querySelector("#vhs_sound");
     setTimeout(async () => {
+        vhs_player.volume = .2;
         var step = 700;
         var ind = 0;
         setTimeout(() => {

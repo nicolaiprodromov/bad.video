@@ -19,7 +19,7 @@
     z-index    : 10;
 
     
-    height     : calc( var(--paragraph_big) + .4vw);
+    height     : calc( var(--paragraph_big));
     line-height: var(--paragraph_big);
     font-size  : var(--paragraph_big);
 
@@ -69,4 +69,8 @@
 #post_menu{
     position: relative;
     z-index: 10;
+}
+
+#arrow_menu{
+    display: var(--arrow_menu_display)
 }

@@ -123,6 +123,12 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
         pd.arrow_menu.style.left = `${e.clientX}px`
         pd.arrow_menu.style.top  = `${e.clientY}px`
     })
+    pd.page1_menu_div.addEventListener("mouseenter", (e) => {
+        pd.arrow_menu.style.display = "block";
+    })
+    pd.page1_menu_div.addEventListener("mouseleave", (e) => {
+        pd.arrow_menu.style.display = "none";
+    })
 
 
     for (var mi of pd.menu_items_ta){
