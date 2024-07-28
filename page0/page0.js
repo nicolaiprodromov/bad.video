@@ -41,7 +41,6 @@ PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     pd.bg_rand_text.cycle_random(300, 35);
     pd.bg_rand_text1.nr_vo_in(1200, 'easeInOutExpo', 25);
     pd.bg_rand_text1.cycle_random(300, 35);
-    alert("TEST")
 }
 PAGE_BUILDER.resize_handler = (pd) => {
 }
@@ -59,17 +58,17 @@ PAGE_BUILDER.first_scroll_handler = (pd) => {
         window.open('https://youtu.be/PBgCgR220To', '_blank').focus(); 
     })
 
-    pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
-    pd.lottie_anim = new DotLottie({
-        autoplay: false,
-        loop: false,
-        canvas : bg_canvas,
-        src : pd.lottie_anim,
-    });
-    pd.lottie_anim.addEventListener('play', () => {
-    })
-    pd.lottie_anim.addEventListener('complete', () => {
-    })
+    // pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
+    // pd.lottie_anim = new DotLottie({
+    //     autoplay: false,
+    //     loop: false,
+    //     canvas : bg_canvas,
+    //     src : pd.lottie_anim,
+    // });
+    // pd.lottie_anim.addEventListener('play', () => {
+    // })
+    // pd.lottie_anim.addEventListener('complete', () => {
+    // })
 
     pd.bg_rand_text    = new TextAnim(pd.random_nr);
     pd.bg_rand_text1   = new TextAnim(pd.random_nr1);
