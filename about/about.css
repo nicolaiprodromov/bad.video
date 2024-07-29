@@ -1,6 +1,6 @@
     /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
 :root{
-  --about_data_width     : 70%;
+  --about_data_width     : 100%;
   --about_data_r_width   : 30%;
   --about_data_r_display : block;
   --about_links_display  : flex;
@@ -50,7 +50,7 @@
     /* ------------------------- LANDSCAPE MOBILE ------------------------- */
 @media screen and (max-width: 1280px) and (min-width: 100vh){
   :root{
-    --about_data_width     : 700%;
+    --about_data_width     : 100%;
     --about_data_r_width   : 30%;
     --about_data_r_display : block;
     --about_links_display  : flex;
@@ -149,4 +149,8 @@
 
 .aboutsymb2{
   left: 80%;
+}
+
+#about_text{
+  margin-bottom:20px;
 }

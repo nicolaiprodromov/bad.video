@@ -89,14 +89,14 @@ PAGE14_BUILDER.first_scroll_handler = async (pd) => {
 
         tw0.style.left      = `calc(50% - ${tw0.getBoundingClientRect().width/2}px - 100px)`
         tw0.style.top       = "50%"
-        tw0.style.transform = "translate(-50%,-50%) rotate(-2deg)"
+        // tw0.style.transform = "translate(-50%,-50%) rotate(-2deg)"
 
         tw1.style.left      = `calc(50% + ${tw1.getBoundingClientRect().width/2}px + 100px)`
         tw1.style.top       = "50%"
-        tw1.style.transform = "translate(-50%,-50%) rotate(-1deg)"
+        // tw1.style.transform = "translate(-50%,-50%) rotate(-1deg)"
 
         tw2.style.left      = `calc(50%)`
         tw2.style.top       = "50%"
-        tw2.style.transform = "translate(-50%,-50%) rotate(3deg)"
+        // tw2.style.transform = "translate(-50%,-50%) rotate(3deg)"
     }, 3000)
 }

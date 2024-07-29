@@ -59,11 +59,12 @@ PAGE_BUILDER.first_scroll_handler = (pd) => {
     })
 
     pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
-    pd.lottie_anim = new DotLottie({
+    pd.lottie_anim = new DotLottieWorker({
         autoplay: false,
         loop: false,
         canvas : bg_canvas,
         src : pd.lottie_anim,
+        workerId : 'worker-1'
     });
     pd.lottie_anim.addEventListener('play', () => {
     })
