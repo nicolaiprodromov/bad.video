@@ -1,12 +1,12 @@
 
 
-import { Page }        from '/lib/page_builder.js';
+import { Page }        from '/lib/page5_builder.js';
 import { Paper }       from '/lib/svg.js'
 import { ImageObject } from '/lib/images_obj.js';
 import { OBJ_DISPLAY } from '/lib/3d_display.js';
 
-const PAGE_BUILDER = new Page(5);
-PAGE_BUILDER.pd = {
+const PAGE5_BUILDER = new Page(5);
+PAGE5_BUILDER.pd = {
     holder    : document.querySelector('#i6'),
     includer  : document.querySelector('#page5include'),
     p1_image1 : document.querySelector('#p2_image13'),
@@ -25,9 +25,9 @@ PAGE_BUILDER.pd = {
     pathy2 : null,
     ip_div_bb : null,
 }
-PAGE_BUILDER.load_handler = async (pd) => {
+PAGE5_BUILDER.load_handler = async (pd) => {
 }
-PAGE_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
+PAGE5_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
     // document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
     // document.querySelector("#particle_intro2").innerHTML="4/5"
     // anime({
@@ -73,13 +73,13 @@ PAGE_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
     //         }
     //     ],
     // }
-    // var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
+    // var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE5_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
     // pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
 }
-PAGE_BUILDER.resize_handler = async (pd) => {
+PAGE5_BUILDER.resize_handler = async (pd) => {
 
     pd.p1_img_obj.clear();
-    pd.p1_img_obj._img = pd.p1_img_map[PAGE_BUILDER.device]
+    pd.p1_img_obj._img = pd.p1_img_map[PAGE5_BUILDER.device]
     pd.p1_img_obj.draw();
 
     pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
@@ -118,9 +118,9 @@ PAGE_BUILDER.resize_handler = async (pd) => {
             }
         ],
     }
-    pd.paper1.updatePath(0, pd.pathy1[PAGE_BUILDER.device])
+    pd.paper1.updatePath(0, pd.pathy1[PAGE5_BUILDER.device])
 }
-PAGE_BUILDER.first_scroll_handler = async (pd) => {
+PAGE5_BUILDER.first_scroll_handler = async (pd) => {
 
     
     // const jcup_div = document.querySelector("#JCUP");
@@ -131,7 +131,7 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
 
     pd.p1_img_obj = new ImageObject(
         pd.p1_image1,
-        pd.p1_img_map[PAGE_BUILDER.device],
+        pd.p1_img_map[PAGE5_BUILDER.device],
         0,
     );
     pd.p1_img_obj.draw();
@@ -172,6 +172,6 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
     //         }
     //     ],
     // }
-    // pd.paper1.makePath(0, pd.pathy1[PAGE_BUILDER.device])
+    // pd.paper1.makePath(0, pd.pathy1[PAGE5_BUILDER.device])
     // pd.paper1.paths[0].attr('class', pd.p1_path_class);
 }
