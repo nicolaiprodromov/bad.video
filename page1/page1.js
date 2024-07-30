@@ -3,8 +3,8 @@ import { TextAnim }      from '/lib/text_anim.js';
 import { FRUIT_DISPLAY } from '/lib/3d_display.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
-const PAGE_BUILDER = new Page(1);
-PAGE_BUILDER.pd = {
+const PAGE1_BUILDER = new Page(1);
+PAGE1_BUILDER.pd = {
     holder         : document.querySelector('#i1'),
     includer       : document.querySelector('#page1include'),
     img_objs       : [],
@@ -47,24 +47,24 @@ PAGE_BUILDER.pd = {
     },
     arrow_menu : document.querySelector("#arrow_menu"),
 }
-PAGE_BUILDER.load_handler = async (pd) => {
+PAGE1_BUILDER.load_handler = async (pd) => {
     
 }
-PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE1_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="scroll down"
     document.querySelector("#particle_intro1").innerHTML="pick a project"
     document.querySelector("#particle_intro2").innerHTML="^"
 }
-PAGE_BUILDER.resize_handler = async (pd) => {
+PAGE1_BUILDER.resize_handler = async (pd) => {
     // var indyy=0;
     // for (var mimg_ of pd.img_objs){
     //     mimg_.clear();
-    //     mimg_._img = await PAGE_BUILDER.checkImage(pd.img_map[PAGE_BUILDER.device][indyy])
+    //     mimg_._img = await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy])
     //     mimg_.draw();
     //     indyy++;
     // }
 }
-PAGE_BUILDER.menu_images_anim = async (el, pd) => {
+PAGE1_BUILDER.menu_images_anim = async (el, pd) => {
     anime({
         targets: el,
         easing:"easeInOutSine",
@@ -81,7 +81,7 @@ PAGE_BUILDER.menu_images_anim = async (el, pd) => {
         duration: 450
     })
 }
-PAGE_BUILDER.first_scroll_handler = async (pd) => {
+PAGE1_BUILDER.first_scroll_handler = async (pd) => {
     
     // const ely3 = document.querySelector("#EPEAR");
     // const canvasy3 = document.querySelector("#epear-canvas");
@@ -93,7 +93,7 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
     // for (var mimg of pd.menu_images){
     //     var imgobj = new ImageObject(
     //         mimg,
-    //         pd.img_map[PAGE_BUILDER.device][indyy],
+    //         pd.img_map[PAGE1_BUILDER.device][indyy],
     //         indyy);
     //     imgobj.draw();
     //     imgobj.element.style.opacity = 0
@@ -103,11 +103,11 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
 
     // setTimeout(() => {
     //     var random_choice = Math.floor(Math.random() * pd.img_objs.length)
-    //     PAGE_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
+    //     PAGE1_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
     // }, 100)
     // setInterval(() => {
     //     var random_choice = Math.floor(Math.random() * pd.img_objs.length)
-    //     PAGE_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
+    //     PAGE1_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
     // }, 4000)
 
     var ind = 0

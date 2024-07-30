@@ -176,3 +176,22 @@
     font-size  : calc( var(--title_small));
     color      : rgb(0, 0, 0);
 }
+
+
+#bg_anim{
+    max-width      : 80%;
+    cursor         : pointer;
+    top            : 0px;
+    width          : 640px;
+    height         : 320px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position       : absolute;
+    z-index        : 3;
+}
+
+#bg_canvas{
+    width: 640px;
+    height: auto;
+}

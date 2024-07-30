@@ -174,8 +174,8 @@
                         </div>
                         <div id="p1_tag5" style = "border:solid 1px black;background-color:transparent;transform:rotate(0deg)"class="p_tag paragraph_small">#procedural</div>
                     </div>
-                    <div id="bg_anim" style="cursor:pointer;top:0px;width:640px;height:320px;display:flex;align-items:center;justify-content:center;position:absolute;z-index: 3;">
-                        <canvas width="640"height="360"id="bg_canvas"></canvas>
+                    <div id="bg_anim">
+                        <canvas id="bg_canvas"></canvas>
                     </div>
                     <div id="random_nr"  class="title_small">4 projects↓</div>
                     <div id="random_nr1"  class="title_small">animation reel</div>
@@ -1148,7 +1148,7 @@
         <script type="importmap">
             {
               "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
+                "three"        : "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
                 "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/"
               }
             }
@@ -1171,14 +1171,14 @@
         <script src="/lib/assets/asset16.js"></script>
         <script src="/lib/state_tracker.js"></script>
         <script src="main.js"></script>
-        <!-- <script type="module" src="/page0/page0.js"></script>
+        <script type="module" src="/page0/page0.js"></script>
         <script type="module" src="/page1/page1.js"></script>
         <script type="module" src="/page2/page2.js"></script>
         <script type="module" src="/page3/page3.js"></script>
-        <script type="module" src="/page4/page4.js"></script> -->
+        <script type="module" src="/page4/page4.js"></script>
         <script type="module" src="/page5/page5.js"></script>
-        <!-- <script type="module" src="/page6/page6.js"></script>
-        <script type="module" src="/page7/page7.js"></script>
+        <script type="module" src="/page6/page6.js"></script>
+        <!-- <script type="module" src="/page7/page7.js"></script>
         <script type="module" src="/page8/page8.js"></script>
         <script type="module" src="/page9/page9.js"></script>
         <script type="module" src="/page10/page10.js"></script>
@@ -1194,8 +1194,9 @@
         <script type="module" src="/page20/page20.js"></script>
         <script type="module" src="/page21/page21.js"></script> -->
         
-        <script type="module" src="/about/about.js"></script>
-        <script type="module" src="/contact/contact.js"></script>
+        <!-- <script type="module" src="/about/about.js"></script>
+        <script type="module" src="/contact/contact.js"></script> -->
+
         <script type="module">
             import { PAGES_NPXYZ } from '/lib/page_builder.js'
             for (var page of PAGES_NPXYZ) {

@@ -2,8 +2,8 @@ import { Page }     from '/lib/page_builder.js';
 import { TextAnim } from '/lib/text_anim.js';
 import { Paper }    from '/lib/svg.js';
 
-const PAGE_BUILDER = new Page(2);
-PAGE_BUILDER.pd = {
+const PAGE2_BUILDER = new Page(2);
+PAGE2_BUILDER.pd = {
     holder_up: document.querySelector("#i2"),
     holder   : document.querySelector("#i3"),
     includer : document.querySelector("#page2include"),
@@ -22,9 +22,9 @@ PAGE_BUILDER.pd = {
     buttons_built : false,
 
 }
-PAGE_BUILDER.buttons_page_2 = (pd) => {
+PAGE2_BUILDER.buttons_page_2 = (pd) => {
     // BUTTONS
-    if (PAGE_BUILDER.device > 1){
+    if (PAGE2_BUILDER.device > 1){
         return null
     }
     if (pd.buttons_built){
@@ -61,7 +61,7 @@ PAGE_BUILDER.buttons_page_2 = (pd) => {
                 pd.p1_paper.paths[0].animate({path:pd.p1_paper.rparse_coords(asset15)}, 200)
             }
             setTimeout(() => {
-                PAGE_BUILDER.toggleFullScreen(document.documentElement)
+                PAGE2_BUILDER.toggleFullScreen(document.documentElement)
             }, 200)
         }
     )
@@ -97,8 +97,8 @@ PAGE_BUILDER.buttons_page_2 = (pd) => {
         }
     )
 }
-PAGE_BUILDER.buttons_resize_page2 = (pd) => {
-    if (PAGE_BUILDER.device > 1){
+PAGE2_BUILDER.buttons_resize_page2 = (pd) => {
+    if (PAGE2_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
                 pd.p1_paper.parent.removeChild(pd.p1_paper.parent.lastChild);
@@ -120,25 +120,25 @@ PAGE_BUILDER.buttons_resize_page2 = (pd) => {
         pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE_BUILDER.load_handler = (pd) => {
+PAGE2_BUILDER.load_handler = (pd) => {
 
 }
-PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE2_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
     pd.p1_title_anim.cycle_random(300, 53)
     document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
     document.querySelector("#particle_intro1").innerHTML=">"
     document.querySelector("#particle_intro2").innerHTML="1/5"
 }
-PAGE_BUILDER.resize_handler = (pd) => {
+PAGE2_BUILDER.resize_handler = (pd) => {
     
-    PAGE_BUILDER.buttons_page_2(pd);
-    PAGE_BUILDER.buttons_resize_page2(pd);
+    PAGE2_BUILDER.buttons_page_2(pd);
+    PAGE2_BUILDER.buttons_resize_page2(pd);
 }
-PAGE_BUILDER.first_scroll_handler = (pd) => {
+PAGE2_BUILDER.first_scroll_handler = (pd) => {
     // PROJECT TITLE
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE_BUILDER.buttons_page_2(pd);
+    PAGE2_BUILDER.buttons_page_2(pd);
     
 }
 
