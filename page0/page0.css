@@ -85,6 +85,7 @@
 
 #page0include{
     padding:var(--content-padding);
+    background-color: red;
 }
 
 /* INTRO TITLE AND SVGS */
