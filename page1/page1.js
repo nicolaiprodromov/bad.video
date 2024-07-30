@@ -134,9 +134,9 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
     for (var mi of pd.menu_items_ta){
         mi.element.addEventListener('click', async (e) => {
             e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
-            var chaka = parseInt(e.currentTarget.id.replace("menu_item",''))
+            var cchaka = parseInt(e.currentTarget.id.replace("menu_item",''))
             setTimeout(() => {
-                scroll_amount = chaka + 3
+                scroll_amount = cchaka + 3
                 var e_e = {type:'wheel', deltaY:-1}
                 page2_scroll_amount  = 0;page7_scroll_amount  = 0
                 page12_scroll_amount = 0;page17_scroll_amount = 0
