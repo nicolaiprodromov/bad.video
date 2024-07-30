@@ -3,10 +3,16 @@
     <head>
 
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>niku.bad.video</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
 
         <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -22,27 +28,27 @@
         <link rel="stylesheet" href="contact/contact.css">
 
         
-        <link rel="stylesheet" href="page0/page0.css">
-        <link rel="stylesheet" href="page1/page1.css">
-        <link rel="stylesheet" href="page2/page2.css">
-        <link rel="stylesheet" href="page3/page3.css">
-        <link rel="stylesheet" href="page4/page4.css">
-        <link rel="stylesheet" href="page5/page5.css">
-        <link rel="stylesheet" href="page6/page6.css">
-        <link rel="stylesheet" href="page7/page7.css">
-        <link rel="stylesheet" href="page8/page8.css">
-        <link rel="stylesheet" href="page9/page9.css">
-        <link rel="stylesheet" href="page10/page10.css">
-        <link rel="stylesheet" href="page11/page11.css">
-        <link rel="stylesheet" href="page12/page12.css">
-        <link rel="stylesheet" href="page13/page13.css">
-        <link rel="stylesheet" href="page15/page15.css">
-        <link rel="stylesheet" href="page16/page16.css">
-        <link rel="stylesheet" href="page17/page17.css">
-        <link rel="stylesheet" href="page18/page18.css">
-        <link rel="stylesheet" href="page19/page19.css">
-        <link rel="stylesheet" href="page20/page20.css">
-        <link rel="stylesheet" href="page21/page21.css">
+        <link rel="stylesheet" href="page0/page0.css?">
+        <link rel="stylesheet" href="page1/page1.css?">
+        <link rel="stylesheet" href="page2/page2.css?">
+        <link rel="stylesheet" href="page3/page3.css?">
+        <link rel="stylesheet" href="page4/page4.css?">
+        <link rel="stylesheet" href="page5/page5.css?">
+        <link rel="stylesheet" href="page6/page6.css?">
+        <link rel="stylesheet" href="page7/page7.css?">
+        <link rel="stylesheet" href="page8/page8.css?">
+        <link rel="stylesheet" href="page9/page9.css?">
+        <link rel="stylesheet" href="page10/page10.css?">
+        <link rel="stylesheet" href="page11/page11.css?">
+        <link rel="stylesheet" href="page12/page12.css?">
+        <link rel="stylesheet" href="page13/page13.css?">
+        <link rel="stylesheet" href="page15/page15.css?">
+        <link rel="stylesheet" href="page16/page16.css?">
+        <link rel="stylesheet" href="page17/page17.css?">
+        <link rel="stylesheet" href="page18/page18.css?">
+        <link rel="stylesheet" href="page19/page19.css?">
+        <link rel="stylesheet" href="page20/page20.css?">
+        <link rel="stylesheet" href="page21/page21.css?">
 
 
     </head>
@@ -68,7 +74,7 @@
                 <div class="loader_data title_norm">.bad</div>
                 <div class="loader_data title_norm">.video]</div>
             </div>
-            <div class="button title_norm loader_button">enter</div>
+            <div class="title_norm loader_button">enter</div>
         </div>
         <!------------------------------------------------- LOADER -->
         <!--------------------------------------------- SCROLL BAR -->
@@ -150,13 +156,13 @@
                     <div id="intro_title">
                         <div id="name_title_subtext" class="text_norm">niku.</div>
                         <div id="name_title"  class="title_big">BAD</div>
-                        <div class="divider" style = "">
+                        <div class="divider" style = "margin:-5px">
                             <img class = "divider_symbol" style="left:20%;" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
                         </div>
                         <div id="name_title1" class="title_big">.VIDEO</div>
                         <div id="name_title_subtext" class="text_small">the portfolio of nicolai prodromov</div>
                     </div>
-                    <div class="divider" style="margin: 3px 3px 3px 3px">
+                    <div class="divider" style="margin: 3px 0px 10px 0px">
                     </div>
                     <div id="p3_tags" class="p_tags">
                         <div id="p1_tag1" style = "border:solid 1px black;background-color:transparent;transform:rotate(3deg)" class="p_tag paragraph_small">#3D</div>
@@ -173,8 +179,8 @@
                         </div>
                         <div id="p1_tag5" style = "border:solid 1px black;background-color:transparent;transform:rotate(0deg)"class="p_tag paragraph_small">#procedural</div>
                     </div>
-                    <div id="bg_anim" style="cursor:pointer;top:0px;width:640px;height:320px;display:flex;align-items:center;justify-content:center;position:absolute;z-index: 3;">
-                        <canvas width="640"height="360"id="bg_canvas"></canvas>
+                    <div id="bg_anim">
+                        <canvas id="bg_canvas"></canvas>
                     </div>
                     <div id="random_nr"  class="title_small">4 projects↓</div>
                     <div id="random_nr1"  class="title_small">animation reel</div>
@@ -199,39 +205,27 @@
                 </div>
                 <div id="npxyz_pc1" class="page_content">
                     <div class = "includer" id="page1include">
-                    <div id="PEAR" class="FRUIT" dataset-id="0">
-                        <canvas id="pear-canvas" class="FRUITC"></canvas>
+                        <img id="arrow_menu" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904372503536d8a6a1d24_Asset%2010.svg" style="z-index: 10;position: absolute;width:150px;height:150px;transform:translate(-50%,-100%);pointer-events: none;">
+                        <div id="menu_image0" class="menu_image"></div>
+                        <div id="menu_image1" class="menu_image"></div>
+                        <div id="menu_image2" class="menu_image"></div>
+                        <div id="menu_image3" class="menu_image"></div>
+                        <div id="page1_menu" class="page1_menu" style="cursor: none;">
+                            <div id = "menu_item0" class = "menu_item paragraph_big">RCI X jazzahead!</div>
+                            <div id = "menu_item1" class = "menu_item paragraph_big">ZENON.NETWORK</div>
+                            <div id = "menu_item2" class = "menu_item paragraph_big">GOETHE FEST</div>
+                            <div id = "menu_item3" class = "menu_item paragraph_big">SAH SHOWCASE</div>
+                        </div>
+                        <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                        </div>
+                        <div id="post_menu" class = "text_small">tap to explore project</div>
+                        <div id="menu_project_descrip" class="text_small">Fugiat dolor ex exercitation mollit magna magna. Elit veniam sint cillum reprehenderit cupidatat est ea adipisicing velit sunt est Lorem. Officia qui aute laborum deserunt cupidatat mollit pariatur cillum.</div>
+                        <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
+                        </div>
+                        <img id="menu_bg_image" src="https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/page1/Asset%201.svg" alt="">
                     </div>
-                    
-                    <div id="APPLE" class="FRUIT" dataset-id="1">
-                        <canvas id="apple-canvas" class="FRUITC"></canvas>
-                    </div>
-            
-                    <div id="LIME" class="FRUIT" dataset-id="2">
-                        <canvas id="lime-canvas" class="FRUITC"></canvas>
-                    </div>
-            
-                    <div id="EPEAR" class="FRUIT" dataset-id="3">
-                        <canvas id="epear-canvas" class="FRUITC"></canvas>
-                    </div>
-                    <img id="arrow_menu" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904372503536d8a6a1d24_Asset%2010.svg" style="z-index: 10;position: absolute;width:150px;height:150px;transform:translate(-50%,-100%);pointer-events: none;">
-                    <div id="menu_image0" class="menu_image"></div>
-                    <div id="menu_image1" class="menu_image"></div>
-                    <div id="menu_image2" class="menu_image"></div>
-                    <div id="menu_image3" class="menu_image"></div>
-                    <div id="page1_menu" class="page1_menu" style="cursor: none;">
-                        <div id = "menu_item0" class = "menu_item paragraph_big">RCI @ jazzahead!</div>
-                        <div id = "menu_item1" class = "menu_item paragraph_big">ZENON.NETWORK</div>
-                        <div id = "menu_item2" class = "menu_item paragraph_big">GOETHE FEST</div>
-                        <div id = "menu_item3" class = "menu_item paragraph_big">SAH SHOWCASE</div>
-                    </div>
-                    <div class="divider">
-                        <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437ce23426cafec9cc8_Asset%207.svg" alt="">
-                    </div>
-                    <div id="post_menu" class = "text_small">tap to explore project</div>
-                    </div>
-
-                    <img src="https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/" alt="">
                 </div>
                 <div id="page_footer" class="page_header">
                     <p class = "text_small">[<a href="https://bad.video">bad.video™</a>][<a href="https://experimental.live">experimental.live™</a>]</p>
@@ -1022,16 +1016,18 @@
 
                         <div id="about_text" class="paragraph_norm">
                             Niku is a graphic designer turned programmer with an extensive background in digital experiences, visual storytelling,
-                            brand identity, 3D motion & production. He has worked with companies like Nestle, cultural entities such as Goethe Institute
-                            or Romanian Cultural Institute, political figures and tech companies.
+                            brand identity, 3D motion & production.
                         </div>
+                        <div class="paragraph_small">
+                            He has worked with companies like Nestle, cultural entities such as Goethe Institute
+                            or Romanian Cultural Institute, political figures and tech companies.</div>
                         <div class="divider">
                             <img class = "aboutsymb2 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
                         </div>
 
                         <div class = "about_links">
                             <div class = "about_socials">
-                                <div class = "socials_tag text_small">socials</div>
+                                <div class = "socials_tag paragraph_small">socials</div>
                                 <div class = "social_link title_norm">YOUTUBE</div>
                                 <div class = "social_link title_norm">GITHUB</div>
                                 <div class = "social_link title_norm">LINKEDIN</div>
@@ -1043,8 +1039,8 @@
 
                         </div>
 
-                        <div id="about_data_right">
-                        </div>
+                        <!-- <div id="about_data_right">
+                        </div> -->
 
                         <img id="about_bg_svg" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990412c2647a24f1a2e3c5_Asset%2013.svg">
 
@@ -1071,69 +1067,69 @@
         <!------------------------------------------------ CONTACT -->
         <div class="holder">
             <div class = "pagecell" id="i27">
-            <div class = "includer" id="page27include">
-                <div class="page_header">
-                <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
-                <p class = "header_page_button text_small">pg.22 ↓</p>
-                <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
-                </div>
-                <div id="npxyz_pc27" class="page_content">
+                <div class = "includer" id="page27include">
+                    <div class="page_header">
+                    <p class = "text_small">[<a href="https://niku.bad.video">niku.bad.video</a>]</p>
+                    <p class = "header_page_button text_small">pg.22 ↓</p>
+                    <p class = "header_work_button text_small">💲✔[*open to work*]👁‍🗨</p>
+                    </div>
+                    <div id="npxyz_pc27" class="page_content">
 
-                    <div class="contact_data">
+                        <div class="contact_data">
 
-                        <div id="contact_title" class="title_big">LET'S TALK.</div>
+                            <div id="contact_title" class="title_big">LET'S TALK.</div>
 
-                        <div class="divider">
-                        <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                            <div class="divider">
+                            <img class = "aboutsymb1 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904375396ff928ef6846f_Asset%2012.svg" alt="">
+                            </div>
+
+                            <!-- <img class="open_work_svg" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904122ed07fc63881d2f4_Asset%2016.svg"> -->
+
+                            <div class="contact_links">
+                            <div class="contact_link_row">
+                                <img class="contact_row_icon" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a487a16cf5a5e6dd_Asset%203.svg">
+                                <div class="contact_row_data text_norm">niku.bad.video</div>
+                            </div>
+                            <div class="contact_link_row">
+                                <img class="contact_row_icon" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a487a16cf5a5e6dd_Asset%203.svg">
+                                <div class="contact_row_data text_norm">prodromounicolaie@gmail.com</div>
+                            </div>
+                            <div class="contact_link_row"> 
+                                <img class="contact_row_icon" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a487a16cf5a5e6dd_Asset%203.svg">
+                                <div class="contact_row_data text_norm">+40 737 146 670</div>
+                            </div>
+                            </div>
+
+                            <div class="divider">
+                                <img class = "aboutsymb3 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a487a16cf5a5e6dd_Asset%203.svg" alt="">
+                            </div>
+
                         </div>
 
-                        <img class="open_work_svg" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669904122ed07fc63881d2f4_Asset%2016.svg">
 
-                        <div class="contact_links">
-                        <div class="contact_link_row">
-                            <img class="contact_row_icon" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a487a16cf5a5e6dd_Asset%203.svg">
-                            <div class="contact_row_data text_norm">bad.video</div>
-                        </div>
-                        <div class="contact_link_row">
-                            <img class="contact_row_icon" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a487a16cf5a5e6dd_Asset%203.svg">
-                            <div class="contact_row_data text_norm">prodromounicolaie@gmail.com</div>
-                        </div>
-                        <div class="contact_link_row"> 
-                            <img class="contact_row_icon" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a487a16cf5a5e6dd_Asset%203.svg">
-                            <div class="contact_row_data text_norm">+40 737 146 670</div>
-                        </div>
-                        </div>
+                        <!-- <div class="contact_data_right">
 
-                        <div class="divider_half divider">
-                        <img class = "aboutsymb3 divider_symbol" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990437a375148f2131f2d6_Asset%209.svg" alt="">
-                        </div>
+                            <div class="contact_right_vhalf" style="position: relative; width: 100%; height:50%">
+                                <div id="contact_arrow" class="contact_back_arrow"></div>
+                                <img class="back_up_svg" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990412722ea4722aeb5b2f_Asset%2014.svg">
+                            </div>
+
+                            <div class="contact_right_vhalf" style="position: relative; width: 100%; height:50%">
+                                <div class="contact_text paragraph_small">Fugiat elit ex id et pariatur ad veniam officia. Veniam qui esse culpa elit exercitation non qui reprehenderit ullamco magna.</div>
+                            </div>
+
+                        </div> -->
+
+                        <img id="contact_bg_svg" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990412b8b4f2527f40ae84_Asset%2015.svg">
 
                     </div>
-
-
-                    <div class="contact_data_right">
-
-                        <div class="contact_right_vhalf" style="position: relative; width: 100%; height:50%">
-                        <div id="contact_arrow" class="contact_back_arrow"></div>
-                        <img class="back_up_svg" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990412722ea4722aeb5b2f_Asset%2014.svg">
-                        </div>
-
-                        <div class="contact_right_vhalf" style="position: relative; width: 100%; height:50%">
-                        <div class="contact_text paragraph_small">Fugiat elit ex id et pariatur ad veniam officia. Veniam qui esse culpa elit exercitation non qui reprehenderit ullamco magna.</div>
-                        </div>
-
+                    <div id="page_footer" class="page_header">
+                        <p class = "text_small">contact</p>
+                        <p class = "text_small">|</p>
+                        <p class = "text_small">[<a href="https://github.com/nicolaiprodromov">GITHUB</a>][<a href="https://github.com/nicolaiprodromov">YOUTUBE</a>]</p>
                     </div>
-
-                    <img id="contact_bg_svg" src="https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66990412b8b4f2527f40ae84_Asset%2015.svg">
-
-                </div>
-                <div id="page_footer" class="page_header">
-                    <p class = "text_small">contact</p>
-                    <p class = "text_small">|</p>
-                    <p class = "text_small">[<a href="https://github.com/nicolaiprodromov">GITHUB</a>][<a href="https://github.com/nicolaiprodromov">YOUTUBE</a>]</p>
                 </div>
             </div>
-        </div>
         </div>
         <!-- CONTACT -->
 
@@ -1142,29 +1138,31 @@
         <script type="importmap">
             {
               "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
+                "three"        : "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
                 "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/"
               }
             }
         </script>
         
-        <script src="lib/assets/asset1.js"></script>
-        <script src="lib/assets/asset2.js"></script>
-        <script src="lib/assets/asset3.js"></script>
-        <script src="lib/assets/asset4.js"></script>
-        <script src="lib/assets/asset5.js"></script>
-        <script src="lib/assets/asset6.js"></script>
-        <script src="lib/assets/asset7.js"></script>
-        <script src="lib/assets/asset8.js"></script>
-        <script src="lib/assets/asset10.js"></script>
-        <script src="lib/assets/asset11.js"></script>
-        <script src="lib/assets/asset12.js"></script>
-        <script src="lib/assets/asset13.js"></script>
-        <script src="lib/assets/asset14.js"></script>
-        <script src="lib/assets/asset15.js"></script>
-        <script src="lib/assets/asset16.js"></script>
+        <script src="/lib/assets/asset1.js"></script>
+        <script src="/lib/assets/asset2.js"></script>
+        <script src="/lib/assets/asset3.js"></script>
+        <script src="/lib/assets/asset4.js"></script>
+        <script src="/lib/assets/asset5.js"></script>
+        <script src="/lib/assets/asset6.js"></script>
+        <script src="/lib/assets/asset7.js"></script>
+        <script src="/lib/assets/asset8.js"></script>
+        <script src="/lib/assets/asset10.js"></script>
+        <script src="/lib/assets/asset11.js"></script>
+        <script src="/lib/assets/asset12.js"></script>
+        <script src="/lib/assets/asset13.js"></script>
+        <script src="/lib/assets/asset14.js"></script>
+        <script src="/lib/assets/asset15.js"></script>
+        <script src="/lib/assets/asset16.js"></script>
         <script src="/lib/state_tracker.js"></script>
+
         <script src="main.js"></script>
+
         <script type="module" src="/page0/page0.js"></script>
         <script type="module" src="/page1/page1.js"></script>
         <script type="module" src="/page2/page2.js"></script>
@@ -1190,6 +1188,7 @@
         
         <script type="module" src="/about/about.js"></script>
         <script type="module" src="/contact/contact.js"></script>
+
         <script type="module">
             import { PAGES_NPXYZ } from '/lib/page_builder.js'
             for (var page of PAGES_NPXYZ) {

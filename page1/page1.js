@@ -3,8 +3,8 @@ import { TextAnim }      from '/lib/text_anim.js';
 import { FRUIT_DISPLAY } from '/lib/3d_display.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
-const PAGE_BUILDER = new Page(1);
-PAGE_BUILDER.pd = {
+const PAGE1_BUILDER = new Page(1);
+PAGE1_BUILDER.pd = {
     holder         : document.querySelector('#i1'),
     includer       : document.querySelector('#page1include'),
     img_objs       : [],
@@ -14,10 +14,10 @@ PAGE_BUILDER.pd = {
     page1_menu     : document.querySelectorAll(".menu_item"),
     img_map        : {
         0: {
-            0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a41dbd3e9458651effa176_mock-up.webp",
-            1: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944d38b757faf9fe1d5b8_mock-up.webp",
-            2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJo2vVKQ8eKP7Hx9vhnksENS0jrs9ONKNRRQ&s",
-            3: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
+            0: "https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-duck-poultry-animal-transparent-on-white-background-png-image_6653170.png",
+            1: "https://pngimg.com/d/duck_PNG5029.png",
+            2: "https://gallery.yopriceville.com/downloadfullsize/send/5358",
+            3: "https://www.freepnglogos.com/uploads/duck-png/swimming-duck-png-transparent-image-29.png",
         },
         1: {
             0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a41dbe20bcabc01ff46e35_mock-up-mobile.webp",
@@ -47,24 +47,24 @@ PAGE_BUILDER.pd = {
     },
     arrow_menu : document.querySelector("#arrow_menu"),
 }
-PAGE_BUILDER.load_handler = async (pd) => {
+PAGE1_BUILDER.load_handler = async (pd) => {
     
 }
-PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    document.querySelector("#particle_intro0").innerHTML="scroll down"
-    document.querySelector("#particle_intro1").innerHTML="pick a project"
-    document.querySelector("#particle_intro2").innerHTML="^"
+PAGE1_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+    // document.querySelector("#particle_intro0").innerHTML="scroll down"
+    // document.querySelector("#particle_intro1").innerHTML="pick a project"
+    // document.querySelector("#particle_intro2").innerHTML="^"
 }
-PAGE_BUILDER.resize_handler = async (pd) => {
-    var indyy=0;
-    for (var mimg_ of pd.img_objs){
-        mimg_.clear();
-        mimg_._img = await PAGE_BUILDER.checkImage(pd.img_map[PAGE_BUILDER.device][indyy])
-        mimg_.draw();
-        indyy++;
-    }
+PAGE1_BUILDER.resize_handler = async (pd) => {
+    // var indyy=0;
+    // for (var mimg_ of pd.img_objs){
+    //     mimg_.clear();
+    //     mimg_._img = await PAGE1_BUILDER.checkImage(pd.img_map[PAGE1_BUILDER.device][indyy])
+    //     mimg_.draw();
+    //     indyy++;
+    // }
 }
-PAGE_BUILDER.menu_images_anim = async (el, pd) => {
+PAGE1_BUILDER.menu_images_anim = async (el, pd) => {
     anime({
         targets: el,
         easing:"easeInOutSine",
@@ -81,7 +81,7 @@ PAGE_BUILDER.menu_images_anim = async (el, pd) => {
         duration: 450
     })
 }
-PAGE_BUILDER.first_scroll_handler = async (pd) => {
+PAGE1_BUILDER.first_scroll_handler = async (pd) => {
     
     // const ely3 = document.querySelector("#EPEAR");
     // const canvasy3 = document.querySelector("#epear-canvas");
@@ -89,26 +89,26 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
     // FRUIT_DISPLAY(ely3, canvasy3, PEAR_MODEL3);
 
 
-    var indyy=0;
-    for (var mimg of pd.menu_images){
-        var imgobj = new ImageObject(
-            mimg,
-            pd.img_map[PAGE_BUILDER.device][indyy],
-            indyy);
-        imgobj.draw();
-        imgobj.element.style.opacity = 0
-        pd.img_objs.push(imgobj)
-        indyy++;
-    }
+    // var indyy=0;
+    // for (var mimg of pd.menu_images){
+    //     var imgobj = new ImageObject(
+    //         mimg,
+    //         pd.img_map[PAGE1_BUILDER.device][indyy],
+    //         indyy);
+    //     imgobj.draw();
+    //     imgobj.element.style.opacity = 0
+    //     pd.img_objs.push(imgobj)
+    //     indyy++;
+    // }
 
-    setTimeout(() => {
-        var random_choice = Math.floor(Math.random() * pd.img_objs.length)
-        PAGE_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
-    }, 100)
-    setInterval(() => {
-        var random_choice = Math.floor(Math.random() * pd.img_objs.length)
-        PAGE_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
-    }, 4000)
+    // setTimeout(() => {
+    //     var random_choice = Math.floor(Math.random() * pd.img_objs.length)
+    //     PAGE1_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
+    // }, 100)
+    // setInterval(() => {
+    //     var random_choice = Math.floor(Math.random() * pd.img_objs.length)
+    //     PAGE1_BUILDER.menu_images_anim(pd.img_objs[random_choice].element, pd);
+    // }, 4000)
 
     var ind = 0
     for (var mi of pd.page1_menu){
@@ -144,7 +144,7 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
                 page2.style.left  = "0px";page7.style.left  = "0px"
                 page12.style.left = "0px";page17.style.left = "0px"
                 scroll_to(e_e)
-            }, 700)
+            }, 300)
         });
         mi.element.addEventListener('mouseenter', async (e) => {
             pd.menu_items_ta[parseInt(e.currentTarget.id.replace("menu_item",''))].nr_vo_in(200, "easeInOutSine", 20)

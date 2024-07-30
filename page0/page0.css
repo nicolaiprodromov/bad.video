@@ -16,6 +16,7 @@
     --menu-image-bottom: none;
     --particles_display : block;
     --arrow_menu_display: block;
+    --menu_image_width : 50%;
 }
 /* ------------------------- PORTRAIT DESKTOP ------------------------- */
 @media screen and (min-width: 1280px) and (min-height: 100.001vw){
@@ -35,6 +36,7 @@
         --menu-image-bottom: 0px;
         --particles_display : block;
         --arrow_menu_display: block;
+        --menu_image_width : 100%;
     }
 }
 /* ------------------------- PORTRAIT MOBILE ------------------------- */
@@ -55,6 +57,7 @@
         --menu-image-bottom: 0px;
         --particles_display : none;
         --arrow_menu_display: none;
+        --menu_image_width : 100%;
     }
 }
 /* ------------------------- LANDSCAPE MOBILE ------------------------- */
@@ -75,9 +78,14 @@
         --menu-image-bottom: none;
         --particles_display : none;
         --arrow_menu_display: none;
+        --menu_image_width : 50%;
     }
 }
 
+
+#page0include{
+    padding:var(--content-padding);
+}
 
 /* INTRO TITLE AND SVGS */
 #intro_title{
@@ -167,4 +175,23 @@
     line-height: calc( var(--title_small));
     font-size  : calc( var(--title_small));
     color      : rgb(0, 0, 0);
+}
+
+
+#bg_anim{
+    max-width      : 80%;
+    cursor         : pointer;
+    top            : 0px;
+    width          : 640px;
+    height         : 320px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position       : absolute;
+    z-index        : 3;
+}
+
+#bg_canvas{
+    width: 640px;
+    height: auto;
 }

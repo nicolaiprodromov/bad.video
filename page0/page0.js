@@ -4,8 +4,8 @@ import { TextAnim } from '/lib/text_anim.js';
 import { Particle, Verlet, Paper, subVector, scaleVector, addVector } from '/lib/svg.js';
 import { DotLottie, DotLottieWorker  } from "https://esm.sh/@lottiefiles/dotlottie-web";
 
-const PAGE_BUILDER = new Page(0);
-PAGE_BUILDER.pd             = {
+const PAGE0_BUILDER = new Page(0);
+PAGE0_BUILDER.pd             = {
     holder  : document.querySelector('#i0'),
     includer: document.querySelector('#page0include'),
     intro_title: document.querySelector("#intro_title"),
@@ -19,14 +19,18 @@ PAGE_BUILDER.pd             = {
     random_nr      : document.querySelector('#random_nr'),
     random_nr1      : document.querySelector('#random_nr1'),
     lottie_anim     : null,
+    dragster1: document.querySelector("#bg"),
+    dragster2: document.querySelector("#bg1"),
+    drag_grid: document.querySelector(".drag_grid"),
+    drag_down: false,
 
 }
-PAGE_BUILDER.load_handler  = (pd) => {
+PAGE0_BUILDER.load_handler  = (pd) => {
     document.querySelector("#particle_intro0").innerHTML="scroll down"
     document.querySelector("#particle_intro1").innerHTML="watch my"
     document.querySelector("#particle_intro2").innerHTML="animation reel"
 }
-PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE0_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
 
     pd.lottie_anim.play();
     document.querySelector("#particle_intro0").innerHTML="scroll down"
@@ -42,9 +46,9 @@ PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     pd.bg_rand_text1.nr_vo_in(1200, 'easeInOutExpo', 25);
     pd.bg_rand_text1.cycle_random(300, 35);
 }
-PAGE_BUILDER.resize_handler = (pd) => {
+PAGE0_BUILDER.resize_handler = (pd) => {
 }
-PAGE_BUILDER.first_scroll_handler = (pd) => {
+PAGE0_BUILDER.first_scroll_handler = (pd) => {
 
     
     document.querySelector("#particle_intro0").innerHTML="scroll down"
@@ -59,11 +63,12 @@ PAGE_BUILDER.first_scroll_handler = (pd) => {
     })
 
     pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
-    pd.lottie_anim = new DotLottie({
+    pd.lottie_anim = new DotLottieWorker({
         autoplay: false,
         loop: false,
         canvas : bg_canvas,
         src : pd.lottie_anim,
+        workerId : 'worker-1'
     });
     pd.lottie_anim.addEventListener('play', () => {
     })
@@ -108,6 +113,60 @@ PAGE_BUILDER.first_scroll_handler = (pd) => {
         pd.bg_sim.forEach(particles, (p) => {
             p.renderElement(p.element)
         });
+    });
+
+
+    const animate_dragster = (e) => {
+
+        var _e_ = e.type != "touchmove" ? e : e.touches[0]
+
+        for (var child_el of pd.drag_grid.children){
+            
+            var bb = child_el.getBoundingClientRect()
+            var epsilon = (window.innerWidth/7)/2;
+            var fontySize = "20px";
+
+            if (bb.x > (_e_.clientX-epsilon) && bb.x < (_e_.clientX+epsilon)){
+                fontySize = "50px"
+            }
+
+            anime({
+                targets : child_el,
+                fontSize: [window.getComputedStyle(child_el).fontSize, fontySize],
+                duration:200,
+                easing:"linear"
+            })
+        }
+    }
+    pd.dragster1.addEventListener('mousedown', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster1.addEventListener('touchstart', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster1.addEventListener('mousemove', (e) => {
+        animate_dragster(e);
+    });
+    pd.dragster1.addEventListener('touchmove', (e) => {
+        animate_dragster(e);
+    });
+    pd.dragster2.addEventListener('mousedown', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster2.addEventListener('touchstart', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster2.addEventListener('mousemove', (e) => {
+        animate_dragster(e);
+    });
+    pd.dragster2.addEventListener('touchmove', (e) => {
+        animate_dragster(e);
+    }); 
+    window.addEventListener('mouseup', (e) => {
+        pd.drag_grid.style.display = "none";
+    });
+    window.addEventListener('touchend', (e) => {
+        pd.drag_grid.style.display = "none";
     });
     
 }

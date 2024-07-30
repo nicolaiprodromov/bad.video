@@ -2,8 +2,8 @@
 import { Page }        from '/lib/page_builder.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
-const PAGE_BUILDER = new Page(14);
-PAGE_BUILDER.pd = {
+const PAGE14_BUILDER = new Page(14);
+PAGE14_BUILDER.pd = {
     holder    : document.querySelector('#i15'),
     p1_images2: document.querySelectorAll('.p_image2'),
     p1_img_obj: [],
@@ -49,16 +49,12 @@ PAGE_BUILDER.pd = {
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669e270314b06f1c6ede0934_Asset%206.webp"
         ],
     },
-    dragster1: document.querySelector("#bg"),
-    dragster2: document.querySelector("#bg1"),
-    drag_grid: document.querySelector(".drag_grid"),
-    drag_down: false,
     prev_device : -1,
 }
-PAGE_BUILDER.load_handler = (pd) => {
+PAGE14_BUILDER.load_handler = (pd) => {
     
 }
-PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE14_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="gf 2019"
     document.querySelector("#particle_intro2").innerHTML="3/5"
     for (var bgobj of pd.p1_img_obj){
@@ -66,76 +62,25 @@ PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
         bgobj.scale_x(["0%","100%"], 300, 'easeInOutCirc');
     }
 }
-PAGE_BUILDER.resize_handler = (pd, ss) => {
-    if (pd.prev_device != PAGE_BUILDER.device){
+PAGE14_BUILDER.resize_handler = (pd, ss) => {
+    if (pd.prev_device != PAGE14_BUILDER.device){
         for (var bgobj of pd.p1_img_obj){
             bgobj.clear();
-            bgobj._img = pd.p1_img_map[PAGE_BUILDER.device][bgobj.id];
+            bgobj._img = pd.p1_img_map[PAGE14_BUILDER.device][bgobj.id];
             bgobj.draw();
         }
-        pd.prev_device = PAGE_BUILDER.device
+        pd.prev_device = PAGE14_BUILDER.device
     }
 }
-PAGE_BUILDER.first_scroll_handler = async (pd) => {
+PAGE14_BUILDER.first_scroll_handler = async (pd) => {
     for (var bgobj of pd.p1_images2){
         var bg_img_obj11 = new ImageObject(
             bgobj,
-            pd.p1_img_map[PAGE_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
+            pd.p1_img_map[PAGE14_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
             parseInt(bgobj.parentNode.dataset.id),
         );
         bg_img_obj11.draw();
         pd.p1_img_obj.push(bg_img_obj11);
     }
-    const animate_dragster = (e) => {
-
-        var _e_ = e.type != "touchmove" ? e : e.touches[0]
-
-        for (var child_el of pd.drag_grid.children){
-            
-            var bb = child_el.getBoundingClientRect()
-            var epsilon = (window.innerWidth/7)/2;
-            var fontySize = "20px";
-
-            if (bb.x > (_e_.clientX-epsilon) && bb.x < (_e_.clientX+epsilon)){
-                fontySize = "50px"
-            }
-
-            anime({
-                targets : child_el,
-                fontSize: [window.getComputedStyle(child_el).fontSize, fontySize],
-                duration:200,
-                easing:"linear"
-            })
-        }
-    }
-    pd.dragster1.addEventListener('mousedown', (e) => {
-        pd.drag_grid.style.display = "flex";
-    });
-    pd.dragster1.addEventListener('touchstart', (e) => {
-        pd.drag_grid.style.display = "flex";
-    });
-    pd.dragster1.addEventListener('mousemove', (e) => {
-        animate_dragster(e);
-    });
-    pd.dragster1.addEventListener('touchmove', (e) => {
-        animate_dragster(e);
-    });
-    pd.dragster2.addEventListener('mousedown', (e) => {
-        pd.drag_grid.style.display = "flex";
-    });
-    pd.dragster2.addEventListener('touchstart', (e) => {
-        pd.drag_grid.style.display = "flex";
-    });
-    pd.dragster2.addEventListener('mousemove', (e) => {
-        animate_dragster(e);
-    });
-    pd.dragster2.addEventListener('touchmove', (e) => {
-        animate_dragster(e);
-    }); 
-    window.addEventListener('mouseup', (e) => {
-        pd.drag_grid.style.display = "none";
-    });
-    window.addEventListener('touchend', (e) => {
-        pd.drag_grid.style.display = "none";
-    });
+    
 }

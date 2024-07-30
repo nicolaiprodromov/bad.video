@@ -2,23 +2,23 @@
 import { Page }        from '/lib/page_builder.js';
 import { ImageObject } from '/lib/images_obj.js';
 
-const PAGE14_BUILDER = new Page(9);
-PAGE14_BUILDER.pd = {
+const PAGE9_BUILDER = new Page(9);
+PAGE9_BUILDER.pd = {
     holder    : document.querySelector('#i10'),
     p1_images2: document.querySelectorAll('.p_image4'),
     p1_img_obj: [],
     p1_img_map : {
-        0 : `${PAGE14_BUILDER.local_url}Asset`,
-        1 : `${PAGE14_BUILDER.local_url}Asset`,
-        2 : `${PAGE14_BUILDER.local_url}Asset`,
-        3 : `${PAGE14_BUILDER.local_url}Asset`,
+        0 : `${PAGE9_BUILDER.local_url}Asset`,
+        1 : `${PAGE9_BUILDER.local_url}Asset`,
+        2 : `${PAGE9_BUILDER.local_url}Asset`,
+        3 : `${PAGE9_BUILDER.local_url}Asset`,
     },
 
     p1_img_ext : ".png"
 }
-PAGE14_BUILDER.load_handler = (pd) => {
+PAGE9_BUILDER.load_handler = (pd) => {
 }
-PAGE14_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE9_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="zenon.network"
     document.querySelector("#particle_intro2").innerHTML="3/5"
     document.body.style.backgroundColor = "var(--bg)"
@@ -44,15 +44,15 @@ PAGE14_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     // })
 
 }
-PAGE14_BUILDER.resize_handler = (pd) => {
+PAGE9_BUILDER.resize_handler = (pd) => {
     // for (var bgobj of pd.p1_img_obj){
     //     bgobj.clear();
-    //     bgobj.img = pd.p1_img_map[PAGE14_BUILDER.device] + " " + (bgobj.element.parentNode.dataset.id) + pd.p1_img_ext;
+    //     bgobj.img = pd.p1_img_map[PAGE9_BUILDER.device] + " " + (bgobj.element.parentNode.dataset.id) + pd.p1_img_ext;
     //     bgobj.draw();
     // }
 
 }
-PAGE14_BUILDER.first_scroll_handler = async (pd) => {
+PAGE9_BUILDER.first_scroll_handler = async (pd) => {
     setTimeout(() => {
         var tw0 = document.querySelector("#twitter-widget-0");
         var tw1 = document.querySelector("#twitter-widget-1");
@@ -89,14 +89,14 @@ PAGE14_BUILDER.first_scroll_handler = async (pd) => {
 
         tw0.style.left      = `calc(50% - ${tw0.getBoundingClientRect().width/2}px - 100px)`
         tw0.style.top       = "50%"
-        tw0.style.transform = "translate(-50%,-50%) rotate(-2deg)"
+        // tw0.style.transform = "translate(-50%,-50%) rotate(-2deg)"
 
         tw1.style.left      = `calc(50% + ${tw1.getBoundingClientRect().width/2}px + 100px)`
         tw1.style.top       = "50%"
-        tw1.style.transform = "translate(-50%,-50%) rotate(-1deg)"
+        // tw1.style.transform = "translate(-50%,-50%) rotate(-1deg)"
 
         tw2.style.left      = `calc(50%)`
         tw2.style.top       = "50%"
-        tw2.style.transform = "translate(-50%,-50%) rotate(3deg)"
+        // tw2.style.transform = "translate(-50%,-50%) rotate(3deg)"
     }, 3000)
 }

@@ -4,13 +4,13 @@ import { ImageObject } from '/lib/images_obj.js';
 
 
 
-const PAGE9_BUILDER = new Page(4);
-PAGE9_BUILDER.pd = {
+const PAGE4_BUILDER = new Page(4);
+PAGE4_BUILDER.pd = {
     holder    : document.querySelector('#i5'),
     p1_images2: document.querySelectorAll('.p_image3'),
     p1_img_obj: [],
 
-    p1_img_src : `${PAGE9_BUILDER.local_url}Asset`,
+    p1_img_src : `${PAGE4_BUILDER.local_url}Asset`,
 
     p1_img_map : {
         0:[
@@ -49,9 +49,9 @@ PAGE9_BUILDER.pd = {
 
     p1_img_ext : ".png"
 }
-PAGE9_BUILDER.load_handler = async (pd) => {
+PAGE4_BUILDER.load_handler = async (pd) => {
 }
-PAGE9_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE4_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
     document.querySelector("#particle_intro2").innerHTML="3/5"
     for (var bgobj of pd.p1_img_obj){
@@ -59,19 +59,19 @@ PAGE9_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
         bgobj.scale_y(["0%","100%"], 300, 'easeInOutCirc')
     }
 }
-PAGE9_BUILDER.resize_handler = async (pd) => {
+PAGE4_BUILDER.resize_handler = async (pd) => {
     for (var bgobj of pd.p1_img_obj){
         bgobj.clear();
-        bgobj.img = pd.p1_img_map[PAGE9_BUILDER.device][bgobj.id];
+        bgobj.img = pd.p1_img_map[PAGE4_BUILDER.device][bgobj.id];
         bgobj.draw();
     }
 }
-PAGE9_BUILDER.first_scroll_handler = async(pd) => {
+PAGE4_BUILDER.first_scroll_handler = async(pd) => {
     for (var bgobj of pd.p1_images2){
         
         var bg_img_obj11 = new ImageObject(
             bgobj,
-            pd.p1_img_map[PAGE9_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
+            pd.p1_img_map[PAGE4_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
             parseInt(bgobj.parentNode.dataset.id),
         );
         bg_img_obj11.draw();

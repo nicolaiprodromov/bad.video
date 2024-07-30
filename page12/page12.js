@@ -3,8 +3,8 @@ import { Page }     from '/lib/page_builder.js';
 import { TextAnim } from '/lib/text_anim.js';
 import { Paper }    from '/lib/svg.js';
 
-const PAGE2_BUILDER = new Page(12);
-PAGE2_BUILDER.pd             = {
+const PAGE12_BUILDER = new Page(12);
+PAGE12_BUILDER.pd             = {
     holder_up: document.querySelector("#i12"),
     holder   : document.querySelector("#i13"),
     includer : document.querySelector("#page12include"),
@@ -21,9 +21,9 @@ PAGE2_BUILDER.pd             = {
     button3_clicked : false,
     buttons_built : false,
 }
-PAGE2_BUILDER.buttons_page_2 = (pd) => {
+PAGE12_BUILDER.buttons_page_2 = (pd) => {
     // BUTTONS
-    if (PAGE2_BUILDER.device > 1){
+    if (PAGE12_BUILDER.device > 1){
         return null
     }
     if (pd.buttons_built){
@@ -60,7 +60,7 @@ PAGE2_BUILDER.buttons_page_2 = (pd) => {
                 pd.p1_paper.paths[0].animate({path:pd.p1_paper.rparse_coords(asset15)}, 200)
             }
             setTimeout(() => {
-                PAGE2_BUILDER.toggleFullScreen(document.documentElement)
+                PAGE12_BUILDER.toggleFullScreen(document.documentElement)
             }, 200)
         }
     )
@@ -96,8 +96,8 @@ PAGE2_BUILDER.buttons_page_2 = (pd) => {
         }
     )
 }
-PAGE2_BUILDER.buttons_resize_page2 = (pd) => {
-    if (PAGE2_BUILDER.device > 1){
+PAGE12_BUILDER.buttons_resize_page2 = (pd) => {
+    if (PAGE12_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
                 pd.p1_paper.parent.removeChild(pd.p1_paper.parent.lastChild);
@@ -119,23 +119,23 @@ PAGE2_BUILDER.buttons_resize_page2 = (pd) => {
         pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE2_BUILDER.load_handler = (pd) => {
+PAGE12_BUILDER.load_handler = (pd) => {
     
 }
-PAGE2_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE12_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
     pd.p1_title_anim.cycle_random(300, 53)
     document.querySelector("#particle_intro0").innerHTML="gf 2019"
     document.querySelector("#particle_intro1").innerHTML=">"
     document.querySelector("#particle_intro2").innerHTML="1/5"
 }
-PAGE2_BUILDER.resize_handler = (pd) => {
+PAGE12_BUILDER.resize_handler = (pd) => {
 
-    PAGE2_BUILDER.buttons_page_2(pd);
-    PAGE2_BUILDER.buttons_resize_page2(pd);
+    PAGE12_BUILDER.buttons_page_2(pd);
+    PAGE12_BUILDER.buttons_resize_page2(pd);
 }
-PAGE2_BUILDER.first_scroll_handler = (pd) => {
+PAGE12_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE2_BUILDER.buttons_page_2(pd);
+    PAGE12_BUILDER.buttons_page_2(pd);
     
 }
