@@ -1,4 +1,4 @@
-import { Page }          from '/lib/page_builder.js';
+import { Page }          from '/lib/page_builder.js?69';
 import { TextAnim }      from '/lib/text_anim.js';
 import { FRUIT_DISPLAY } from '/lib/3d_display.js';
 import { ImageObject }   from '/lib/images_obj.js';
