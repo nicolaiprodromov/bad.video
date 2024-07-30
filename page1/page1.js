@@ -1,5 +1,5 @@
-import { Page }          from '/lib/page_builder.js?69';
-import { TextAnim }      from '/lib/text_anim.js';
+import { Page }          from '/lib/page_builder.js?124';
+import { TextAnim }      from '/lib/text_anim.js?123';
 import { FRUIT_DISPLAY } from '/lib/3d_display.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
@@ -51,9 +51,9 @@ PAGE1_BUILDER.load_handler = async (pd) => {
     
 }
 PAGE1_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    document.querySelector("#particle_intro0").innerHTML="scroll down"
-    document.querySelector("#particle_intro1").innerHTML="pick a project"
-    document.querySelector("#particle_intro2").innerHTML="^"
+    // document.querySelector("#particle_intro0").innerHTML="scroll down"
+    // document.querySelector("#particle_intro1").innerHTML="pick a project"
+    // document.querySelector("#particle_intro2").innerHTML="^"
 }
 PAGE1_BUILDER.resize_handler = async (pd) => {
     // var indyy=0;
@@ -117,7 +117,6 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
         ind++;
     }
 
-
     pd.arrow_menu.style.left = `${pd.includer.getBoundingClientRect().width/2}px`
     pd.arrow_menu.style.top  = `${pd.includer.getBoundingClientRect().height/2}px`
     pd.page1_menu_div.addEventListener("mousemove", (e) => {
@@ -134,20 +133,6 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
 
     for (var mi of pd.menu_items_ta){
         mi.element.addEventListener('click', async (e) => {
-            e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
-            var chaka = parseInt(e.currentTarget.id.replace("menu_item",''))
-            setTimeout(() => {
-                scroll_amount = chaka + 3
-                var e_e = {type:'wheel', deltaY:-1}
-                page2_scroll_amount  = 0;page7_scroll_amount  = 0
-                page12_scroll_amount = 0;page17_scroll_amount = 0
-                page22_scroll_amount = 0;page22.style.left = "0px"
-                page2.style.left  = "0px";page7.style.left  = "0px"
-                page12.style.left = "0px";page17.style.left = "0px"
-                scroll_to(e_e)
-            }, 300)
-        });
-        mi.element.addEventListener('touchend', async (e) => {
             e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
             var chaka = parseInt(e.currentTarget.id.replace("menu_item",''))
             setTimeout(() => {
