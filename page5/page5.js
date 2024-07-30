@@ -28,6 +28,7 @@ PAGE5_BUILDER.pd = {
 PAGE5_BUILDER.load_handler = async (pd) => {
 }
 PAGE5_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
+    console.log("scroll IMAGE PAGE 5")
     // document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
     // document.querySelector("#particle_intro2").innerHTML="4/5"
     // anime({
