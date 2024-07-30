@@ -1,5 +1,5 @@
-import { Page }          from '/lib/page_builder.js?124';
-import { TextAnim }      from '/lib/text_anim.js?123';
+import { Page }          from '/lib/page_builder.js';
+import { TextAnim }      from '/lib/text_anim.js';
 import { FRUIT_DISPLAY } from '/lib/3d_display.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
