@@ -28,47 +28,53 @@ PAGE_BUILDER.pd = {
 PAGE_BUILDER.load_handler = async (pd) => {
 }
 PAGE_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
-    document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
-    document.querySelector("#particle_intro2").innerHTML="4/5"
-    pd.p1_img_obj.fade([0,1], 300)
-    pd.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')
-    pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
-    pd.pathy2 = {
-        0 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
-                c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
-            }
-        ],
-        1 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                c1x:0, c1y:0,
-                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-            }
-        ],
-        2 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
-                c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
-            }
-        ],
-        3 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                c1x:0, c1y:0,
-                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-            }
-        ],
-    }
-    var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
-    pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
+    // document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
+    // document.querySelector("#particle_intro2").innerHTML="4/5"
+    // anime({
+    //     targets: pd.p1_image1,
+    //     left : ["-150px","0px"],
+    //     duration : 400,
+    //     easing: "easeInOutQuad"
+    // })
+    // pd.p1_img_obj.fade([0,1], 300)
+    // pd.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')
+    // pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
+    // pd.pathy2 = {
+    //     0 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+    //             c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+    //             c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
+    //         }
+    //     ],
+    //     1 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+    //             c1x:0, c1y:0,
+    //             c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+    //         }
+    //     ],
+    //     2 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+    //             c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+    //             c2x:pd.ip_div_bb.width/2, c2y:pd.ip_div_bb.height/2,
+    //         }
+    //     ],
+    //     3 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+    //             c1x:0, c1y:0,
+    //             c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+    //         }
+    //     ],
+    // }
+    // var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
+    // pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
 }
 PAGE_BUILDER.resize_handler = async (pd) => {
 
@@ -122,12 +128,6 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
     // const jcup_model = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/rci_cup1.glb"
     // OBJ_DISPLAY(jcup_div, jcup_canvas, jcup_model)
 
-    anime({
-        targets: pd.p1_image1,
-        left : ["-150px","0px"],
-        duration : 400,
-        easing: "easeInOutQuad"
-    })
 
     pd.p1_img_obj = new ImageObject(
         pd.p1_image1,
@@ -136,42 +136,42 @@ PAGE_BUILDER.first_scroll_handler = async (pd) => {
     );
     pd.p1_img_obj.draw();
 
-    pd.paper1 = new Paper(pd.image_path_div);
-    pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
-    pd.pathy1 = {
-        0 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height/2,
-                c2x:pd.ip_div_bb.width/16, c2y:pd.ip_div_bb.height/1.1,
-            }
-        ],
-        1 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                c1x:0, c1y:0,
-                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-            }
-        ],
-        2 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
-                c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
-                c2x:pd.ip_div_bb.width/8, c2y:pd.ip_div_bb.height/2,
-            }
-        ],
-        3 : [
-            {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
-            {cmd:"CubicBezier",
-                x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
-                c1x:0, c1y:0,
-                c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
-            }
-        ],
-    }
-    pd.paper1.makePath(0, pd.pathy1[PAGE_BUILDER.device])
-    pd.paper1.paths[0].attr('class', pd.p1_path_class);
+    // pd.paper1 = new Paper(pd.image_path_div);
+    // pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
+    // pd.pathy1 = {
+    //     0 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+    //             c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height/2,
+    //             c2x:pd.ip_div_bb.width/16, c2y:pd.ip_div_bb.height/1.1,
+    //         }
+    //     ],
+    //     1 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+    //             c1x:0, c1y:0,
+    //             c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+    //         }
+    //     ],
+    //     2 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/8,y:pd.ip_div_bb.height/2},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width - pd.ip_div_bb.width/4,y:pd.ip_div_bb.height/2,
+    //             c1x:pd.ip_div_bb.width/2, c1y:pd.ip_div_bb.height,
+    //             c2x:pd.ip_div_bb.width/8, c2y:pd.ip_div_bb.height/2,
+    //         }
+    //     ],
+    //     3 : [
+    //         {cmd:"Move",x:pd.ip_div_bb.width/2,y:5},
+    //         {cmd:"CubicBezier",
+    //             x:pd.ip_div_bb.width/2,y:pd.ip_div_bb.height/2 + pd.ip_div_bb.height/4,
+    //             c1x:0, c1y:0,
+    //             c2x:pd.ip_div_bb.width, c2y:pd.ip_div_bb.height/2,
+    //         }
+    //     ],
+    // }
+    // pd.paper1.makePath(0, pd.pathy1[PAGE_BUILDER.device])
+    // pd.paper1.paths[0].attr('class', pd.p1_path_class);
 }
