@@ -49,10 +49,6 @@ PAGE14_BUILDER.pd = {
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669e270314b06f1c6ede0934_Asset%206.webp"
         ],
     },
-    dragster1: document.querySelector("#bg"),
-    dragster2: document.querySelector("#bg1"),
-    drag_grid: document.querySelector(".drag_grid"),
-    drag_down: false,
     prev_device : -1,
 }
 PAGE14_BUILDER.load_handler = (pd) => {

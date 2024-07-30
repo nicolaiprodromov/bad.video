@@ -19,6 +19,10 @@ PAGE0_BUILDER.pd             = {
     random_nr      : document.querySelector('#random_nr'),
     random_nr1      : document.querySelector('#random_nr1'),
     lottie_anim     : null,
+    dragster1: document.querySelector("#bg"),
+    dragster2: document.querySelector("#bg1"),
+    drag_grid: document.querySelector(".drag_grid"),
+    drag_down: false,
 
 }
 PAGE0_BUILDER.load_handler  = (pd) => {
