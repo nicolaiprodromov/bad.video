@@ -117,6 +117,7 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
         ind++;
     }
 
+    
     pd.arrow_menu.style.left = `${pd.includer.getBoundingClientRect().width/2}px`
     pd.arrow_menu.style.top  = `${pd.includer.getBoundingClientRect().height/2}px`
     pd.page1_menu_div.addEventListener("mousemove", (e) => {
