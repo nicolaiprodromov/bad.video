@@ -135,6 +135,7 @@ PAGE5_BUILDER.first_scroll_handler = async (pd) => {
         0,
     );
     pd.p1_img_obj.draw();
+    console.log("DRAWN IMAGE PAGE 5")
 
     // pd.paper1 = new Paper(pd.image_path_div);
     // pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
