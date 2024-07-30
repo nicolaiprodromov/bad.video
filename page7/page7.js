@@ -1,14 +1,15 @@
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { TextAnim }    from 'http://127.0.0.1:5500/lib/text_anim.js';
+import { Page }        from '/lib/page_builder.js';
+import { TextAnim }    from '/lib/text_anim.js';
+import { Paper }       from '/lib/svg.js';
 
 const PAGE7_BUILDER = new Page(7);
-PAGE7_BUILDER.pd = {
+PAGE7_BUILDER.pd             = {
     holder_up: document.querySelector("#i7"),
     holder   : document.querySelector("#i8"),
     includer : document.querySelector("#page7include"),
-    project_title: document.querySelector("#p2_title"),
+    project_title: document.querySelector("#p3_title"),
     p1_title_anim: null,
-    p1_svg       : document.querySelector("#p2_svg"),
+    p1_svg       : document.querySelector("#p3_svg"),
     p1_paper     : null,
     pth1_class   : "bg1_pth0",
     arrow_scale  : null,
@@ -21,7 +22,7 @@ PAGE7_BUILDER.pd = {
     buttons_built : false,
 
 }
-PAGE7_BUILDER.buttons_page_7 = (pd) => {
+PAGE7_BUILDER.buttons_page_12         = (pd) => {
     // BUTTONS
     if (PAGE7_BUILDER.device > 1){
         return null
@@ -96,7 +97,7 @@ PAGE7_BUILDER.buttons_page_7 = (pd) => {
         }
     )
 }
-PAGE7_BUILDER.buttons_resize_page7 = (pd) => {
+PAGE7_BUILDER.buttons_resize_page12   = (pd) => {
     if (PAGE7_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
@@ -119,43 +120,20 @@ PAGE7_BUILDER.buttons_resize_page7 = (pd) => {
         pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE7_BUILDER.load_handler = (pd) => {
-
+PAGE7_BUILDER.load_handler   = (pd) => {
 }
 PAGE7_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-    var page7_scroll_amount_st  = ss[2];
-    // PAGE TRIGGER
-    if (scroll_amount_st == 3 && page7_scroll_amount_st == 0){
         pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
         pd.p1_title_anim.cycle_random(300, 53)
-        document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
+        document.querySelector("#particle_intro0").innerHTML="zenon.network"
         document.querySelector("#particle_intro1").innerHTML=">"
         document.querySelector("#particle_intro2").innerHTML="1/5"
-    } else if(scroll_amount_st == 3 && page7_scroll_amount_st == 1){
-        document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
-        document.querySelector("#particle_intro2").innerHTML="2/5"
-    } else if(scroll_amount_st == 3 && page7_scroll_amount_st == 2){
-        document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
-        document.querySelector("#particle_intro2").innerHTML="3/5"
-    } else if(scroll_amount_st == 3 && page7_scroll_amount_st == 3){
-        document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
-        document.querySelector("#particle_intro2").innerHTML="4/5"
-    } else if(scroll_amount_st == 3 && page7_scroll_amount_st == 4){
-        document.querySelector("#particle_intro0").innerHTML="explore"
-        document.querySelector("#particle_intro2").innerHTML="5/5"
-    }
 }
 PAGE7_BUILDER.resize_handler = (pd) => {
-    
-    PAGE7_BUILDER.buttons_page_7(pd);
-    PAGE7_BUILDER.buttons_resize_page7(pd);
+    PAGE7_BUILDER.buttons_page_12(pd);
+    PAGE7_BUILDER.buttons_resize_page12(pd);
 }
 PAGE7_BUILDER.first_scroll_handler = (pd) => {
-    console.log(PAGE7_BUILDER.base_url, PAGE7_BUILDER.local_url)
-    // PROJECT TITLE
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE7_BUILDER.buttons_page_7(pd);
-    
+    PAGE7_BUILDER.buttons_page_12(pd);
 }
-

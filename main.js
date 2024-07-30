@@ -1,6 +1,58 @@
 
 // import { StateTracker } from "./lib/state_tracker.js";
 
+(function () {
+    var mqEvents = function (mediaChangeHandler) {
+        var sheets = document.styleSheets;
+
+        // Use the provided handler if present
+        if (!mediaChangeHandler) {
+            console.error('mqEvents needs a mediaChangeHandler to do its job.');
+            return false;
+        }
+
+        for (var i = 0; i < sheets.length; i += 1) {
+            var rules = sheets[i].cssRules;
+
+            for (var j = 0; j < rules.length; j += 1) {
+                // This Stackoverflow answer helped me figure out how
+                // to check the type of object each rule was
+                // http://stackoverflow.com/a/332429/368634
+                if (rules[j].constructor === CSSMediaRule) {
+                    var mql = window.matchMedia(rules[j].media.mediaText);
+                    mql.addListener(mediaChangeHandler);
+                    mediaChangeHandler(mql, sheets[i].href);
+                }
+            }
+        }
+    }
+
+    // Yeah, this is a little shitty
+    window.mqEvents = mqEvents;
+}());
+
+
+mqEvents((mql, source) => {
+    var mql_map = {
+        "null" : "LANDSCAPE DESKTOP",
+        "screen and (min-width: 1280px) and (min-height: 100.001vw)" : "PORTRAIT DESKTOP",
+        "screen and (max-width: 1280px) and (min-height: 100.001vw)" : "PORTRAIT MOBILE",
+        "screen and (max-width: 1280px) and (min-width: 100vh)"  : "LANDSCAPE MOBILE",
+    }
+    if (mql.matches) {
+        //console.log(`[MEDIA QUERY] ${mql_map[mql.media]} - ${source.split(/[/ ]+/).pop()}`)
+        console.log(`[MEDIA QUERY] ${mql_map[mql.media]}`)
+    }
+    if (mql.matches == false) {
+        //console.log(`[!] ${mql_map[mql.media]} - ${source.split(/[/ ]+/).pop()}`)
+    }
+})
+
+
+
+
+
+
 
 
 
@@ -33,7 +85,6 @@ for (let hp of horiz_pics){
 }
 const getScrollPercent = (el) => {
     var w  = parseFloat(window.getComputedStyle(el).width.replace('px',''))
-    console.log(el.scrollTop, w)
     var percentage_raw = (100 * el.scrollLeft) / w;
     return Math.floor(percentage_raw);
 }
@@ -175,6 +226,7 @@ for (var hp = 0; hp < horiz_pics.length; hp++){
 window.addEventListener("wheel", e => e.preventDefault(), { passive:false })
 window.addEventListener("touchmove", e => e.preventDefault(), { passive:false })
 window.scrollTo(0,0)
+var GLOBAL_SCROLL = 1;
 var max_scroll = 6;
 var modulo_scroll = 1;
 var raw_scroll_amount = 0
@@ -309,7 +361,7 @@ const scroll_to = (e) => {
 
     if(raw_scroll_amount % modulo_scroll == 0){
         if(diff > 0){
-            
+            GLOBAL_SCROLL = GLOBAL_SCROLL >= 23 ? GLOBAL_SCROLL : GLOBAL_SCROLL + 1;
             if (scroll_amount == 0){
                 scrollV(1);
             }
@@ -374,6 +426,7 @@ const scroll_to = (e) => {
             }
         }
         else if(diff < 0){
+            GLOBAL_SCROLL = GLOBAL_SCROLL <= 0 ? 0 : GLOBAL_SCROLL - 1;
             if (scroll_amount == 1){
                 scrollV(-1);
             }
@@ -419,7 +472,7 @@ const scroll_to = (e) => {
         }
     }
      
-    SCROLL_TRACKER.def = [scroll_amount, page2_scroll_amount, page7_scroll_amount, page12_scroll_amount, page17_scroll_amount, page22_scroll_amount, diff]
+    SCROLL_TRACKER.def = [scroll_amount, page2_scroll_amount, page7_scroll_amount, page12_scroll_amount, page17_scroll_amount, page22_scroll_amount, diff, GLOBAL_SCROLL]
     prev_scroll_amount = scroll_amount
 
     // ANIMATE SCROLL BAR
@@ -484,7 +537,6 @@ function isTrackPad(e) {
 }
 var SCROLLDELAY = 80;
 if (window?.navigator?.platform  === 'MacIntel'){
-    console.log("IS FUCJKING IOS")
     SCROLLDELAY = 18;
 }
 function debounce322(func, delay){
@@ -494,7 +546,6 @@ function debounce322(func, delay){
       timer = setTimeout(func, delay, event);
     };
 }
-console.log("SCROLLDELAY", SCROLLDELAY);
 window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
 window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
 var TOUCH_TIME = []
@@ -515,21 +566,99 @@ window.addEventListener('beforeunload', () => {
     window.scrollTo(0, 0);
 })
 window.addEventListener('load', () => {
+    const loader = document.querySelector("#loader");
+    const loader_data_div = document.querySelector(".loader_data_div");
+    const loader_data = document.querySelectorAll(".loader_data");
+    const loader_button = document.querySelector(".loader_button");
+    const loader_noise = document.querySelector("#loader_noise");
+    const vhs_player = document.querySelector("#vhs_sound");
+    setTimeout(async () => {
+        vhs_player.volume = .2;
+        var step = 700;
+        var ind = 0;
+        setTimeout(() => {
+            loader_data[1].style.display = "block";
+            anime({
+                targets : loader_data[1],
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+        setTimeout(() => {
+            loader_data[3].style.display = "block";
+            anime({
+                targets : loader_data[3],
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+        setTimeout(() => {
+            loader_data[2].style.display = "block";
+            anime({
+                targets : loader_data[2],
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+        setTimeout(() => {
+            loader_button.style.display = "block";
+            anime({
+                targets : loader_button,
+                opacity: [0,1],
+                duration: 1000,
+                easing : 'linear'
+            })
+        }, ind)
+        ind+=step;
+
+    }, 100);
     setTimeout( () => {
-
-        const loader = document.querySelector("#loader")
-        loader.style.display = 'none'
-
+        loader_button.addEventListener('click', () => {
+            anime({
+                targets: loader,
+                backgroundColor: ["rgb(255,0,0)", "rgb(225,225,225)"],
+                duration: 1000,
+                easing: "easeInOutSine",
+                begin: () => {
+                    loader_noise.style.display = "block"
+                    vhs_player.play();
+                },
+                complete: () => {
+                    loader.style.display = 'none'
+                    vhs_player.pause();
+                    vhs_player.src = vhs_player.src;
+                    scroll_amount = 1
+                    page2_scroll_amount  = 0
+                    page7_scroll_amount  = 0
+                    page12_scroll_amount  = 0
+                    page17_scroll_amount  = 0
+                    page22_scroll_amount  = 0
+                    page2.style.left  = "0px"
+                    page7.style.left  = "0px"
+                    page12.style.left  = "0px"
+                    page17.style.left  = "0px"
+                    page22.style.left  = "0px"
+                    var e_e = {type:'wheel', deltaY:-1}
+                    scroll_to(e_e)
+                }
+            })
+        })
         var now1 = new Date().getTime();
         var page_load_time = now1 - performance.timing.navigationStart;
-        console.log(`==============================> ✅✅✅ LOAD TIME: [${page_load_time} ms] ✅✅✅ <==============================`);
+        console.log(`✅ LOAD TIME: [${page_load_time} ms] ✅`);
+    }, 3000)
 
-    }, 1000)
     setTimeout(() => {
-        scroll_amount = 1
+        scroll_amount = 0
         dispatchEvent(wheelEvent);
         window.scrollTo(0, 0);
-    }, 1030)
+    }, 3030)
 })
 window.addEventListener('resize', () => {
     // SCREEN REPAIR ON RESIZE

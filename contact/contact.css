@@ -1,43 +1,43 @@
 
 
- /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
- :root{
-    --contact_data_width: 70%;
-    --contact_data_right_width: 30%;
-    --npxyz_pc27_direction :row;
-    --open_work_svg_width : 300px;
-    --back_up_svg_width : 200px;
+/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+:root{
+  --contact_data_width: 100%;
+  --contact_data_right_width: 30%;
+  --npxyz_pc27_direction :row;
+  --open_work_svg_width : 300px;
+  --back_up_svg_width : 200px;
+}
+  /* ------------------------- PORTRAIT DESKTOP ------------------------- */
+@media screen and (min-width: 1280px) and (min-height: 100.001vw){
+  :root{
+      --contact_data_right_width: 100%;
+      --contact_data_width: 100%;
+      --npxyz_pc27_direction :column;
+      --open_work_svg_width : 200px;
+      --back_up_svg_width : 200px;
   }
-    /* ------------------------- PORTRAIT DESKTOP ------------------------- */
-  @media screen and (min-width: 1280px) and (min-height: 100vw){
-    :root{
-        --contact_data_right_width: 100%;
-        --contact_data_width: 100%;
-        --npxyz_pc27_direction :column;
-        --open_work_svg_width : 200px;
-        --back_up_svg_width : 200px;
-    }
+}
+  /* ------------------------- PORTRAIT MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-height: 100.001vw){
+  :root{
+      --contact_data_right_width: 100%;
+      --contact_data_width: 100%;
+      --npxyz_pc27_direction :column;
+      --open_work_svg_width : 200px;
+      --back_up_svg_width : 150px;
   }
-    /* ------------------------- PORTRAIT MOBILE ------------------------- */
-  @media screen and (max-width: 720px){
-    :root{
-        --contact_data_right_width: 100%;
-        --contact_data_width: 100%;
-        --npxyz_pc27_direction :column;
-        --open_work_svg_width : 200px;
-        --back_up_svg_width : 150px;
-    }
+}
+  /* ------------------------- LANDSCAPE MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-width: 100vh){
+  :root{
+      --contact_data_right_width: 30%;
+      --contact_data_width: 100%;
+      --npxyz_pc27_direction :row;
+      --open_work_svg_width : 80px;
+      --back_up_svg_width : 100px;
   }
-    /* ------------------------- LANDSCAPE MOBILE ------------------------- */
-  @media screen and (max-width: 1280px) and (min-width: 100vh){
-    :root{
-        --contact_data_right_width: 30%;
-        --contact_data_width: 70%;
-        --npxyz_pc27_direction :row;
-        --open_work_svg_width : 80px;
-        --back_up_svg_width : 100px;
-    }
-  }
+}
   
 
 

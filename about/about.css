@@ -1,6 +1,6 @@
-  /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
+    /* ------------------------- LANDSCAPE DESKTOP ------------------------- */
 :root{
-  --about_data_width     : 70%;
+  --about_data_width     : 100%;
   --about_data_r_width   : 30%;
   --about_data_r_display : block;
   --about_links_display  : flex;
@@ -8,48 +8,57 @@
   --about_links_align    : flex-end;
   --about_cv_align       : flex-end;
   --padding-socials      : 10px;
-  --about_socials_margin        : 0px;
+  --about_socials_margin : 0px;
+  --about_bg_w           : 80%;
+  --about_bg_h           : auto;
+  --about_bg_rot         : rotate(0deg) translate(-50%,-50%);
 }
-  /* ------------------------- PORTRAIT DESKTOP ------------------------- */
-@media screen and (min-width: 1280px) and (min-height: 100vw){
+    /* ------------------------- PORTRAIT DESKTOP ------------------------- */
+@media screen and (min-width: 1280px) and (min-height: 100.001vw){
   :root{
-    --about_data_width  : 100%;
-    --about_data_r_width: 0%;
-    --about_data_r_display: none;
+    --about_data_width     : 100%;
+    --about_data_r_width   : 0%;
+    --about_data_r_display : none;
     --about_links_display  : flex;
     --about_links_direction: column;
     --about_links_align    : flex-start;
     --about_cv_align       : flex-start;
     --padding-socials      : 10px;
-    --about_socials_margin        : 20px;
+    --about_socials_margin : 20px;
+    --about_bg_w           : auto;
+    --about_bg_h           : 80%;
+    --about_bg_rot         : rotate(90deg) translate(-50%,-50%);
   }
 }
-  /* ------------------------- PORTRAIT MOBILE ------------------------- */
-@media screen and (max-width: 720px){
+    /* ------------------------- PORTRAIT MOBILE ------------------------- */
+@media screen and (max-width: 1280px) and (min-height: 100.001vw){
   :root{
-    --about_data_width  : 100%;
-    --about_data_r_width: 0%;
-    --about_data_r_display: none;
+    --about_data_width     : 100%;
+    --about_data_r_width   : 0%;
+    --about_data_r_display : none;
     --about_links_display  : flex;
     --about_links_direction: column;
     --about_links_align    : flex-start;
     --about_cv_align       : flex-start;
     --padding-socials      : 3px;
-    --about_socials_margin        : 20px;
+    --about_socials_margin : 20px;
+    --about_bg_w           : auto;
+    --about_bg_h           : 80%;
+    --about_bg_rot         : rotate(90deg) translate(-50%,-50%);
   }
 }
-  /* ------------------------- LANDSCAPE MOBILE ------------------------- */
+    /* ------------------------- LANDSCAPE MOBILE ------------------------- */
 @media screen and (max-width: 1280px) and (min-width: 100vh){
   :root{
-    --about_data_width  : 700%;
-    --about_data_r_width: 30%;
-    --about_data_r_display: block;
+    --about_data_width     : 100%;
+    --about_data_r_width   : 30%;
+    --about_data_r_display : block;
     --about_links_display  : flex;
     --about_links_direction: row;
     --about_links_align    : flex-end;
     --about_cv_align       : flex-end;
     --padding-socials      : 3px;
-    --about_socials_margin        : 0px;
+    --about_socials_margin : 0px;
   }
 }
 
@@ -113,14 +122,25 @@
 #about_bg_svg{
   position: absolute;
   z-index : 0;
-  width   : 80%;
-  right   : 0px;
-  top     : 0px;
+
+  width : 100vh;
+  height: auto;
+
+  left :50%;
+  top  :50%;
+
+  transform: translate(-50%, -50%) rotate(90deg);
+
+  
+/* 
+  transform: var(--about_bg_rot);
+  left : calc(var(--about_bg_w) / 2);
+  top  : calc(var(--about_bg_h) / 2); */
 }
 
 .socials_tag{
   margin-bottom: var(--padding-socials);
-  font-size  : var(--text_norm);
+  font-size    : var(--text_norm);
 }
 
 .aboutsymb1{
@@ -129,4 +149,8 @@
 
 .aboutsymb2{
   left: 80%;
+}
+
+#about_text{
+  margin-bottom:20px;
 }

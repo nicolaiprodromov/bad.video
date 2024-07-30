@@ -1,10 +1,11 @@
+
 #page13include{
     display        : flex;
     flex-direction : column;
     align-items    : center;
     justify-content: var(--page-center);
 }
-#p3_description3{
+#p1_description3{
     position: absolute;
     width:var(--p1d3-width);
     right:10vw;
@@ -14,15 +15,18 @@
     z-index: 2;
     transform: translate(-50%, -50%);
 }
-#p3_image_path{
+#p1_image_path{
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     width: var(--p1_image_width);
     height: var(--p1_image_width);
 }
-#p3_image1{
+#p1_image1{
     position: relative;
     z-index: 1;
     width: var(--p1_image_width);
     height: var(--p1_image_width);
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
 }

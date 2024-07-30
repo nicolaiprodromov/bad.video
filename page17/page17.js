@@ -1,12 +1,14 @@
-import { Page }        from 'http://127.0.0.1:5500/lib/page_builder.js';
-import { TextAnim }    from 'http://127.0.0.1:5500/lib/text_anim.js';
-import { FRUIT_DISPLAY } from 'http://127.0.0.1:5500/lib/3D_display.js';
+import { Page }          from '/lib/page_builder.js';
+import { Paper }         from '/lib/svg.js';
+import { TextAnim }      from '/lib/text_anim.js';
+import { FRUIT_DISPLAY } from '/lib/3D_display.js';
 
 const PAGE17_BUILDER = new Page(17);
 PAGE17_BUILDER.pd = {
     holder_up: document.querySelector("#i17"),
     holder   : document.querySelector("#i18"),
     includer : document.querySelector("#page17include"),
+    image: document.querySelector("#p4_intro_image"),
     project_title: document.querySelector("#p4_title"),
     p1_title_anim: null,
     p1_svg       : document.querySelector("#p4_svg"),
@@ -19,6 +21,12 @@ PAGE17_BUILDER.pd = {
     button2_clicked : false,
     button3_clicked : false,
     buttons_built : false,
+    image_map : {
+        0:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
+        1:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif",
+        2:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
+        3:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif"
+    }
 }
 PAGE17_BUILDER.buttons_page_17 = (pd) => {
     // BUTTONS
@@ -122,37 +130,30 @@ PAGE17_BUILDER.load_handler = (pd) => {
     
 }
 PAGE17_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    var scroll_amount_st        = ss[0];
-    var page17_scroll_amount_st  = ss[4];
-    if (scroll_amount_st == 5 && page17_scroll_amount_st == 0){
-        pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
-        pd.p1_title_anim.cycle_random(300, 53)
-        document.querySelector("#particle_intro0").innerHTML="sah.showcase"
-        document.querySelector("#particle_intro1").innerHTML=">"
-        document.querySelector("#particle_intro2").innerHTML="1/5"
-    } else if(scroll_amount_st == 5 && page17_scroll_amount_st == 1){
-        document.querySelector("#particle_intro0").innerHTML="sah.showcase"
-        document.querySelector("#particle_intro2").innerHTML="2/5"
-    } else if(scroll_amount_st == 5 && page17_scroll_amount_st == 2){
-        document.querySelector("#particle_intro0").innerHTML="sah.showcase"
-        document.querySelector("#particle_intro2").innerHTML="3/5"
-    } else if(scroll_amount_st == 5 && page17_scroll_amount_st == 3){
-        document.querySelector("#particle_intro0").innerHTML="sah.showcase"
-        document.querySelector("#particle_intro2").innerHTML="4/5"
-    } else if(scroll_amount_st == 5 && page17_scroll_amount_st == 4){
-        document.querySelector("#particle_intro0").innerHTML="explore"
-        document.querySelector("#particle_intro2").innerHTML="5/5"
-    }
+    pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
+    pd.p1_title_anim.cycle_random(300, 53)
+    document.querySelector("#particle_intro0").innerHTML="sah.showcase"
+    document.querySelector("#particle_intro1").innerHTML=">"
+    document.querySelector("#particle_intro2").innerHTML="1/5"
+
 }
 PAGE17_BUILDER.resize_handler = (pd) => {
+
+    pd.image.style.backgroundImage = `url(${pd.image_map[PAGE17_BUILDER.device]})`
+
     PAGE17_BUILDER.buttons_page_17(pd);
     PAGE17_BUILDER.buttons_resize_page17(pd);
 }
 PAGE17_BUILDER.first_scroll_handler = (pd) => {
+
+
+    pd.image.style.backgroundImage = `url(${pd.image_map[PAGE17_BUILDER.device]})`
+
+
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
     PAGE17_BUILDER.buttons_page_17(pd);
-    const znn_3d_div    = document.querySelector("#ZNN_3D");
-    const znn_3d_canvas = document.querySelector("#ZNN_3D_CANVAS");
-    const znn_3d_model  = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/znn_sentinel1.glb"
-    FRUIT_DISPLAY(znn_3d_div, znn_3d_canvas, znn_3d_model);
+    // const znn_3d_div    = document.querySelector("#ZNN_3D");
+    // const znn_3d_canvas = document.querySelector("#ZNN_3D_CANVAS");
+    // const znn_3d_model  = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/znn_sentinel1.glb"
+    // FRUIT_DISPLAY(znn_3d_div, znn_3d_canvas, znn_3d_model);
 }

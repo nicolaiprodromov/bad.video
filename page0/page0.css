@@ -9,9 +9,17 @@
     --reel_sect-height: 200px;
     --random-display  : flex;
     --title-ratio     : 10;
+    --p1_image_width: 100%;
+    --page-center   : center;
+    --p1d3-width    : 30%;
+    --menu-image-right : 0px;
+    --menu-image-bottom: none;
+    --particles_display : block;
+    --arrow_menu_display: block;
+    --menu_image_width : 50%;
 }
 /* ------------------------- PORTRAIT DESKTOP ------------------------- */
-@media screen and (min-width: 1280px) and (min-height: 100vw){
+@media screen and (min-width: 1280px) and (min-height: 100.001vw){
     :root{
         --particle-bg     : 15px;
         --scroll-display  : flex;
@@ -21,10 +29,18 @@
         --reel_sect-width : 300px;
         --reel_sect-height: 200px;
         --title-ratio     : 10;
+        --p1_image_width : 100%;
+        --page-center : flex-start;
+        --p1d3-width    : 100%;
+        --menu-image-right : none;
+        --menu-image-bottom: 0px;
+        --particles_display : block;
+        --arrow_menu_display: block;
+        --menu_image_width : 100%;
     }
 }
 /* ------------------------- PORTRAIT MOBILE ------------------------- */
-@media screen and (max-width: 720px){
+@media screen and (max-width: 1280px) and (min-height: 100.001vw){
     :root{
         --particle-bg     : 0px;
         --scroll-display  : none;
@@ -34,6 +50,14 @@
         --reel_sect-width : 100px;
         --reel_sect-height: 100px;
         --title-ratio     : 10;
+        --p1_image_width : 100%;
+        --page-center : center;
+        --p1d3-width    : 100%;
+        --menu-image-right : none;
+        --menu-image-bottom: 0px;
+        --particles_display : none;
+        --arrow_menu_display: none;
+        --menu_image_width : 100%;
     }
 }
 /* ------------------------- LANDSCAPE MOBILE ------------------------- */
@@ -47,19 +71,29 @@
         --reel_sect-width : 100px;
         --reel_sect-height: 100px;
         --title-ratio     : 25;
+        --p1_image_width : 100%;
+        --page-center : flex-start;
+        --p1d3-width    : 50.3%;
+        --menu-image-right : 0px;
+        --menu-image-bottom: none;
+        --particles_display : none;
+        --arrow_menu_display: none;
+        --menu_image_width : 50%;
     }
 }
 
 
-
+#page0include{
+    padding:var(--content-padding);
+}
 
 /* INTRO TITLE AND SVGS */
 #intro_title{
-    position       : absolute;
+    position       : relative;
     display        : flex;
     flex-direction : column;
-    align-items    : center;
-    justify-content: center;
+    align-items    : flex-start;
+    justify-content: flex-end;
     height         : 100%;
     width          : 100%;
 }
@@ -67,17 +101,17 @@
     position: relative;
     z-index : 1;
 
-    height     : calc(var(--title_big) - .7vw);
-    line-height: calc(var(--title_big) - .7vw);;
-    font-size  : var(--title_big);
+    height     : calc(var(--title_big) - .7vw + 7vw);
+    line-height: calc(var(--title_big) - .7vw + 7vw);;
+    font-size  : calc(var(--title_big) + 7vw);
 }
 #name_title1{
     position: relative;
     z-index : 1;
 
-    height     : var(--title_big);
-    line-height: var(--title_big);
-    font-size  : var(--title_big);
+    height     : calc(var(--title_big) - .7vw + 7vw);
+    line-height: calc(var(--title_big) - .7vw + 7vw);;
+    font-size  : calc(var(--title_big) + 7vw);
 }
 #name_title_subtext{
     color:grey;
@@ -86,6 +120,7 @@
 
 /* TEXT PARTICLES */
 .particles_intro{
+    display : var(--particles_display);
     position: absolute;
     z-index : 999;
     width   : 100%;
@@ -118,7 +153,8 @@
     display:var(--random-display);
     position : absolute;
 
-    bottom   : 10px;
+    bottom   : 8%;
+    right    : 10px;
 
     transform: rotate(-3deg);
 
@@ -130,7 +166,7 @@
 #random_nr1{
     display:var(--random-display);
     position : absolute;
-
+    z-index: 4;
     top   : 10px;
 
     transform: rotate(3deg);
@@ -138,5 +174,24 @@
     height     : calc( var(--title_small));
     line-height: calc( var(--title_small));
     font-size  : calc( var(--title_small));
-    color      : rgb(255, 255, 255);
+    color      : rgb(0, 0, 0);
+}
+
+
+#bg_anim{
+    max-width      : 80%;
+    cursor         : pointer;
+    top            : 0px;
+    width          : 640px;
+    height         : 320px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position       : absolute;
+    z-index        : 3;
+}
+
+#bg_canvas{
+    width: 640px;
+    height: auto;
 }

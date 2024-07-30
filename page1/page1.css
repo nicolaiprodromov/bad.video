@@ -1,35 +1,10 @@
-/* ------------------------- LANDSCAPE DESKTOP ------------------------- */
-:root{
-    --menu-image-right : 0px;
-    --menu-image-bottom: none;
-}
-/* ------------------------- PORTRAIT DESKTOP ------------------------- */
-@media screen and (min-width: 1280px) and (min-height: 100vw){
-:root{
-    --menu-image-right : none;
-    --menu-image-bottom: 0px;
-}
-}
-/* ------------------------- PORTRAIT MOBILE ------------------------- */
-@media screen and (max-width: 1280px){
-:root{
-    --menu-image-right : none;
-    --menu-image-bottom: 0px;
-}
-}
-/* ------------------------- LANDSCAPE MOBILE ------------------------- */
-@media screen and (max-width: 1280px) and (min-width: 100vh){
-:root{
-    --menu-image-right : 0px;
-    --menu-image-bottom: none;
-}
-}
+
 #page1include{
     display        : flex;
     flex-direction : column;
     align-items    : flex-start;
     justify-content: flex-start;
-    padding : var(--content-padding);
+    padding        : var(--content-padding);
 }
 #page1_menu{
     width          : 100%;
@@ -40,11 +15,11 @@
     text-align     : center;
 }
 .menu_item{
-    position   : relative;
-    z-index    : 10;
+    position: relative;
+    z-index : 10;
 
     
-    height     : calc( var(--paragraph_big) + .4vw);
+    height     : calc( var(--paragraph_big));
     line-height: var(--paragraph_big);
     font-size  : var(--paragraph_big);
 
@@ -66,15 +41,15 @@
 }
 .menu_image{
     position: absolute;
-    width:100%;
-    height:100%;
-    right : var(--menu-image-right);
-    bottom: var(--menu-image-bottom);
+    width   : 100%;
+    height  : 100%;
+    right   : var(--menu-image-right);
+    bottom  : var(--menu-image-bottom);
 
-    display: flex;
-    align-items: flex-end;
+    display        : flex;
+    align-items    : flex-end;
     justify-content: flex-end;
-    z-index: 0;
+    z-index        : 0;
 }
 #bg_svg_pg1{
     position: absolute;
@@ -93,5 +68,28 @@
 }
 #post_menu{
     position: relative;
-    z-index: 10;
+    z-index : 10;
+}
+
+#arrow_menu{
+    display: var(--arrow_menu_display)
+}
+
+#post_menu{
+    margin-bottom: 50px;
+}
+
+#menu_bg_image{
+    right   : 0%;
+    bottom  : 5%;
+    width   : var(--menu_image_width);
+    position: absolute;
+    z-index : 0;
+}
+
+#menu_project_descrip{
+    width: 40%;
+    z-index : 10;
+    background-color: white;
+    padding: 10px
 }
