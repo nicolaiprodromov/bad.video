@@ -31,12 +31,12 @@ PAGE5_BUILDER.scroll_handler = async (pd, ss, delta_ss) => {
     console.log("scroll IMAGE PAGE 5")
     // document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
     // document.querySelector("#particle_intro2").innerHTML="4/5"
-    // anime({
-    //     targets: pd.p1_image1,
-    //     left : ["-150px","0px"],
-    //     duration : 400,
-    //     easing: "easeInOutQuad"
-    // })
+    anime({
+        targets: pd.p1_image1,
+        left : ["-150px","0px"],
+        duration : 400,
+        easing: "easeInOutQuad"
+    })
     // pd.p1_img_obj.fade([0,1], 300)
     // pd.p1_img_obj.scale_x(["0%","100%"], 300, 'easeInOutCirc')
     // pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
@@ -132,7 +132,7 @@ PAGE5_BUILDER.first_scroll_handler = async (pd) => {
 
     pd.p1_img_obj = new ImageObject(
         pd.p1_image1,
-        pd.p1_img_map[PAGE5_BUILDER.device],
+        `https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669a2ae7d42524ab7771dcc2_mock-up-mobile.webp`,
         0,
     );
     pd.p1_img_obj.draw();
