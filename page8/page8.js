@@ -1,8 +1,8 @@
 import { Page }        from '/lib/page_builder.js';
 import { Paper }       from '/lib/svg.js'
 import { ImageObject } from '/lib/images_obj.js';
-const PAGE13_BUILDER = new Page(8);
-PAGE13_BUILDER.pd             = {
+const PAGE8_BUILDER = new Page(8);
+PAGE8_BUILDER.pd             = {
     holder    : document.querySelector('#i9'),
     includer  : document.querySelector('#page8include'),
     
@@ -29,9 +29,9 @@ PAGE13_BUILDER.pd             = {
 
     ip_div_bb : null,
 }
-PAGE13_BUILDER.load_handler   = async (pd) => {
+PAGE8_BUILDER.load_handler   = async (pd) => {
 }
-PAGE13_BUILDER.scroll_handler = async(pd, ss, delta_ss) => {
+PAGE8_BUILDER.scroll_handler = async(pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="zenon.network"
     document.querySelector("#particle_intro2").innerHTML="2/5"
 
@@ -81,13 +81,13 @@ PAGE13_BUILDER.scroll_handler = async(pd, ss, delta_ss) => {
         ],
     }
 
-    var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE13_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
+    var testy = pd.paper1.paths[0].animate({path : pd.paper1.rparse_coords(pd.pathy2[PAGE8_BUILDER.device])}, 800, 'cubic-bezier(.65,.34,.2,.99)')
     pd.paper1.elementFollowPath(testy.attr('path'), pd.p1_description3, [0,1], 800, 'cubicBezier(.65,.34,.2,.99)', false, 0, true);
 }
-PAGE13_BUILDER.resize_handler = async (pd) => {
+PAGE8_BUILDER.resize_handler = async (pd) => {
 
     pd.p1_img_obj.clear();
-    pd.p1_img_obj._img = await PAGE13_BUILDER.checkImage(pd.p1_img_map[PAGE13_BUILDER.device])
+    pd.p1_img_obj._img = await PAGE8_BUILDER.checkImage(pd.p1_img_map[PAGE8_BUILDER.device])
     pd.p1_img_obj.draw();
 
     pd.ip_div_bb = pd.image_path_div.getBoundingClientRect()
@@ -126,12 +126,12 @@ PAGE13_BUILDER.resize_handler = async (pd) => {
             }
         ],
     }
-    pd.paper1.updatePath(0, pd.pathy1[PAGE13_BUILDER.device])
+    pd.paper1.updatePath(0, pd.pathy1[PAGE8_BUILDER.device])
 }
-PAGE13_BUILDER.first_scroll_handler = async (pd) => {
+PAGE8_BUILDER.first_scroll_handler = async (pd) => {
     pd.p1_img_obj = new ImageObject(
         pd.p1_image1,
-        await PAGE13_BUILDER.checkImage(pd.p1_img_map[PAGE13_BUILDER.device]),
+        await PAGE8_BUILDER.checkImage(pd.p1_img_map[PAGE8_BUILDER.device]),
         0,
     );
 
@@ -173,7 +173,7 @@ PAGE13_BUILDER.first_scroll_handler = async (pd) => {
             }
         ],
     }
-    pd.paper1.makePath(0, pd.pathy1[PAGE13_BUILDER.device])
+    pd.paper1.makePath(0, pd.pathy1[PAGE8_BUILDER.device])
     pd.paper1.paths[0].attr('class', pd.p1_path_class);
 
 }

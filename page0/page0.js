@@ -4,8 +4,8 @@ import { TextAnim } from '/lib/text_anim.js';
 import { Particle, Verlet, Paper, subVector, scaleVector, addVector } from '/lib/svg.js';
 import { DotLottie, DotLottieWorker  } from "https://esm.sh/@lottiefiles/dotlottie-web";
 
-const PAGE_BUILDER = new Page(0);
-PAGE_BUILDER.pd             = {
+const PAGE0_BUILDER = new Page(0);
+PAGE0_BUILDER.pd             = {
     holder  : document.querySelector('#i0'),
     includer: document.querySelector('#page0include'),
     intro_title: document.querySelector("#intro_title"),
@@ -21,12 +21,12 @@ PAGE_BUILDER.pd             = {
     lottie_anim     : null,
 
 }
-PAGE_BUILDER.load_handler  = (pd) => {
+PAGE0_BUILDER.load_handler  = (pd) => {
     document.querySelector("#particle_intro0").innerHTML="scroll down"
     document.querySelector("#particle_intro1").innerHTML="watch my"
     document.querySelector("#particle_intro2").innerHTML="animation reel"
 }
-PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE0_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
 
     pd.lottie_anim.play();
     document.querySelector("#particle_intro0").innerHTML="scroll down"
@@ -42,9 +42,9 @@ PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     pd.bg_rand_text1.nr_vo_in(1200, 'easeInOutExpo', 25);
     pd.bg_rand_text1.cycle_random(300, 35);
 }
-PAGE_BUILDER.resize_handler = (pd) => {
+PAGE0_BUILDER.resize_handler = (pd) => {
 }
-PAGE_BUILDER.first_scroll_handler = (pd) => {
+PAGE0_BUILDER.first_scroll_handler = (pd) => {
 
     
     document.querySelector("#particle_intro0").innerHTML="scroll down"

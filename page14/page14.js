@@ -2,8 +2,8 @@
 import { Page }        from '/lib/page_builder.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
-const PAGE_BUILDER = new Page(14);
-PAGE_BUILDER.pd = {
+const PAGE14_BUILDER = new Page(14);
+PAGE14_BUILDER.pd = {
     holder    : document.querySelector('#i15'),
     p1_images2: document.querySelectorAll('.p_image2'),
     p1_img_obj: [],
@@ -55,10 +55,10 @@ PAGE_BUILDER.pd = {
     drag_down: false,
     prev_device : -1,
 }
-PAGE_BUILDER.load_handler = (pd) => {
+PAGE14_BUILDER.load_handler = (pd) => {
     
 }
-PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE14_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="gf 2019"
     document.querySelector("#particle_intro2").innerHTML="3/5"
     for (var bgobj of pd.p1_img_obj){
@@ -66,21 +66,21 @@ PAGE_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
         bgobj.scale_x(["0%","100%"], 300, 'easeInOutCirc');
     }
 }
-PAGE_BUILDER.resize_handler = (pd, ss) => {
-    if (pd.prev_device != PAGE_BUILDER.device){
+PAGE14_BUILDER.resize_handler = (pd, ss) => {
+    if (pd.prev_device != PAGE14_BUILDER.device){
         for (var bgobj of pd.p1_img_obj){
             bgobj.clear();
-            bgobj._img = pd.p1_img_map[PAGE_BUILDER.device][bgobj.id];
+            bgobj._img = pd.p1_img_map[PAGE14_BUILDER.device][bgobj.id];
             bgobj.draw();
         }
-        pd.prev_device = PAGE_BUILDER.device
+        pd.prev_device = PAGE14_BUILDER.device
     }
 }
-PAGE_BUILDER.first_scroll_handler = async (pd) => {
+PAGE14_BUILDER.first_scroll_handler = async (pd) => {
     for (var bgobj of pd.p1_images2){
         var bg_img_obj11 = new ImageObject(
             bgobj,
-            pd.p1_img_map[PAGE_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
+            pd.p1_img_map[PAGE14_BUILDER.device][parseInt(bgobj.parentNode.dataset.id)],
             parseInt(bgobj.parentNode.dataset.id),
         );
         bg_img_obj11.draw();

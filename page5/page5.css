@@ -20,7 +20,6 @@
     height: var(--p1_image_width);
 }
 #p2_image13{
-    background-color: red;
     z-index: 1;
     width: var(--p1_image_width);
     height: var(--p1_image_width);

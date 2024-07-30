@@ -1,9 +1,9 @@
 import { Page }        from '/lib/page_builder.js';
 import { TextAnim }    from '/lib/text_anim.js';
-import { Paper }    from '/lib/svg.js';
+import { Paper }       from '/lib/svg.js';
 
-const PAGE12_BUILDER = new Page(7);
-PAGE12_BUILDER.pd             = {
+const PAGE7_BUILDER = new Page(7);
+PAGE7_BUILDER.pd             = {
     holder_up: document.querySelector("#i7"),
     holder   : document.querySelector("#i8"),
     includer : document.querySelector("#page7include"),
@@ -22,9 +22,9 @@ PAGE12_BUILDER.pd             = {
     buttons_built : false,
 
 }
-PAGE12_BUILDER.buttons_page_12         = (pd) => {
+PAGE7_BUILDER.buttons_page_12         = (pd) => {
     // BUTTONS
-    if (PAGE12_BUILDER.device > 1){
+    if (PAGE7_BUILDER.device > 1){
         return null
     }
     if (pd.buttons_built){
@@ -61,7 +61,7 @@ PAGE12_BUILDER.buttons_page_12         = (pd) => {
                 pd.p1_paper.paths[0].animate({path:pd.p1_paper.rparse_coords(asset15)}, 200)
             }
             setTimeout(() => {
-                PAGE12_BUILDER.toggleFullScreen(document.documentElement)
+                PAGE7_BUILDER.toggleFullScreen(document.documentElement)
             }, 200)
         }
     )
@@ -97,8 +97,8 @@ PAGE12_BUILDER.buttons_page_12         = (pd) => {
         }
     )
 }
-PAGE12_BUILDER.buttons_resize_page12   = (pd) => {
-    if (PAGE12_BUILDER.device > 1){
+PAGE7_BUILDER.buttons_resize_page12   = (pd) => {
+    if (PAGE7_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
                 pd.p1_paper.parent.removeChild(pd.p1_paper.parent.lastChild);
@@ -120,20 +120,20 @@ PAGE12_BUILDER.buttons_resize_page12   = (pd) => {
         pd.p1_paper.moveParent1(id, {x:pd.arrow_scale*id, y:0})
     });
 }
-PAGE12_BUILDER.load_handler   = (pd) => {
+PAGE7_BUILDER.load_handler   = (pd) => {
 }
-PAGE12_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
+PAGE7_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
         pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
         pd.p1_title_anim.cycle_random(300, 53)
         document.querySelector("#particle_intro0").innerHTML="zenon.network"
         document.querySelector("#particle_intro1").innerHTML=">"
         document.querySelector("#particle_intro2").innerHTML="1/5"
 }
-PAGE12_BUILDER.resize_handler = (pd) => {
-    PAGE12_BUILDER.buttons_page_12(pd);
-    PAGE12_BUILDER.buttons_resize_page12(pd);
+PAGE7_BUILDER.resize_handler = (pd) => {
+    PAGE7_BUILDER.buttons_page_12(pd);
+    PAGE7_BUILDER.buttons_resize_page12(pd);
 }
-PAGE12_BUILDER.first_scroll_handler = (pd) => {
+PAGE7_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE12_BUILDER.buttons_page_12(pd);
+    PAGE7_BUILDER.buttons_page_12(pd);
 }
