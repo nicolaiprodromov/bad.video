@@ -110,5 +110,59 @@ PAGE0_BUILDER.first_scroll_handler = (pd) => {
             p.renderElement(p.element)
         });
     });
+
+
+    const animate_dragster = (e) => {
+
+        var _e_ = e.type != "touchmove" ? e : e.touches[0]
+
+        for (var child_el of pd.drag_grid.children){
+            
+            var bb = child_el.getBoundingClientRect()
+            var epsilon = (window.innerWidth/7)/2;
+            var fontySize = "20px";
+
+            if (bb.x > (_e_.clientX-epsilon) && bb.x < (_e_.clientX+epsilon)){
+                fontySize = "50px"
+            }
+
+            anime({
+                targets : child_el,
+                fontSize: [window.getComputedStyle(child_el).fontSize, fontySize],
+                duration:200,
+                easing:"linear"
+            })
+        }
+    }
+    pd.dragster1.addEventListener('mousedown', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster1.addEventListener('touchstart', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster1.addEventListener('mousemove', (e) => {
+        animate_dragster(e);
+    });
+    pd.dragster1.addEventListener('touchmove', (e) => {
+        animate_dragster(e);
+    });
+    pd.dragster2.addEventListener('mousedown', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster2.addEventListener('touchstart', (e) => {
+        pd.drag_grid.style.display = "flex";
+    });
+    pd.dragster2.addEventListener('mousemove', (e) => {
+        animate_dragster(e);
+    });
+    pd.dragster2.addEventListener('touchmove', (e) => {
+        animate_dragster(e);
+    }); 
+    window.addEventListener('mouseup', (e) => {
+        pd.drag_grid.style.display = "none";
+    });
+    window.addEventListener('touchend', (e) => {
+        pd.drag_grid.style.display = "none";
+    });
     
 }
