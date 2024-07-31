@@ -131,6 +131,7 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
 
 
     for (var mi of pd.menu_items_ta){
+        mi.element.oncontextmenu = e => e.preventDefault();
         mi.element.addEventListener('click', async (e) => {
             e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
             var chaka = parseInt(e.currentTarget.id.replace("menu_item",''))
