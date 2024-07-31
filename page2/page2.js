@@ -124,7 +124,7 @@ PAGE2_BUILDER.load_handler = (pd) => {
 
 }
 PAGE2_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
+    pd.p1_title_anim.nr_vo_in(400, 'easeInOutCirc', 15)
     pd.p1_title_anim.cycle_random(300, 53)
     document.querySelector("#particle_intro0").innerHTML="rci x jazzahead"
     document.querySelector("#particle_intro1").innerHTML=">"

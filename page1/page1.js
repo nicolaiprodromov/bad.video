@@ -1,6 +1,5 @@
 import { Page }          from '/lib/page_builder.js';
 import { TextAnim }      from '/lib/text_anim.js';
-import { FRUIT_DISPLAY } from '/lib/3d_display.js';
 import { ImageObject }   from '/lib/images_obj.js';
 
 const PAGE1_BUILDER = new Page(1);
@@ -51,9 +50,9 @@ PAGE1_BUILDER.load_handler = async (pd) => {
     
 }
 PAGE1_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-    // document.querySelector("#particle_intro0").innerHTML="scroll down"
-    // document.querySelector("#particle_intro1").innerHTML="pick a project"
-    // document.querySelector("#particle_intro2").innerHTML="^"
+    document.querySelector("#particle_intro0").innerHTML="scroll down"
+    document.querySelector("#particle_intro1").innerHTML="pick a project"
+    document.querySelector("#particle_intro2").innerHTML="^"
 }
 PAGE1_BUILDER.resize_handler = async (pd) => {
     // var indyy=0;
