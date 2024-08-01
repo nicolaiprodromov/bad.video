@@ -64,7 +64,7 @@ PAGE0_BUILDER.first_scroll_handler = (pd) => {
         window.open('https://youtu.be/PBgCgR220To', '_blank').focus(); 
     })
 
-    pd.lottie_anim = `https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/logo_anim.json`//"https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
+    pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";//"https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/logo_anim.json"
     pd.lottie_anim = new DotLottieWorker({
         autoplay: false,
         loop    : false,
