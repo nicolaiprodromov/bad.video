@@ -5,23 +5,23 @@ import { Paper }    from '/lib/svg.js';
 
 const PAGE12_BUILDER = new Page(12);
 PAGE12_BUILDER.pd             = {
-    holder_up: document.querySelector("#i12"),
-    holder   : document.querySelector("#i13"),
-    includer : document.querySelector("#page12include"),
-    project_title: document.querySelector("#p1_title"),
-    p1_title_anim: null,
-    p1_svg       : document.querySelector("#p1_svg"),
-    p1_paper     : null,
-    pth1_class   : "bg1_pth0",
-    arrow_scale  : null,
-    p1_svg_width : null,
-    buttons_class : 'p_buttons',
-    button1_clicked : false,
-    button2_clicked : false,
-    button3_clicked : false,
-    buttons_built : false,
+    holder_up      : document.querySelector("#i12"),
+    holder         : document.querySelector("#i13"),
+    includer       : document.querySelector("#page12include"),
+    project_title  : document.querySelector("#p1_title"),
+    p1_svg         : document.querySelector("#p1_svg"),
+    p1_title_anim  : null,
+    p1_paper       : null,
+    pth1_class     : "bg1_pth0",
+    arrow_scale    : null,
+    p1_svg_width   : null,
+    buttons_class  : 'p_buttons',
+    button1_clicked: false,
+    button2_clicked: false,
+    button3_clicked: false,
+    buttons_built  : false,
 }
-PAGE12_BUILDER.buttons_page_2 = (pd) => {
+PAGE12_BUILDER.buttons_page_12 = (pd) => {
     // BUTTONS
     if (PAGE12_BUILDER.device > 1){
         return null
@@ -96,7 +96,7 @@ PAGE12_BUILDER.buttons_page_2 = (pd) => {
         }
     )
 }
-PAGE12_BUILDER.buttons_resize_page2 = (pd) => {
+PAGE12_BUILDER.buttons_resize_page12 = (pd) => {
     if (PAGE12_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
@@ -130,12 +130,10 @@ PAGE12_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro2").innerHTML="1/5"
 }
 PAGE12_BUILDER.resize_handler = (pd) => {
-
-    PAGE12_BUILDER.buttons_page_2(pd);
-    PAGE12_BUILDER.buttons_resize_page2(pd);
+    PAGE12_BUILDER.buttons_page_12(pd);
+    PAGE12_BUILDER.buttons_resize_page12(pd);
 }
 PAGE12_BUILDER.first_scroll_handler = (pd) => {
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE12_BUILDER.buttons_page_2(pd);
-    
+    PAGE12_BUILDER.buttons_page_12(pd);
 }

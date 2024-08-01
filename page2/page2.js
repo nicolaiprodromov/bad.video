@@ -4,23 +4,21 @@ import { Paper }    from '/lib/svg.js';
 
 const PAGE2_BUILDER = new Page(2);
 PAGE2_BUILDER.pd = {
-    holder_up: document.querySelector("#i2"),
-    holder   : document.querySelector("#i3"),
-    includer : document.querySelector("#page2include"),
-    project_title: document.querySelector("#p2_title"),
-    p1_title_anim: null,
-    p1_svg       : document.querySelector("#p2_svg"),
-    p1_paper     : null,
-    pth1_class   : "bg1_pth0",
-    arrow_scale  : null,
-    p1_svg_width : null,
-    buttons_class : 'p_buttons',
-
-    button1_clicked : false,
-    button2_clicked : false,
-    button3_clicked : false,
-    buttons_built : false,
-
+    holder_up      : document.querySelector("#i2"),
+    holder         : document.querySelector("#i3"),
+    includer       : document.querySelector("#page2include"),
+    project_title  : document.querySelector("#p2_title"),
+    p1_svg         : document.querySelector("#p2_svg"),
+    buttons_class  : 'p_buttons',
+    pth1_class     : "bg1_pth0",
+    p1_title_anim  : null,
+    p1_paper       : null,
+    arrow_scale    : null,
+    p1_svg_width   : null,
+    button1_clicked: false,
+    button2_clicked: false,
+    button3_clicked: false,
+    buttons_built  : false,
 }
 PAGE2_BUILDER.buttons_page_2 = (pd) => {
     // BUTTONS

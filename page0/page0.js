@@ -6,36 +6,39 @@ import { DotLottie, DotLottieWorker  } from "https://esm.sh/@lottiefiles/dotlott
 
 const PAGE0_BUILDER = new Page(0);
 PAGE0_BUILDER.pd             = {
-    holder  : document.querySelector('#i0'),
-    includer: document.querySelector('#page0include'),
-    intro_title: document.querySelector("#intro_title"),
-    name_title : document.querySelector('#name_title'),
-    name_title1: document.querySelector('#name_title1'),
+    holder         : document.querySelector('#i0'),
+    includer       : document.querySelector('#page0include'),
+    intro_title    : document.querySelector("#intro_title"),
+    name_title     : document.querySelector('#name_title'),
+    name_title1    : document.querySelector('#name_title1'),
     particle_intro0: document.querySelector('#particle_intro0'),
     particle_intro1: document.querySelector('#particle_intro1'),
     particle_intro2: document.querySelector('#particle_intro2'),
     particles_p_div: document.querySelector("#particles_intro"),
     particles_div  : document.querySelectorAll(".particle_intro"),
     random_nr      : document.querySelector('#random_nr'),
-    random_nr1      : document.querySelector('#random_nr1'),
-    lottie_anim     : null,
-    dragster1: document.querySelector("#bg"),
-    dragster2: document.querySelector("#bg1"),
-    drag_grid: document.querySelector(".drag_grid"),
-    drag_down: false,
+    random_nr1     : document.querySelector('#random_nr1'),
+    dragster1      : document.querySelector("#bg"),
+    dragster2      : document.querySelector("#bg1"),
+    drag_grid      : document.querySelector(".drag_grid"),
+    p_i0           : document.querySelector("#particle_intro0"),
+    p_i1           : document.querySelector("#particle_intro1"),
+    p_i2           : document.querySelector("#particle_intro2"),
+    drag_down      : false,
+    lottie_anim    : null,
 
 }
 PAGE0_BUILDER.load_handler  = (pd) => {
-    document.querySelector("#particle_intro0").innerHTML="scroll down"
-    document.querySelector("#particle_intro1").innerHTML="watch my"
-    document.querySelector("#particle_intro2").innerHTML="animation reel"
+    pd.p_i0.innerHTML = "scroll down"
+    pd.p_i1.innerHTML = "watch my"
+    pd.p_i2.innerHTML = "animation reel"
 }
 PAGE0_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-
     pd.lottie_anim.play();
-    document.querySelector("#particle_intro0").innerHTML="scroll down"
-    document.querySelector("#particle_intro1").innerHTML="watch my"
-    document.querySelector("#particle_intro2").innerHTML="animation reel"
+
+    pd.p_i0.innerHTML = "scroll down"
+    pd.p_i1.innerHTML = "watch my"
+    pd.p_i2.innerHTML = "animation reel"
 
     pd.nm_anim.cycle_random(500, 55);
     pd.nm_anim1.cycle_random(500, 55);
@@ -49,26 +52,25 @@ PAGE0_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
 PAGE0_BUILDER.resize_handler = (pd) => {
 }
 PAGE0_BUILDER.first_scroll_handler = (pd) => {
-
     
-    document.querySelector("#particle_intro0").innerHTML="scroll down"
-    document.querySelector("#particle_intro1").innerHTML="watch my"
-    document.querySelector("#particle_intro2").innerHTML="animation reel"
+    pd.p_i0.innerHTML = "scroll down"
+    pd.p_i1.innerHTML = "watch my"
+    pd.p_i2.innerHTML = "animation reel"
 
     var bg_canvas = document.querySelector("#bg_canvas");
-    var bg_anim    = document.querySelector("#bg_anim");
+    var bg_anim   = document.querySelector("#bg_anim");
 
     bg_anim.addEventListener("click", () => {
         window.open('https://youtu.be/PBgCgR220To', '_blank').focus(); 
     })
 
-    pd.lottie_anim = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
+    pd.lottie_anim = `http://127.0.0.1:5500/logo_anim.json`//"https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/0000.json";
     pd.lottie_anim = new DotLottieWorker({
         autoplay: false,
-        loop: false,
-        canvas : bg_canvas,
-        src : pd.lottie_anim,
-        workerId : 'worker-1'
+        loop    : false,
+        canvas  : bg_canvas,
+        src     : pd.lottie_anim,
+        workerId: 'worker-1'
     });
     pd.lottie_anim.addEventListener('play', () => {
     })

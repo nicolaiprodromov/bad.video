@@ -420,9 +420,8 @@ overflow: hidden;
 .p_title{
     position: relative;
     z-index : 1;
-
     height     : var(--title_big);
-    line-height: var(--title_big);;
+    line-height: var(--title_big);
     font-size  : var(--title_big);
 }
 

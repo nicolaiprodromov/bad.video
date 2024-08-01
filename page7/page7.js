@@ -4,25 +4,30 @@ import { Paper }       from '/lib/svg.js';
 
 const PAGE7_BUILDER = new Page(7);
 PAGE7_BUILDER.pd             = {
-    holder_up: document.querySelector("#i7"),
-    holder   : document.querySelector("#i8"),
-    includer : document.querySelector("#page7include"),
-    project_title: document.querySelector("#p3_title"),
-    p1_title_anim: null,
-    p1_svg       : document.querySelector("#p3_svg"),
-    p1_paper     : null,
-    pth1_class   : "bg1_pth0",
-    arrow_scale  : null,
-    p1_svg_width : null,
-    buttons_class : 'p_buttons',
-
-    button1_clicked : false,
-    button2_clicked : false,
-    button3_clicked : false,
-    buttons_built : false,
-
+    holder_up      : document.querySelector("#i7"),
+    holder         : document.querySelector("#i8"),
+    includer       : document.querySelector("#page7include"),
+    project_title  : document.querySelector("#p3_title"),
+    p1_svg         : document.querySelector("#p3_svg"),
+    image          : document.querySelector("#p3_intro_image"),
+    buttons_class  : 'p_buttons',
+    pth1_class     : "bg1_pth0",
+    p1_title_anim  : null,
+    p1_paper       : null,
+    arrow_scale    : null,
+    p1_svg_width   : null,
+    button1_clicked: false,
+    button2_clicked: false,
+    button3_clicked: false,
+    buttons_built  : false,
+    image_map      : {
+        0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66ab7837f73707dd4333e728_thumbnail.avif",
+        1: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66ab783a0c5f8eca821be4be_thumbnail_mobile.avif",
+        2: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66ab7837f73707dd4333e728_thumbnail.avif",
+        3: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66ab783a0c5f8eca821be4be_thumbnail_mobile.avif"
+    },
 }
-PAGE7_BUILDER.buttons_page_12         = (pd) => {
+PAGE7_BUILDER.buttons_page_7         = (pd) => {
     // BUTTONS
     if (PAGE7_BUILDER.device > 1){
         return null
@@ -97,7 +102,7 @@ PAGE7_BUILDER.buttons_page_12         = (pd) => {
         }
     )
 }
-PAGE7_BUILDER.buttons_resize_page12   = (pd) => {
+PAGE7_BUILDER.buttons_resize_page7   = (pd) => {
     if (PAGE7_BUILDER.device > 1){
         if (pd.buttons_built){
             while (pd.p1_paper.parent.firstChild) {
@@ -123,17 +128,19 @@ PAGE7_BUILDER.buttons_resize_page12   = (pd) => {
 PAGE7_BUILDER.load_handler   = (pd) => {
 }
 PAGE7_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
-        pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
-        pd.p1_title_anim.cycle_random(300, 53)
-        document.querySelector("#particle_intro0").innerHTML="zenon.network"
-        document.querySelector("#particle_intro1").innerHTML=">"
-        document.querySelector("#particle_intro2").innerHTML="1/5"
+    pd.p1_title_anim.nr_vo_out(400, 'easeInOutCirc', 15)
+    pd.p1_title_anim.cycle_random(300, 53)
+    document.querySelector("#particle_intro0").innerHTML="zenon.network"
+    document.querySelector("#particle_intro1").innerHTML=">"
+    document.querySelector("#particle_intro2").innerHTML="1/5"
 }
 PAGE7_BUILDER.resize_handler = (pd) => {
-    PAGE7_BUILDER.buttons_page_12(pd);
-    PAGE7_BUILDER.buttons_resize_page12(pd);
+    pd.image.style.backgroundImage = `url(${pd.image_map[PAGE7_BUILDER.device]})`
+    PAGE7_BUILDER.buttons_page_7(pd);
+    PAGE7_BUILDER.buttons_resize_page7(pd);
 }
 PAGE7_BUILDER.first_scroll_handler = (pd) => {
+    pd.image.style.backgroundImage = `url(${pd.image_map[PAGE7_BUILDER.device]})`
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
-    PAGE7_BUILDER.buttons_page_12(pd);
+    PAGE7_BUILDER.buttons_page_7(pd);
 }

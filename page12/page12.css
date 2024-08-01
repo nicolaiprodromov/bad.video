@@ -5,28 +5,22 @@
   justify-content: flex-start;
   padding        : var(--content-padding);
 }
-.bg1_pth0{
-  stroke      : rgb(255, 255, 255);
-  stroke-width: 30px;
-}
 #p1_description{
-  z-index       : 2;
-  position   : relative;
+  z-index         : 2;
+  position        : relative;
   background-color: rgb(255, 255, 255);
-  padding: 10px;
+  padding         : 10px;
 }
 #p1_description2{
-  z-index       : 2;
-  position   : relative;
+  z-index         : 2;
+  position        : relative;
   background-color: rgb(38, 190, 0);
-  padding: 10px;
+  padding         : 10px;
 }
 #p1_title{
-  width: 100%;
-  /* justify-content: space-between; */
-  z-index       : 2;
+  width  : 100%;
+  z-index: 2;
 }
-
 #p1_intro_image{
-  right:0px;
+  right: 0px;
 }

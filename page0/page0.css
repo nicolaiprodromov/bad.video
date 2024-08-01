@@ -85,6 +85,9 @@
 
 #page0include{
     padding:var(--content-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 /* INTRO TITLE AND SVGS */
@@ -153,7 +156,7 @@
     display:var(--random-display);
     position : absolute;
 
-    bottom   : 8%;
+    bottom   : 15%;
     right    : 10px;
 
     transform: rotate(-3deg);
@@ -161,7 +164,7 @@
     height     : calc( var(--title_small));
     line-height: calc( var(--title_small));
     font-size  : calc( var(--title_small));
-    color      : rgb(255, 255, 255);
+    color      : rgb(0, 0, 0);
 }
 #random_nr1{
     display:var(--random-display);

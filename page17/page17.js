@@ -5,28 +5,28 @@ import { FRUIT_DISPLAY } from '/lib/3D_display.js';
 
 const PAGE17_BUILDER = new Page(17);
 PAGE17_BUILDER.pd = {
-    holder_up: document.querySelector("#i17"),
-    holder   : document.querySelector("#i18"),
-    includer : document.querySelector("#page17include"),
-    image: document.querySelector("#p4_intro_image"),
-    project_title: document.querySelector("#p4_title"),
-    p1_title_anim: null,
-    p1_svg       : document.querySelector("#p4_svg"),
-    p1_paper     : null,
-    pth1_class   : "bg1_pth0",
-    arrow_scale  : null,
-    p1_svg_width : null,
-    buttons_class : 'p_buttons',
-    button1_clicked : false,
-    button2_clicked : false,
-    button3_clicked : false,
-    buttons_built : false,
-    image_map : {
-        0:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
-        1:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif",
-        2:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
-        3:"https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif"
-    }
+    holder_up      : document.querySelector("#i17"),
+    holder         : document.querySelector("#i18"),
+    includer       : document.querySelector("#page17include"),
+    project_title  : document.querySelector("#p4_title"),
+    p1_svg         : document.querySelector("#p4_svg"),
+    image          : document.querySelector("#p4_intro_image"),
+    pth1_class     : "bg1_pth0",
+    buttons_class  : 'p_buttons',
+    p1_title_anim  : null,
+    p1_paper       : null,
+    arrow_scale    : null,
+    p1_svg_width   : null,
+    button1_clicked: false,
+    button2_clicked: false,
+    button3_clicked: false,
+    buttons_built  : false,
+    image_map      : {
+        0: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
+        1: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif",
+        2: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3eac5ff6a5f900fbe29bf_thumbnail.avif",
+        3: "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66a3f182679b3b46c225df0e_thumbnail_mobile.avif"
+    },
 }
 PAGE17_BUILDER.buttons_page_17 = (pd) => {
     // BUTTONS
@@ -135,25 +135,14 @@ PAGE17_BUILDER.scroll_handler = (pd, ss, delta_ss) => {
     document.querySelector("#particle_intro0").innerHTML="sah.showcase"
     document.querySelector("#particle_intro1").innerHTML=">"
     document.querySelector("#particle_intro2").innerHTML="1/5"
-
 }
 PAGE17_BUILDER.resize_handler = (pd) => {
-
     pd.image.style.backgroundImage = `url(${pd.image_map[PAGE17_BUILDER.device]})`
-
     PAGE17_BUILDER.buttons_page_17(pd);
     PAGE17_BUILDER.buttons_resize_page17(pd);
 }
 PAGE17_BUILDER.first_scroll_handler = (pd) => {
-
-
     pd.image.style.backgroundImage = `url(${pd.image_map[PAGE17_BUILDER.device]})`
-
-
     pd.p1_title_anim = new TextAnim(pd.project_title, 0)
     PAGE17_BUILDER.buttons_page_17(pd);
-    // const znn_3d_div    = document.querySelector("#ZNN_3D");
-    // const znn_3d_canvas = document.querySelector("#ZNN_3D_CANVAS");
-    // const znn_3d_model  = "https://raw.githubusercontent.com/nicolaiprodromov/bad.video/master/models/znn_sentinel1.glb"
-    // FRUIT_DISPLAY(znn_3d_div, znn_3d_canvas, znn_3d_model);
 }
