@@ -11,16 +11,17 @@
     justify-content: flex-start;
 }
 .zenon_tweet_div{
-    width           : 70%;
-    height          : 100%;
-    display         : flex;
-    flex-direction  : column;
-    align-items     : center;
-    justify-content : center;
-    padding-left    : 13px;
-    padding-right   : 13px;
-    transform       : rotate(-3deg);
-    background-color: rgb(55, 255, 0);
+    width          : 70%;
+    height         : 100%;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    padding-left   : 13px;
+    padding-right  : 13px;
+    transform      : rotate(-2deg);
+    border         : solid 1px black;
+    margin: 10px;
 }
 
 .znn_smaller{

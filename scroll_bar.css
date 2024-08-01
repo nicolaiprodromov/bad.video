@@ -1,52 +1,53 @@
 .scroll_bar{
-    position: fixed;
-    z-index : 9999;
-    right: 0px;
-    top  : 0px;
-    width : 10px;
-    height: 100dvh;
-    background:rgb(255, 255, 255);
-    transition: all .2s;
-    border-left: solid 1px grey;
-    cursor: pointer;
+    position     : fixed;
+    z-index      : 9999;
+    right        : 0px;
+    top          : 0px;
+    width        : 10px;
+    height       : 100dvh;
+    background   : rgb(255, 255, 255);
+    transition   : all .2s;
+    border-left  : solid 1px grey;
+    cursor       : pointer;
+    overflow     : hidden;
 }
 .scroll_bar:hover{
-    width:30px;
+    width     : 50%;
     transition: all .2s;
 }
 .sb_cell{
-    position        : relative;
-    width           : 100%;
+    position: relative;
+    width   : 100%;
 }
 .sb_cell:hover{
     background-color: rgb(192, 192, 192);
-    transition: all .2s;
+    transition      : all .2s;
 }
 .sb_cell_1{
     position        : relative;
     width           : 100%;
     height          : calc(100%/8);
     background-color: rgb(243, 243, 243);
-    /* border-bottom   : solid 1px rgb(91, 91, 91); */
+      /* border-bottom   : solid 1px rgb(91, 91, 91); */
 
-    display: flex;
-    flex-direction: column;
+    display        : flex;
+    flex-direction : column;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items    : flex-end;
 }
 .sb_cell_2{
-    position        : relative;
-    width           : 100%;
-    height          : calc(100%/5);
+    position: relative;
+    width   : 100%;
+    height  : calc(100%/5);
 }
 .sb_cell_highlight{
-    background-color: rgba(255, 0, 0);
-    transition: background-color .4s;
+    background-color          : rgba(255, 0, 0);
+    transition                : background-color .4s;
     transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
 }
 .sb_cell_highlight1{
-    background-color: rgb(0, 0, 0);
-    transition: background-color .2s;
+    background-color          : rgb(0, 0, 0);
+    transition                : background-color .2s;
     transition-timing-function: ease-in;
 }
 .sb_last_cell{

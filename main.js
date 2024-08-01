@@ -268,7 +268,7 @@ for (var sbc of sb_cells){
     })
     
 }
-var sbc_cells = document.querySelectorAll(".sb_cell.sb_cell_2")
+var sbc_cells = document.querySelectorAll(".sb_cell_2")
 var page2  = document.querySelector("#i2")
 var page7  = document.querySelector("#i7")
 var page12 = document.querySelector("#i12")
@@ -652,13 +652,13 @@ window.addEventListener('load', () => {
         var now1 = new Date().getTime();
         var page_load_time = now1 - performance.timing.navigationStart;
         console.log(`✅ LOAD TIME: [${page_load_time} ms] ✅`);
-    }, 3000)
+    }, 2000)
 
     setTimeout(() => {
         scroll_amount = 0
         dispatchEvent(wheelEvent);
         window.scrollTo(0, 0);
-    }, 3030)
+    }, 2030)
 })
 window.addEventListener('resize', () => {
     // SCREEN REPAIR ON RESIZE

@@ -73,7 +73,7 @@
 
 #arrow_menu{
     display: var(--arrow_menu_display);
-    filter: invert();
+    
 }
 
 #post_menu{
