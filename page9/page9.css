@@ -1,15 +1,30 @@
-
 #npxyz_pc9{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    display        : flex;
+    flex-direction : row;
+    align-items    : flex-start;
+    justify-content: flex-start;
+}
+#p3_description4{
+    display        : flex;
+    flex-direction : column;
+    align-items    : flex-start;
+    justify-content: flex-start;
+}
+.zenon_tweet_div{
+    width           : 70%;
+    height          : 100%;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    padding-left    : 13px;
+    padding-right   : 13px;
+    transform       : rotate(-3deg);
+    background-color: rgb(55, 255, 0);
 }
 
-
-#p3_description4{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+.znn_smaller{
+    width           : 30%;
+    height          : 100%;
+    background-color: transparent;
 }

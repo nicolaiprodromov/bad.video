@@ -7,6 +7,7 @@
         "mult",
         "niku",
         "NPXYZ",
-        "Verlet"
+        "Verlet",
+        "zenon"
     ]
 }
