@@ -74,14 +74,14 @@ const bg         = document.querySelectorAll(".bg");
 const dragy      = document.getElementById("dragy");
 const horiz_pics = document.querySelectorAll(".horiz_pics")
 var itemsss = [];
-var indexy = 0;
+var indexy = 1;
 for (let hp of horiz_pics){
     mouse_x_scaled.push(0);
     drag_x.push(0);
     drag.push(false);
     down.push(false);
     itemsss.push(document.querySelectorAll(".item" + indexy));
-    indexy++;
+    indexy--;
 }
 const getScrollPercent = (el) => {
     var w  = parseFloat(window.getComputedStyle(el).width.replace('px',''))
@@ -90,69 +90,26 @@ const getScrollPercent = (el) => {
 }
 const main_loop = (t) => {
     for (var hp = 0; hp < horiz_pics.length; hp++){
-
         //Get scroll rate
-        //------------------------------------------------
         var np = 0;
         cp = drag_x[hp];
         np = cp - op;
         op = drag_x[hp];
         //------------------------------------------------
         // Move bg right on scroll
-        //------------------------------------------------
         bg[hp].animate(
             [{left : -drag_x[hp] + "%" }], 
             {duration : 1000, fill: "forwards"}
         );
         //------------------------------------------------
         // Rotate items
-        //------------------------------------------------
         for (let item of itemsss[hp]){
-            // Rotate divs
-            item.animate(
-                [{rotate : cp/60 + "deg"}],
-                {duration : 2000,fill : "forwards"}
-            );
+            item.style.transform = `rotate(${drag_x[hp]/10}deg)`
         }
-        //------------------------------------------------
     }
-
-
-
-    // // Show drag arrow only when dragging
-    // //------------------------------------------------
-    // if (down == true){
-    // dragy.style.opacity = 100 + "%";
-    // dragy.style.left = mX + "px";
-    // dragy.style.top  = mY + "px";
-    // }
-    // else {
-    // dragy.style.opacity = 0 + "%";
-    // }
-
-    // // Drag text arrows
-    // dragy.animate(
-    // [{fontSize : Math.abs(np)*2+10 + "px"}],
-    // {duration : 2000, fill : "forwards"}
-    // );
-
-    // // // Determine which arrow to show
-    // if (mX > pmX){
-    // dragy.innerHTML = "🡢";
-    // }
-    // else if (mX == pmX){
-    //     dragy.innerHTML = "🡢";
-    //     dragy.style.fontSize = '20px';
-    // }
-    // else {
-    // dragy.innerHTML = "🡠";
-    // }
-    // //------------------------------------------------
-
     // Set previous mouse pos
     pmX = mX;
     pmY = mY;
-
     window.requestAnimationFrame(main_loop);
 }
 window.requestAnimationFrame(main_loop);
@@ -161,6 +118,7 @@ window.addEventListener('mousemove', e => {
     mY = e.y;
 })
 for (var hp = 0; hp < horiz_pics.length; hp++){
+    console.log(horiz_pics[hp])
     horiz_pics[hp].setAttribute('data-id-hp', hp)
     horiz_pics[hp].addEventListener('mousedown', e => {
         down[e.currentTarget.getAttribute('data-id-hp')] = true;
@@ -172,25 +130,16 @@ for (var hp = 0; hp < horiz_pics.length; hp++){
     horiz_pics[hp].addEventListener('mousemove', e => {
         var index = e.currentTarget.getAttribute('data-id-hp')
         if (down[index] == true || drag[index] == true){
-
             var horiz_pics_w = e.currentTarget.getBoundingClientRect().width
-
-            mouse_x_scaled[index] = scale(e.x, [70,horiz_pics_w-70],[0,600]);
-
-            drag_x[index] = Math.round(mouse_x_scaled[index]/100)*100;
-
-            var window_scaled = scale(e.x, [0,horiz_pics_w],[0,horiz_pics_w*5])
-
-            e.currentTarget.scrollTop = window_scaled;
-
+            mouse_x_scaled[index] = scale(e.x, [0,horiz_pics_w],[0,700]);
+            drag_x[index] = mouse_x_scaled[index];
+            console.log(mouse_x_scaled[index]);
+            // var window_scaled = scale(e.x, [0,horiz_pics_w], [0,horiz_pics_w*7])
+            // e.currentTarget.scrollTop = window_scaled;
             drag[index] = true;
-
         }
 
     });
-
-
-
     horiz_pics[hp].setAttribute('data-id-hp', hp)
 
     horiz_pics[hp].addEventListener('touchstart', e => {
@@ -204,10 +153,10 @@ for (var hp = 0; hp < horiz_pics.length; hp++){
         var index = e.currentTarget.getAttribute('data-id-hp')
         if (down[index] == true || drag[index] == true){
             var horiz_pics_w = parseFloat(window.getComputedStyle(e.currentTarget).width.replace("px",""))
-            mouse_x_scaled[index] = scale(e.touches[0].clientX, [50,horiz_pics_w-50],[0,500]);
-            drag_x[index] = Math.round(mouse_x_scaled[index]/100)*100;
-            var window_scaled = scale(e.touches[0].clientX, [0,horiz_pics_w],[0,horiz_pics_w*5])
-            e.currentTarget.scrollTop = window_scaled;
+            mouse_x_scaled[index] = scale(e.touches[0].clientX, [0,horiz_pics_w],[0,700]);
+            drag_x[index] = mouse_x_scaled[index];
+            // var window_scaled = scale(e.touches[0].clientX, [0,horiz_pics_w],[0,horiz_pics_w*5])
+            // e.currentTarget.scrollTop = window_scaled;
             drag[index] = true;
         }
     }, {passive: true});

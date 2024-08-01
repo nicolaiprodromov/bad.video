@@ -153,7 +153,6 @@ html{
     padding: 20px 20px 20px 20px;
     cursor: pointer;
     transition: all 1s;
-    border : solid 1px black;
 }
 .loader_button:hover{
     background-color: white;
@@ -259,45 +258,44 @@ flex-flow: column;
 
 }
 .horiz_pics{
-margin : 0;
-padding: 0;
-height :  calc(var(--h) - var(--headers));
-
+    margin : 0;
+    padding: 0;
+    height :  calc(var(--h) - var(--headers));
+    width     : 800vw;
 }
 .bg{
-width     : 700vw;
-height    : 100%;
+    width     : 800vw;
+    height    : 100%;
 
-position: relative;
+    position: relative;
 
-display        : flex;
-flex-direction : row;
-justify-content: left;
-align-items    : top;
+    display        : flex;
+    flex-direction : row;
+    justify-content: left;
+    align-items    : top;
 
-cursor: grab;
+    cursor: grab;
 
-user-drag        : none;
--webkit-user-drag: none;
+    user-drag        : none;
+    -webkit-user-drag: none;
 }
 
-.item0,.item1,.item2,.item3, .item4{
+.item0,.item1{
+    position  : relative;
 
-position  : relative;
-
-overflow-y: hidden;
-overflow-x: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
 
 
-width     : 100%;
-height    : 100%;
+    width     : 100%;
+    height    : 100%;
 
-color     : rgb(170,170,170);
-font-size : 30px;
+    color     : rgb(170,170,170);
+    font-size : 30px;
 }
 #item0_1:active{
-opacity: .2;
-transition: all .5s;
+    opacity: .2;
+    transition: all .5s;
 }
 
 
@@ -475,6 +473,9 @@ overflow: hidden;
 .p_image3{
     width : 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
 }
 .p_image4{
     width : 100%;

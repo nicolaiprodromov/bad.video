@@ -19,7 +19,9 @@ PAGE4_BUILDER.pd = {
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f76dc2d1ff1536eeb0_Asset%203.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f733d8a793b6a3448b_Asset%202.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7c2fa3d467b188a3f_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp"
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abda40514e811b6675bd8e_Asset%206.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abda40d86ebf1d5cb41f5c_Asset%207.webp",
         ],
         1:[
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669945003e73701e9e48601d_Asset%201.webp",
@@ -27,7 +29,9 @@ PAGE4_BUILDER.pd = {
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff9859c08c6099ba36_Asset%202.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff948ca370b164c0da_Asset%203.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ffe0f340663c6c6991_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp"
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abdaa9aabfadf945e53c25_Asset%206.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abdaa95f934fe4ec159b1a_Asset%207.webp",
         ],
         2:[
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f8d62f3e1ab1c8b68f_Asset%200.webp",
@@ -35,7 +39,9 @@ PAGE4_BUILDER.pd = {
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f76dc2d1ff1536eeb0_Asset%203.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f733d8a793b6a3448b_Asset%202.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7c2fa3d467b188a3f_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp"
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944f7016de2a724f86d4e_Asset%201.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abda40514e811b6675bd8e_Asset%206.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abda40d86ebf1d5cb41f5c_Asset%207.webp",
         ],
         3:[
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669945003e73701e9e48601d_Asset%201.webp",
@@ -43,7 +49,9 @@ PAGE4_BUILDER.pd = {
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff9859c08c6099ba36_Asset%202.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff948ca370b164c0da_Asset%203.webp",
             "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ffe0f340663c6c6991_Asset%204.webp",
-            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp"
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/669944ff2885ae3fb0271ec6_Asset%200.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abdaa9aabfadf945e53c25_Asset%206.webp",
+            "https://uploads-ssl.webflow.com/5e87b1c5bcf6e1005fbd96f8/66abdaa95f934fe4ec159b1a_Asset%207.webp",
         ],
     },
 

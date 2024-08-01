@@ -146,20 +146,6 @@ PAGE1_BUILDER.first_scroll_handler = async (pd) => {
                 scroll_to(e_e)
             }, 300)
         });
-        mi.element.addEventListener('touchend', async (e) => {
-            e.currentTarget.style.transform = `rotate(${Math.random() * 3}deg)`
-            var chaka = parseInt(e.currentTarget.id.replace("menu_item",''))
-            setTimeout(() => {
-                scroll_amount = chaka + 3
-                var e_e = {type:'wheel', deltaY:-1}
-                page2_scroll_amount  = 0;page7_scroll_amount  = 0
-                page12_scroll_amount = 0;page17_scroll_amount = 0
-                page22_scroll_amount = 0;page22.style.left = "0px"
-                page2.style.left  = "0px";page7.style.left  = "0px"
-                page12.style.left = "0px";page17.style.left = "0px"
-                scroll_to(e_e)
-            }, 300)
-        });
         mi.element.addEventListener('mouseenter', async (e) => {
             pd.menu_items_ta[parseInt(e.currentTarget.id.replace("menu_item",''))].nr_vo_in(200, "easeInOutSine", 20)
         });
