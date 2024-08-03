@@ -476,25 +476,9 @@ const debounce = function(fn, d) {
         }, d);
     }
 }
-var TRACKPAD = false;
-function isTrackPad(e) {
-    const { deltaY } = e;
-    TRACKPAD = true;
-    if (deltaY && !Number.isInteger(deltaY)) {
-        TRACKPAD = false;
-    }
-}
-var SCROLLDELAY = 80;
-if (window?.navigator?.platform  === 'MacIntel'){
-    SCROLLDELAY = 18;
-}
-function debounce322(func, delay){
-    var timer;
-    return function(event){
-      if(timer) clearTimeout(timer);
-      timer = setTimeout(func, delay, event);
-    };
-}
+
+var SCROLLDELAY = 300;
+
 window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
 window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
 var TOUCH_TIME = []
