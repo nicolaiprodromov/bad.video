@@ -96,7 +96,7 @@ PAGE0_BUILDER.first_scroll_handler = (pd) => {
     window.addEventListener('mousemove', (e) => {
         mouseX_BS = e.clientX;
         mouseY_BS = e.clientY
-    })
+    }, false)
     var middleeee = {x:pd.includer.getBoundingClientRect().width/2,y:pd.includer.getBoundingClientRect().height*2}
     pd.bg_sim = new Verlet(particles)
     pd.bg_sim.loop(() => {
@@ -142,33 +142,33 @@ PAGE0_BUILDER.first_scroll_handler = (pd) => {
     }
     pd.dragster1.addEventListener('mousedown', (e) => {
         pd.drag_grid.style.display = "flex";
-    });
+    }, false);
     pd.dragster1.addEventListener('touchstart', (e) => {
         pd.drag_grid.style.display = "flex";
-    });
+    }, false);
     pd.dragster1.addEventListener('mousemove', (e) => {
         animate_dragster(e);
-    });
+    }, false);
     pd.dragster1.addEventListener('touchmove', (e) => {
         animate_dragster(e);
-    });
+    }, false);
     pd.dragster2.addEventListener('mousedown', (e) => {
         pd.drag_grid.style.display = "flex";
-    });
+    }, false);
     pd.dragster2.addEventListener('touchstart', (e) => {
         pd.drag_grid.style.display = "flex";
-    });
+    }, false);
     pd.dragster2.addEventListener('mousemove', (e) => {
         animate_dragster(e);
-    });
+    }, false);
     pd.dragster2.addEventListener('touchmove', (e) => {
         animate_dragster(e);
-    }); 
+    }, false); 
     window.addEventListener('mouseup', (e) => {
         pd.drag_grid.style.display = "none";
-    });
+    }, false);
     window.addEventListener('touchend', (e) => {
         pd.drag_grid.style.display = "none";
-    });
+    }, false);
     
 }

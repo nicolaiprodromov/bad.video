@@ -116,7 +116,7 @@ window.requestAnimationFrame(main_loop);
 window.addEventListener('mousemove', e => {
     mX = e.x;
     mY = e.y;
-})
+}, false)
 for (var hp = 0; hp < horiz_pics.length; hp++){
     horiz_pics[hp].setAttribute('data-id-hp', hp)
     horiz_pics[hp].addEventListener('mousedown', e => {
@@ -477,17 +477,16 @@ const debounce = function(fn, d) {
 }
 
 var SCROLLDELAY = 300;
-
-window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY));
-window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY));
+window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY), false);
+window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY), false);
 var TOUCH_TIME = []
 window.addEventListener('touchstart', e => {
     clientX = e.touches[0].clientX;
     clientY = e.touches[0].clientY;
     TOUCH_TIME[0] = new Date().getTime();
-})
-window.addEventListener('touchend', debounce(scrollSection, SCROLLDELAY));
-window.addEventListener('touchend', debounce(rawScrollSection, SCROLLDELAY));
+}, false)
+window.addEventListener('touchend', debounce(scrollSection, SCROLLDELAY), false);
+window.addEventListener('touchend', debounce(rawScrollSection, SCROLLDELAY), false);
 let wheelEvent = new WheelEvent('wheel', {
     deltaY: -1,
     deltaMode: 1
