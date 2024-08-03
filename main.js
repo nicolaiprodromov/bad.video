@@ -477,16 +477,16 @@ const debounce = function(fn, d) {
 }
 
 var SCROLLDELAY = 300;
-window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY), false);
-window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY), false);
+window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY), {passive: true});
+window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY), {passive: true});
 var TOUCH_TIME = []
 window.addEventListener('touchstart', e => {
     clientX = e.touches[0].clientX;
     clientY = e.touches[0].clientY;
     TOUCH_TIME[0] = new Date().getTime();
-}, false)
-window.addEventListener('touchend', debounce(scrollSection, SCROLLDELAY), false);
-window.addEventListener('touchend', debounce(rawScrollSection, SCROLLDELAY), false);
+}, {passive: true})
+window.addEventListener('touchend', debounce(scrollSection, SCROLLDELAY), {passive: true});
+window.addEventListener('touchend', debounce(rawScrollSection, SCROLLDELAY), {passive: true});
 let wheelEvent = new WheelEvent('wheel', {
     deltaY: -1,
     deltaMode: 1

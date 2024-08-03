@@ -142,33 +142,33 @@ PAGE0_BUILDER.first_scroll_handler = (pd) => {
     }
     pd.dragster1.addEventListener('mousedown', (e) => {
         pd.drag_grid.style.display = "flex";
-    }, false);
+    }, {passive: true});
     pd.dragster1.addEventListener('touchstart', (e) => {
         pd.drag_grid.style.display = "flex";
-    }, false);
+    }, {passive: true});
     pd.dragster1.addEventListener('mousemove', (e) => {
         animate_dragster(e);
-    }, false);
+    }, {passive: true});
     pd.dragster1.addEventListener('touchmove', (e) => {
         animate_dragster(e);
-    }, false);
+    }, {passive: true});
     pd.dragster2.addEventListener('mousedown', (e) => {
         pd.drag_grid.style.display = "flex";
-    }, false);
+    }, {passive: true});
     pd.dragster2.addEventListener('touchstart', (e) => {
         pd.drag_grid.style.display = "flex";
-    }, false);
+    }, {passive: true});
     pd.dragster2.addEventListener('mousemove', (e) => {
         animate_dragster(e);
-    }, false);
+    }, {passive: true});
     pd.dragster2.addEventListener('touchmove', (e) => {
         animate_dragster(e);
-    }, false); 
+    }, {passive: true}); 
     window.addEventListener('mouseup', (e) => {
         pd.drag_grid.style.display = "none";
-    }, false);
+    }, {passive: true});
     window.addEventListener('touchend', (e) => {
         pd.drag_grid.style.display = "none";
-    }, false);
+    }, {passive: true});
     
 }
