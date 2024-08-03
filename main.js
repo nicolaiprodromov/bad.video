@@ -476,7 +476,7 @@ const debounce = function(fn, d) {
     }
 }
 
-var SCROLLDELAY = 300;
+var SCROLLDELAY = 150;
 window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY), {passive: true});
 window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY), {passive: true});
 var TOUCH_TIME = []
