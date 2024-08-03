@@ -1,7 +1,6 @@
 import { Page }          from '/lib/page_builder.js';
 import { Paper }         from '/lib/svg.js';
 import { TextAnim }      from '/lib/text_anim.js';
-import { FRUIT_DISPLAY } from '/lib/3D_display.js';
 
 const PAGE17_BUILDER = new Page(17);
 PAGE17_BUILDER.pd = {

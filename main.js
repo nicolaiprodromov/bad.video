@@ -118,7 +118,6 @@ window.addEventListener('mousemove', e => {
     mY = e.y;
 })
 for (var hp = 0; hp < horiz_pics.length; hp++){
-    console.log(horiz_pics[hp])
     horiz_pics[hp].setAttribute('data-id-hp', hp)
     horiz_pics[hp].addEventListener('mousedown', e => {
         down[e.currentTarget.getAttribute('data-id-hp')] = true;
