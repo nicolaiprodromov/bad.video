@@ -476,17 +476,148 @@ const debounce = function(fn, d) {
     }
 }
 
-var SCROLLDELAY = 150;
-window.addEventListener('wheel', debounce(scrollSection, SCROLLDELAY), {passive: true});
-window.addEventListener('wheel', debounce(rawScrollSection, SCROLLDELAY), {passive: true});
+// Throttle function for more responsive scrolling
+const throttle = function(fn, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            fn.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+};
+
+// Enhanced wheel event handling for macOS compatibility
+let wheelEventData = {
+    lastEventTime: 0,
+    lastDeltaY: 0,
+    consecutiveSmallEvents: 0,
+    gestureTimeout: null,
+    isInMomentum: false
+};
+
+const isRealUserInput = (e) => {
+    const now = Date.now();
+    const timeDiff = now - wheelEventData.lastEventTime;
+    const deltaY = Math.abs(e.deltaY);
+    
+    // More aggressive momentum detection for macOS
+    // Momentum events characteristics:
+    // 1. Small deltaY values (usually < 20)
+    // 2. Rapid succession (< 50ms between events)
+    // 3. Often have fractional values
+    // 4. Come in continuous streams
+    
+    const isSmallDelta = deltaY < 20;
+    const isRapidSuccession = timeDiff < 50;
+    const hasFractionalDelta = deltaY % 1 !== 0;
+    
+    // If we detect rapid small events, we're likely in momentum
+    if (isSmallDelta && isRapidSuccession) {
+        wheelEventData.consecutiveSmallEvents++;
+        wheelEventData.isInMomentum = true;
+    } else if (deltaY > 30 || timeDiff > 100) {
+        // Large delta or long pause = likely real user input
+        wheelEventData.consecutiveSmallEvents = 0;
+        wheelEventData.isInMomentum = false;
+    }
+    
+    // Clear momentum state after pause
+    clearTimeout(wheelEventData.gestureTimeout);
+    wheelEventData.gestureTimeout = setTimeout(() => {
+        wheelEventData.isInMomentum = false;
+        wheelEventData.consecutiveSmallEvents = 0;
+    }, 150);
+    
+    wheelEventData.lastEventTime = now;
+    wheelEventData.lastDeltaY = e.deltaY;
+    
+    // Only process if not in momentum or if this is a significant event
+    return !wheelEventData.isInMomentum || (deltaY > 30 && !hasFractionalDelta);
+};
+
+const enhancedScrollSection = (e) => {
+    // Add debugging for macOS
+    if (isMacOS) {
+        console.log(`Wheel event - deltaY: ${e.deltaY}, time: ${Date.now()}, momentum: ${wheelEventData.isInMomentum}`);
+    }
+    
+    // Only process real user input, ignore momentum events
+    if (isRealUserInput(e)) {
+        scroll_to(e);
+    }
+};
+
+const enhancedRawScrollSection = (e) => {
+    if (isRealUserInput(e)) {
+        raw_scroll_amount++;
+    }
+};
+
+// Use platform-specific delays and strategy
+const isMacOS = navigator.platform.toLowerCase().includes('mac');
+
+if (isMacOS) {
+    // For macOS, try immediate processing with momentum detection
+    // This bypasses debounce/throttle completely
+    let lastProcessTime = 0;
+    const MIN_PROCESS_INTERVAL = 300; // Increase this to make scrolling less sensitive (was 200)
+    
+    const immediateScrollHandler = (e) => {
+        const now = Date.now();
+        const deltaY = Math.abs(e.deltaY);
+        
+        // Only process significant events with enough time gap
+        if (deltaY > 30 && (now - lastProcessTime) > MIN_PROCESS_INTERVAL) { // Increase from 20 to 30 for less sensitivity
+            console.log(`Processing immediate scroll - deltaY: ${e.deltaY}`);
+            lastProcessTime = now;
+            scroll_to(e);
+            raw_scroll_amount++;
+        }
+    };
+    
+    window.addEventListener('wheel', immediateScrollHandler, {passive: true});
+} else {
+    // For other platforms, use throttle
+    const THROTTLE_DELAY = 150;
+    window.addEventListener('wheel', throttle(enhancedScrollSection, THROTTLE_DELAY), {passive: true});
+    window.addEventListener('wheel', throttle(enhancedRawScrollSection, THROTTLE_DELAY), {passive: true});
+}
+
+// Enhanced momentum detection for better macOS compatibility
+const enhancedMomentumDetection = (e) => {
+    // Check for WebKit-specific properties that might indicate momentum
+    if (e.webkitDirectionInvertedFromDevice !== undefined) {
+        // This is a WebKit-specific property that can help distinguish momentum
+        return !e.webkitDirectionInvertedFromDevice;
+    }
+    
+    // Check deltaY patterns typical of momentum scrolling
+    const deltaY = Math.abs(e.deltaY);
+    
+    // Momentum events typically have:
+    // - Fractional deltaY values
+    // - Values that are not "round" numbers
+    const hasFractionalDelta = deltaY % 1 !== 0;
+    const isVerySmallDelta = deltaY < 4;
+    
+    return !hasFractionalDelta && !isVerySmallDelta;
+};
+
 var TOUCH_TIME = []
 window.addEventListener('touchstart', e => {
     clientX = e.touches[0].clientX;
     clientY = e.touches[0].clientY;
     TOUCH_TIME[0] = new Date().getTime();
 }, {passive: true})
-window.addEventListener('touchend', debounce(scrollSection, SCROLLDELAY), {passive: true});
-window.addEventListener('touchend', debounce(rawScrollSection, SCROLLDELAY), {passive: true});
+
+// Fix SCROLLDELAY reference for touch events
+const TOUCH_DELAY = 150;
+window.addEventListener('touchend', debounce(enhancedScrollSection, TOUCH_DELAY), {passive: true});
+window.addEventListener('touchend', debounce(enhancedRawScrollSection, TOUCH_DELAY), {passive: true});
 let wheelEvent = new WheelEvent('wheel', {
     deltaY: -1,
     deltaMode: 1
